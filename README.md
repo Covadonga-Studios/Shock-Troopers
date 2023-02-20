@@ -1,1 +1,1 @@
-# Shock-Troopers
+Imagine opening the readme file lmao
