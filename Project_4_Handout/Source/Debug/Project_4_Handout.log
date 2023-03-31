@@ -1,0 +1,12 @@
+﻿  Application.cpp
+  Globals.cpp
+  ModuleScene.cpp
+  ModuleInput.cpp
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Main.cpp
+  Module.cpp
+  Generating Code...
+  Project_4_Handout.vcxproj -> C:\Users\paums3\My project\Shock-Troopers\Debug\Project_4_Handout.exe
