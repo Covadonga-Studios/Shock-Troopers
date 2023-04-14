@@ -75,6 +75,23 @@ update_status ModulePlayer::Update()
 		position.x -= speed;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_REPEAT)
+	{
+		currentAnimation = &backwardAnim;
+		position.y -= speed;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_REPEAT)
+	{
+		currentAnimation = &backwardAnim;
+		position.y += speed;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT)
+	{
+		App->particles
+	}
+
 	// TODO 4: Make ryu walk backwards with the correct animations
 
 	currentAnimation->Update();
