@@ -5,6 +5,7 @@
 #include "ModuleWindow.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_scancode.h"
@@ -70,6 +71,27 @@ update_status ModuleRender::Update()
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
 
+	if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+	{
+		camera.x -= App->player->speed * 3;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+	{
+		camera.x += App->player->speed * 3;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+	{
+		camera.y += App->player->speed * 3;
+	
+	}
+
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+	{
+		camera.y -= App->player->speed * 3;
+		
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }

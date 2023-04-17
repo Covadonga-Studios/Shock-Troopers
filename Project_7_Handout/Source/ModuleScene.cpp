@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
+#include "ModulePlayer.h"
 
 ModuleScene::ModuleScene()
 {
@@ -57,7 +58,7 @@ bool ModuleScene::Start()
 
 update_status ModuleScene::Update()
 {
-	App->render->camera.x += 3;
+	//App->render->camera.x = App->player->position.x;
 
 	return update_status::UPDATE_CONTINUE;
 }

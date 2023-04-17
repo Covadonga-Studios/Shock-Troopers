@@ -50,6 +50,14 @@ public:
 	Animation idleAnim;
 	Animation upAnim;
 	Animation downAnim;
+	Animation rightAnim;
+	Animation leftAnim;
+	Animation upLeftAnim;
+	Animation upRightAanim;
+	Animation downLeftAnim;
+	Animation downRightAnim;
+	int bulletDir = 0;
+	int shootCoolDown = 10;
 
 	// The player's collider
 	Collider* collider = nullptr;
