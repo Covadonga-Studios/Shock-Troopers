@@ -58,7 +58,7 @@ public:
 	Animation downRightAnim;
 	int bulletDir = 0;
 	int shootCoolDown = 10;
-
+	int dodgeCoolDown = 10;
 	// The player's collider
 	Collider* collider = nullptr;
 

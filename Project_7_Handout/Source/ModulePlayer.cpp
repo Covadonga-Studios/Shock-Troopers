@@ -130,6 +130,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 	
+	
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT)
 	{
@@ -187,7 +188,17 @@ update_status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
 		currentAnimation = &idleAnim;
 
-	collider->SetPos(position.x, position.y);
+
+	if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN && dodgeCoolDown > 10) 
+	{
+		collider->SetPos(position.x + 20000, position.y + 20000);
+	}
+	else 
+	{
+		collider->SetPos(position.x, position.y);
+	}
+	
+	
 
 	currentAnimation->Update();
 
