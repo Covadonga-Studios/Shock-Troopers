@@ -58,33 +58,37 @@ update_status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
 	shootCoolDown++;
-
-	if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+	dodgeCoolDown++;
+	if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
+	moveDir = 6;
+	position.x -= speed;
+	position.y -= speed;
+
+	if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT)
+		bulletDir = 6;
+	}
+	else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+	{
+		moveDir = 4;
 		position.x -= speed;
 		position.y += speed;
-		
+
 		if(App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT)
 		bulletDir = 4;
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
+		moveDir = 5;
 		position.x += speed;
 		position.y += speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT )
-		bulletDir = 5;
-	}
-	else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-	{
-		position.x -= speed;
-		position.y -= speed;
-
-		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT )
-		bulletDir = 6;
+		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT)
+			bulletDir = 5;
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
+		moveDir = 7;
 		position.x += speed;
 		position.y -= speed;
 
@@ -93,6 +97,7 @@ update_status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
+		moveDir = 0;
 		position.x -= speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT)
@@ -100,6 +105,7 @@ update_status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
+		moveDir = 1;
 		position.x += speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT )
@@ -107,6 +113,7 @@ update_status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
+		moveDir = 2;
 		position.y += speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT)
@@ -119,6 +126,7 @@ update_status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
+		moveDir = 3;
 		position.y -= speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != KEY_STATE::KEY_REPEAT )
@@ -132,9 +140,9 @@ update_status ModulePlayer::Update()
 	
 	
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT && isDodging == false)
 	{
-		if (App->player->shootCoolDown > 10) {
+		if (App->player->shootCoolDown > 10 && isDodging == false) {
 			switch (bulletDir)
 			{
 			case 0:
@@ -188,14 +196,53 @@ update_status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == KEY_STATE::KEY_IDLE)
 		currentAnimation = &idleAnim;
 
+	if (App->input->keys[SDL_SCANCODE_N] == KEY_STATE::KEY_DOWN )
+	{
+		dodgeCoolDown = 0;
+		
+	}
 
-	if (App->input->keys[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN && dodgeCoolDown > 10) 
+	if (dodgeCoolDown < 10) 
 	{
 		collider->SetPos(position.x + 20000, position.y + 20000);
+		isDodging = true;
+		switch (moveDir)
+		{
+		case 0:
+			position.x -= speed * 3; 
+			break;
+		case 1:
+			position.x += speed * 3;
+			break;
+		case 2:
+			position.y += speed * 3;
+			break;
+		case 3:
+			position.y -= speed * 3;
+			break;
+		case 4:
+			position.x -= speed * 3;
+			position.y += speed * 3;
+			break;
+		case 5:
+			position.x += speed * 3;
+			position.y += speed * 3;
+			break;
+		case 6:
+			position.x -= speed * 3;
+			position.y -= speed * 3;
+			break;
+		case 7:
+			position.x += speed * 3;
+			position.y -= speed * 3;
+			break;
+		}
+		shootCoolDown = 0;
 	}
 	else 
 	{
 		collider->SetPos(position.x, position.y);
+		isDodging = false;
 	}
 	
 	
