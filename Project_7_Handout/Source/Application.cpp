@@ -1,5 +1,8 @@
 #include "Application.h"
-
+#include <stdlib.h>
+#include "SDL/include/SDL.h"
+#include "SDL_image/include/SDL_image.h"
+#pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
 #include "Module.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
@@ -70,6 +73,7 @@ update_status Application::Update()
 	for (int i = 0; i < NUM_MODULES && ret == update_status::UPDATE_CONTINUE; ++i)
 		ret = modules[i]->PostUpdate();
 
+	SDL_Delay(15);	// 1000/12 = 83 fps max
 	return ret;
 }
  
