@@ -20,12 +20,15 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 void Enemy_BrownShip::Update()
 {
 	shootCooldown++;
-	path.Update();
-	position = spawnPos + path.GetRelativePosition();
+	/*path.Update();
+	position = spawnPos + path.GetRelativePosition();*/
 
-	if (shootCooldown > 50) 
+	if (shootCooldown > 70) 
 	{
-		App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, (App->player->position.x - position.x)/30, (App->player->position.y - position.y)/30, Collider::Type::PLAYER_SHOT);
+		
+		App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, 
+		cos(atan2((App->player->position.y ) - position.y, (App->player->position.x ) - (position.x - 20))) * 5,
+		sin(atan2((App->player->position.y ) - position.y, (App->player->position.x ) - (position.x - 20))) * 5, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 
