@@ -27,8 +27,8 @@ void Enemy_BrownShip::Update()
 	{
 		
 		App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, 
-		cos(atan2((App->player->position.y ) - position.y, (App->player->position.x ) - (position.x - 20))) * 5,
-		sin(atan2((App->player->position.y ) - position.y, (App->player->position.x ) - (position.x - 20))) * 5, Collider::Type::ENEMY_SHOT);
+		cos(atan2((App->player->position.y ) - position.y, (App->player->position.x ) - (position.x - 20))) * 4,
+		sin(atan2((App->player->position.y ) - position.y, (App->player->position.x ) - (position.x - 20))) * 4, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 
