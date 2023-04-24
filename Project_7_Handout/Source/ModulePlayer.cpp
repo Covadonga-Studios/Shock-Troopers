@@ -94,7 +94,7 @@ update_status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
-		moveDir = DOWNRIGHT;
+		moveDir = DOWNRIGHT;	
 		position.x += speed;
 		position.y += speed;
 
