@@ -234,7 +234,7 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE)
 		currentAnimation = &idleAnim;
 
-	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown < 10)
+	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 20)
 	{
 		dodgeCoolDown = 0;
 
@@ -308,9 +308,9 @@ Update_Status ModulePlayer::PostUpdate()
 	sprintf_s(scoreText, 10, "%7d", score);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(58, 248, scoreFont, scoreText);
+	App->fonts->BlitText(0, 0, scoreFont, scoreText);
 
-	App->fonts->BlitText(150, 248, scoreFont, "this is just a font test");
+	App->fonts->BlitText(0 , 200, scoreFont, "this is just a font test");
 
 	return Update_Status::UPDATE_CONTINUE;
 }
