@@ -86,7 +86,8 @@ Update_Status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	shootCoolDown++;
 	dodgeCoolDown++;
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
+		isDodging == false)
 	{
 		moveDir = UPLEFT;
 		position.x -= speed;
@@ -95,7 +96,9 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPLEFT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
+			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
+			 isDodging == false)
 	{
 		moveDir = DOWNLEFT;
 		position.x -= speed;
@@ -104,7 +107,10 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNLEFT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
+			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
+			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
+			 isDodging == false)
 	{
 		moveDir = DOWNRIGHT;
 		position.x += speed;
@@ -113,7 +119,10 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNRIGHT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
+			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
+			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
+			 isDodging == false)
 	{
 		moveDir = UPRIGHT;
 		position.x += speed;
@@ -122,7 +131,7 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPRIGHT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		moveDir = LEFT;
 		position.x -= speed;
@@ -130,7 +139,9 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = LEFT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
+			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
+			 isDodging == false)
 	{
 		moveDir = RIGHT;
 		position.x += speed;
@@ -138,7 +149,7 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = RIGHT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		moveDir = DOWN;
 		position.y += speed;
@@ -151,7 +162,7 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &downAnim;
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		moveDir = UP;
 		position.y -= speed;
@@ -223,7 +234,7 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE)
 		currentAnimation = &idleAnim;
 
-	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown < 10)
 	{
 		dodgeCoolDown = 0;
 
@@ -239,6 +250,7 @@ Update_Status ModulePlayer::Update()
 			position.x -= speed * 3;
 			break;
 		case RIGHT:
+			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w)
 			position.x += speed * 3;
 			break;
 		case DOWN:
@@ -253,16 +265,22 @@ Update_Status ModulePlayer::Update()
 			position.y += speed * 3;
 			break;
 		case DOWNRIGHT:
-			position.x += speed * 3;
-			position.y += speed * 3;
+			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w)
+			{
+				position.x += speed * 3;
+				position.y += speed * 3;
+			}
 			break;
 		case UPLEFT:
 			position.x -= speed * 3;
 			position.y -= speed * 3;
 			break;
 		case UPRIGHT:
-			position.x += speed * 3;
-			position.y -= speed * 3;
+			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w)
+			{
+				position.x += speed * 3;
+				position.y -= speed * 3;
+			}
 			break;
 		}
 		shootCoolDown = 0;

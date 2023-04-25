@@ -71,27 +71,7 @@ Update_Status ModuleRender::Update()
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
-	{
-		camera.x -= App->player->speed * 3;
-	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
-	{
-		camera.x += App->player->speed * 3;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
-	{
-		camera.y += App->player->speed * 3;
-
-	}
-
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
-	{
-		camera.y -= App->player->speed * 3;
-
-	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
