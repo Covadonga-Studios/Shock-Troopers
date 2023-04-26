@@ -34,10 +34,17 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnim.PushBack({ 66, 1, 32, 14 });
 
 	// move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
+	upAnim.PushBack({ 0, 0, 28, 28 });
+	upAnim.PushBack({ 28, 0, 28, 28 });
+	upAnim.PushBack({ 56, 0, 28, 28 });
+	upAnim.PushBack({ 84, 0, 28, 28 });
+	upAnim.PushBack({ 112, 0, 28, 28 });
+	upAnim.PushBack({ 140, 0, 28, 28 });
+	upAnim.PushBack({ 168, 0, 28, 28 });
+	upAnim.PushBack({ 196, 0, 28, 28 });
+
 	upAnim.loop = false;
-	upAnim.speed = 0.1f;
+	upAnim.speed = 0.3f;
 
 	// Move down
 	downAnim.PushBack({ 33, 1, 32, 14 });
@@ -57,7 +64,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/ship.png");
+	texture = App->textures->Load("Assets/Sprites/SpritesSomersault.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
@@ -83,9 +90,11 @@ bool ModulePlayer::Start()
 
 Update_Status ModulePlayer::Update()
 {
-	// Moving the player with the camera scroll
+	
 	shootCoolDown++;
 	dodgeCoolDown++;
+
+	// MOVING
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
 		position.y > App->render->camera.y &&
@@ -190,7 +199,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 
-
+	//SHOOTING
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		if (App->player->shootCoolDown > 5 && isDodging == false) {
@@ -249,11 +258,14 @@ Update_Status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 20)
 	{
+		upAnim.Reset();
 		dodgeCoolDown = 0;
 
 	}
 
-	if (dodgeCoolDown < 10)
+
+	//DODGE
+	if (dodgeCoolDown < 15)
 	{
 		collider->SetPos(position.x + 20000, position.y + 20000);
 		isDodging = true;
@@ -273,7 +285,8 @@ Update_Status ModulePlayer::Update()
 			break;
 		case UP:
 			if (position.y > App->render->camera.y)
-			position.y -= speed * 3;
+				currentAnimation = &upAnim;
+			position.y -= speed * 2;
 			break;
 		case DOWNLEFT:
 			if (position.x > App->render->camera.x || position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
@@ -338,7 +351,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false)
+	/*if (c1 == collider && destroyed == false && c1->type != Collider::Type::WALL)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
@@ -350,10 +363,39 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 
 		destroyed = true;
-	}
+	}*/
 
-	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)
 	{
-		score += 23;
+		dx = (c1->rect.x + c1->rect.w / 2) - (c2->rect.x + c2->rect.w / 2);
+		dy = (c1->rect.y + c1->rect.h / 2) - (c2->rect.y + c2->rect.h / 2);
+
+
+		if (dx > 0) {
+
+			// cout << "Collision from right\n";
+		}
+		else if (dx < 0) {
+			// cout << "Collision from left\n";
+		}
+		else if (dy > 0)
+		{
+			// cout << "Collision from bottom\n";
+		}
+		else if (dy < 0) {
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+
+			destroyed = true;
+			// cout << "Collision from top\n";
+		}
+
+
+
+
 	}
+		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
+		{
+			score += 23;
+		}
+	
 }

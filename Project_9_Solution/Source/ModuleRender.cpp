@@ -143,7 +143,7 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 
 	if (useCamera)
 	{
-		dstRect.x -= (camera.x * speed) - 40;
+		dstRect.x -= (camera.x * speed);
 		dstRect.y -= (camera.y * speed);
 	}
 

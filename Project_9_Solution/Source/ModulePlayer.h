@@ -62,6 +62,8 @@ public:
 	int dodgeCoolDown = 10;
 	int dodgeDuration = 15;
 	bool isDodging = false;
+	int dx;
+	int dy;
 
 	// The player's collider
 	Collider* collider = nullptr;

@@ -30,7 +30,7 @@ bool SceneLevel1::Start()
 
 	//Bottomside collider
 	
-
+	App->collisions->AddCollider({ 0, 224, 10, 16 }, Collider::Type::WALL);
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
@@ -49,7 +49,7 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
 
-
+	
 
 	App->player->Enable();
 	App->enemies->Enable();
