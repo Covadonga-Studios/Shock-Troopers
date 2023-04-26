@@ -64,10 +64,16 @@ public:
 	bool isDodging = false;
 	int dx;
 	int dy;
-
 	// The player's collider
 	Collider* collider = nullptr;
-
+	bool upLock = false;
+	bool downLock = false;
+	bool rightLock = false;
+	bool leftLock = false;
+	bool upLeftLock;
+	bool upRightLock;
+	bool downLeftLock;
+	bool downRightLock;
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 

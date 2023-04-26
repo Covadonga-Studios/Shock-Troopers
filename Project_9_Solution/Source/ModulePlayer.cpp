@@ -97,8 +97,6 @@ Update_Status ModulePlayer::Update()
 	// MOVING
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-		position.y > App->render->camera.y &&
-		position.x > App->render->camera.x &&
 		isDodging == false)
 	{
 		moveDir = UPLEFT;
@@ -110,8 +108,7 @@ Update_Status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
-			 position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h &&
-			 position.x > App->render->camera.x &&
+			
 			 isDodging == false)
 	{
 		moveDir = DOWNLEFT;
@@ -123,8 +120,7 @@ Update_Status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
-			 position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h &&
+		
 			 isDodging == false)
 	{
 		moveDir = DOWNRIGHT;
@@ -136,8 +132,7 @@ Update_Status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
-			 position.y >  App->render->camera.y &&
+			
 			 isDodging == false)
 	{
 		moveDir = UPRIGHT;
@@ -148,7 +143,7 @@ Update_Status ModulePlayer::Update()
 			bulletDir = UPRIGHT;
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
-			 position.x > App->render->camera.x &&
+		
 			 isDodging == false)
 	{
 		moveDir = LEFT;
@@ -158,7 +153,7 @@ Update_Status ModulePlayer::Update()
 			bulletDir = LEFT;
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
+			
 			 isDodging == false)
 	{
 		moveDir = RIGHT;
@@ -168,7 +163,7 @@ Update_Status ModulePlayer::Update()
 			bulletDir = RIGHT;
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
-			 position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h &&
+		
 			 isDodging == false)
 	{
 		moveDir = DOWN;
@@ -183,7 +178,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
-			 position.y >  App->render->camera.y &&
+			
 			 isDodging == false)
 	{
 		moveDir = UP;
@@ -372,7 +367,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 
 		if (dx > 0) {
-
+			upLock = true;
 			// cout << "Collision from right\n";
 		}
 		else if (dx < 0) {
@@ -383,15 +378,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			// cout << "Collision from bottom\n";
 		}
 		else if (dy < 0) {
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
-
-			destroyed = true;
+			
 			// cout << "Collision from top\n";
 		}
 
 
 
 
+	}
+	else 
+	{
+		
 	}
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
