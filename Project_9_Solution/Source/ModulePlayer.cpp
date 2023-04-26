@@ -86,7 +86,10 @@ Update_Status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	shootCoolDown++;
 	dodgeCoolDown++;
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
+		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+		position.y > App->render->camera.y &&
+		position.x > App->render->camera.x &&
 		isDodging == false)
 	{
 		moveDir = UPLEFT;
@@ -98,6 +101,8 @@ Update_Status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
+			 position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h &&
+			 position.x > App->render->camera.x &&
 			 isDodging == false)
 	{
 		moveDir = DOWNLEFT;
@@ -110,6 +115,7 @@ Update_Status ModulePlayer::Update()
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
 			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
+			 position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h &&
 			 isDodging == false)
 	{
 		moveDir = DOWNRIGHT;
@@ -122,6 +128,7 @@ Update_Status ModulePlayer::Update()
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
 			 position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w && 
+			 position.y >  App->render->camera.y &&
 			 isDodging == false)
 	{
 		moveDir = UPRIGHT;
@@ -131,7 +138,9 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPRIGHT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && isDodging == false)
+	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
+			 position.x > App->render->camera.x &&
+			 isDodging == false)
 	{
 		moveDir = LEFT;
 		position.x -= speed;
@@ -149,7 +158,9 @@ Update_Status ModulePlayer::Update()
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = RIGHT;
 	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && isDodging == false)
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
+			 position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h &&
+			 isDodging == false)
 	{
 		moveDir = DOWN;
 		position.y += speed;
@@ -162,7 +173,9 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &downAnim;
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && isDodging == false)
+	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
+			 position.y >  App->render->camera.y &&
+			 isDodging == false)
 	{
 		moveDir = UP;
 		position.y -= speed;
@@ -180,7 +193,7 @@ Update_Status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false)
 	{
-		if (App->player->shootCoolDown > 10 && isDodging == false) {
+		if (App->player->shootCoolDown > 5 && isDodging == false) {
 			switch (bulletDir)
 			{
 			case LEFT:
@@ -247,6 +260,7 @@ Update_Status ModulePlayer::Update()
 		switch (moveDir)
 		{
 		case LEFT:
+			if(position.x > App->render->camera.x)
 			position.x -= speed * 3;
 			break;
 		case RIGHT:
@@ -254,29 +268,36 @@ Update_Status ModulePlayer::Update()
 			position.x += speed * 3;
 			break;
 		case DOWN:
+			if(position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
 			position.y += speed * 3;
 			break;
 		case UP:
+			if (position.y > App->render->camera.y)
 			position.y -= speed * 3;
 			break;
 		case DOWNLEFT:
-
-			position.x -= speed * 3;
-			position.y += speed * 3;
+			if (position.x > App->render->camera.x || position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
+			{
+				position.x -= speed * 3;
+				position.y += speed * 3;
+			}
 			break;
 		case DOWNRIGHT:
-			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w)
+			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w || position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
 			{
 				position.x += speed * 3;
 				position.y += speed * 3;
 			}
 			break;
 		case UPLEFT:
-			position.x -= speed * 3;
-			position.y -= speed * 3;
+			if (position.x > App->render->camera.x || position.y > App->render->camera.y)
+			{
+				position.x -= speed * 3;
+				position.y -= speed * 3;
+			}
 			break;
 		case UPRIGHT:
-			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w)
+			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w || position.y > App->render->camera.y)
 			{
 				position.x += speed * 3;
 				position.y -= speed * 3;

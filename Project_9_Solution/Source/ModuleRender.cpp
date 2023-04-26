@@ -37,7 +37,7 @@ bool ModuleRender::Init()
 	{
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
-	}
+	}	
 
 	return ret;
 }
@@ -66,12 +66,13 @@ Update_Status ModuleRender::Update()
 
 	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 		camera.x -= cameraSpeed;
-	if (camera.x < 0) camera.x = 0;
+	
 
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
 
-
+  /*  if (App->player->position.x - camera.x <= 30)
+		App->render->camera.x -= App->player->speed;*/
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -142,7 +143,7 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 
 	if (useCamera)
 	{
-		dstRect.x -= (camera.x * speed);
+		dstRect.x -= (camera.x * speed) - 40;
 		dstRect.y -= (camera.y * speed);
 	}
 
