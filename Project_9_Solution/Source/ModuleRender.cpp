@@ -71,7 +71,7 @@ Update_Status ModuleRender::Update()
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
 
-  /*  if (App->player->position.x - camera.x <= 30)
+  /* if (App->player->position.x - camera.x <= 30)
 		App->render->camera.x -= App->player->speed;*/
 
 	return Update_Status::UPDATE_CONTINUE;

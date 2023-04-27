@@ -110,14 +110,14 @@ Update_Status ModulePlayer::Update()
 			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
 			
 			 isDodging == false)
-	{
-		moveDir = DOWNLEFT;
-		position.x -= speed;
-		position.y += speed;
+		{
+			moveDir = DOWNLEFT;
+			position.x -= speed;
+			position.y += speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNLEFT;
-	}
+		}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
 		
@@ -143,7 +143,7 @@ Update_Status ModulePlayer::Update()
 			bulletDir = UPRIGHT;
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
-		
+			 leftLock == false &&
 			 isDodging == false)
 	{
 		moveDir = LEFT;
@@ -153,7 +153,7 @@ Update_Status ModulePlayer::Update()
 			bulletDir = LEFT;
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			
+			rightLock == false &&
 			 isDodging == false)
 	{
 		moveDir = RIGHT;
@@ -163,7 +163,7 @@ Update_Status ModulePlayer::Update()
 			bulletDir = RIGHT;
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
-		
+			 downLock == false &&
 			 isDodging == false)
 	{
 		moveDir = DOWN;
@@ -178,7 +178,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
-			
+			upLock == false &&
 			 isDodging == false)
 	{
 		moveDir = UP;
@@ -367,19 +367,28 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 
 		if (dx > 0) {
-			upLock = true;
+			rightLock = true;
 			// cout << "Collision from right\n";
 		}
 		else if (dx < 0) {
+			leftLock = true;
 			// cout << "Collision from left\n";
 		}
 		else if (dy > 0)
 		{
+			downLock = true;
 			// cout << "Collision from bottom\n";
 		}
 		else if (dy < 0) {
-			
+			upLock = true;
 			// cout << "Collision from top\n";
+		}
+		else 
+		{
+			rightLock = false;
+			leftLock = false;
+			downLock = false;
+			upLock = false;
 		}
 
 
@@ -388,7 +397,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 	else 
 	{
-		
+		rightLock = false;
+		leftLock = false;
+		downLock = false;
+		upLock = false;
 	}
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
