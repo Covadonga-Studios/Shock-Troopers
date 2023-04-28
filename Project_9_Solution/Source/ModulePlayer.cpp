@@ -128,6 +128,9 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
 	colliderUp = App->collisions->AddCollider({ position.x, position.y -3, 32, 3 }, Collider::Type::UP_PLAYER, this);
+	colliderDown = App->collisions->AddCollider({ position.x, position.y + 6, 32, 3 }, Collider::Type::DOWN_PLAYER, this);
+	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 16 }, Collider::Type::RIGHT_PLAYER, this);
+	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 16 }, Collider::Type::LEFT_PLAYER, this);
 	
 
 
@@ -150,9 +153,11 @@ Update_Status ModulePlayer::Update()
 	shootCoolDown++;
 	dodgeCoolDown++;
 
-	// MOVING
+////////////////////////////////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+		leftLock == false &&
+		upLock == false &&
 		isDodging == false)
 	{
 		moveDir = UPLEFT;
@@ -164,7 +169,8 @@ Update_Status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
-			
+			 leftLock == false &&
+			 downLock == false &&
 			 isDodging == false)
 		{
 			moveDir = DOWNLEFT;
@@ -176,7 +182,8 @@ Update_Status ModulePlayer::Update()
 		}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-		
+			 rightLock == false &&
+			 downLock == false &&
 			 isDodging == false)
 	{
 		moveDir = DOWNRIGHT;
@@ -188,7 +195,8 @@ Update_Status ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			
+			 rightLock == false && 
+			 upLock == false &&  
 			 isDodging == false)
 	{
 		moveDir = UPRIGHT;
@@ -266,7 +274,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 
-	//SHOOTING
+////////////////////////////////////////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		if (App->player->shootCoolDown > 5 && isDodging == false) {
@@ -336,7 +344,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 
-	//DODGE
+	////////////////////////////////////////////////DODGE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (dodgeCoolDown < 15)
 	{
 		collider->SetPos(position.x + 20000, position.y + 20000);
@@ -400,6 +408,9 @@ Update_Status ModulePlayer::Update()
 	}
 
 	colliderUp->SetPos(position.x, position.y - 3);
+	colliderDown->SetPos(position.x, position.y + 14);
+	colliderRight->SetPos(position.x + 30 , position.y );
+	colliderLeft->SetPos(position.x, position.y);
 
 	rightLock = false;
 	leftLock = false;
@@ -484,6 +495,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::UP_PLAYER && c2->type == Collider::Type::WALL)
 	{
 		upLock = true;
+	}
+
+	if (c1->type == Collider::Type::DOWN_PLAYER && c2->type == Collider::Type::WALL)
+	{
+		downLock = true;
+	}
+	if (c1->type == Collider::Type::RIGHT_PLAYER && c2->type == Collider::Type::WALL)
+	{
+		rightLock = true;
+	}
+	if (c1->type == Collider::Type::LEFT_PLAYER && c2->type == Collider::Type::WALL)
+	{
+		leftLock = true;
 	}
 
 	
