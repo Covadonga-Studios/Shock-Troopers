@@ -45,15 +45,29 @@ public:
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
+	Animation* legAnimation = nullptr;
+
 
 	// A set of animations
-	Animation idleAnim;
+	Animation idleAnimUp;
+	Animation idleAnimUpLeg;
+	Animation idleAnimDown;
+	Animation idleAnimDownLeg;
+	Animation idleAnimRight;
+	Animation idleAnimRightLeg;
+	Animation idleAnimLeft;
+	Animation idleAnimLeftLeg;
+
 	Animation upAnim;
+	Animation upAnimLeg;
 	Animation downAnim;
+	Animation downAnimLeg;
 	Animation rightAnim;
+	Animation rightAnimLeg;
 	Animation leftAnim;
+	Animation leftAnimLeg;
 	Animation upLeftAnim;
-	Animation upRightAanim;
+	Animation upRightAnim;
 	Animation downLeftAnim;
 	Animation downRightAnim;
 	int bulletDir = 0;

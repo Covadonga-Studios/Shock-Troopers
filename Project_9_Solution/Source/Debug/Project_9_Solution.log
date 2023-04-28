@@ -1,12 +1,4 @@
 ﻿  ModulePlayer.cpp
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  ModuleRender.cpp
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(108,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(109,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(146,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(147,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
-  Project_9_Solution.vcxproj -> C:\Users\paums3\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
+C:\Users\noelcg\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\noelcg\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Project_9_Solution.vcxproj -> C:\Users\noelcg\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe

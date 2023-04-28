@@ -31,26 +31,66 @@ enum DIR
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
+	idleAnimUp.PushBack({ 0, 0, 28, 27 });
 
 	// move upwards
-	upAnim.PushBack({ 0, 0, 28, 28 });
-	upAnim.PushBack({ 28, 0, 28, 28 });
-	upAnim.PushBack({ 56, 0, 28, 28 });
-	upAnim.PushBack({ 84, 0, 28, 28 });
-	upAnim.PushBack({ 112, 0, 28, 28 });
-	upAnim.PushBack({ 140, 0, 28, 28 });
-	upAnim.PushBack({ 168, 0, 28, 28 });
-	upAnim.PushBack({ 196, 0, 28, 28 });
+	upAnim.PushBack({ 0, 0, 28, 27 });
+	upAnim.PushBack({ 28, 0, 28, 27 });
+	upAnim.PushBack({ 56, 0, 28, 27 });
+	upAnim.PushBack({ 84, 0, 28, 27 });
+	upAnim.PushBack({ 112, 0, 28, 27 });
+	upAnim.PushBack({ 140, 0, 28, 27 });
+	upAnim.PushBack({ 168, 0, 28, 27 });
+	upAnim.PushBack({ 196, 0, 28, 27 });
 
-	upAnim.loop = false;
-	upAnim.speed = 0.3f;
+	upAnim.speed = 0.2f;
+	//up right
+	upRightAnim.PushBack({ 0, 27, 28, 27 });
+	upRightAnim.PushBack({ 28, 27, 28, 27 });
+	upRightAnim.PushBack({ 56, 27, 28, 27 });
+	upRightAnim.PushBack({ 84, 27, 28, 27 });
+	upRightAnim.PushBack({ 112, 27, 28, 27 });
+	upRightAnim.PushBack({ 140, 27, 28, 27 });
+	upRightAnim.PushBack({ 168, 27, 28, 27 });
+	upRightAnim.PushBack({ 196, 27, 28, 27 });
 
+	upRightAnim.speed = 0.2f;
+
+
+	//right
+	rightAnim.PushBack({ 0, 54, 28, 27 });
+	rightAnim.PushBack({ 28, 54, 28, 27 });
+	rightAnim.PushBack({ 56, 54, 28, 27 });
+	rightAnim.PushBack({ 84, 54, 28, 27 });
+	rightAnim.PushBack({ 112, 54, 28, 27 });
+	rightAnim.PushBack({ 140, 54, 28, 27 });
+	rightAnim.PushBack({ 168, 54, 28, 27 });
+	rightAnim.PushBack({ 196, 54, 28, 27 });
+
+	rightAnim.speed = 0.2f;
+
+	//down right
+	downRightAnim.PushBack({ 0, 81, 28, 27 });
+	downRightAnim.PushBack({ 28, 81, 28, 27 });
+	downRightAnim.PushBack({ 56, 81, 28, 27 });
+	downRightAnim.PushBack({ 84, 81, 28, 27 });
+	downRightAnim.PushBack({ 112, 81, 28, 27 });
+	downRightAnim.PushBack({ 140, 81, 28, 27 });
+	downRightAnim.PushBack({ 168, 81, 28, 27 });
+	downRightAnim.PushBack({ 196, 81, 28, 27 });
+
+	leftAnim.speed = 0.2f;
 	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
-	downAnim.PushBack({ 0, 1, 32, 14 });
-	downAnim.loop = false;
-	downAnim.speed = 0.1f;
+	downAnim.PushBack({ 0, 108, 28, 27 });
+	downAnim.PushBack({ 28, 108, 28, 27 });
+	downAnim.PushBack({ 56, 108, 28, 27 });
+	downAnim.PushBack({ 84, 108, 28, 27 });
+	downAnim.PushBack({ 112, 108, 28, 27 });
+	downAnim.PushBack({ 140, 108, 28, 27 });
+	downAnim.PushBack({ 168, 108, 28, 27 });
+	downAnim.PushBack({ 196, 108, 28, 27 });
+
+	downAnim.speed = 0.2f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -65,7 +105,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/SpritesSomersault.png");
-	currentAnimation = &idleAnim;
+	currentAnimation = &idleAnimUp;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -83,7 +123,7 @@ bool ModulePlayer::Start()
 
 	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
-	scoreFont = App->fonts->Load("Assets/Fonts/ShockTroopersSmallLetter.png", lookupTable, 3);
+	scoreFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
 
 	return ret;
 }
@@ -141,9 +181,13 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPRIGHT;
+		if (currentAnimation != &upRightAnim)
+		{
+			upRightAnim.Reset();
+			currentAnimation = &upRightAnim;
+		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
-			 leftLock == false &&
+	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
 			 isDodging == false)
 	{
 		moveDir = LEFT;
@@ -151,19 +195,24 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = LEFT;
+		
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			rightLock == false &&
 			 isDodging == false)
 	{
 		moveDir = RIGHT;
 		position.x += speed;
+		if (currentAnimation != &rightAnim)
+		{
+			rightAnim.Reset();
+			currentAnimation = &rightAnim;
+		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = RIGHT;
+		
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
-			 downLock == false &&
 			 isDodging == false)
 	{
 		moveDir = DOWN;
@@ -178,7 +227,6 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
-			upLock == false &&
 			 isDodging == false)
 	{
 		moveDir = UP;
@@ -247,9 +295,14 @@ Update_Status ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE)
-		currentAnimation = &idleAnim;
+	
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE &&
+		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE &&
+		App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE &&
+		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+	{
+		currentAnimation = &idleAnimUp;
+	}
 
 	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 20)
 	{
