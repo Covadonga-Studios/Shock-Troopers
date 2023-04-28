@@ -107,6 +107,7 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/Sprites/SpritesSomersault.png");
 	currentAnimation = &idleAnimUp;
 
+
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
@@ -116,6 +117,9 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	colliderUp = App->collisions->AddCollider({ position.x, position.y -3, 32, 3 }, Collider::Type::UP_PLAYER, this);
+	
+
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
@@ -130,6 +134,8 @@ bool ModulePlayer::Start()
 
 Update_Status ModulePlayer::Update()
 {
+	
+
 	
 	shootCoolDown++;
 	dodgeCoolDown++;
@@ -188,6 +194,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+			 leftLock == false &&
 			 isDodging == false)
 	{
 		moveDir = LEFT;
@@ -198,6 +205,7 @@ Update_Status ModulePlayer::Update()
 		
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
+			 rightLock == false &&
 			 isDodging == false)
 	{
 		moveDir = RIGHT;
@@ -213,6 +221,7 @@ Update_Status ModulePlayer::Update()
 		
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
+			 downLock == false &&
 			 isDodging == false)
 	{
 		moveDir = DOWN;
@@ -226,7 +235,8 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &downAnim;
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
+	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
+			 upLock == false &&
 			 isDodging == false)
 	{
 		moveDir = UP;
@@ -370,8 +380,17 @@ Update_Status ModulePlayer::Update()
 	else
 	{
 		collider->SetPos(position.x, position.y);
+
+
 		isDodging = false;
 	}
+
+	colliderUp->SetPos(position.x, position.y - 3);
+
+	rightLock = false;
+	leftLock = false;
+	downLock = false;
+	upLock = false;
 
 	currentAnimation->Update();
 
@@ -413,48 +432,38 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		destroyed = true;
 	}*/
 
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)
+	//if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)
+	//{
+	//	dx = (c1->rect.x + c1->rect.w / 2) - (c2->rect.x + c2->rect.w / 2);
+	//	dy = (c1->rect.y + c1->rect.h / 2) - (c2->rect.y + c2->rect.h / 2);
+
+
+	//	if (dx > 0) {
+	//		rightLock = true;
+	//		// "Collision from right\n";
+	//	}
+	//	else if (dx < 0) {
+	//		leftLock = true;
+	//		//  "Collision from left\n";
+	//	}
+	//	else if (dy > 0)
+	//	{
+	//		downLock = true;
+	//		//  "Collision from bottom\n";
+	//	}
+	//	else if (dy < 0) {
+	//		upLock = true;
+	//		//  "Collision from top\n";
+	//	}
+	//	
+	//}
+
+	if (c1->type == Collider::Type::UP_PLAYER && c2->type == Collider::Type::WALL)
 	{
-		dx = (c1->rect.x + c1->rect.w / 2) - (c2->rect.x + c2->rect.w / 2);
-		dy = (c1->rect.y + c1->rect.h / 2) - (c2->rect.y + c2->rect.h / 2);
-
-
-		if (dx > 0) {
-			rightLock = true;
-			// cout << "Collision from right\n";
-		}
-		else if (dx < 0) {
-			leftLock = true;
-			// cout << "Collision from left\n";
-		}
-		else if (dy > 0)
-		{
-			downLock = true;
-			// cout << "Collision from bottom\n";
-		}
-		else if (dy < 0) {
-			upLock = true;
-			// cout << "Collision from top\n";
-		}
-		else 
-		{
-			rightLock = false;
-			leftLock = false;
-			downLock = false;
-			upLock = false;
-		}
-
-
-
-
+		upLock = true;
 	}
-	else 
-	{
-		rightLock = false;
-		leftLock = false;
-		downLock = false;
-		upLock = false;
-	}
+
+	
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
 			score += 23;

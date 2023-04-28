@@ -80,6 +80,10 @@ public:
 	int dy;
 	// The player's collider
 	Collider* collider = nullptr;
+	Collider* colliderUp = nullptr;
+	Collider* colliderDown = nullptr;
+	Collider* colliderRight = nullptr;
+	Collider* colliderLeft = nullptr;
 	bool upLock = false;
 	bool downLock = false;
 	bool rightLock = false;

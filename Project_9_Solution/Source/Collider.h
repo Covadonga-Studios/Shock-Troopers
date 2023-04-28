@@ -17,6 +17,10 @@ struct Collider
 		ENEMY,
 		PLAYER_SHOT,
 		ENEMY_SHOT,
+		UP_PLAYER,
+		DOWN_PLAYER,
+		LEFT_PLAYER,
+		RIGHT_PLAYER,
 
 		MAX
 	};

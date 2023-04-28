@@ -23,6 +23,32 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = false;
 
+	matrix[Collider::Type::UP_PLAYER][Collider::Type::WALL] = true;
+	matrix[Collider::Type::UP_PLAYER][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::UP_PLAYER][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::UP_PLAYER][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::UP_PLAYER][Collider::Type::ENEMY_SHOT] = false;
+
+	matrix[Collider::Type::LEFT_PLAYER][Collider::Type::WALL] = true;
+	matrix[Collider::Type::LEFT_PLAYER][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::LEFT_PLAYER][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::LEFT_PLAYER][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::LEFT_PLAYER][Collider::Type::ENEMY_SHOT] = false;
+
+	matrix[Collider::Type::RIGHT_PLAYER][Collider::Type::WALL] = true;
+	matrix[Collider::Type::RIGHT_PLAYER][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::RIGHT_PLAYER][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::RIGHT_PLAYER][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::RIGHT_PLAYER][Collider::Type::ENEMY_SHOT] = false;
+
+	matrix[Collider::Type::DOWN_PLAYER][Collider::Type::WALL] = true;
+	matrix[Collider::Type::DOWN_PLAYER][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::DOWN_PLAYER][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::DOWN_PLAYER][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::DOWN_PLAYER][Collider::Type::ENEMY_SHOT] = false;
+
+
+
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY] = false;
@@ -138,6 +164,18 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
+			case Collider::Type::UP_PLAYER: // yellow
+				App->render->DrawQuad(colliders[i]->rect, 100, 20, 0, alpha);
+				break;
+			case Collider::Type::DOWN_PLAYER: // yellow
+				App->render->DrawQuad(colliders[i]->rect, 50, 100, 0, alpha);
+				break;
+			case Collider::Type::LEFT_PLAYER: // yellow
+				App->render->DrawQuad(colliders[i]->rect, 30, 120, 0, alpha);
+				break;
+			case Collider::Type::RIGHT_PLAYER: // yellow
+				App->render->DrawQuad(colliders[i]->rect, 90, 80, 0, alpha);
+				break;
 		}
 	}
 }
