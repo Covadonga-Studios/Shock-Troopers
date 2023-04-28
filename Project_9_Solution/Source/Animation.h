@@ -18,13 +18,17 @@ private:
 	int totalFrames = 0;
 	int loopCount = 0;
 	int pingpongDirection = 1;
+	bool mirror;
 
 public:
 
-	void PushBack(const SDL_Rect& rect)
+	void PushBack(const SDL_Rect& rect, bool mirror=false)
 	{
 		frames[totalFrames++] = rect;
+		this->mirror = mirror;
 	}
+
+	
 
 	void Reset()
 	{
@@ -47,6 +51,10 @@ public:
 			if (pingpong)
 				pingpongDirection = -pingpongDirection;
 		}
+	}
+	bool GetMirror() const
+	{
+		return mirror;
 	}
 
 	const SDL_Rect& GetCurrentFrame() const

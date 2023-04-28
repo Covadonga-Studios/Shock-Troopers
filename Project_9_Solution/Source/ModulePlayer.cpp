@@ -69,6 +69,16 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	rightAnim.speed = 0.2f;
 
+	//left
+	leftAnim.PushBack({ 0, 54, 28, 27 }, true);
+	leftAnim.PushBack({ 28, 54, 28, 27 }, true);
+	leftAnim.PushBack({ 56, 54, 28, 27 }), true;
+	leftAnim.PushBack({ 84, 54, 28, 27 }, true);
+	leftAnim.PushBack({ 112, 54, 28, 27 }, true);
+	leftAnim.PushBack({ 140, 54, 28, 27 }, true);
+	leftAnim.PushBack({ 168, 54, 28, 27 }, true);
+	leftAnim.PushBack({ 196, 54, 28, 27 }, true);
+
 	//down right
 	downRightAnim.PushBack({ 0, 81, 28, 27 });
 	downRightAnim.PushBack({ 28, 81, 28, 27 });
@@ -202,7 +212,11 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = LEFT;
-		
+		if (currentAnimation != &leftAnim)
+		{
+			leftAnim.Reset();
+			currentAnimation = &leftAnim;
+		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
 			 rightLock == false &&
@@ -402,7 +416,16 @@ Update_Status ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, position.x, position.y, &rect);
+		bool mirror = currentAnimation->GetMirror();
+		if (mirror == true)
+		{
+			App->render->BlitMirror(texture, position.x, position.y, &rect);
+
+		}
+		else
+		{
+			App->render->Blit(texture, position.x, position.y, &rect);
+		}
 	}
 
 	// Draw UI (score) --------------------------------------

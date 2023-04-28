@@ -132,6 +132,40 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 	return ret;
 }
 
+bool ModuleRender::BlitMirror(SDL_Texture* texture, int x, int y, const SDL_Rect* section, float speed, bool useCamera)
+{
+	bool ret = true;
+
+	SDL_Rect dstRect{ x * SCREEN_SIZE, y * SCREEN_SIZE, 0, 0 };
+
+	if (useCamera)
+	{
+		dstRect.x -= (camera.x * speed);
+		dstRect.y -= (camera.y * speed);
+	}
+
+	if (section != nullptr)
+	{
+		dstRect.w = section->w;
+		dstRect.h = section->h;
+	}
+	else
+	{
+		//Collect the texture size into rect.w and rect.h variables
+		SDL_QueryTexture(texture, nullptr, nullptr, &dstRect.w, &dstRect.h);
+	}
+
+	dstRect.w *= SCREEN_SIZE;
+	dstRect.h *= SCREEN_SIZE;
+
+	if (SDL_RenderCopyEx(renderer, texture, section, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL) != 0)
+	{
+		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
+		ret = false;
+	}
+
+	return ret;
+}
 bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed, bool useCamera)
 {
 	bool ret = true;
