@@ -30,7 +30,7 @@ bool SceneLevel1::Start()
 
 	//Bottomside collider
 	
-	App->collisions->AddCollider({ 0, 224, 10, 16 }, Collider::Type::WALL);
+	collider = App->collisions->AddCollider({ 0, 0, 10, 224 }, Collider::Type::WALL);
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
@@ -59,7 +59,7 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	
+	collider->SetPos(App->render->camera.x, App->render->camera.y);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

@@ -56,6 +56,7 @@ Update_Status ModuleRender::PreUpdate()
 
 Update_Status ModuleRender::Update()
 {
+
 	//Handle positive vertical movement
 	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)
 		camera.y -= cameraSpeed;
@@ -66,13 +67,17 @@ Update_Status ModuleRender::Update()
 
 	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 		camera.x -= cameraSpeed;
-	
 
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
 
-  /* if (App->player->position.x - camera.x <= 30)
-		App->render->camera.x -= App->player->speed;*/
+	if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0)
+		camera.x -= cameraSpeed;
+
+	if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30<= 30 && App->render->camera.x  != 63 )
+		camera.x += cameraSpeed;
+
+   
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -105,6 +110,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 
 	if (useCamera)
 	{
+		speed = 3;
 		dstRect.x -= (camera.x * speed);
 		dstRect.y -= (camera.y * speed);
 	}
@@ -140,6 +146,7 @@ bool ModuleRender::BlitMirror(SDL_Texture* texture, int x, int y, const SDL_Rect
 
 	if (useCamera)
 	{
+		speed = 3;
 		dstRect.x -= (camera.x * speed);
 		dstRect.y -= (camera.y * speed);
 	}
@@ -177,6 +184,7 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 
 	if (useCamera)
 	{
+		speed = 3;
 		dstRect.x -= (camera.x * speed);
 		dstRect.y -= (camera.y * speed);
 	}
