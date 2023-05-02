@@ -601,11 +601,15 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (mirrorLeg == true)
 		{
-			App->render->BlitMirror(texture, position.x, position.y + 17, &rectLeg);
+			App->render->BlitMirror(texture, position.x + offsetx, position.y + offsety, &rectLeg);
+			offsetx = 0;
+			offsety = 0;
 		}
 		else
 		{
-			App->render->Blit(texture, position.x +2 , position.y + 17, &rectLeg);
+			App->render->Blit(texture, position.x + offsetx , position.y + offsety, &rectLeg);
+			offsetx = 0;
+			offsety = 0;
 		}
 
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();

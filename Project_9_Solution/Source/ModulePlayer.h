@@ -101,6 +101,9 @@ public:
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 
+	int offsetx;
+	int offsety;
+
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
