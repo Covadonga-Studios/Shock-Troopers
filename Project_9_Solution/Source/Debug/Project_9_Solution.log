@@ -1,15 +1,4 @@
-﻿  Enemy_BrownShip.cpp
+﻿  ModulePlayer.cpp
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(24,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(37,12): warning C4244: 'inicializando': conversión de 'TYPE' a 'float'; posible pérdida de datos
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(38,12): warning C4244: 'inicializando': conversión de 'TYPE' a 'float'; posible pérdida de datos
-          with
-          [
-              TYPE=int
-          ]
   Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe

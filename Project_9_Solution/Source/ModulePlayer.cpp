@@ -31,76 +31,173 @@ enum DIR
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnimUp.PushBack({ 0, 0, 28, 27 });
+	downAnimLeg.PushBack({ 18,330,33,31 });
+	downAnimLeg.PushBack({ 51,330,33,31 });
+	downAnimLeg.PushBack({ 84,330,33,31 });
+	downAnimLeg.PushBack({ 117,330,33,31 });
+	downAnimLeg.PushBack({ 150,330,33,31 });
+	downAnimLeg.PushBack({ 183,330,33,31 });
+	downAnimLeg.PushBack({ 216,330,33,31 });
+	downAnimLeg.PushBack({ 249,330,33,31 });
+	downAnimLeg.speed = 0.1f;
 
-	// move upwards
-	upAnim.PushBack({ 0, 0, 28, 27 });
-	upAnim.PushBack({ 28, 0, 28, 27 });
-	upAnim.PushBack({ 56, 0, 28, 27 });
-	upAnim.PushBack({ 84, 0, 28, 27 });
-	upAnim.PushBack({ 112, 0, 28, 27 });
-	upAnim.PushBack({ 140, 0, 28, 27 });
-	upAnim.PushBack({ 168, 0, 28, 27 });
-	upAnim.PushBack({ 196, 0, 28, 27 });
+	upAnimLeg.PushBack({ 18,454,33,31 });
+	upAnimLeg.PushBack({ 51,454,33,31 });
+	upAnimLeg.PushBack({ 84,454,33,31 });
+	upAnimLeg.PushBack({ 117,454,33,31 });
+	upAnimLeg.PushBack({ 150,454,33,31 });
+	upAnimLeg.PushBack({ 183,454,33,31 });
+	upAnimLeg.PushBack({ 216,454,33,31 });
+	upAnimLeg.PushBack({ 249,454,33,31 });
+	upAnimLeg.speed = 0.1f;
 
-	upAnim.speed = 0.2f;
-	//up right
-	upRightAnim.PushBack({ 0, 27, 28, 27 });
-	upRightAnim.PushBack({ 28, 27, 28, 27 });
-	upRightAnim.PushBack({ 56, 27, 28, 27 });
-	upRightAnim.PushBack({ 84, 27, 28, 27 });
-	upRightAnim.PushBack({ 112, 27, 28, 27 });
-	upRightAnim.PushBack({ 140, 27, 28, 27 });
-	upRightAnim.PushBack({ 168, 27, 28, 27 });
-	upRightAnim.PushBack({ 196, 27, 28, 27 });
+	leftAnimLeg.PushBack({ 18,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 51,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 84,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 117,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 150,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 183,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 216,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 249,392,33,31 }, true);
+	leftAnimLeg.speed = 0.1f;
 
-	upRightAnim.speed = 0.2f;
+	rightAnimLeg.PushBack({ 18,392,33,31 });
+	rightAnimLeg.PushBack({ 51,392,33,31 });
+	rightAnimLeg.PushBack({ 84,392,33,31 });
+	rightAnimLeg.PushBack({ 117,392,33,31 });
+	rightAnimLeg.PushBack({ 150,392,33,31 });
+	rightAnimLeg.PushBack({ 183,392,33,31 });
+	rightAnimLeg.PushBack({ 216,392,33,31 });
+	rightAnimLeg.PushBack({ 249,392,33,31 });
+	rightAnimLeg.speed = 0.1f;
 
+	upRightAnimLeg.PushBack({ 18,423,33,31 });
+	upRightAnimLeg.PushBack({ 51,423,33,31 });
+	upRightAnimLeg.PushBack({ 84,423,33,31 });
+	upRightAnimLeg.PushBack({ 117,423,33,31 });
+	upRightAnimLeg.PushBack({ 150,423,33,31 });
+	upRightAnimLeg.PushBack({ 183,423,33,31 });
+	upRightAnimLeg.PushBack({ 216,423,33,31 });
+	upRightAnimLeg.PushBack({ 249,423,33,31 });
+	upRightAnimLeg.speed = 0.1f;
 
-	//right
-	rightAnim.PushBack({ 0, 54, 28, 27 });
-	rightAnim.PushBack({ 28, 54, 28, 27 });
-	rightAnim.PushBack({ 56, 54, 28, 27 });
-	rightAnim.PushBack({ 84, 54, 28, 27 });
-	rightAnim.PushBack({ 112, 54, 28, 27 });
-	rightAnim.PushBack({ 140, 54, 28, 27 });
-	rightAnim.PushBack({ 168, 54, 28, 27 });
-	rightAnim.PushBack({ 196, 54, 28, 27 });
+	upLeftAnimLeg.PushBack({ 18,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 51,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 84,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 117,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 150,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 183,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 216,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 249,423,33,31 }, true);
+	upLeftAnimLeg.speed = 0.1f;
 
-	rightAnim.speed = 0.2f;
+	downRightAnimLeg.PushBack({ 18,361,33,31 });
+	downRightAnimLeg.PushBack({ 51,361,33,31 });
+	downRightAnimLeg.PushBack({ 84,361,33,31 });
+	downRightAnimLeg.PushBack({ 117,361,33,31 });
+	downRightAnimLeg.PushBack({ 150,361,33,31 });
+	downRightAnimLeg.PushBack({ 183,361,33,31 });
+	downRightAnimLeg.PushBack({ 216,361,33,31 });
+	downRightAnimLeg.PushBack({ 249,361,33,31 });
+	downRightAnimLeg.speed = 0.1f;
 
-	//left
-	leftAnim.PushBack({ 0, 54, 28, 27 }, true);
-	leftAnim.PushBack({ 28, 54, 28, 27 }, true);
-	leftAnim.PushBack({ 56, 54, 28, 27 }), true;
-	leftAnim.PushBack({ 84, 54, 28, 27 }, true);
-	leftAnim.PushBack({ 112, 54, 28, 27 }, true);
-	leftAnim.PushBack({ 140, 54, 28, 27 }, true);
-	leftAnim.PushBack({ 168, 54, 28, 27 }, true);
-	leftAnim.PushBack({ 196, 54, 28, 27 }, true);
+	downLeftAnimLeg.PushBack({ 18,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 51,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 84,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 117,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 150,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 183,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 216,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 249,361,33,31 }, true);
+	downLeftAnimLeg.speed = 0.1f;
 
-	//down right
-	downRightAnim.PushBack({ 0, 81, 28, 27 });
-	downRightAnim.PushBack({ 28, 81, 28, 27 });
-	downRightAnim.PushBack({ 56, 81, 28, 27 });
-	downRightAnim.PushBack({ 84, 81, 28, 27 });
-	downRightAnim.PushBack({ 112, 81, 28, 27 });
-	downRightAnim.PushBack({ 140, 81, 28, 27 });
-	downRightAnim.PushBack({ 168, 81, 28, 27 });
-	downRightAnim.PushBack({ 196, 81, 28, 27 });
+	idleAnimDown.PushBack({ 14,181,36,34 });
+	idleAnimDown.PushBack({ 50,181,36,34 });
+	idleAnimDown.PushBack({ 86,181,36,34 });
+	idleAnimDown.PushBack({ 50,181,36,34 });
+	idleAnimDown.speed = 0.13f;
 
-	leftAnim.speed = 0.2f;
-	// Move down
-	downAnim.PushBack({ 0, 108, 28, 27 });
-	downAnim.PushBack({ 28, 108, 28, 27 });
-	downAnim.PushBack({ 56, 108, 28, 27 });
-	downAnim.PushBack({ 84, 108, 28, 27 });
-	downAnim.PushBack({ 112, 108, 28, 27 });
-	downAnim.PushBack({ 140, 108, 28, 27 });
-	downAnim.PushBack({ 168, 108, 28, 27 });
-	downAnim.PushBack({ 196, 108, 28, 27 });
+	idleAnimUp.PushBack({ 14,147,36,34 });
+	idleAnimUp.PushBack({ 50,147,36,34 });
+	idleAnimUp.PushBack({ 86,147,36,34 });
+	idleAnimUp.PushBack({ 50,147,36,34 });
+	idleAnimUp.speed = 0.13f;
 
-	downAnim.speed = 0.2f;
+	idleAnimLeft.PushBack({ 14,45,36,34 });
+	idleAnimLeft.PushBack({ 50,45,36,34 });
+	idleAnimLeft.PushBack({ 86,45,36,34 });
+	idleAnimLeft.PushBack({ 50,45,36,34 });
+	idleAnimLeft.speed = 0.13f;
+
+	idleAnimRight.PushBack({ 14,45,36,34 }, true);
+	idleAnimRight.PushBack({ 50,45,36,34 }, true);
+	idleAnimRight.PushBack({ 86,45,36,34 }, true);
+	idleAnimRight.PushBack({ 50,45,36,34 }, true);
+	idleAnimRight.speed = 0.13f;
+
+	idleAnimDownLeft.PushBack({ 14,79,36,34 });
+	idleAnimDownLeft.PushBack({ 50,79,36,34 });
+	idleAnimDownLeft.PushBack({ 86,79,36,34 });
+	idleAnimDownLeft.PushBack({ 50,79,36,34 });
+	idleAnimDownLeft.speed = 0.13f;
+
+	idleAnimDownRight.PushBack({ 14,79,36,34 }, true);
+	idleAnimDownRight.PushBack({ 50,79,36,34 }, true);
+	idleAnimDownRight.PushBack({ 86,79,36,34 }, true);
+	idleAnimDownRight.PushBack({ 50,79,36,34 }, true);
+	idleAnimDownRight.speed = 0.13f;
+
+	idleAnimUpLeft.PushBack({ 14,249,36,34 });
+	idleAnimUpLeft.PushBack({ 50,249,36,34 });
+	idleAnimUpLeft.PushBack({ 86,249,36,34 });
+	idleAnimUpLeft.PushBack({ 50,249,36,34 });
+	idleAnimUpLeft.speed = 0.13f;
+
+	idleAnimUpRight.PushBack({ 14,249,36,34 }, true);
+	idleAnimUpRight.PushBack({ 50,249,36,34 }, true);
+	idleAnimUpRight.PushBack({ 86,249,36,34 }, true);
+	idleAnimUpRight.PushBack({ 50,249,36,34 }, true);
+	idleAnimUpRight.speed = 0.13f;
+
+	shootUpAnim.PushBack({ 122,147,36,34 });
+	shootUpAnim.PushBack({ 158,147,36,34 });
+	shootUpAnim.PushBack({ 194,147,36,34 });
+	shootUpAnim.speed = 0.1f;
+
+	shootDownAnim.PushBack({ 122,181,36,34 });
+	shootDownAnim.PushBack({ 158,181,36,34 });
+	shootDownAnim.PushBack({ 194,181,36,34 });
+	shootDownAnim.speed = 0.1f;
+
+	shootLeftAnim.PushBack({ 122,45,36,34 });
+	shootLeftAnim.PushBack({ 158,45,36,34 });
+	shootLeftAnim.PushBack({ 194,45,36,34 });
+	shootLeftAnim.speed = 0.1f;
+
+	shootRightAnim.PushBack({ 122,45,36,34 }, true);
+	shootRightAnim.PushBack({ 158,45,36,34 }, true);
+	shootRightAnim.PushBack({ 194,45,36,34 }, true);
+	shootRightAnim.speed = 0.1f;
+
+	shootDownLeftAnim.PushBack({ 122,79,36,34 });
+	shootDownLeftAnim.PushBack({ 158,79,36,34 });
+	shootDownLeftAnim.PushBack({ 194,79,36,34 });
+	shootDownLeftAnim.speed = 0.1f;
+
+	shootDownRightAnim.PushBack({ 122,79,36,34 }, true);
+	shootDownRightAnim.PushBack({ 158,79,36,34 }, true);
+	shootDownRightAnim.PushBack({ 194,79,36,34 }, true);
+	shootDownRightAnim.speed = 0.1f;
+
+	shootUpLeftAnim.PushBack({ 122,249,36,34 });
+	shootUpLeftAnim.PushBack({ 158,249,36,34 });
+	shootUpLeftAnim.PushBack({ 194,249,36,34 });
+	shootUpLeftAnim.speed = 0.1f;
+
+	shootUpRightAnim.PushBack({ 122,249,36,34 }, true);
+	shootUpRightAnim.PushBack({ 158,249,36,34 }, true);
+	shootUpRightAnim.PushBack({ 194,249,36,34 }, true);
+	shootUpRightAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -114,9 +211,9 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/SpritesSomersault.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet definitiva.png");
 	currentAnimation = &idleAnimUp;
-
+	legAnimation = &upAnimLeg;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -166,6 +263,11 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPLEFT;
+		if (legAnimation != &upLeftAnimLeg)
+		{
+			upLeftAnimLeg.Reset();
+			legAnimation = &upLeftAnimLeg;
+		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
@@ -179,19 +281,30 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNLEFT;
+		if (legAnimation != &downLeftAnimLeg)
+		{
+			downRightAnimLeg.Reset();
+			legAnimation = &downLeftAnimLeg;
 		}
+		}
+	
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
 			 rightLock == false &&
 			 downLock == false &&
 			 isDodging == false)
-	{
+		 {
 		moveDir = DOWNRIGHT;
 		position.x += speed;
 		position.y += speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNRIGHT;
+		if (legAnimation != &downRightAnimLeg)
+		{
+			downRightAnimLeg.Reset();
+			legAnimation = &downRightAnimLeg;
+		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
@@ -205,10 +318,10 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPRIGHT;
-		if (currentAnimation != &upRightAnim)
+		if (legAnimation != &upRightAnimLeg)
 		{
-			upRightAnim.Reset();
-			currentAnimation = &upRightAnim;
+			upRightAnimLeg.Reset();
+			legAnimation = &upRightAnimLeg;
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
@@ -220,10 +333,10 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = LEFT;
-		if (currentAnimation != &leftAnim)
+		if (legAnimation != &leftAnimLeg)
 		{
-			leftAnim.Reset();
-			currentAnimation = &leftAnim;
+			leftAnimLeg.Reset();
+			legAnimation = &leftAnimLeg;
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
@@ -232,10 +345,10 @@ Update_Status ModulePlayer::Update()
 	{
 		moveDir = RIGHT;
 		position.x += speed;
-		if (currentAnimation != &rightAnim)
+		if (legAnimation != &rightAnimLeg)
 		{
-			rightAnim.Reset();
-			currentAnimation = &rightAnim;
+			rightAnimLeg.Reset();
+			legAnimation = &rightAnimLeg;
 		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
@@ -251,10 +364,10 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWN;
-		if (currentAnimation != &downAnim)
+		if (legAnimation != &downAnimLeg)
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
+			downAnimLeg.Reset();
+			legAnimation= &downAnimLeg;
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
@@ -266,10 +379,10 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UP;
-		if (currentAnimation != &upAnim)
+		if (legAnimation != &upAnimLeg)
 		{
-			upAnim.Reset();
-			currentAnimation = &upAnim;
+			upAnimLeg.Reset();
+			legAnimation = &upAnimLeg;
 		}
 	}
 
@@ -326,6 +439,65 @@ Update_Status ModulePlayer::Update()
 
 	}
 
+	if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT) {
+		switch (moveDir)
+		{
+		case LEFT:
+			currentAnimation = &idleAnimLeft;
+			break;
+		case RIGHT:
+			currentAnimation = &idleAnimRight;
+			break;
+		case DOWN:
+			currentAnimation = &idleAnimDown;
+			break;
+		case UP:
+			currentAnimation = &idleAnimUp;
+			break;
+		case DOWNLEFT:
+			currentAnimation = &idleAnimDownLeft;
+			break;
+		case DOWNRIGHT:
+			currentAnimation = &idleAnimDownRight;
+			break;
+		case UPLEFT:
+			currentAnimation = &idleAnimUpLeft;
+			break;
+		case UPRIGHT:
+			currentAnimation = &idleAnimUpRight;
+			break;
+		}
+	}
+	else 
+	{
+		switch (bulletDir)
+		{
+		case LEFT:
+			currentAnimation = &shootLeftAnim;
+			break;
+		case RIGHT:
+			currentAnimation = &shootRightAnim;
+			break;
+		case DOWN:
+			currentAnimation = &shootDownAnim;
+			break;
+		case UP:
+			currentAnimation = &shootUpAnim;
+			break;
+		case DOWNLEFT:
+			currentAnimation = &shootDownLeftAnim;
+			break;
+		case DOWNRIGHT:
+			currentAnimation = &shootDownRightAnim;
+			break;
+		case UPLEFT:
+			currentAnimation = &shootUpLeftAnim;
+			break;
+		case UPRIGHT:
+			currentAnimation = &shootUpRightAnim;
+			break;
+		}
+	}
 	// If no up/down movement detected, set the current animation back to idle
 	
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE &&
@@ -333,12 +505,13 @@ Update_Status ModulePlayer::Update()
 		App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 	{
-		currentAnimation = &idleAnimUp;
+		
+	
 	}
 
 	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 20)
 	{
-		upAnim.Reset();
+	
 		dodgeCoolDown = 0;
 
 	}
@@ -352,49 +525,44 @@ Update_Status ModulePlayer::Update()
 		switch (moveDir)
 		{
 		case LEFT:
-			if(position.x > App->render->camera.x)
+			
 			position.x -= speed * 3;
 			break;
 		case RIGHT:
-			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w)
+			
 			position.x += speed * 3;
 			break;
 		case DOWN:
-			if(position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
+		
 			position.y += speed * 3;
 			break;
 		case UP:
-			if (position.y > App->render->camera.y)
-				currentAnimation = &upAnim;
+			
 			position.y -= speed * 2;
 			break;
 		case DOWNLEFT:
-			if (position.x > App->render->camera.x || position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
-			{
+
 				position.x -= speed * 3;
 				position.y += speed * 3;
-			}
+			
 			break;
 		case DOWNRIGHT:
-			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w || position.y < App->render->camera.y + SCREEN_HEIGHT - collider->rect.h)
-			{
+			
 				position.x += speed * 3;
 				position.y += speed * 3;
-			}
+			
 			break;
 		case UPLEFT:
-			if (position.x > App->render->camera.x || position.y > App->render->camera.y)
-			{
+			
 				position.x -= speed * 3;
 				position.y -= speed * 3;
-			}
+			
 			break;
 		case UPRIGHT:
-			if (position.x < SCREEN_WIDTH + App->render->camera.x - collider->rect.w || position.y > App->render->camera.y)
-			{
+			
 				position.x += speed * 3;
 				position.y -= speed * 3;
-			}
+			
 			break;
 		}
 		shootCoolDown = 0;
@@ -418,6 +586,7 @@ Update_Status ModulePlayer::Update()
 	upLock = false;
 
 	currentAnimation->Update();
+	legAnimation->Update();
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -426,17 +595,33 @@ Update_Status ModulePlayer::PostUpdate()
 {
 	if (!destroyed)
 	{
+
+		SDL_Rect rectLeg = legAnimation->GetCurrentFrame();
+		bool mirrorLeg = legAnimation->GetMirror();
+
+		if (mirrorLeg == true)
+		{
+			App->render->BlitMirror(texture, position.x, position.y + 17, &rectLeg);
+		}
+		else
+		{
+			App->render->Blit(texture, position.x +2 , position.y + 17, &rectLeg);
+		}
+
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		bool mirror = currentAnimation->GetMirror();
+	
 		if (mirror == true)
 		{
 			App->render->BlitMirror(texture, position.x, position.y, &rect);
 
+			
 		}
 		else
 		{
 			App->render->Blit(texture, position.x, position.y, &rect);
 		}
+
 	}
 
 	// Draw UI (score) --------------------------------------
