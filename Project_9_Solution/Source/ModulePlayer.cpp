@@ -250,7 +250,7 @@ Update_Status ModulePlayer::Update()
 	shootCoolDown++;
 	dodgeCoolDown++;
 
-////////////////////////////////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////MOVING//////////////////////////////MOVING//////////////////////////////MOVING//////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
 		leftLock == false &&
@@ -387,7 +387,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 
-////////////////////////////////////////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		if (App->player->shootCoolDown > 5 && isDodging == false) {
@@ -444,27 +444,38 @@ Update_Status ModulePlayer::Update()
 		{
 		case LEFT:
 			currentAnimation = &idleAnimLeft;
+			offsetx = 5;
 			break;
 		case RIGHT:
 			currentAnimation = &idleAnimRight;
+			offsetx = -2;
 			break;
 		case DOWN:
 			currentAnimation = &idleAnimDown;
+			offsety = -1;
 			break;
 		case UP:
 			currentAnimation = &idleAnimUp;
+			offsetx = 1;
+			offsety = -1;
 			break;
 		case DOWNLEFT:
 			currentAnimation = &idleAnimDownLeft;
+			offsetx = 2;
+			offsety = -1;
 			break;
 		case DOWNRIGHT:
 			currentAnimation = &idleAnimDownRight;
 			break;
 		case UPLEFT:
 			currentAnimation = &idleAnimUpLeft;
+			offsetx = 4;
+			offsety = -1;
 			break;
 		case UPRIGHT:
 			currentAnimation = &idleAnimUpRight;
+			offsetx = -1;
+			offsety = -1;
 			break;
 		}
 	}
@@ -474,9 +485,12 @@ Update_Status ModulePlayer::Update()
 		{
 		case LEFT:
 			currentAnimation = &shootLeftAnim;
+			offsetx = 7;
+			offsety = -1;
 			break;
 		case RIGHT:
 			currentAnimation = &shootRightAnim;
+			offsetx = -4;			
 			break;
 		case DOWN:
 			currentAnimation = &shootDownAnim;
@@ -494,7 +508,7 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &shootUpLeftAnim;
 			break;
 		case UPRIGHT:
-			currentAnimation = &shootUpRightAnim;
+			currentAnimation = &shootUpRightAnim;		
 			break;
 		}
 	}
@@ -601,13 +615,13 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (mirrorLeg == true)
 		{
-			App->render->BlitMirror(texture, position.x + offsetx, position.y + offsety, &rectLeg);
+			App->render->BlitMirror(texture, position.x + offsetx, position.y +20 + offsety, &rectLeg);
 			offsetx = 0;
 			offsety = 0;
 		}
 		else
 		{
-			App->render->Blit(texture, position.x + offsetx , position.y + offsety, &rectLeg);
+			App->render->Blit(texture, position.x + offsetx , position.y +20+ offsety, &rectLeg);
 			offsetx = 0;
 			offsety = 0;
 		}
