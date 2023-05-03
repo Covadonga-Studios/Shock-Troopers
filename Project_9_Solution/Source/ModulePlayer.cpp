@@ -484,42 +484,42 @@ Update_Status ModulePlayer::Update()
 			switch (bulletDir)
 			{
 			case LEFT:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, -5, 0, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x + 20, position.y, -5, 0, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case RIGHT:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 5, 0, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y, 5, 0, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWN:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 0, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 20, position.y, 0, 5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UP:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 0, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 20, position.y, 0, -5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWNLEFT:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, -5, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 20, position.y, -5, 5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWNRIGHT:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 5, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y, 5, 5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UPLEFT:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, -5, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 20, position.y, -5, -5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UPRIGHT:
-				App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 5, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 5, -5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;

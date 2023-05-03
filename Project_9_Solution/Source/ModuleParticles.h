@@ -57,7 +57,16 @@ public:
 	Particle explosion;
 
 	//Template particle for a laser
-	Particle laser;
+	Particle PlayerShotUp;
+	Particle PlayerShotUpRight;
+	Particle PlayerShotRight;
+	Particle PlayerShotDownRight;
+	Particle PlayerShotDown;
+	Particle PlayerShotDownLeft;
+	Particle PlayerShotLeft;
+	Particle PlayerShotUpLeft;
+
+
 
 private:
 	// Particles spritesheet loaded into an SDL Texture

@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/particles.png");
+	texture = App->textures->Load("Assets/Sprites/Blasts.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -34,11 +34,63 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	laser.anim.PushBack({ 232, 103, 16, 12 });
-	laser.anim.PushBack({ 249, 103, 16, 12 });
-	laser.speed.x = 5;
-	laser.lifetime = 180;
-	laser.anim.speed = 0.2f;
+
+
+	PlayerShotUp.anim.PushBack({ 0, 0, 13, 13 });
+	PlayerShotUp.anim.PushBack({ 13, 0, 13, 13 });
+	PlayerShotUp.speed.x = 5;
+	PlayerShotUp.lifetime = 180;
+	PlayerShotUp.anim.speed = 0.2f;
+
+
+	PlayerShotUpRight.anim.PushBack({ 26, 0, 13, 13 });
+	PlayerShotUpRight.anim.PushBack({ 39, 0, 13, 13 });
+	PlayerShotUpRight.speed.x = 5;
+	PlayerShotUpRight.lifetime = 180;
+	PlayerShotUpRight.anim.speed = 0.2f;
+
+
+	PlayerShotRight.anim.PushBack({ 52, 0, 13, 13 });
+	PlayerShotRight.anim.PushBack({ 65, 0, 13, 13 });
+	PlayerShotRight.speed.x = 5;
+	PlayerShotRight.lifetime = 180;
+	PlayerShotRight.anim.speed = 0.2f;
+
+
+	PlayerShotDownRight.anim.PushBack({ 78, 0, 13, 13 });
+	PlayerShotDownRight.anim.PushBack({ 91, 0, 13, 13 });
+	PlayerShotDownRight.speed.x = 5;
+	PlayerShotDownRight.lifetime = 180;
+	PlayerShotDownRight.anim.speed = 0.2f;
+
+
+	PlayerShotDown.anim.PushBack({ 104, 0, 13, 13 });
+	PlayerShotDown.anim.PushBack({ 117, 0, 13, 13 });
+	PlayerShotDown.speed.x = 5;
+	PlayerShotDown.lifetime = 180;
+	PlayerShotDown.anim.speed = 0.2f;
+
+
+	PlayerShotDownLeft.anim.PushBack({ 78, 0, 13, 13 }, true);
+	PlayerShotDownLeft.anim.PushBack({ 91, 0, 13, 13 }, true);
+	PlayerShotDownLeft.speed.x = 5;
+	PlayerShotDownLeft.lifetime = 180;
+	PlayerShotDownLeft.anim.speed = 0.2f;
+
+
+	PlayerShotLeft.anim.PushBack({ 52, 0, 13, 13 }, true);
+	PlayerShotLeft.anim.PushBack({ 65, 0, 13, 13 }, true);
+	PlayerShotLeft.speed.x = 5;
+	PlayerShotLeft.lifetime = 180;
+	PlayerShotLeft.anim.speed = 0.2f;
+
+	PlayerShotUpLeft.anim.PushBack({ 26, 0, 13, 13 }, true);
+	PlayerShotUpLeft.anim.PushBack({ 39, 0, 13, 13 }, true);
+	PlayerShotUpLeft.speed.x = 5;
+	PlayerShotUpLeft.lifetime = 180;
+	PlayerShotUpLeft.anim.speed = 0.2f;
+
+
 
 	return true;
 }
@@ -116,7 +168,19 @@ Update_Status ModuleParticles::PostUpdate()
 
 		if (particle != nullptr && particle->isAlive)
 		{
-			App->render->Blit(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+			
+			
+			
+			if (particle->anim.GetMirror() == 1)
+			{
+				App->render->BlitMirror(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+
+			}
+			else
+			{
+				App->render->Blit(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+
+			}
 		}
 	}
 

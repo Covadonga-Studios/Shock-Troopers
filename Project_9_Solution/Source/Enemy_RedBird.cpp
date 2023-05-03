@@ -51,9 +51,9 @@ void Enemy_RedBird::Update()
 		float diry = (dy * 1.5f / dir);
 
 
-		App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, dirx, diry, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->PlayerShotRight, position.x - 20, position.y, dirx, diry, Collider::Type::ENEMY_SHOT);
 
-		App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, dirx, diry, Collider::Type::ENEMY_SHOT, 20);
+		App->particles->AddParticle(App->particles->PlayerShotRight, position.x - 20, position.y, dirx, diry, Collider::Type::ENEMY_SHOT, 20);
 		shootCooldown = 0;
 	}
 
