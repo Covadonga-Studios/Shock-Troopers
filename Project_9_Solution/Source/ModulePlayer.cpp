@@ -279,7 +279,15 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downDodge.PushBack({ 544,513, 41, 51 });
 	downDodge.PushBack({ 585,513, 41, 51 });
 	downDodge.speed = 0.1f;
-	
+
+	idleAnimDownLeg.PushBack({ 18, 299, 33, 31 });
+	idleAnimDownRightLeg.PushBack({ 51, 299, 33, 31 });
+	idleAnimRightLeg.PushBack({ 84, 299, 33, 31 });
+	idleAnimUpRightLeg.PushBack({ 117, 299, 33, 31 });
+	idleAnimUpLeg.PushBack({ 150, 299, 33, 31 });
+	idleAnimUpLeftLeg.PushBack({ 183, 299, 33, 31 });
+	idleAnimLeftLeg.PushBack({ 216, 299, 33, 31 });
+	idleAnimDownLeftLeg.PushBack({ 249, 299, 33, 31 });
 }
 
 ModulePlayer::~ModulePlayer()
@@ -601,7 +609,35 @@ Update_Status ModulePlayer::Update()
 		App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 	{
-		
+		switch (bulletDir)
+		{
+		case LEFT:
+			legAnimation = &idleAnimLeftLeg;
+			
+			break;
+		case RIGHT:
+			legAnimation = &idleAnimRightLeg;
+
+			break;
+		case DOWN:
+			legAnimation = &idleAnimDownLeg;
+			break;
+		case UP:
+			legAnimation = &idleAnimUpLeg;
+			break;
+		case DOWNLEFT:
+			legAnimation = &idleAnimDownLeftLeg;
+			break;
+		case DOWNRIGHT:
+			legAnimation = &idleAnimDownRightLeg;
+			break;
+		case UPLEFT:
+			legAnimation = &idleAnimUpLeftLeg;
+			break;
+		case UPRIGHT:
+			legAnimation = &idleAnimUpRightLeg;
+			break;
+		}
 	
 	}
 
