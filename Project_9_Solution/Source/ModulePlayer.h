@@ -50,6 +50,7 @@ public:
 
 	// A set of animations
 	Animation idleAnimUp;
+	Animation idleAnimUpLeg;
 	Animation idleAnimDown;
 	Animation idleAnimRight;
 	Animation idleAnimLeft;
@@ -57,15 +58,6 @@ public:
 	Animation idleAnimDownRight;
 	Animation idleAnimUpRight;
 	Animation idleAnimUpLeft;
-
-	Animation idleAnimUpLeg;
-	Animation idleAnimUpRightLeg;
-	Animation idleAnimUpLeftLeg;
-	Animation idleAnimDownRightLeg;
-	Animation idleAnimDownLeftLeg;
-	Animation idleAnimRightLeg;
-	Animation idleAnimLeftLeg;
-	Animation idleAnimDownLeg;
 
 	Animation shootUpAnim;
 	Animation upAnimLeg;

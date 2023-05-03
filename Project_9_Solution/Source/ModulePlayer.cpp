@@ -280,15 +280,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downDodge.PushBack({ 585,513, 41, 51 });
 	downDodge.speed = 0.1f;
 	
-	////////IDLE PATAS//////////////IDLE PATAS//////////////IDLE PATAS//////////////IDLE PATAS//////////////IDLE PATAS//////////////IDLE PATAS//////////////IDLE PATAS//////////////IDLE PATAS//////
-	idleAnimDownLeg.PushBack({ 18, 299, 33, 31 });
-	idleAnimDownRightLeg.PushBack({ 51, 299, 33, 31 });
-	idleAnimRightLeg.PushBack({ 84, 299, 33, 31 });
-	idleAnimUpRightLeg.PushBack({ 117, 299, 33, 31 });
-	idleAnimUpLeg.PushBack({ 150, 299, 33, 31 });
-	idleAnimUpLeftLeg.PushBack({ 183, 299, 33, 31 });
-	idleAnimLeftLeg.PushBack({ 216, 299, 33, 31 });
-	idleAnimDownLeftLeg.PushBack({ 249, 299, 33, 31 });
 }
 
 ModulePlayer::~ModulePlayer()
