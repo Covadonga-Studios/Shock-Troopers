@@ -36,6 +36,8 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 100);
 
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 150, 150);
+
 	
 	
 

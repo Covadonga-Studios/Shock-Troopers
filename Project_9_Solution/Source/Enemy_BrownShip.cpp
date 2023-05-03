@@ -28,10 +28,8 @@ float Dircalculation(float Dx, float Dy)
 void Enemy_BrownShip::Update()
 {
 	shootCooldown++;
-	/*path.Update();
-	position = spawnPos + path.GetRelativePosition();*/
 
-	if (shootCooldown > 70)
+	if (shootCooldown > 150)
 	{
 
 		float dx = (App->player->position.x + App->player->collider->rect.w/2 - position.x);
