@@ -76,6 +76,15 @@ public:
 	Animation downLeftAnimLeg;
 	Animation downRightAnimLeg;
 
+	Animation upDodge;
+	Animation downDodge;
+	Animation leftDodge;
+	Animation rightDodge;
+	Animation rightUpDodge;
+	Animation leftUpDodge;
+	Animation rightDownDodge;
+	Animation leftDownDodge;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;

@@ -198,6 +198,88 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootUpRightAnim.PushBack({ 158,249,36,34 }, true);
 	shootUpRightAnim.PushBack({ 194,249,36,34 }, true);
 	shootUpRightAnim.speed = 0.1f;
+
+	///DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE/////
+	upDodge.PushBack({ 308,309, 41, 51 });
+	upDodge.PushBack({ 349,309, 41, 51 });
+	upDodge.PushBack({ 390,309, 41, 51 });
+	upDodge.PushBack({ 431,309, 41, 51 });
+	upDodge.PushBack({ 462,309, 41, 51 });
+	upDodge.PushBack({ 503,309, 41, 51 });
+	upDodge.PushBack({ 544,309, 41, 51 });
+	upDodge.PushBack({ 585,309, 41, 51 });
+	upDodge.speed = 0.1f;
+
+	rightUpDodge.PushBack({ 308,360, 41, 51 });
+	rightUpDodge.PushBack({ 349,360, 41, 51 });
+	rightUpDodge.PushBack({ 390,360, 41, 51 });
+	rightUpDodge.PushBack({ 431,360, 41, 51 });
+	rightUpDodge.PushBack({ 462,360, 41, 51 });
+	rightUpDodge.PushBack({ 503,360, 41, 51 });
+	rightUpDodge.PushBack({ 544,360, 41, 51 });
+	rightUpDodge.PushBack({ 585,360, 41, 51 });
+	rightUpDodge.speed = 0.1f;
+
+	leftUpDodge.PushBack({ 308,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 349,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 390,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 431,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 462,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 503,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 544,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 585,360, 41, 51 }, true);
+	leftUpDodge.speed = 0.1f;
+
+	rightDodge.PushBack({ 308,411, 41, 51 }); 
+	rightDodge.PushBack({ 349,411, 41, 51 });
+	rightDodge.PushBack({ 390,411, 41, 51 });
+	rightDodge.PushBack({ 431,411, 41, 51 });
+	rightDodge.PushBack({ 462,411, 41, 51 });
+	rightDodge.PushBack({ 503,411, 41, 51 });
+	rightDodge.PushBack({ 544,411, 41, 51 });
+	rightDodge.PushBack({ 585,411, 41, 51 });
+	rightDodge.speed = 0.1f;
+
+	leftDodge.PushBack({ 308,411, 41, 51 }, true);
+	leftDodge.PushBack({ 349,411, 41, 51 }, true);
+	leftDodge.PushBack({ 390,411, 41, 51 }, true);
+	leftDodge.PushBack({ 431,411, 41, 51 }, true);
+	leftDodge.PushBack({ 462,411, 41, 51 }, true);
+	leftDodge.PushBack({ 503,411, 41, 51 }, true);
+	leftDodge.PushBack({ 544,411, 41, 51 }, true);
+	leftDodge.PushBack({ 585,411, 41, 51 }, true);
+	leftDodge.speed = 0.1f;
+
+	rightDownDodge.PushBack({ 308,462, 41, 51 });
+	rightDownDodge.PushBack({ 349,462, 41, 51 });
+	rightDownDodge.PushBack({ 390,462, 41, 51 });
+	rightDownDodge.PushBack({ 431,462, 41, 51 });
+	rightDownDodge.PushBack({ 462,462, 41, 51 });
+	rightDownDodge.PushBack({ 503,462, 41, 51 });
+	rightDownDodge.PushBack({ 544,462, 41, 51 });
+	rightDownDodge.PushBack({ 585,462, 41, 51 });
+	rightDownDodge.speed = 0.1f;
+
+	leftDownDodge.PushBack({ 308,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 349,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 390,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 431,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 462,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 503,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 544,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 585,462, 41, 51 }, true);
+	leftDownDodge.speed = 0.1f;
+
+	downDodge.PushBack({ 308,513, 41, 51 });
+	downDodge.PushBack({ 349,513, 41, 51 });
+	downDodge.PushBack({ 390,513, 41, 51 });
+	downDodge.PushBack({ 431,513, 41, 51 });
+	downDodge.PushBack({ 462,513, 41, 51 });
+	downDodge.PushBack({ 503,513, 41, 51 });
+	downDodge.PushBack({ 544,513, 41, 51 });
+	downDodge.PushBack({ 585,513, 41, 51 });
+	downDodge.speed = 0.1f;
+	
 }
 
 ModulePlayer::~ModulePlayer()
@@ -539,41 +621,41 @@ Update_Status ModulePlayer::Update()
 		switch (moveDir)
 		{
 		case LEFT:
-			
+			currentAnimation = &leftDodge;
 			position.x -= speed * 3;
 			break;
 		case RIGHT:
-			
+			currentAnimation = &rightDodge;
 			position.x += speed * 3;
 			break;
 		case DOWN:
-		
+			currentAnimation = &downDodge;
 			position.y += speed * 3;
 			break;
 		case UP:
-			
+			currentAnimation = &upDodge;
 			position.y -= speed * 2;
 			break;
 		case DOWNLEFT:
-
+			currentAnimation = &leftDownDodge;
 				position.x -= speed * 3;
 				position.y += speed * 3;
 			
 			break;
 		case DOWNRIGHT:
-			
+			currentAnimation = &rightDownDodge;
 				position.x += speed * 3;
 				position.y += speed * 3;
 			
 			break;
 		case UPLEFT:
-			
+			currentAnimation = &leftUpDodge;
 				position.x -= speed * 3;
 				position.y -= speed * 3;
 			
 			break;
 		case UPRIGHT:
-			
+			currentAnimation = &rightUpDodge;
 				position.x += speed * 3;
 				position.y -= speed * 3;
 			
