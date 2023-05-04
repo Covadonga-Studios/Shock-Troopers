@@ -27,6 +27,12 @@ public:
 	// Performs the render call of all the parts of the scene's background
 	Update_Status PostUpdate() override;
 
+	bool textOnScreen = true;
+	
+	char* text = nullptr;
+	int textFont = -1;
+	int counter = 0;
+
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
