@@ -30,7 +30,9 @@ bool SceneLevel1::Start()
 
 	//Bottomside collider
 	
-	collider = App->collisions->AddCollider({ 0, 0, 10, 224 }, Collider::Type::WALL);
+	 App->collisions->AddCollider({ 0, -2000, 10, 2424 }, Collider::Type::WALL);
+	 collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 360, -2000, 10, 2424 }, Collider::Type::WALL);
 	// Enemies ---
 	
 
@@ -49,7 +51,7 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	collider->SetPos(App->render->camera.x, App->render->camera.y);
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -58,6 +60,7 @@ Update_Status SceneLevel1::Update()
 Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
+	collider->SetPos(App->render->camera.x,App->render->camera.y + 215);
 	App->render->Blit(bgTexture, 0, -1820, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;

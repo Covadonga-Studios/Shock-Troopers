@@ -204,81 +204,81 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upDodge.PushBack({ 349,309, 41, 51 });
 	upDodge.PushBack({ 390,309, 41, 51 });
 	upDodge.PushBack({ 431,309, 41, 51 });
-	upDodge.PushBack({ 462,309, 41, 51 });
-	upDodge.PushBack({ 503,309, 41, 51 });
-	upDodge.PushBack({ 544,309, 41, 51 });
-	upDodge.PushBack({ 585,309, 41, 51 });
-	upDodge.speed = 0.1f;
+	upDodge.PushBack({ 472,309, 41, 51 });
+	upDodge.PushBack({ 513,309, 41, 51 });
+	upDodge.PushBack({ 554,309, 41, 51 });
+	upDodge.PushBack({ 595,309, 41, 51 });
+	upDodge.speed = 0.35f;
 
 	rightUpDodge.PushBack({ 308,360, 41, 51 });
 	rightUpDodge.PushBack({ 349,360, 41, 51 });
 	rightUpDodge.PushBack({ 390,360, 41, 51 });
 	rightUpDodge.PushBack({ 431,360, 41, 51 });
-	rightUpDodge.PushBack({ 462,360, 41, 51 });
-	rightUpDodge.PushBack({ 503,360, 41, 51 });
-	rightUpDodge.PushBack({ 544,360, 41, 51 });
-	rightUpDodge.PushBack({ 585,360, 41, 51 });
-	rightUpDodge.speed = 0.1f;
+	rightUpDodge.PushBack({ 472,360, 41, 51 });
+	rightUpDodge.PushBack({ 513,360, 41, 51 });
+	rightUpDodge.PushBack({ 554,360, 41, 51 });
+	rightUpDodge.PushBack({ 595,360, 41, 51 });
+	rightUpDodge.speed = 0.35f;
 
 	leftUpDodge.PushBack({ 308,360, 41, 51 }, true);
 	leftUpDodge.PushBack({ 349,360, 41, 51 }, true);
 	leftUpDodge.PushBack({ 390,360, 41, 51 }, true);
 	leftUpDodge.PushBack({ 431,360, 41, 51 }, true);
-	leftUpDodge.PushBack({ 462,360, 41, 51 }, true);
-	leftUpDodge.PushBack({ 503,360, 41, 51 }, true);
-	leftUpDodge.PushBack({ 544,360, 41, 51 }, true);
-	leftUpDodge.PushBack({ 585,360, 41, 51 }, true);
-	leftUpDodge.speed = 0.1f;
+	leftUpDodge.PushBack({ 472,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 513,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 554,360, 41, 51 }, true);
+	leftUpDodge.PushBack({ 595,360, 41, 51 }, true);
+	leftUpDodge.speed = 0.35f;
 
-	rightDodge.PushBack({ 308,411, 41, 51 }); 
+	rightDodge.PushBack({ 308,411, 41, 51 });
 	rightDodge.PushBack({ 349,411, 41, 51 });
 	rightDodge.PushBack({ 390,411, 41, 51 });
 	rightDodge.PushBack({ 431,411, 41, 51 });
-	rightDodge.PushBack({ 462,411, 41, 51 });
-	rightDodge.PushBack({ 503,411, 41, 51 });
-	rightDodge.PushBack({ 544,411, 41, 51 });
-	rightDodge.PushBack({ 585,411, 41, 51 });
-	rightDodge.speed = 0.1f;
+	rightDodge.PushBack({ 472,411, 41, 51 });
+	rightDodge.PushBack({ 513,411, 41, 51 });
+	rightDodge.PushBack({ 554,411, 41, 51 });
+	rightDodge.PushBack({ 595,411, 41, 51 });
+	rightDodge.speed = 0.35f;
 
 	leftDodge.PushBack({ 308,411, 41, 51 }, true);
 	leftDodge.PushBack({ 349,411, 41, 51 }, true);
 	leftDodge.PushBack({ 390,411, 41, 51 }, true);
 	leftDodge.PushBack({ 431,411, 41, 51 }, true);
-	leftDodge.PushBack({ 462,411, 41, 51 }, true);
-	leftDodge.PushBack({ 503,411, 41, 51 }, true);
-	leftDodge.PushBack({ 544,411, 41, 51 }, true);
-	leftDodge.PushBack({ 585,411, 41, 51 }, true);
-	leftDodge.speed = 0.1f;
+	leftDodge.PushBack({ 472,411, 41, 51 }, true);
+	leftDodge.PushBack({ 513,411, 41, 51 }, true);
+	leftDodge.PushBack({ 554,411, 41, 51 }, true);
+	leftDodge.PushBack({ 595,411, 41, 51 }, true);
+	leftDodge.speed = 0.35f;
 
 	rightDownDodge.PushBack({ 308,462, 41, 51 });
 	rightDownDodge.PushBack({ 349,462, 41, 51 });
 	rightDownDodge.PushBack({ 390,462, 41, 51 });
 	rightDownDodge.PushBack({ 431,462, 41, 51 });
-	rightDownDodge.PushBack({ 462,462, 41, 51 });
-	rightDownDodge.PushBack({ 503,462, 41, 51 });
-	rightDownDodge.PushBack({ 544,462, 41, 51 });
-	rightDownDodge.PushBack({ 585,462, 41, 51 });
-	rightDownDodge.speed = 0.1f;
+	rightDownDodge.PushBack({ 472,462, 41, 51 });
+	rightDownDodge.PushBack({ 513,462, 41, 51 });
+	rightDownDodge.PushBack({ 554,462, 41, 51 });
+	rightDownDodge.PushBack({ 595,462, 41, 51 });
+	rightDownDodge.speed = 0.35f;
 
 	leftDownDodge.PushBack({ 308,462, 41, 51 }, true);
 	leftDownDodge.PushBack({ 349,462, 41, 51 }, true);
 	leftDownDodge.PushBack({ 390,462, 41, 51 }, true);
 	leftDownDodge.PushBack({ 431,462, 41, 51 }, true);
-	leftDownDodge.PushBack({ 462,462, 41, 51 }, true);
-	leftDownDodge.PushBack({ 503,462, 41, 51 }, true);
-	leftDownDodge.PushBack({ 544,462, 41, 51 }, true);
-	leftDownDodge.PushBack({ 585,462, 41, 51 }, true);
-	leftDownDodge.speed = 0.1f;
+	leftDownDodge.PushBack({ 472,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 513,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 554,462, 41, 51 }, true);
+	leftDownDodge.PushBack({ 595,462, 41, 51 }, true);
+	leftDownDodge.speed = 0.35f;
 
 	downDodge.PushBack({ 308,513, 41, 51 });
 	downDodge.PushBack({ 349,513, 41, 51 });
 	downDodge.PushBack({ 390,513, 41, 51 });
 	downDodge.PushBack({ 431,513, 41, 51 });
-	downDodge.PushBack({ 462,513, 41, 51 });
-	downDodge.PushBack({ 503,513, 41, 51 });
-	downDodge.PushBack({ 544,513, 41, 51 });
-	downDodge.PushBack({ 585,513, 41, 51 });
-	downDodge.speed = 0.1f;
+	downDodge.PushBack({ 472,513, 41, 51 });
+	downDodge.PushBack({ 513,513, 41, 51 });
+	downDodge.PushBack({ 554,513, 41, 51 });
+	downDodge.PushBack({ 595,513, 41, 51 });
+	downDodge.speed = 0.35f;
 
 	idleAnimDownLeg.PushBack({ 18, 299, 33, 31 });
 	idleAnimDownRightLeg.PushBack({ 51, 299, 33, 31 });
@@ -290,6 +290,124 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimDownLeftLeg.PushBack({ 249, 299, 33, 31 });
 
 	dissapear.PushBack({0,0,0,0});
+
+	//Death//Death//Death//Death//Death//Death//Death//Death//Death
+
+	Deathup.PushBack({});
+	Deathup.PushBack({});
+	Deathup.PushBack({});
+	Deathup.PushBack({});
+	Deathup.PushBack({});
+	Deathup.PushBack({});
+
+	Deathdown.PushBack({});
+	Deathdown.PushBack({});
+	Deathdown.PushBack({});
+	Deathdown.PushBack({});
+	Deathdown.PushBack({});
+	Deathdown.PushBack({});
+
+	Deathright.PushBack({});
+	Deathright.PushBack({});
+	Deathright.PushBack({});
+	Deathright.PushBack({});
+	Deathright.PushBack({});
+	Deathright.PushBack({});
+
+	Deathleft.PushBack({});
+	Deathleft.PushBack({});
+	Deathleft.PushBack({});
+	Deathleft.PushBack({});
+	Deathleft.PushBack({});
+	Deathleft.PushBack({});
+
+	Deathupright.PushBack({});
+	Deathupright.PushBack({});
+	Deathupright.PushBack({});
+	Deathupright.PushBack({});
+	Deathupright.PushBack({});
+	Deathupright.PushBack({});
+
+	Deathupleft.PushBack({});
+	Deathupleft.PushBack({});
+	Deathupleft.PushBack({});
+	Deathupleft.PushBack({});
+	Deathupleft.PushBack({});
+	Deathupleft.PushBack({});
+
+	Deathdownright.PushBack({});
+	Deathdownright.PushBack({});
+	Deathdownright.PushBack({});
+	Deathdownright.PushBack({});
+	Deathdownright.PushBack({});
+	Deathdownright.PushBack({});
+
+	Deathdownleft.PushBack({});
+	Deathdownleft.PushBack({});
+	Deathdownleft.PushBack({});
+	Deathdownleft.PushBack({});
+	Deathdownleft.PushBack({});
+	Deathdownleft.PushBack({});
+
+	//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win
+
+	Win.PushBack({ 1312, 324, 40, 56 });
+	Win.PushBack({ 1352, 324, 40, 56 });
+	Win.PushBack({ 1392, 324, 40, 56 });
+	Win.PushBack({ 1432, 324, 40, 56 });
+	Win.PushBack({ 1472, 324, 40, 56 });
+	Win.PushBack({ 1512, 324, 40, 56 });
+	Win.PushBack({ 1552, 324, 40, 56 });
+	Win.PushBack({ 1592, 324, 40, 56 });
+	Win.PushBack({ 1352, 380, 40, 56 });
+	Win.PushBack({ 1392, 380, 40, 56 });
+	Win.PushBack({ 1432, 380, 40, 56 });
+	Win.PushBack({ 1472, 380, 40, 56 });
+	Win.PushBack({ 1512, 380, 40, 56 });
+	Win.PushBack({ 1552, 380, 40, 56 });
+
+	//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt
+
+	Hurtup.PushBack({ 1554, 19, 29, 56 });
+	Hurtup.PushBack({ 1583, 19, 29, 56 });
+	Hurtup.PushBack({ 1612, 19, 29, 56 });
+	Hurtup.PushBack({ 1641, 19, 29, 56 });
+
+	Hurtdown.PushBack({ 1554, 75, 29, 56 });
+	Hurtdown.PushBack({ 1583, 75, 29, 56 });
+	Hurtdown.PushBack({ 1612, 75, 29, 56 });
+	Hurtdown.PushBack({ 1641, 75, 29, 56 });
+
+	Hurtright.PushBack({ 1554, 131, 29, 56 });
+	Hurtright.PushBack({ 1583, 131, 29, 56 });
+	Hurtright.PushBack({ 1612, 131, 29, 56 });
+	Hurtright.PushBack({ 1641, 131, 29, 56 });
+
+	Hurtleft.PushBack({});
+	Hurtleft.PushBack({});//mirror
+	Hurtleft.PushBack({});
+	Hurtleft.PushBack({});
+
+	Hurtupleft.PushBack({});
+	Hurtupleft.PushBack({});//mirror
+	Hurtupleft.PushBack({});
+	Hurtupleft.PushBack({});
+
+	Hurtupright.PushBack({ 1554, 187, 29, 56 });
+	Hurtupright.PushBack({ 1583, 187, 29, 56 });
+	Hurtupright.PushBack({ 1612, 187, 29, 56 });
+	Hurtupright.PushBack({ 1641, 187, 29, 56 });
+
+	Hurtdownright.PushBack({ 1554, 243, 29, 56 });
+	Hurtdownright.PushBack({ 1583, 243, 29, 56 });
+	Hurtdownright.PushBack({ 1612, 243, 29, 56 });
+	Hurtdownright.PushBack({ 1641, 243, 29, 56 });
+
+	Hurtdownleft.PushBack({});
+	Hurtdownleft.PushBack({});
+	Hurtdownleft.PushBack({});//mirror
+	Hurtdownleft.PushBack({});
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -314,11 +432,11 @@ bool ModulePlayer::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
-	colliderUp = App->collisions->AddCollider({ position.x, position.y -3, 32, 3 }, Collider::Type::UP_PLAYER, this);
-	colliderDown = App->collisions->AddCollider({ position.x, position.y + 6, 32, 3 }, Collider::Type::DOWN_PLAYER, this);
-	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 16 }, Collider::Type::RIGHT_PLAYER, this);
-	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 16 }, Collider::Type::LEFT_PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 32, 47 }, Collider::Type::PLAYER, this);
+	colliderUp = App->collisions->AddCollider({ position.x, position.y -3, 28, 3 }, Collider::Type::UP_PLAYER, this);
+	colliderDown = App->collisions->AddCollider({ position.x, position.y + 47, 28, 3 }, Collider::Type::DOWN_PLAYER, this);
+	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 47 }, Collider::Type::RIGHT_PLAYER, this);
+	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 47 }, Collider::Type::LEFT_PLAYER, this);
 	
 	timerRect = { 0, 0, 30, 8 };
 
@@ -336,9 +454,6 @@ bool ModulePlayer::Start()
 
 Update_Status ModulePlayer::Update()
 {
-	
-
-	
 	shootCoolDown++;
 	dodgeCoolDown++;
 
@@ -656,6 +771,7 @@ Update_Status ModulePlayer::Update()
 	////////////////////////////////////////////////DODGE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (dodgeCoolDown < 25)
 	{
+
 		collider->SetPos(position.x + 20000, position.y + 20000);
 		isDodging = true;
 
@@ -691,7 +807,7 @@ Update_Status ModulePlayer::Update()
 			if (!upLock) 
 			{
 				currentAnimation = &upDodge;
-				position.y -= speed * 2;
+				position.y -= speed * 3;
 			}
 
 			break;
@@ -700,8 +816,8 @@ Update_Status ModulePlayer::Update()
 			if (!downLock && !leftLock) 
 			{
 				currentAnimation = &leftDownDodge;
-				position.x -= speed * 3;
-				position.y += speed * 3;
+				position.x -= speed * 2;
+				position.y += speed * 2;
 			}
 
 			
@@ -711,8 +827,8 @@ Update_Status ModulePlayer::Update()
 			if (!downLock && !rightLock) 
 			{
 				currentAnimation = &rightDownDodge;
-				position.x += speed * 3;
-				position.y += speed * 3;
+				position.x += speed * 2;
+				position.y += speed * 2;
 			}
 		
 			
@@ -722,8 +838,8 @@ Update_Status ModulePlayer::Update()
 			if (!upLock && !leftLock) 
 			{
 				currentAnimation = &leftUpDodge;
-				position.x -= speed * 3;
-				position.y -= speed * 3;
+				position.x -= speed * 2;
+				position.y -= speed * 2;
 			}
 
 			
@@ -733,8 +849,8 @@ Update_Status ModulePlayer::Update()
 			if (!upLock && !rightLock) 
 			{
 				currentAnimation = &rightUpDodge;
-				position.x += speed * 3;
-				position.y -= speed * 3;
+				position.x += speed * 2;
+				position.y -= speed * 2;
 			}
 			
 			break;
@@ -749,20 +865,34 @@ Update_Status ModulePlayer::Update()
 		isDodging = false;
 	}
 
-	colliderUp->SetPos(position.x, position.y - 3);
-	colliderDown->SetPos(position.x, position.y + 14);
+	colliderUp->SetPos(position.x+3, position.y - 3);
+	colliderDown->SetPos(position.x +3 , position.y + 45);
 	colliderRight->SetPos(position.x + 30 , position.y );
 	colliderLeft->SetPos(position.x, position.y);
+
+	if (isDodging && rightLock == false && leftLock == false && downLock == false && upLock == false)
+	{
+		legAnimation = &dissapear;
+	}
+
+	if (!isDodging) 
+	{
+		 upDodge.Reset();
+		 downDodge.Reset();
+		 leftDodge.Reset();
+		 rightDodge.Reset();
+		 rightUpDodge.Reset();
+		 leftUpDodge.Reset();
+		 rightDownDodge.Reset();
+		 leftDownDodge.Reset();
+	}
 
 	rightLock = false;
 	leftLock = false;
 	downLock = false;
 	upLock = false;
 	
-	if (isDodging) 
-	{
-		legAnimation = &dissapear;
-	}
+
 
 
 	currentAnimation->Update();

@@ -95,10 +95,30 @@ public:
 	Animation rightDownDodge;
 	Animation leftDownDodge;
 
+	Animation Deathup;
+	Animation Deathdown;
+	Animation Deathright;
+	Animation Deathleft;
+	Animation Deathupright;
+	Animation Deathupleft;
+	Animation Deathdownright;
+	Animation Deathdownleft;
+
+	Animation Win;
+
+	Animation Hurtup;
+	Animation Hurtdown;
+	Animation Hurtleft;
+	Animation Hurtright;
+	Animation Hurtupleft;
+	Animation Hurtupright;
+	Animation Hurtdownright;
+	Animation Hurtdownleft;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;
-	int dodgeCoolDown = 10;
+	int dodgeCoolDown = 30;
 	int dodgeDuration = 15;
 	bool isDodging = false;
 	int dx;

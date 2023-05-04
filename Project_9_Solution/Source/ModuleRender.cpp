@@ -77,6 +77,8 @@ Update_Status ModuleRender::Update()
 	if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30<= 30 && App->render->camera.x  != 63 )
 		camera.x += cameraSpeed;
 
+	if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y != -1548 && App->player->IsEnabled())
+		camera.y -= cameraSpeed;
    
 
 	return Update_Status::UPDATE_CONTINUE;

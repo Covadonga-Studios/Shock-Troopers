@@ -5,6 +5,7 @@
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 
 Enemy::Enemy(int x, int y) : position(x, y)
 {
@@ -47,6 +48,7 @@ void Enemy::OnCollision(Collider* collider)
 
 void Enemy::SetToDelete()
 {
+	App->player->score += 500;
 	pendingToDelete = true;
 	if (collider != nullptr)
 		collider->pendingToDelete = true;
