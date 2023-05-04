@@ -103,10 +103,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimDown.PushBack({ 50,181,36,34 });
 	idleAnimDown.speed = 0.13f;
 
-	idleAnimUp.PushBack({ 14,147,36,34 });
-	idleAnimUp.PushBack({ 50,147,36,34 });
-	idleAnimUp.PushBack({ 86,147,36,34 });
-	idleAnimUp.PushBack({ 50,147,36,34 });
+	idleAnimUp.PushBack({ 14,146,36,34 });
+	idleAnimUp.PushBack({ 50,146,36,34 });
+	idleAnimUp.PushBack({ 86,146,36,34 });
+	idleAnimUp.PushBack({ 50,146,36,34 });
 	idleAnimUp.speed = 0.13f;
 
 	idleAnimLeft.PushBack({ 14,45,36,34 });
@@ -145,24 +145,24 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimUpRight.PushBack({ 50,249,36,34 }, true);
 	idleAnimUpRight.speed = 0.13f;
 
-	shootUpAnim.PushBack({ 122,147,36,34 });
-	shootUpAnim.PushBack({ 158,147,36,34 });
-	shootUpAnim.PushBack({ 194,147,36,34 });
+	shootUpAnim.PushBack({ 123,146,36,34 });
+	shootUpAnim.PushBack({ 159,146,36,34 });
+	shootUpAnim.PushBack({ 195,146,36,34 });
 	shootUpAnim.speed = 0.1f;
 
-	shootDownAnim.PushBack({ 122,181,36,34 });
-	shootDownAnim.PushBack({ 158,181,36,34 });
-	shootDownAnim.PushBack({ 194,181,36,34 });
+	shootDownAnim.PushBack({ 124,176,36,34 });
+	shootDownAnim.PushBack({ 160,177,36,34 });
+	shootDownAnim.PushBack({ 195,177,36,34 });
 	shootDownAnim.speed = 0.1f;
 
-	shootLeftAnim.PushBack({ 122,45,36,34 });
+	shootLeftAnim.PushBack({ 123,45,36,34 });
 	shootLeftAnim.PushBack({ 158,45,36,34 });
 	shootLeftAnim.PushBack({ 194,45,36,34 });
 	shootLeftAnim.speed = 0.1f;
 
-	shootRightAnim.PushBack({ 122,45,36,34 }, true);
-	shootRightAnim.PushBack({ 158,45,36,34 }, true);
-	shootRightAnim.PushBack({ 194,45,36,34 }, true);
+	shootRightAnim.PushBack({ 123,43,36,34 }, true);
+	shootRightAnim.PushBack({ 158,44,36,34 }, true);
+	shootRightAnim.PushBack({ 194,44,36,34 }, true);
 	shootRightAnim.speed = 0.1f;
 
 	shootDownLeftAnim.PushBack({ 122,79,36,34 });
@@ -175,14 +175,14 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootDownRightAnim.PushBack({ 194,79,36,34 }, true);
 	shootDownRightAnim.speed = 0.1f;
 
-	shootUpLeftAnim.PushBack({ 122,249,36,34 });
-	shootUpLeftAnim.PushBack({ 158,249,36,34 });
-	shootUpLeftAnim.PushBack({ 194,249,36,34 });
+	shootUpLeftAnim.PushBack({ 125,247,36,34 });
+	shootUpLeftAnim.PushBack({ 160,247,36,34 });
+	shootUpLeftAnim.PushBack({ 196,247,36,34 });
 	shootUpLeftAnim.speed = 0.1f;
 
-	shootUpRightAnim.PushBack({ 122,249,36,34 }, true);
-	shootUpRightAnim.PushBack({ 158,249,36,34 }, true);
-	shootUpRightAnim.PushBack({ 194,249,36,34 }, true);
+	shootUpRightAnim.PushBack({ 123,247,36,34 }, true);
+	shootUpRightAnim.PushBack({ 158,247,36,34 }, true);
+	shootUpRightAnim.PushBack({ 194,247,36,34 }, true);
 	shootUpRightAnim.speed = 0.1f;
 
 	///DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE/////
@@ -361,6 +361,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Win.PushBack({ 1472, 380, 40, 56 });
 	Win.PushBack({ 1512, 380, 40, 56 });
 	Win.PushBack({ 1552, 380, 40, 56 });
+	Win.loop = false;
+	Win.speed = 0.1f;
 
 	//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt
 
@@ -422,10 +424,11 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 	isDead = false;
+	winCon = false;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -899,8 +902,12 @@ Update_Status ModulePlayer::Update()
 	downLock = false;
 	upLock = false;
 	
+	if (hp <= 0) 
+	{
+		isDead = true;
+	}
 
-	if (hp <= 0)
+	if (isDead == true)
 	{
 		switch (moveDir)
 		{
@@ -931,8 +938,27 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &deathfrontright;
 			break;
 		}
-		isDead = true;
+		
 		legAnimation = &dissapear;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
+	{
+		winCon = true;
+	}
+
+	if (winCon == true) 
+	{
+		currentAnimation = &Win;
+		legAnimation = &dissapear;
+		if (currentAnimation->HasFinished()) 
+		{
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
+		}
+	}
+	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
+	{
+		hp = 0;
 	}
 
 	currentAnimation->Update();

@@ -172,6 +172,7 @@ public:
 	bool isDead = false;
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
+	bool winCon = false;
 
 	int offsetx;
 	int offsety;
