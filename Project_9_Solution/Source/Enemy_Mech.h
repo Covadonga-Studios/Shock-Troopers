@@ -18,9 +18,9 @@ public:
 private:
 	// The path that will define the position in the world
 	Path path;
-
+	bool deleting;
 	// Enemy animations
-	Animation enemydeath2;
+
 	Animation front, back;
 };
 

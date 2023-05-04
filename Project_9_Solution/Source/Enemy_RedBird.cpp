@@ -11,15 +11,24 @@
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
-	flyAnim.PushBack({ 5,6,24,24 });
-	flyAnim.PushBack({ 38, 6, 24, 24 });
-	flyAnim.PushBack({ 71, 6, 24, 24 });
-	flyAnim.PushBack({ 104, 6, 24, 24 });
-	flyAnim.PushBack({ 137, 6, 24, 24 });
-	flyAnim.PushBack({ 170, 6, 24, 24 });
-	flyAnim.PushBack({ 203, 6, 24, 24 });
-	flyAnim.PushBack({ 236, 6, 24, 24 });
-	flyAnim.speed = 0.2f;
+	enemydeath2.PushBack({ 20, 773, 41, 53 });
+	enemydeath2.PushBack({ 61, 773, 41, 53 });
+	enemydeath2.PushBack({ 102, 773, 41, 53 });
+	enemydeath2.PushBack({ 143, 773, 41, 53 });
+	enemydeath2.PushBack({ 184, 773, 41, 53 });
+	enemydeath2.PushBack({ 225, 773, 41, 53 });
+	enemydeath2.PushBack({ 266, 773, 41, 53 });
+	enemydeath2.speed = 0.1f;
+	enemydeath2.loop = false;
+
+	enemyshot2down.PushBack({ 20, 647, 43, 47 });
+	enemyshot2rightdown.PushBack({ 63, 647, 43, 47 });
+	enemyshot2right.PushBack({ 106, 647, 43, 47 });
+	enemyshot2rightup.PushBack({ 149, 647, 43, 47 });
+	enemyshot2up.PushBack({ 192, 647, 43, 47 });
+	enemyshot2upleft.PushBack({ 235, 647, 43, 47 });
+	enemyshot2left.PushBack({ 278, 647, 43, 47 });
+	enemyshot2downleft.PushBack({ 321, 647, 43, 47 });
 
 
 	currentAnim = &flyAnim;
@@ -35,16 +44,76 @@ float Dircalculation2(float Dx, float Dy)
 
 }
 
+float abss2(float value)
+{
+	if (value < 0)
+		return value * -1;
+	else
+		return value;
+}
+
+int GetTargetDir2(float dx, float dy)
+{
+	float diagonal = abss2(dx / dy);
+
+
+	if (diagonal >= 0.5f && diagonal <= 1.5f)
+	{
+		if (dx > 0 && dy > 0)
+			return DOWNRIGHT;
+		else if (dx > 0 && dy < 0)
+			return UPRIGHT;
+		else if (dx < 0 && dy > 0)
+			return DOWNLEFT;
+		else
+			return UPLEFT;
+	}
+	else
+	{
+		if (abss2(dx) > abss2(dy))
+		{
+			if (dx >= 0)
+				return RIGHT;
+			else
+				return LEFT;
+
+		}
+		else
+		{
+			if (dy >= 0)
+				return DOWN;
+			else
+				return UP;
+		}
+	}
+
+
+}
+
 void Enemy_RedBird::Update()
 {
 
 	shootCooldown++;
 
+	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
+	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
+
+	if (pendingToDelete == true && deleting == false)
+	{
+		pendingToDelete = false;
+		deleting = true;
+		currentAnim = &enemydeath2;
+	}
+
+	if (currentAnim->HasFinished() == true)
+	{
+		pendingToDelete = true;
+	}
+
 	if (shootCooldown > 150)
 	{
 
-		float dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
-		float dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
+		
 		float dir = Dircalculation2(dx, dy);
 
 		float dirx = (dx * 1.5f / dir);
@@ -57,6 +126,33 @@ void Enemy_RedBird::Update()
 		shootCooldown = 0;
 	}
 
+	switch (GetTargetDir2(dx, dy))
+	{
+	case LEFT:
+		currentAnim = &enemyshot2left;
+		break;
+	case RIGHT:
+		currentAnim = &enemyshot2right;
+		break;
+	case DOWN:
+		currentAnim = &enemyshot2down;
+		break;
+	case UP:
+		currentAnim = &enemyshot2up;
+		break;
+	case DOWNLEFT:
+		currentAnim = &enemyshot2downleft;
+		break;
+	case DOWNRIGHT:
+		currentAnim = &enemyshot2rightdown;
+		break;
+	case UPLEFT:
+		currentAnim = &enemyshot2upleft;
+		break;
+	case UPRIGHT:
+		currentAnim = &enemyshot2rightup;
+		break;
+	}
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position

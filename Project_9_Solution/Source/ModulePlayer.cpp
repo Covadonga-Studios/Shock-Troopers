@@ -12,21 +12,7 @@
 #include "SDL/include/SDL_scancode.h"
 #include <stdio.h>
 
-enum DIR
-{
-	NONE = -1,
-	LEFT,
-	RIGHT,
-	DOWN,
-	UP,
-	DOWNLEFT,
-	DOWNRIGHT,
-	UPLEFT,
-	UPRIGHT,
 
-
-	MAX
-};
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
@@ -293,61 +279,58 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//Death//Death//Death//Death//Death//Death//Death//Death//Death
 
-	Deathup.PushBack({});
-	Deathup.PushBack({});
-	Deathup.PushBack({});
-	Deathup.PushBack({});
-	Deathup.PushBack({});
-	Deathup.PushBack({});
+	deathback.PushBack({ 580, 11, 54, 54 });
+	deathback.PushBack({ 635, 11, 54, 54 });
+	deathback.PushBack({ 690, 11, 54, 54 });
+	deathback.PushBack({ 745, 11, 54, 54 });
+	deathback.PushBack({ 800, 11, 54, 54 });
+	deathback.PushBack({ 855, 11, 54, 54 });
+	deathback.PushBack({ 910, 11, 54, 54 });
+	deathback.PushBack({ 965, 11, 54, 54 });
 
-	Deathdown.PushBack({});
-	Deathdown.PushBack({});
-	Deathdown.PushBack({});
-	Deathdown.PushBack({});
-	Deathdown.PushBack({});
-	Deathdown.PushBack({});
+	deathbackright.PushBack({ 580, 66, 54, 54 });
+	deathbackright.PushBack({ 635, 66, 54, 54 });
+	deathbackright.PushBack({ 690, 66, 54, 54 });
+	deathbackright.PushBack({ 745, 66, 54, 54 });
+	deathbackright.PushBack({ 800, 66, 54, 54 });
+	deathbackright.PushBack({ 855, 66, 54, 54 });
+	deathbackright.PushBack({ 910, 66, 54, 54 });
+	deathbackright.PushBack({ 965, 66, 54, 54 });
 
-	Deathright.PushBack({});
-	Deathright.PushBack({});
-	Deathright.PushBack({});
-	Deathright.PushBack({});
-	Deathright.PushBack({});
-	Deathright.PushBack({});
+	deathright.PushBack({ 580, 121, 54, 54 });
+	deathright.PushBack({ 635, 121, 54, 54 });
+	deathright.PushBack({ 690, 121, 54, 54 });
+	deathright.PushBack({ 745, 121, 54, 54 });
+	deathright.PushBack({ 800, 121, 54, 54 });
+	deathright.PushBack({ 855, 121, 54, 54 });
+	deathright.PushBack({ 965, 121, 54, 54 });
 
-	Deathleft.PushBack({});
-	Deathleft.PushBack({});
-	Deathleft.PushBack({});
-	Deathleft.PushBack({});
-	Deathleft.PushBack({});
-	Deathleft.PushBack({});
+	deathleft.PushBack({ 580, 121, 54, 54 }, true);
+	deathleft.PushBack({ 635, 121, 54, 54 }, true);
+	deathleft.PushBack({ 690, 121, 54, 54 }, true);
+	deathleft.PushBack({ 745, 121, 54, 54 }, true);
+	deathleft.PushBack({ 800, 121, 54, 54 }, true);
+	deathleft.PushBack({ 855, 121, 54, 54 }, true);
+	deathleft.PushBack({ 965, 121, 54, 54 }, true);
+	deathleft.speed = 0.1f;
 
-	Deathupright.PushBack({});
-	Deathupright.PushBack({});
-	Deathupright.PushBack({});
-	Deathupright.PushBack({});
-	Deathupright.PushBack({});
-	Deathupright.PushBack({});
+	deathfrontright.PushBack({ 580, 176, 54, 54 });
+	deathfrontright.PushBack({ 635, 176, 54, 54 });
+	deathfrontright.PushBack({ 690, 176, 54, 54 });
+	deathfrontright.PushBack({ 745, 176, 54, 54 });
+	deathfrontright.PushBack({ 800, 176, 54, 54 });
+	deathfrontright.PushBack({ 855, 176, 54, 54 });
+	deathfrontright.PushBack({ 910, 176, 54, 54 });
+	deathfrontright.PushBack({ 965, 176, 54, 54 });
 
-	Deathupleft.PushBack({});
-	Deathupleft.PushBack({});
-	Deathupleft.PushBack({});
-	Deathupleft.PushBack({});
-	Deathupleft.PushBack({});
-	Deathupleft.PushBack({});
-
-	Deathdownright.PushBack({});
-	Deathdownright.PushBack({});
-	Deathdownright.PushBack({});
-	Deathdownright.PushBack({});
-	Deathdownright.PushBack({});
-	Deathdownright.PushBack({});
-
-	Deathdownleft.PushBack({});
-	Deathdownleft.PushBack({});
-	Deathdownleft.PushBack({});
-	Deathdownleft.PushBack({});
-	Deathdownleft.PushBack({});
-	Deathdownleft.PushBack({});
+	deathfront.PushBack({ 580, 231, 54, 54 });
+	deathfront.PushBack({ 635, 231, 54, 54 });
+	deathfront.PushBack({ 690, 231, 54, 54 });
+	deathfront.PushBack({ 745, 231, 54, 54 });
+	deathfront.PushBack({ 800, 231, 54, 54 });
+	deathfront.PushBack({ 855, 231, 54, 54 });
+	deathfront.PushBack({ 910, 231, 54, 54 });
+	deathfront.PushBack({ 965, 231, 54, 54 });
 
 	//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win
 
@@ -922,30 +905,30 @@ Update_Status ModulePlayer::Update()
 		switch (moveDir)
 		{
 		case LEFT:
-			currentAnimation = &Deathleft;
+			currentAnimation = &deathleft;
 
 			break;
 		case RIGHT:
-			currentAnimation = &Deathright;
+			currentAnimation = &deathright;
 
 			break;
 		case DOWN:
-			currentAnimation = &Deathdown;
+			currentAnimation = &deathback;
 			break;
 		case UP:
-			currentAnimation = &Deathup;
+			currentAnimation = &deathfront;
 			break;
 		case DOWNLEFT:
-			currentAnimation = &Deathdownleft;
+			currentAnimation = &deathbackleft;
 			break;
 		case DOWNRIGHT:
-			currentAnimation = &Deathdownright;
+			currentAnimation = &deathbackright;
 			break;
 		case UPLEFT:
-			currentAnimation = &Deathupleft;
+			currentAnimation = &deathfrontleft;
 			break;
 		case UPRIGHT:
-			currentAnimation = &Deathupright;
+			currentAnimation = &deathfrontright;
 			break;
 		}
 

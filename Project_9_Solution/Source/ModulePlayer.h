@@ -8,6 +8,22 @@
 struct SDL_Texture;
 struct Collider;
 
+enum DIR
+{
+	NONE = -1,
+	LEFT,
+	RIGHT,
+	DOWN,
+	UP,
+	DOWNLEFT,
+	DOWNRIGHT,
+	UPLEFT,
+	UPRIGHT,
+
+
+	MAX
+};
+
 class ModulePlayer : public Module
 {
 public:
@@ -16,6 +32,22 @@ public:
 
 	// Destructor
 	~ModulePlayer();
+
+	enum DIR
+{
+	NONE = -1,
+	LEFT,
+	RIGHT,
+	DOWN,
+	UP,
+	DOWNLEFT,
+	DOWNRIGHT,
+	UPLEFT,
+	UPRIGHT,
+
+
+	MAX
+};
 
 	// Called when the module is activated
 	// Loads the necessary textures for the player
@@ -95,14 +127,14 @@ public:
 	Animation rightDownDodge;
 	Animation leftDownDodge;
 
-	Animation Deathup;
-	Animation Deathdown;
-	Animation Deathright;
-	Animation Deathleft;
-	Animation Deathupright;
-	Animation Deathupleft;
-	Animation Deathdownright;
-	Animation Deathdownleft;
+	Animation deathfront;
+	Animation deathback;
+	Animation deathright;
+	Animation deathleft;
+	Animation deathfrontright;
+	Animation deathfrontleft;
+	Animation deathbackright;
+	Animation deathbackleft;
 
 	Animation Win;
 
