@@ -84,6 +84,8 @@ public:
 	Animation downLeftAnimLeg;
 	Animation downRightAnimLeg;
 
+	Animation dissapear;
+
 	Animation upDodge;
 	Animation downDodge;
 	Animation leftDodge;

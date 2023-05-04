@@ -288,6 +288,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimUpLeftLeg.PushBack({ 183, 299, 33, 31 });
 	idleAnimLeftLeg.PushBack({ 216, 299, 33, 31 });
 	idleAnimDownLeftLeg.PushBack({ 249, 299, 33, 31 });
+
+	dissapear.PushBack({0,0,0,0});
 }
 
 ModulePlayer::~ModulePlayer()
@@ -642,7 +644,7 @@ Update_Status ModulePlayer::Update()
 	
 	}
 
-	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 20)
+	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 30)
 	{
 	
 		dodgeCoolDown = 0;
@@ -651,10 +653,11 @@ Update_Status ModulePlayer::Update()
 
 
 	////////////////////////////////////////////////DODGE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (dodgeCoolDown < 15)
+	if (dodgeCoolDown < 25)
 	{
 		collider->SetPos(position.x + 20000, position.y + 20000);
 		isDodging = true;
+
 		switch (moveDir)
 		{
 		case LEFT:
@@ -754,6 +757,12 @@ Update_Status ModulePlayer::Update()
 	leftLock = false;
 	downLock = false;
 	upLock = false;
+	
+	if (isDodging) 
+	{
+		legAnimation = &dissapear;
+	}
+
 
 	currentAnimation->Update();
 	legAnimation->Update();
