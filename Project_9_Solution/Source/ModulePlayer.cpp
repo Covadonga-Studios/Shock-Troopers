@@ -294,7 +294,6 @@ ModulePlayer::~ModulePlayer()
 {
 
 }
-
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
@@ -484,37 +483,37 @@ Update_Status ModulePlayer::Update()
 			switch (bulletDir)
 			{
 			case LEFT:
-				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x + 20, position.y, -5, 0, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case RIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y, 5, 0, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 5, 0, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWN:
-				App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 20, position.y, 0, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UP:
-				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 20, position.y, 0, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWNLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 20, position.y, -5, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -5, 5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWNRIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y, 5, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 5, 5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UPLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 20, position.y, -5, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x +4, position.y + 1, -5, -5, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
@@ -609,7 +608,7 @@ Update_Status ModulePlayer::Update()
 		App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 	{
-		switch (bulletDir)
+		switch (moveDir)
 		{
 		case LEFT:
 			legAnimation = &idleAnimLeftLeg;
@@ -639,6 +638,8 @@ Update_Status ModulePlayer::Update()
 			break;
 		}
 	
+
+	
 	}
 
 	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 20)
@@ -657,43 +658,80 @@ Update_Status ModulePlayer::Update()
 		switch (moveDir)
 		{
 		case LEFT:
-			currentAnimation = &leftDodge;
-			position.x -= speed * 3;
+			if (!leftLock) 
+			{
+				currentAnimation = &leftDodge;
+				position.x -= speed * 3;
+			}
+		
 			break;
 		case RIGHT:
-			currentAnimation = &rightDodge;
-			position.x += speed * 3;
+
+			if (!rightLock) 
+			{
+				currentAnimation = &rightDodge;
+				position.x += speed * 3;
+			}
+
 			break;
 		case DOWN:
-			currentAnimation = &downDodge;
-			position.y += speed * 3;
+			if (!downLock) 
+			{
+				currentAnimation = &downDodge;
+				position.y += speed * 3;
+			}
+
 			break;
 		case UP:
-			currentAnimation = &upDodge;
-			position.y -= speed * 2;
+
+			if (!upLock) 
+			{
+				currentAnimation = &upDodge;
+				position.y -= speed * 2;
+			}
+
 			break;
 		case DOWNLEFT:
-			currentAnimation = &leftDownDodge;
+
+			if (!downLock && !leftLock) 
+			{
+				currentAnimation = &leftDownDodge;
 				position.x -= speed * 3;
 				position.y += speed * 3;
+			}
+
 			
 			break;
 		case DOWNRIGHT:
-			currentAnimation = &rightDownDodge;
+
+			if (!downLock && !rightLock) 
+			{
+				currentAnimation = &rightDownDodge;
 				position.x += speed * 3;
 				position.y += speed * 3;
+			}
+		
 			
 			break;
 		case UPLEFT:
-			currentAnimation = &leftUpDodge;
+
+			if (!upLock && !leftLock) 
+			{
+				currentAnimation = &leftUpDodge;
 				position.x -= speed * 3;
 				position.y -= speed * 3;
+			}
+
 			
 			break;
 		case UPRIGHT:
-			currentAnimation = &rightUpDodge;
+
+			if (!upLock && !rightLock) 
+			{
+				currentAnimation = &rightUpDodge;
 				position.x += speed * 3;
 				position.y -= speed * 3;
+			}
 			
 			break;
 		}
@@ -764,7 +802,7 @@ Update_Status ModulePlayer::PostUpdate()
 	sprintf_s(scoreText, 10, "%7d", score);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	//App->fonts->BlitText(0, 0, scoreFont, scoreText);
+	App->fonts->BlitText(0, 0, scoreFont, scoreText);
 
 	App->fonts->BlitText(0 , 200, scoreFont, "this is just a font test");
 
@@ -773,7 +811,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	
+
 
 	if (c1->type == Collider::Type::UP_PLAYER && c2->type == Collider::Type::WALL)
 	{
@@ -793,10 +831,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		leftLock = true;
 	}
 
-	
-		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
-		{
-			score += 23;
-		}
-	
+
+	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
+	{
+		score += 23;
+	}
+
+	if (c1->type == Collider::Type::ENEMY_SHOT && c2->type == Collider::Type::PLAYER)
+	{
+		hp--;
+	}
 }

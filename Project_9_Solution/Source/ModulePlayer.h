@@ -121,6 +121,7 @@ public:
 	int offsetx;
 	int offsety;
 
+	int hp  = 10;
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
