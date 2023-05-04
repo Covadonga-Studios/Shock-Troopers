@@ -62,7 +62,6 @@ Update_Status SceneIntro::Update()
 	{
 		text = nullptr;
 	}
-	App->fonts->BlitText(100, 50, textFont, text);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

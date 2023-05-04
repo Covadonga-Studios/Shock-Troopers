@@ -133,6 +133,13 @@ public:
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 
+	//time
+	int timer = 99;
+	int timerFont = -1;
+	int timerCounter = 0;
+	char timerText[10] = { "\0" };
+	SDL_Rect timerRect;
+
 };
 
 #endif //!__MODULE_PLAYER_H__

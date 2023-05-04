@@ -320,7 +320,7 @@ bool ModulePlayer::Start()
 	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 16 }, Collider::Type::RIGHT_PLAYER, this);
 	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 16 }, Collider::Type::LEFT_PLAYER, this);
 	
-
+	timerRect = { 0, 0, 30, 8 };
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
@@ -329,7 +329,8 @@ bool ModulePlayer::Start()
 	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
 	scoreFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
-
+	char lookupTableTimer[] = { "0123456789" };
+	timerFont= App->fonts->Load("Assets/Fonts/TIME number.png", lookupTableTimer);
 	return ret;
 }
 
@@ -767,6 +768,21 @@ Update_Status ModulePlayer::Update()
 	currentAnimation->Update();
 	legAnimation->Update();
 
+
+	//Timer
+	timerCounter++;
+	if (timerCounter == 60)
+	{
+		timerCounter = 0;
+		if (timer != 0)
+		{
+			timer--;
+
+		}
+	}
+	
+
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -808,12 +824,23 @@ Update_Status ModulePlayer::PostUpdate()
 	}
 
 	// Draw UI (score) --------------------------------------
-	sprintf_s(scoreText, 10, "%7d", score);
+	sprintf_s(scoreText, 10, "%08d", score);
+
+	sprintf_s(timerText, 10, "%2d", timer);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(0, 0, scoreFont, scoreText);
+	App->fonts->BlitText(41, 8, scoreFont, scoreText);
+	App->fonts->BlitText(145, 17, timerFont, timerText);
+	
+	
+	
+	int x = App->render->camera.x;
+	int y = App->render->camera.y;
+	App->render->Blit(texture, x+138, y+8, &timerRect);
 
-	App->fonts->BlitText(0 , 200, scoreFont, "this is just a font test");
+
+	//App->fonts->BlitText(0 , 200, scoreFont, "this is just a font test");
+
 
 	return Update_Status::UPDATE_CONTINUE;
 }
