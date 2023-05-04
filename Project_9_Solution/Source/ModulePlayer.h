@@ -143,7 +143,8 @@ public:
 	int offsetx;
 	int offsety;
 
-	int hp  = 10;
+	int hp  = 15;
+	int maxHp = 16;
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
@@ -159,6 +160,17 @@ public:
 	int timerCounter = 0;
 	char timerText[10] = { "\0" };
 	SDL_Rect timerRect;
+
+	struct HPBarChunk
+	{
+
+		Animation hpFull;
+		Animation hpEmpty;
+		Animation* hpState = &hpFull;
+		SDL_Rect hpRect;
+	};
+
+	HPBarChunk HPBar[16];
 
 };
 

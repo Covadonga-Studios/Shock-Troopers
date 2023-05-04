@@ -25,7 +25,7 @@ bool InitialScreen::Start()
 	bool ret = true;
 
 	bgTexture2 = App->textures->Load("Assets/Sprites/Titlescreen definitiva.png");
-
+	bgTexture3 = App->textures->Load("Assets/Sprites/Second titlescreen.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -35,7 +35,8 @@ bool InitialScreen::Start()
 
 Update_Status InitialScreen::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	timerpass++;
+	if (timerpass > 120)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}
@@ -46,8 +47,15 @@ Update_Status InitialScreen::Update()
 // Update: draw background
 Update_Status InitialScreen::PostUpdate()
 {
+	if (timerpass < 90) 
+	{
+		App->render->Blit(bgTexture2, 0, 0);
+	}
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture2, 0, 0);
-
+	if (timerpass > 90) 
+	{
+		App->render->Blit(bgTexture3, 0, 0);
+	}
+	
 	return Update_Status::UPDATE_CONTINUE;
 }

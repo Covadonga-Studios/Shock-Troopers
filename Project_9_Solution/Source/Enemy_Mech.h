@@ -20,6 +20,7 @@ private:
 	Path path;
 
 	// Enemy animations
+	Animation enemydeath2;
 	Animation front, back;
 };
 

@@ -23,6 +23,7 @@ private:
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
 	Animation fly;
+	Animation enemydeath1;
 };
 
 #endif // __ENEMY_BROWNSHIP_H__

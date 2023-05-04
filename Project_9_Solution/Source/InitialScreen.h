@@ -29,8 +29,10 @@ public:
 	Update_Status PostUpdate() override;
 
 public:
+	int timerpass;
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture2 = nullptr;
+	SDL_Texture* bgTexture3 = nullptr;
 };
 
 #endif

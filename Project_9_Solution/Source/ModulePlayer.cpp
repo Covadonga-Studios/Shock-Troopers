@@ -408,6 +408,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Hurtdownleft.PushBack({});//mirror
 	Hurtdownleft.PushBack({});
 
+	for (int i = 0; i < maxHp; i++)
+	{
+		HPBar[i].hpFull.PushBack({ 31,0,8,8 });
+		HPBar[i].hpEmpty.PushBack({ 95,0,8,8 });
+	}
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -420,7 +426,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet definitiva.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 
@@ -911,8 +917,53 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	
+	if (hp <= 0) 
+	{
+		switch (moveDir)
+		{
+		case LEFT:
+			currentAnimation = &Deathleft;
 
+			break;
+		case RIGHT:
+			currentAnimation = &Deathright;
 
+			break;
+		case DOWN:
+			currentAnimation = &Deathdown;
+			break;
+		case UP:
+			currentAnimation = &Deathup;
+			break;
+		case DOWNLEFT:
+			currentAnimation = &Deathdownleft;
+			break;
+		case DOWNRIGHT:
+			currentAnimation = &Deathdownright;
+			break;
+		case UPLEFT:
+			currentAnimation = &Deathupleft;
+			break;
+		case UPRIGHT:
+			currentAnimation = &Deathupright;
+			break;
+		}
+
+		legAnimation = &dissapear;
+	}
+
+	for (int i = 0; i < maxHp; i++)
+	{
+		if (hp >= maxHp - i)
+		{
+			HPBar[i].hpState = &HPBar[i].hpFull;
+		}
+		else
+		{
+			HPBar[i].hpState = &HPBar[i].hpEmpty;
+
+		}
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -951,6 +1002,9 @@ Update_Status ModulePlayer::PostUpdate()
 			App->render->Blit(texture, position.x, position.y, &rect);
 		}
 
+		
+
+
 	}
 
 	// Draw UI (score) --------------------------------------
@@ -971,6 +1025,17 @@ Update_Status ModulePlayer::PostUpdate()
 
 	//App->fonts->BlitText(0 , 200, scoreFont, "this is just a font test");
 
+	for (int i = 0; i < maxHp; i++)
+	{
+		HPBar[i].hpRect = HPBar[i].hpState->GetCurrentFrame();
+		App->render->Blit(texture, x + 8, y + 64 + (8 * i), &HPBar[i].hpRect);
+	}
+
+
+	SDL_Rect hpRect = { 103, 0, 8, 8 };
+	App->render->Blit(texture, x + 8, y + 56, &hpRect);
+	hpRect = { 111, 0, 8, 8 };
+	App->render->Blit(texture, x + 8, y + 192, &hpRect);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -998,12 +1063,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 
-	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
+	if (c1->type == Collider::Type::ENEMY && c2->type == Collider::Type::PLAYER_SHOT)
 	{
 		score += 23;
 	}
 
-	if (c1->type == Collider::Type::ENEMY_SHOT && c2->type == Collider::Type::PLAYER)
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT)
 	{
 		hp--;
 	}
