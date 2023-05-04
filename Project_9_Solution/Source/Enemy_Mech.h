@@ -20,7 +20,8 @@ private:
 	Path path;
 	bool deleting;
 	// Enemy animations
-
+	Animation box;
+	Animation boxidle;
 	Animation front, back;
 };
 

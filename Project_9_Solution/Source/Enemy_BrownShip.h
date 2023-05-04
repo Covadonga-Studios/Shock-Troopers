@@ -20,7 +20,7 @@ private:
 	// And an animation for each step
 	Path path;
 	int shootCooldown = 0;
-	bool deleting;
+	bool deleting = false;
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
 	Animation fly;

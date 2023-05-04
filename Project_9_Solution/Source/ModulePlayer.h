@@ -169,6 +169,7 @@ public:
 	bool upRightLock;
 	bool downLeftLock;
 	bool downRightLock;
+	bool isDead = false;
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 

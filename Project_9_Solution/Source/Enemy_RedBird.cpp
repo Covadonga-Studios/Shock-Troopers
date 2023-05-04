@@ -33,7 +33,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 
 	currentAnim = &flyAnim;
 
-	collider = App->collisions->AddCollider({0, 0, 24, 24}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({0, 0, 43, 43}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 float Dircalculation2(float Dx, float Dy)
@@ -100,7 +100,7 @@ void Enemy_RedBird::Update()
 
 	if (pendingToDelete == true && deleting == false)
 	{
-		pendingToDelete = false;
+ 		pendingToDelete = false;
 		deleting = true;
 		currentAnim = &enemydeath2;
 	}
@@ -110,7 +110,7 @@ void Enemy_RedBird::Update()
 		pendingToDelete = true;
 	}
 
-	if (shootCooldown > 150)
+	if (shootCooldown > 233 && deleting == false)
 	{
 
 		
@@ -126,6 +126,7 @@ void Enemy_RedBird::Update()
 		shootCooldown = 0;
 	}
 
+	if (deleting == false)
 	switch (GetTargetDir2(dx, dy))
 	{
 	case LEFT:

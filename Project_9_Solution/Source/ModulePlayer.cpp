@@ -287,6 +287,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	deathback.PushBack({ 855, 11, 54, 54 });
 	deathback.PushBack({ 910, 11, 54, 54 });
 	deathback.PushBack({ 965, 11, 54, 54 });
+	deathback.speed = 0.1f;
+	deathback.loop = false;
 
 	deathbackright.PushBack({ 580, 66, 54, 54 });
 	deathbackright.PushBack({ 635, 66, 54, 54 });
@@ -296,6 +298,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	deathbackright.PushBack({ 855, 66, 54, 54 });
 	deathbackright.PushBack({ 910, 66, 54, 54 });
 	deathbackright.PushBack({ 965, 66, 54, 54 });
+	deathbackright.speed = 0.1f;
+	deathbackright.loop = false;
 
 	deathright.PushBack({ 580, 121, 54, 54 });
 	deathright.PushBack({ 635, 121, 54, 54 });
@@ -304,6 +308,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	deathright.PushBack({ 800, 121, 54, 54 });
 	deathright.PushBack({ 855, 121, 54, 54 });
 	deathright.PushBack({ 965, 121, 54, 54 });
+	deathright.speed = 0.1f;
+	deathright.loop = false;
 
 	deathleft.PushBack({ 580, 121, 54, 54 }, true);
 	deathleft.PushBack({ 635, 121, 54, 54 }, true);
@@ -313,6 +319,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	deathleft.PushBack({ 855, 121, 54, 54 }, true);
 	deathleft.PushBack({ 965, 121, 54, 54 }, true);
 	deathleft.speed = 0.1f;
+	deathleft.loop = false;
 
 	deathfrontright.PushBack({ 580, 176, 54, 54 });
 	deathfrontright.PushBack({ 635, 176, 54, 54 });
@@ -322,6 +329,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	deathfrontright.PushBack({ 855, 176, 54, 54 });
 	deathfrontright.PushBack({ 910, 176, 54, 54 });
 	deathfrontright.PushBack({ 965, 176, 54, 54 });
+	deathfrontright.speed = 0.1f;
+	deathfrontright.loop = false;
+
 
 	deathfront.PushBack({ 580, 231, 54, 54 });
 	deathfront.PushBack({ 635, 231, 54, 54 });
@@ -331,6 +341,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	deathfront.PushBack({ 855, 231, 54, 54 });
 	deathfront.PushBack({ 910, 231, 54, 54 });
 	deathfront.PushBack({ 965, 231, 54, 54 });
+	deathfront.speed = 0.1f;
+	deathfront.loop = false;
+
 
 	//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win
 
@@ -412,9 +425,14 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
+	isDead = false;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	hp = 15;
+	maxHp = 16;
+	score = 000;
+	timer = 99;
 
 	position.x = 150;
 	position.y = 120;
@@ -882,25 +900,7 @@ Update_Status ModulePlayer::Update()
 	upLock = false;
 	
 
-
-
-	currentAnimation->Update();
-	legAnimation->Update();
-
-
-	//Timer
-	timerCounter++;
-	if (timerCounter == 60)
-	{
-		timerCounter = 0;
-		if (timer != 0)
-		{
-			timer--;
-
-		}
-	}
-	
-	if (hp <= 0) 
+	if (hp <= 0)
 	{
 		switch (moveDir)
 		{
@@ -931,8 +931,30 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &deathfrontright;
 			break;
 		}
-
+		isDead = true;
 		legAnimation = &dissapear;
+	}
+
+	currentAnimation->Update();
+	legAnimation->Update();
+
+
+	//Timer
+	timerCounter++;
+	if (timerCounter == 60)
+	{
+		timerCounter = 0;
+		if (timer != 0)
+		{
+			timer--;
+
+		}
+	}
+	
+
+	if (isDead == true && currentAnimation->HasFinished() == true) 
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
 	}
 
 	for (int i = 0; i < maxHp; i++)

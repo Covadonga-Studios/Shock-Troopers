@@ -39,7 +39,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	
 
 	
-	collider = App->collisions->AddCollider({0, 0, 24, 24}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({0, 0, 43, 43}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 float Dircalculation(float Dx, float Dy) 
@@ -127,6 +127,8 @@ void Enemy_BrownShip::Update()
 		shootCooldown = 0;
 	}
 
+
+	if (deleting == false)
 	switch (GetTargetDir(dx,dy))
 	{
 	case LEFT:
