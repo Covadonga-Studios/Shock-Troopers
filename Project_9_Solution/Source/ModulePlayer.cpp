@@ -347,20 +347,20 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win//Win
 
-	Win.PushBack({ 1312, 324, 40, 56 });
-	Win.PushBack({ 1352, 324, 40, 56 });
-	Win.PushBack({ 1392, 324, 40, 56 });
-	Win.PushBack({ 1432, 324, 40, 56 });
-	Win.PushBack({ 1472, 324, 40, 56 });
-	Win.PushBack({ 1512, 324, 40, 56 });
-	Win.PushBack({ 1552, 324, 40, 56 });
-	Win.PushBack({ 1592, 324, 40, 56 });
-	Win.PushBack({ 1352, 380, 40, 56 });
-	Win.PushBack({ 1392, 380, 40, 56 });
-	Win.PushBack({ 1432, 380, 40, 56 });
-	Win.PushBack({ 1472, 380, 40, 56 });
-	Win.PushBack({ 1512, 380, 40, 56 });
-	Win.PushBack({ 1552, 380, 40, 56 });
+	Win.PushBack({ 1294, 311, 40, 56 });
+	Win.PushBack({ 1334, 311, 40, 56 });
+	Win.PushBack({ 1374, 311, 40, 56 });
+	Win.PushBack({ 1414, 311, 40, 56 });
+	Win.PushBack({ 1454, 311, 40, 56 });
+	Win.PushBack({ 1494, 311, 40, 56 });
+	Win.PushBack({ 1534, 311, 40, 56 });
+	Win.PushBack({ 1574, 311, 40, 56 });
+	Win.PushBack({ 1294, 367, 40, 56 });
+	Win.PushBack({ 1334, 367, 40, 56 });
+	Win.PushBack({ 1494, 367, 40, 56 });
+	Win.PushBack({ 1534, 367, 40, 56 });
+	Win.PushBack({ 1574, 367, 40, 56 });
+	Win.PushBack({ 1614, 367, 40, 56 });
 	Win.loop = false;
 	Win.speed = 0.1f;
 
