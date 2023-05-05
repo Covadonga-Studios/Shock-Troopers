@@ -115,10 +115,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimLeft.PushBack({ 50,45,36,34 });
 	idleAnimLeft.speed = 0.13f;
 
-	idleAnimRight.PushBack({ 14,45,36,34 }, true);
-	idleAnimRight.PushBack({ 50,45,36,34 }, true);
-	idleAnimRight.PushBack({ 86,45,36,34 }, true);
-	idleAnimRight.PushBack({ 50,45,36,34 }, true);
+	idleAnimRight.PushBack({ 14,11,36,34 });
+	idleAnimRight.PushBack({ 50,11,36,34 });
+	idleAnimRight.PushBack({ 86,11,36,34 });
+	idleAnimRight.PushBack({ 50,11,36,34 });
 	idleAnimRight.speed = 0.13f;
 
 	idleAnimDownLeft.PushBack({ 14,79,36,34 });
@@ -127,10 +127,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimDownLeft.PushBack({ 50,79,36,34 });
 	idleAnimDownLeft.speed = 0.13f;
 
-	idleAnimDownRight.PushBack({ 14,79,36,34 }, true);
-	idleAnimDownRight.PushBack({ 50,79,36,34 }, true);
-	idleAnimDownRight.PushBack({ 86,79,36,34 }, true);
-	idleAnimDownRight.PushBack({ 50,79,36,34 }, true);
+	idleAnimDownRight.PushBack({ 14,113,36,34 });
+	idleAnimDownRight.PushBack({ 50,113,36,34 });
+	idleAnimDownRight.PushBack({ 86,113,36,34 });
+	idleAnimDownRight.PushBack({ 50,113,36,34 });
 	idleAnimDownRight.speed = 0.13f;
 
 	idleAnimUpLeft.PushBack({ 14,249,36,34 });
@@ -139,10 +139,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimUpLeft.PushBack({ 50,249,36,34 });
 	idleAnimUpLeft.speed = 0.13f;
 
-	idleAnimUpRight.PushBack({ 14,249,36,34 }, true);
-	idleAnimUpRight.PushBack({ 50,249,36,34 }, true);
-	idleAnimUpRight.PushBack({ 86,249,36,34 }, true);
-	idleAnimUpRight.PushBack({ 50,249,36,34 }, true);
+	idleAnimUpRight.PushBack({ 14,215,36,34 });
+	idleAnimUpRight.PushBack({ 50,215,36,34 });
+	idleAnimUpRight.PushBack({ 86,215,36,34 });
+	idleAnimUpRight.PushBack({ 50,215,36,34 });
 	idleAnimUpRight.speed = 0.13f;
 
 	shootUpAnim.PushBack({ 123,146,36,34 });
