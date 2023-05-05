@@ -37,14 +37,14 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnimLeg.PushBack({ 249,454,33,31 });
 	upAnimLeg.speed = 0.1f;
 
-	leftAnimLeg.PushBack({ 18,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 51,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 84,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 117,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 150,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 183,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 216,392,33,31 }, true);
-	leftAnimLeg.PushBack({ 249,392,33,31 }, true);
+	leftAnimLeg.PushBack({ 18,516,33,31 });
+	leftAnimLeg.PushBack({ 51,516,33,31 });
+	leftAnimLeg.PushBack({ 84,516,33,31 });
+	leftAnimLeg.PushBack({ 117,516,33,31 });
+	leftAnimLeg.PushBack({ 150,516,33,31 });
+	leftAnimLeg.PushBack({ 183,516,33,31 });
+	leftAnimLeg.PushBack({ 216,516,33,31 });
+	leftAnimLeg.PushBack({ 249,516,33,31 });
 	leftAnimLeg.speed = 0.1f;
 
 	rightAnimLeg.PushBack({ 18,392,33,31 });
@@ -67,14 +67,14 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upRightAnimLeg.PushBack({ 249,423,33,31 });
 	upRightAnimLeg.speed = 0.1f;
 
-	upLeftAnimLeg.PushBack({ 18,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 51,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 84,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 117,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 150,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 183,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 216,423,33,31 }, true);
-	upLeftAnimLeg.PushBack({ 249,423,33,31 }, true);
+	upLeftAnimLeg.PushBack({ 18,485,33,31 });
+	upLeftAnimLeg.PushBack({ 51,485,33,31 });
+	upLeftAnimLeg.PushBack({ 84,485,33,31 });
+	upLeftAnimLeg.PushBack({ 117,485,33,31 });
+	upLeftAnimLeg.PushBack({ 150,485,33,31 });
+	upLeftAnimLeg.PushBack({ 183,485,33,31 });
+	upLeftAnimLeg.PushBack({ 216,485,33,31 });
+	upLeftAnimLeg.PushBack({ 249,485,33,31 });
 	upLeftAnimLeg.speed = 0.1f;
 
 	downRightAnimLeg.PushBack({ 18,361,33,31 });
@@ -87,14 +87,14 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downRightAnimLeg.PushBack({ 249,361,33,31 });
 	downRightAnimLeg.speed = 0.1f;
 
-	downLeftAnimLeg.PushBack({ 18,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 51,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 84,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 117,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 150,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 183,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 216,361,33,31 }, true);
-	downLeftAnimLeg.PushBack({ 249,361,33,31 }, true);
+	downLeftAnimLeg.PushBack({ 18,547,33,31 });
+	downLeftAnimLeg.PushBack({ 51,547,33,31 });
+	downLeftAnimLeg.PushBack({ 84,547,33,31 });
+	downLeftAnimLeg.PushBack({ 117,547,33,31 });
+	downLeftAnimLeg.PushBack({ 150,547,33,31 });
+	downLeftAnimLeg.PushBack({ 183,547,33,31 });
+	downLeftAnimLeg.PushBack({ 216,547,33,31 });
+	downLeftAnimLeg.PushBack({ 249,547,33,31 });
 	downLeftAnimLeg.speed = 0.1f;
 
 	idleAnimDown.PushBack({ 14,181,36,34 });
