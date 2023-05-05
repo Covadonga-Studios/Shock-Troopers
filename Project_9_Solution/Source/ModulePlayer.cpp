@@ -160,9 +160,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootLeftAnim.PushBack({ 194,45,36,34 });
 	shootLeftAnim.speed = 0.1f;
 
-	shootRightAnim.PushBack({ 123,43,36,34 }, true);
-	shootRightAnim.PushBack({ 158,44,36,34 }, true);
-	shootRightAnim.PushBack({ 194,44,36,34 }, true);
+	shootRightAnim.PushBack({ 123,13,36,34 });
+	shootRightAnim.PushBack({ 158,13,36,34 });
+	shootRightAnim.PushBack({ 194,13,36,34 });
 	shootRightAnim.speed = 0.1f;
 
 	shootDownLeftAnim.PushBack({ 122,79,36,34 });
@@ -170,9 +170,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootDownLeftAnim.PushBack({ 194,79,36,34 });
 	shootDownLeftAnim.speed = 0.1f;
 
-	shootDownRightAnim.PushBack({ 122,79,36,34 }, true);
-	shootDownRightAnim.PushBack({ 158,79,36,34 }, true);
-	shootDownRightAnim.PushBack({ 194,79,36,34 }, true);
+	shootDownRightAnim.PushBack({ 122,113,36,34 });
+	shootDownRightAnim.PushBack({ 158,113,36,34 });
+	shootDownRightAnim.PushBack({ 194,113,36,34 });
 	shootDownRightAnim.speed = 0.1f;
 
 	shootUpLeftAnim.PushBack({ 125,247,36,34 });
@@ -180,9 +180,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootUpLeftAnim.PushBack({ 196,247,36,34 });
 	shootUpLeftAnim.speed = 0.1f;
 
-	shootUpRightAnim.PushBack({ 123,247,36,34 }, true);
-	shootUpRightAnim.PushBack({ 158,247,36,34 }, true);
-	shootUpRightAnim.PushBack({ 194,247,36,34 }, true);
+	shootUpRightAnim.PushBack({ 123,215,36,34 });
+	shootUpRightAnim.PushBack({ 158,215,36,34 });
+	shootUpRightAnim.PushBack({ 194,215,36,34 });
 	shootUpRightAnim.speed = 0.1f;
 
 	///DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE////////DODGE/////
