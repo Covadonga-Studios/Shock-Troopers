@@ -1,4 +1,6 @@
 https://github.com/Covadonga-Studios/Shock-Troopers
+
+
 https://trello.com/b/Q7uvZQ3W/covadonga-studios
 
 PAU MORA
