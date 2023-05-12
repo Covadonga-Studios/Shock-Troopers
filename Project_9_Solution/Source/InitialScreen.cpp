@@ -36,9 +36,9 @@ bool InitialScreen::Start()
 Update_Status InitialScreen::Update()
 {
 	timerpass++;
-	if (timerpass > 120)
+	if (timerpass > 180)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 180);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -47,12 +47,12 @@ Update_Status InitialScreen::Update()
 // Update: draw background
 Update_Status InitialScreen::PostUpdate()
 {
-	if (timerpass < 90) 
+	if (timerpass < 180) 
 	{
 		App->render->Blit(bgTexture2, 0, 0);
 	}
 	// Draw everything --------------------------------------
-	if (timerpass > 90) 
+	if (timerpass > 180) 
 	{
 		App->render->Blit(bgTexture3, 0, 0);
 	}

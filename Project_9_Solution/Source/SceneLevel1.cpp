@@ -7,6 +7,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModuleUI.h"
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -51,6 +52,7 @@ bool SceneLevel1::Start()
 
 	App->player->Enable();
 	App->enemies->Enable();
+	App->UI->Enable();
 
 	return ret;
 }

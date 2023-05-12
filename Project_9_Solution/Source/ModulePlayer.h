@@ -178,33 +178,31 @@ public:
 	int offsety;
 
 	int hp  = 15;
-	int maxHp = 16;
+	int getHP() const
+	{
+		return hp;
+	}
+	const int maxHp = 16;
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
 
 	// Font score index
 	uint score = 000;
-	int scoreFont = -1;
-	char scoreText[10] = { "\0" };
+	uint getScore() const
+	{
+		return score;
+	}
 
 	//time
 	int timer = 99;
-	int timerFont = -1;
 	int timerCounter = 0;
-	char timerText[10] = { "\0" };
-	SDL_Rect timerRect;
-
-	struct HPBarChunk
+	int getTimer()const
 	{
+		return timer;
+	}
 
-		Animation hpFull;
-		Animation hpEmpty;
-		Animation* hpState = &hpFull;
-		SDL_Rect hpRect;
-	};
-
-	HPBarChunk HPBar[16];
+	
 
 };
 

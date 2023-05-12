@@ -406,11 +406,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Hurtdownleft.PushBack({});//mirror
 	Hurtdownleft.PushBack({});
 
-	for (int i = 0; i < maxHp; i++)
-	{
-		HPBar[i].hpFull.PushBack({ 31,0,8,8 });
-		HPBar[i].hpEmpty.PushBack({ 95,0,8,8 });
-	}
+	
 
 }
 
@@ -433,7 +429,6 @@ bool ModulePlayer::Start()
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 	hp = 15;
-	maxHp = 16;
 	score = 000;
 	timer = 99;
 
@@ -448,17 +443,13 @@ bool ModulePlayer::Start()
 	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 47 }, Collider::Type::RIGHT_PLAYER, this);
 	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 47 }, Collider::Type::LEFT_PLAYER, this);
 	
-	timerRect = { 0, 0, 30, 8 };
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
 	//scoreFont = App->fonts->Load("Assets/Fonts/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
 
 	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
-	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
-	scoreFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
-	char lookupTableTimer[] = { "0123456789" };
-	timerFont= App->fonts->Load("Assets/Fonts/TIME number.png", lookupTableTimer);
+	
 	return ret;
 }
 
@@ -967,7 +958,7 @@ Update_Status ModulePlayer::Update()
 
 	//Timer
 	timerCounter++;
-	if (timerCounter == 60)
+	if (timerCounter == 240)
 	{
 		timerCounter = 0;
 		if (timer != 0)
@@ -983,18 +974,7 @@ Update_Status ModulePlayer::Update()
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
 	}
 
-	for (int i = 0; i < maxHp; i++)
-	{
-		if (hp >= maxHp - i)
-		{
-			HPBar[i].hpState = &HPBar[i].hpFull;
-		}
-		else
-		{
-			HPBar[i].hpState = &HPBar[i].hpEmpty;
-
-		}
-	}
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -1038,35 +1018,6 @@ Update_Status ModulePlayer::PostUpdate()
 
 	}
 
-	// Draw UI (score) --------------------------------------
-	sprintf_s(scoreText, 10, "%08d", score);
-
-	sprintf_s(timerText, 10, "%2d", timer);
-
-	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(41, 8, scoreFont, scoreText);
-	App->fonts->BlitText(145, 17, timerFont, timerText);
-	
-	
-	
-	int x = App->render->camera.x;
-	int y = App->render->camera.y;
-	App->render->Blit(texture, x+138, y+8, &timerRect);
-
-
-	//App->fonts->BlitText(0 , 200, scoreFont, "this is just a font test");
-
-	for (int i = 0; i < maxHp; i++)
-	{
-		HPBar[i].hpRect = HPBar[i].hpState->GetCurrentFrame();
-		App->render->Blit(texture, x + 8, y + 64 + (8 * i), &HPBar[i].hpRect);
-	}
-
-
-	SDL_Rect hpRect = { 103, 0, 8, 8 };
-	App->render->Blit(texture, x + 8, y + 56, &hpRect);
-	hpRect = { 111, 0, 8, 8 };
-	App->render->Blit(texture, x + 8, y + 192, &hpRect);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
