@@ -428,7 +428,7 @@ bool ModulePlayer::Start()
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
-	hp = 15;
+	hp = 120;
 	score = 000;
 	timer = 99;
 

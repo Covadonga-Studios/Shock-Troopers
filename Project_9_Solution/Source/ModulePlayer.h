@@ -177,12 +177,12 @@ public:
 	int offsetx;
 	int offsety;
 
-	int hp  = 15;
+	int hp  = 120;
 	int getHP() const
 	{
 		return hp;
 	}
-	const int maxHp = 16;
+	const int maxHp = 128;
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;

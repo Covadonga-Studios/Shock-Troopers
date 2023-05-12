@@ -35,10 +35,9 @@ public:
 	SDL_Texture* texture = nullptr;
 
 	
-	//HP bar
+	//Create a chunk of 8 HP for the HP bar
 	struct HPBarChunk
 	{
-	
 		Animation hp8;
 		Animation hp7;
 		Animation hp6;
@@ -51,6 +50,7 @@ public:
 		Animation* hpState = nullptr;
 		SDL_Rect hpRect;
 	};
+	//the total HP bar is an array of 16 chunks
 	HPBarChunk HPBar[16];
 	SDL_Rect hpRectUp;
 	SDL_Rect hpRectDown;

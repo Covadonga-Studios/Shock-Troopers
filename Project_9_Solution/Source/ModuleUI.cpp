@@ -37,10 +37,17 @@ bool ModuleUI::Start()
 	timerFont = App->fonts->Load("Assets/Fonts/TIME number.png", lookupTableTimer);
 
 	timerRect = { 0, 0, 30, 8 };
-
+	//Initialise each sprite for each chunk
 	for (int i = 0; i < 16; i++)
 	{
 		HPBar[i].hp8.PushBack({ 31,0,8,8 });
+		HPBar[i].hp7.PushBack({ 39,0,8,8 });
+		HPBar[i].hp6.PushBack({ 47,0,8,8 });
+		HPBar[i].hp5.PushBack({ 55,0,8,8 });
+		HPBar[i].hp4.PushBack({ 63,0,8,8 });
+		HPBar[i].hp3.PushBack({ 71,0,8,8 });
+		HPBar[i].hp2.PushBack({ 79,0,8,8 });
+		HPBar[i].hp1.PushBack({ 87,0,8,8 });
 		HPBar[i].hp0.PushBack({ 95,0,8,8 });
 	}
 
@@ -59,17 +66,44 @@ Update_Status ModuleUI::Update()
 
 Update_Status ModuleUI::PostUpdate()
 {
-	
+	//Assign a sprite to each chunk based on current HP
 	for (int i = 0; i < 16; i++)
 	{
-		if (App->player->getHP() >= App->player->maxHp - i)
+		if (App->player->getHP() >= App->player->maxHp - (8 * i))
 		{
 			HPBar[i].hpState = &HPBar[i].hp8;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 1)
+		{
+			HPBar[i].hpState = &HPBar[i].hp7;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 2)
+		{
+			HPBar[i].hpState = &HPBar[i].hp6;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 3)
+		{
+			HPBar[i].hpState = &HPBar[i].hp5;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 4)
+		{
+			HPBar[i].hpState = &HPBar[i].hp4;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 5)
+		{
+			HPBar[i].hpState = &HPBar[i].hp3;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 6)
+		{
+			HPBar[i].hpState = &HPBar[i].hp2;
+		}
+		else if (App->player->getHP() == App->player->maxHp - (8 * i) - 7)
+		{
+			HPBar[i].hpState = &HPBar[i].hp1;
 		}
 		else
 		{
 			HPBar[i].hpState = &HPBar[i].hp0;
-
 		}
 	}
 
@@ -89,7 +123,7 @@ Update_Status ModuleUI::PostUpdate()
 
 
 
-
+	//Blit each HP chunk in order
 	for (int i = 0; i < 16; i++)
 	{
 		HPBar[i].hpRect = HPBar[i].hpState->GetCurrentFrame();
