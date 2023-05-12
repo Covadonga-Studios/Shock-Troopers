@@ -1,4 +1,10 @@
-﻿  InitialScreen.cpp
-C:\Users\noelcg\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\noelcg\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Project_9_Solution.vcxproj -> C:\Users\noelcg\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
+﻿  ModuleRender.cpp
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(129,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(130,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(165,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(166,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(203,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(204,34): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  Project_9_Solution.vcxproj -> C:\Users\sergigs6\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
