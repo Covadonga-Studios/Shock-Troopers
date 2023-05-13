@@ -40,6 +40,10 @@ Update_Status InitialScreen::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 180);
 	}
+	if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 1);
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
