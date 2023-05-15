@@ -157,6 +157,8 @@ void Enemy_BrownShip::Update()
 		break;
 	}
 
+	collider->SetPos(position.x, position.y);
+
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();

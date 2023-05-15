@@ -20,7 +20,7 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 
 	currentAnim = &boxidle;
 
-	collider = App->collisions->AddCollider({0, 0, 40, 40}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({20, 20, 28, 36}, Collider::Type::ENEMY, (Module*)App->enemies);
 	
 
 }
@@ -41,7 +41,7 @@ void Enemy_Mech::Update()
 		pendingToDelete = true;
 	}
 	 
-
+	collider->SetPos(position.x + 20, position.y + 24);
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
