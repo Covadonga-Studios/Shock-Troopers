@@ -471,10 +471,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPLEFT;
-		if (legAnimation != &upLeftAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNRIGHT || bulletDir == DOWN || bulletDir == RIGHT))
 		{
-			upLeftAnimLeg.Reset();
-			legAnimation = &upLeftAnimLeg;
+			if (legAnimation != &downRightAnimLeg)
+			{
+				downRightAnimLeg.Reset();
+				legAnimation = &downRightAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &upLeftAnimLeg)
+			{
+				upLeftAnimLeg.Reset();
+				legAnimation = &upLeftAnimLeg;
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
@@ -489,10 +499,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNLEFT;
-		if (legAnimation != &downLeftAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
-			downRightAnimLeg.Reset();
-			legAnimation = &downLeftAnimLeg;
+			if (legAnimation != &upRightAnimLeg)
+			{
+				upRightAnimLeg.Reset();
+				legAnimation = &upRightAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &downLeftAnimLeg)
+			{
+				downLeftAnimLeg.Reset();
+				legAnimation = &downLeftAnimLeg;
+			}
 		}
 		}
 	
@@ -508,10 +528,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNRIGHT;
-		if (legAnimation != &downRightAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
-			downRightAnimLeg.Reset();
-			legAnimation = &downRightAnimLeg;
+			if (legAnimation != &upLeftAnimLeg)
+			{
+				upLeftAnimLeg.Reset();
+				legAnimation = &upLeftAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &downRightAnimLeg)
+			{
+				downRightAnimLeg.Reset();
+				legAnimation = &downRightAnimLeg;
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
@@ -526,10 +556,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UPRIGHT;
-		if (legAnimation != &upRightAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNLEFT || bulletDir == DOWN || bulletDir == LEFT))
 		{
-			upRightAnimLeg.Reset();
-			legAnimation = &upRightAnimLeg;
+			if (legAnimation != &downLeftAnimLeg)
+			{
+				downLeftAnimLeg.Reset();
+				legAnimation = &downLeftAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &upRightAnimLeg)
+			{
+				upRightAnimLeg.Reset();
+				legAnimation = &upRightAnimLeg;
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
@@ -541,10 +581,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = LEFT;
-		if (legAnimation != &leftAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == RIGHT || bulletDir == UPRIGHT || bulletDir == DOWNRIGHT))
 		{
-			leftAnimLeg.Reset();
-			legAnimation = &leftAnimLeg;
+			if (legAnimation != &rightAnimLeg)
+			{
+				rightAnimLeg.Reset();
+				legAnimation = &rightAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &leftAnimLeg)
+			{
+				leftAnimLeg.Reset();
+				legAnimation = &leftAnimLeg;
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
@@ -553,10 +603,20 @@ Update_Status ModulePlayer::Update()
 	{
 		moveDir = RIGHT;
 		position.x += speed;
-		if (legAnimation != &rightAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT|| bulletDir == DOWNLEFT))
 		{
-			rightAnimLeg.Reset();
-			legAnimation = &rightAnimLeg;
+			if (legAnimation != &leftAnimLeg)
+			{
+				leftAnimLeg.Reset();
+				legAnimation = &leftAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &rightAnimLeg)
+			{
+				rightAnimLeg.Reset();
+				legAnimation = &rightAnimLeg;
+			}
 		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
@@ -572,10 +632,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWN;
-		if (legAnimation != &downAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
-			downAnimLeg.Reset();
-			legAnimation= &downAnimLeg;
+			if (legAnimation != &upAnimLeg)
+			{
+				upAnimLeg.Reset();
+				legAnimation = &upAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &downAnimLeg)
+			{
+				downAnimLeg.Reset();
+				legAnimation = &downAnimLeg;
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
@@ -587,10 +657,20 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = UP;
-		if (legAnimation != &upAnimLeg)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWN || bulletDir == DOWNRIGHT || bulletDir == DOWNLEFT))
 		{
-			upAnimLeg.Reset();
-			legAnimation = &upAnimLeg;
+			if (legAnimation != &downAnimLeg)
+			{
+				downAnimLeg.Reset();
+				legAnimation = &downAnimLeg;
+			}
+		}
+		else {
+			if (legAnimation != &upAnimLeg)
+			{
+				upAnimLeg.Reset();
+				legAnimation = &upAnimLeg;
+			}
 		}
 	}
 
