@@ -156,7 +156,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upLeftAnimLegReverse.PushBack({ 84,485,33,31 });
 	upLeftAnimLegReverse.PushBack({ 51,485,33,31 });
 	upLeftAnimLegReverse.PushBack({ 18,485,33,31 });
-	upLeftAnimLeg.speed = 0.1f;
+	upLeftAnimLegReverse.speed = 0.1f;
 
 	downRightAnimLegReverse.PushBack({ 249,361,33,31 });
 	downRightAnimLegReverse.PushBack({ 216,361,33,31 });
@@ -556,10 +556,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = UPLEFT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNRIGHT || bulletDir == DOWN || bulletDir == RIGHT))
 		{
-			if (legAnimation != &downRightAnimLeg)
+			if (legAnimation != &downRightAnimLegReverse)
 			{
-				downRightAnimLeg.Reset();
-				legAnimation = &downRightAnimLeg;
+				downRightAnimLegReverse.Reset();
+				legAnimation = &downRightAnimLegReverse;
 			}
 		}
 		else {
@@ -584,10 +584,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = DOWNLEFT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
-			if (legAnimation != &upRightAnimLeg)
+			if (legAnimation != &upRightAnimLegReverse)
 			{
-				upRightAnimLeg.Reset();
-				legAnimation = &upRightAnimLeg;
+				upRightAnimLegReverse.Reset();
+				legAnimation = &upRightAnimLegReverse;
 			}
 		}
 		else {
@@ -613,10 +613,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = DOWNRIGHT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
-			if (legAnimation != &upLeftAnimLeg)
+			if (legAnimation != &upLeftAnimLegReverse)
 			{
-				upLeftAnimLeg.Reset();
-				legAnimation = &upLeftAnimLeg;
+				upLeftAnimLegReverse.Reset();
+				legAnimation = &upLeftAnimLegReverse;
 			}
 		}
 		else {
@@ -641,10 +641,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = UPRIGHT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNLEFT || bulletDir == DOWN || bulletDir == LEFT))
 		{
-			if (legAnimation != &downLeftAnimLeg)
+			if (legAnimation != &downLeftAnimLegReverse)
 			{
-				downLeftAnimLeg.Reset();
-				legAnimation = &downLeftAnimLeg;
+				downLeftAnimLegReverse.Reset();
+				legAnimation = &downLeftAnimLegReverse;
 			}
 		}
 		else {
@@ -666,10 +666,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = LEFT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == RIGHT || bulletDir == UPRIGHT || bulletDir == DOWNRIGHT))
 		{
-			if (legAnimation != &rightAnimLeg)
+			if (legAnimation != &rightAnimLegReverse)
 			{
-				rightAnimLeg.Reset();
-				legAnimation = &rightAnimLeg;
+				rightAnimLegReverse.Reset();
+				legAnimation = &rightAnimLegReverse;
 			}
 		}
 		else {
@@ -688,10 +688,10 @@ Update_Status ModulePlayer::Update()
 		position.x += speed;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT|| bulletDir == DOWNLEFT))
 		{
-			if (legAnimation != &leftAnimLeg)
+			if (legAnimation != &leftAnimLegReverse)
 			{
-				leftAnimLeg.Reset();
-				legAnimation = &leftAnimLeg;
+				leftAnimLegReverse.Reset();
+				legAnimation = &leftAnimLegReverse;
 			}
 		}
 		else {
@@ -717,10 +717,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = DOWN;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
-			if (legAnimation != &upAnimLeg)
+			if (legAnimation != &upAnimLegReverse)
 			{
-				upAnimLeg.Reset();
-				legAnimation = &upAnimLeg;
+				upAnimLegReverse.Reset();
+				legAnimation = &upAnimLegReverse;
 			}
 		}
 		else {
@@ -742,10 +742,10 @@ Update_Status ModulePlayer::Update()
 			bulletDir = UP;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWN || bulletDir == DOWNRIGHT || bulletDir == DOWNLEFT))
 		{
-			if (legAnimation != &downAnimLeg)
+			if (legAnimation != &downAnimLegReverse)
 			{
-				downAnimLeg.Reset();
-				legAnimation = &downAnimLeg;
+				downAnimLegReverse.Reset();
+				legAnimation = &downAnimLegReverse;
 			}
 		}
 		else {
