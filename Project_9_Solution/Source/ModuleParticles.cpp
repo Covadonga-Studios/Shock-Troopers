@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.0");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -94,7 +94,9 @@ bool ModuleParticles::Start()
 	PlayerShotUpLeft.lifetime = 180;
 	PlayerShotUpLeft.anim.speed = 0.2f;
 
-
+	grenade.anim.PushBack({398, 580, 53,110 });
+	grenade.lifetime = 50;
+	grenade.anim.speed = 0.2f;
 
 	return true;
 }

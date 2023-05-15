@@ -1096,6 +1096,12 @@ Update_Status ModulePlayer::Update()
 		legAnimation = &dissapear;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN) 
+	{
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y, 0, 0, Collider::Type::PLAYER_SHOT);
+	}
+
+
 	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
 	{
 		winCon = true;

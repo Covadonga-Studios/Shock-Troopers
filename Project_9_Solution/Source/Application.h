@@ -69,6 +69,7 @@ public:
 	ModuleRender* render = nullptr;
 	ModuleUI* UI = nullptr;
 	
+
 };
 
 // Global var made extern for Application ---

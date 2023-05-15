@@ -67,7 +67,7 @@ public:
 	Particle PlayerShotLeft;
 	Particle PlayerShotUpLeft;
 
-
+	Particle grenade;
 
 private:
 	// Particles spritesheet loaded into an SDL Texture

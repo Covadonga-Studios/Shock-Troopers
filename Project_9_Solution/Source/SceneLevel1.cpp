@@ -53,6 +53,8 @@ bool SceneLevel1::Start()
 	App->player->Enable();
 	App->enemies->Enable();
 	App->UI->Enable();
+	App->collisions->Enable();
+	
 
 	return ret;
 }
@@ -69,6 +71,8 @@ Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	collider->SetPos(App->render->camera.x,App->render->camera.y + 215);
+	 
+
 	App->render->Blit(bgTexture, 0, -1820, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -79,6 +83,8 @@ bool SceneLevel1::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	App->UI->Disable();
+
+	App->collisions->Disable();
 
 	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)
 
