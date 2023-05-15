@@ -100,17 +100,19 @@ public:
 	Animation idleAnimDownLeg;
 
 	Animation shootUpAnim;
-	Animation upAnimLeg;
 	Animation shootDownAnim;
-	Animation downAnimLeg;
 	Animation shootRightAnim;
-	Animation rightAnimLeg;
 	Animation shootLeftAnim;
-	Animation leftAnimLeg;
 	Animation shootUpLeftAnim;
 	Animation shootUpRightAnim;
 	Animation shootDownLeftAnim;
 	Animation shootDownRightAnim;
+	
+
+	Animation upAnimLeg;
+	Animation downAnimLeg;
+	Animation rightAnimLeg;
+	Animation leftAnimLeg;
 	Animation upLeftAnimLeg;
 	Animation upRightAnimLeg;
 	Animation downLeftAnimLeg;
