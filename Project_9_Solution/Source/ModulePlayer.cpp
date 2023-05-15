@@ -97,6 +97,89 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downLeftAnimLeg.PushBack({ 249,547,33,31 });
 	downLeftAnimLeg.speed = 0.1f;
 
+	downAnimLegReverse.PushBack({ 249,330,33,31 });
+	downAnimLegReverse.PushBack({ 216,330,33,31 });
+	downAnimLegReverse.PushBack({ 183,330,33,31 });
+	downAnimLegReverse.PushBack({ 150,330,33,31 });
+	downAnimLegReverse.PushBack({ 117,330,33,31 });
+	downAnimLegReverse.PushBack({ 84,330,33,31 });
+	downAnimLegReverse.PushBack({ 51,330,33,31 });
+	downAnimLegReverse.PushBack({ 18,330,33,31 });
+	downAnimLegReverse.speed = 0.1f;
+
+	upAnimLegReverse.PushBack({ 249,454,33,31 });
+	upAnimLegReverse.PushBack({ 216,454,33,31 });
+	upAnimLegReverse.PushBack({ 183,454,33,31 });
+	upAnimLegReverse.PushBack({ 150,454,33,31 });
+	upAnimLegReverse.PushBack({ 117,454,33,31 });
+	upAnimLegReverse.PushBack({ 84,454,33,31 });
+	upAnimLegReverse.PushBack({ 51,454,33,31 });
+	upAnimLegReverse.PushBack({ 18,454,33,31 });
+	upAnimLegReverse.speed = 0.1f;
+
+
+	leftAnimLegReverse.PushBack({ 249,516,33,31 });
+	leftAnimLegReverse.PushBack({ 216,516,33,31 });
+	leftAnimLegReverse.PushBack({ 183,516,33,31 });
+	leftAnimLegReverse.PushBack({ 150,516,33,31 });
+	leftAnimLegReverse.PushBack({ 117,516,33,31 });
+	leftAnimLegReverse.PushBack({ 84,516,33,31 });
+	leftAnimLegReverse.PushBack({ 51,516,33,31 });
+	leftAnimLegReverse.PushBack({ 18,516,33,31 });
+	leftAnimLegReverse.speed = 0.1f;
+
+	rightAnimLegReverse.PushBack({ 249,392,33,31 });
+	rightAnimLegReverse.PushBack({ 216,392,33,31 });
+	rightAnimLegReverse.PushBack({ 183,392,33,31 });
+	rightAnimLegReverse.PushBack({ 150,392,33,31 });
+	rightAnimLegReverse.PushBack({ 117,392,33,31 });
+	rightAnimLegReverse.PushBack({ 84,392,33,31 });
+	rightAnimLegReverse.PushBack({ 51,392,33,31 });
+	rightAnimLegReverse.PushBack({ 18,392,33,31 });
+	rightAnimLegReverse.speed = 0.1f;
+
+	upRightAnimLegReverse.PushBack({ 249,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 216,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 183,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 150,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 117,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 84,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 51,423,33,31 });
+	upRightAnimLegReverse.PushBack({ 18,423,33,31 });
+	upRightAnimLegReverse.speed = 0.1f;
+
+	upLeftAnimLegReverse.PushBack({ 249,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 216,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 183,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 150,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 117,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 84,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 51,485,33,31 });
+	upLeftAnimLegReverse.PushBack({ 18,485,33,31 });
+	upLeftAnimLeg.speed = 0.1f;
+
+	downRightAnimLegReverse.PushBack({ 249,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 216,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 183,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 150,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 117,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 84,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 51,361,33,31 });
+	downRightAnimLegReverse.PushBack({ 18,361,33,31 });
+	downRightAnimLegReverse.speed = 0.1f;
+
+	downLeftAnimLegReverse.PushBack({ 249,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 216,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 183,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 150,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 117,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 84,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 51,547,33,31 });
+	downLeftAnimLegReverse.PushBack({ 18,547,33,31 });
+	downLeftAnimLegReverse.speed = 0.1f;
+
+
+
 	idleAnimDown.PushBack({ 14,181,36,34 });
 	idleAnimDown.PushBack({ 50,181,36,34 });
 	idleAnimDown.PushBack({ 86,181,36,34 });

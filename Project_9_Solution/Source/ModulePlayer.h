@@ -118,6 +118,16 @@ public:
 	Animation downLeftAnimLeg;
 	Animation downRightAnimLeg;
 
+	Animation upAnimLegReverse;
+	Animation downAnimLegReverse;
+	Animation rightAnimLegReverse;
+	Animation leftAnimLegReverse;
+	Animation upLeftAnimLegReverse;
+	Animation upRightAnimLegReverse;
+	Animation downLeftAnimLegReverse;
+	Animation downRightAnimLegReverse;
+
+
 	Animation dissapear;
 
 	Animation upDodge;
