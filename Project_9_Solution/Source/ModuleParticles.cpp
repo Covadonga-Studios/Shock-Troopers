@@ -122,7 +122,7 @@ bool ModuleParticles::Start()
 	grenade.anim.PushBack({ 610, 907, 53,110 });
 	grenade.anim.PushBack({ 663, 907, 53,110 });
 	grenade.anim.PushBack({ 716, 907, 53,110 });
-
+	grenade.immortal = true;
 	grenade.lifetime = 90;
 	grenade.anim.speed = 0.3f;
 	
@@ -167,11 +167,15 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		// Always destroy particles that collide
-		if (particles[i] != nullptr && particles[i]->collider == c1)
+		if (particles[i] != nullptr && particles[i]->collider == c1 && particles[i]->immortal == false)
 		{
-			particles[i]->pendingToDelete = true;
-			particles[i]->collider->pendingToDelete = true;
-			break;
+			
+			
+				particles[i]->pendingToDelete = true;
+				particles[i]->collider->pendingToDelete = true;
+				break;
+			
+		
 		}
 	}
 }
@@ -222,7 +226,7 @@ Update_Status ModuleParticles::PostUpdate()
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-Particle* ModuleParticles::AddParticle(const Particle& particle, int x, int y, float speedx, float speedy, Collider::Type colliderType, uint delay)
+Particle* ModuleParticles::AddParticle(const Particle& particle, int x, int y, float speedx, float speedy,bool immortal, Collider::Type colliderType, uint delay)
 {
 	Particle* newParticle = nullptr;
 
@@ -237,7 +241,7 @@ Particle* ModuleParticles::AddParticle(const Particle& particle, int x, int y, f
 			newParticle->position.y = y;
 			newParticle->speed.x = speedx;
 			newParticle->speed.y = speedy;
-
+			newParticle->immortal = immortal;
 			//Adding the particle's collider
 			if (colliderType != Collider::Type::NONE)
 				newParticle->collider = App->collisions->AddCollider(newParticle->anim.GetCurrentFrame(), colliderType, this);

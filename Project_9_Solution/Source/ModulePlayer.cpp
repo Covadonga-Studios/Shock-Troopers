@@ -765,42 +765,42 @@ Update_Status ModulePlayer::Update()
 			switch (bulletDir)
 			{
 			case LEFT:
-				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case RIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 5, 0, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 5, 0, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWN:
-				App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UP:
-				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, false,Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWNLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -5, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -5, 5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case DOWNRIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 5, 5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 5, 5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UPLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x +4, position.y + 1, -5, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x +4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
 			case UPRIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 5, -5, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 5, -5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
@@ -1095,17 +1095,85 @@ Update_Status ModulePlayer::Update()
 		
 		legAnimation = &dissapear;
 	}
-
+////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE
 	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN) 
 	{
-		App->particles->AddParticle(App->particles->grenade, position.x, position.y - 120, 0, 0, Collider::Type::PLAYER_SHOT, 10);
-		App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 130, 0, 0, Collider::Type::PLAYER_SHOT, 20);
-		App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 130, 0, 0, Collider::Type::PLAYER_SHOT, 20);
-		App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 140, 0, 0, Collider::Type::PLAYER_SHOT, 30);
-		App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 140, 0, 0, Collider::Type::PLAYER_SHOT, 30);
+
 	
+		switch (bulletDir)
+		{
+		case LEFT:
+		
+			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 50, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 80, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y - 100, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			break;
+		case RIGHT:
+			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 50 , 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x  +80, position.y -80, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x +80, position.y -30 , 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x +100 , position.y -100, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x +100, position.y , 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+
+			break;
+		case DOWN:
+			App->particles->AddParticle(App->particles->grenade, position.x, position.y + 20, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y + 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y + 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			break;
+		case UP:
+			App->particles->AddParticle(App->particles->grenade, position.x, position.y - 120, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 130, 0, 0,true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 130, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 140, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 140, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			break;
+		case DOWNLEFT:
+			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y , 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y +20 , 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x  - 60, position.y - 30 , 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x  - 80, position.y - 40 , 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+
+
+			break;
+		case DOWNRIGHT:
+			App->particles->AddParticle(App->particles->grenade, position.x + 40, position.y, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y + 20, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x + 80, position.y - 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+
+			break;
+		case UPLEFT:
+			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y - 109, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 20, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 109 + 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 109 + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			break;
+		case UPRIGHT:
+			App->particles->AddParticle(App->particles->grenade, position.x + 40, position.y - 109, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 109 - 20, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 109 + 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 109 - 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x + 80, position.y - 109 + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			break;
+		}
+
 	}
 
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
+	{
+		if (godMode == false)
+			godMode = true;
+		else
+			godMode = false;
+	}
 
 	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
 	{
@@ -1224,7 +1292,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		score += 23;
 	}
 
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT)
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT && godMode == false)
 	{
 		hp--;
 	}

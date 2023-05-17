@@ -36,7 +36,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	path.PushBack({-1.0f, 0.5f}, 80);
 	path.PushBack({-1.0f, 1.0f}, 80);
 
-	
+	hp = 1;
 
 	
 	collider = App->collisions->AddCollider({0, 0, 43, 43}, Collider::Type::ENEMY, (Module*)App->enemies);
@@ -91,7 +91,7 @@ int GetTargetDir(float dx,float dy)
 		}
 	}
 	
-
+	
 }
 
 void Enemy_BrownShip::Update()
@@ -123,7 +123,7 @@ void Enemy_BrownShip::Update()
 		float diry = (dy * 1.5f / dir);
 		
 		
-		App->particles->AddParticle(App->particles->laser, position.x, position.y,dirx, diry, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x, position.y,dirx, diry, false, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 

@@ -39,7 +39,7 @@ void Enemy::Draw()
 
 void Enemy::OnCollision(Collider* collider)
 {
-
+	hp--;
 	if (hp <= 0) 
 	{
 		App->audio->PlayFx(destroyedFx);
