@@ -14,7 +14,7 @@ Enemy::Enemy(int x, int y) : position(x, y)
 
 Enemy::~Enemy()
 {
-	if (collider != nullptr)
+	if (collider != nullptr && collider->pendingToDelete == false)
 		collider->pendingToDelete = true;
 }
 
@@ -40,9 +40,13 @@ void Enemy::Draw()
 void Enemy::OnCollision(Collider* collider)
 {
 
-	App->audio->PlayFx(destroyedFx);
+	if (hp <= 0) 
+	{
+		App->audio->PlayFx(destroyedFx);
 
-	SetToDelete();
+		SetToDelete();
+	}
+
 }
 
 void Enemy::SetToDelete()

@@ -21,7 +21,7 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 	currentAnim = &boxidle;
 
 	collider = App->collisions->AddCollider({20, 20, 28, 36}, Collider::Type::ENEMY, (Module*)App->enemies);
-	
+	hp = 1;
 
 }
 

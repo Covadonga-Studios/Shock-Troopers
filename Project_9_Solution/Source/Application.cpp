@@ -50,6 +50,7 @@ Application::Application()
 
 Application::~Application()
 {
+	App->collisions->Disable();
 	for (int i = 0; i < NUM_MODULES; ++i)
 	{
 		//Important: when deleting a pointer, set it to nullptr afterwards

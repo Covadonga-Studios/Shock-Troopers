@@ -1098,7 +1098,12 @@ Update_Status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN) 
 	{
-		App->particles->AddParticle(App->particles->grenade, position.x, position.y, 0, 0, Collider::Type::PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->grenade, position.x, position.y - 120, 0, 0, Collider::Type::PLAYER_SHOT, 10);
+		App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 130, 0, 0, Collider::Type::PLAYER_SHOT, 20);
+		App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 130, 0, 0, Collider::Type::PLAYER_SHOT, 20);
+		App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 140, 0, 0, Collider::Type::PLAYER_SHOT, 30);
+		App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 140, 0, 0, Collider::Type::PLAYER_SHOT, 30);
+	
 	}
 
 

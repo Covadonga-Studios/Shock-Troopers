@@ -180,6 +180,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
+			enemies[i]->hp;
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
 			break;
 		}

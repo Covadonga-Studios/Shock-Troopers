@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.0");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.2.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -95,8 +95,37 @@ bool ModuleParticles::Start()
 	PlayerShotUpLeft.anim.speed = 0.2f;
 
 	grenade.anim.PushBack({398, 580, 53,110 });
-	grenade.lifetime = 50;
-	grenade.anim.speed = 0.2f;
+	grenade.anim.PushBack({ 451, 580, 53,110 });
+	grenade.anim.PushBack({ 504, 580, 53,110 });
+	grenade.anim.PushBack({ 557, 580, 53,110 });
+	grenade.anim.PushBack({ 610, 580, 53,110 });
+	grenade.anim.PushBack({ 663, 580, 53,110 });
+	grenade.anim.PushBack({ 716, 580, 53,110 });
+	grenade.anim.PushBack({ 398, 689, 53,110 });
+	grenade.anim.PushBack({ 451, 689, 53,110 });
+	grenade.anim.PushBack({ 504, 689, 53,110 });
+	grenade.anim.PushBack({ 557, 689, 53,110 });
+	grenade.anim.PushBack({ 610, 689, 53,110 });
+	grenade.anim.PushBack({ 663, 689, 53,110 });
+	grenade.anim.PushBack({ 716, 689, 53,110 });
+	grenade.anim.PushBack({ 398, 798, 53,110 });
+	grenade.anim.PushBack({ 451, 798, 53,110 });
+	grenade.anim.PushBack({ 504, 798, 53,110 });
+	grenade.anim.PushBack({ 557, 798, 53,110 });
+	grenade.anim.PushBack({ 610, 798, 53,110 });
+	grenade.anim.PushBack({ 663, 798, 53,110 });
+	grenade.anim.PushBack({ 716, 798, 53,110 });
+	grenade.anim.PushBack({ 398, 907, 53,110 });
+	grenade.anim.PushBack({ 451, 907, 53,110 });
+	grenade.anim.PushBack({ 504, 907, 53,110 });
+	grenade.anim.PushBack({ 557, 907, 53,110 });
+	grenade.anim.PushBack({ 610, 907, 53,110 });
+	grenade.anim.PushBack({ 663, 907, 53,110 });
+	grenade.anim.PushBack({ 716, 907, 53,110 });
+
+	grenade.lifetime = 90;
+	grenade.anim.speed = 0.3f;
+	
 
 	return true;
 }
