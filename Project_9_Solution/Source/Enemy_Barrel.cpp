@@ -9,38 +9,35 @@ Enemy_Barrel::Enemy_Barrel(int x, int y) : Enemy(x, y)
 
 	currentAnim = &barrelidle;
 
-	barrelidle.PushBack({1509,547,63,122});
-	barrel.PushBack({ 1573,547,63,122 });
-	barrel.PushBack({ 1637,547,63,122 });
-	barrel.PushBack({ 1701,547,63,122 });
-	barrel.PushBack({ 1765,547,63,122 });
-	barrel.PushBack({ 1829,547,63,122 });
-	barrel.PushBack({ 1893,547,63,122 });
 
-	barrel.PushBack({ 1509,673,63,122 });
-	barrel.PushBack({ 1573,673,63,122 });
-	barrel.PushBack({ 1637,673,63,122 });
-	barrel.PushBack({ 1701,673,63,122 });
-	barrel.PushBack({ 1765,673,63,122 });
-	barrel.PushBack({ 1829,673,63,122 });
-	barrel.PushBack({ 1893,673,63,122 });
-
-	barrel.PushBack({ 1509,799,63,122 });
-	barrel.PushBack({ 1573,799,63,122 });
-	barrel.PushBack({ 1637,799,63,122 });
-	barrel.PushBack({ 1701,799,63,122 });
-
-	barrelloop.PushBack({ 1765,799,63,122 });
-	barrelloop.PushBack({ 1829,799,63,122 });
-	barrelloop.PushBack({ 1893,799,63,122 });
-	barrelloop.PushBack({ 1509,924,63,122 });
-	barrelloop.PushBack({ 1573,924,63,122 });
-	barrelloop.PushBack({ 1637,924,63,122 });
-	barrelloop.PushBack({ 1701,924,63,122 });
-	barrelloop.PushBack({ 1765,924,63,122 });
-
+	barrelidle.PushBack({ 1509,546,63,122 });
+	barrel.PushBack({ 1572,546,62,125 });
+	barrel.PushBack({ 1635,546,62,125 });
+	barrel.PushBack({ 1699,546,62,125 });
+	barrel.PushBack({ 1761,546,62,125 });
+	barrel.PushBack({ 1824,546,62,125 });
+	barrel.PushBack({ 1890,542,62,125 });
+	barrel.PushBack({ 1511,667,62,125});
+	barrel.PushBack({ 1573,667,62,125 });
+	barrel.PushBack({ 1699,667,62,125 });
+	barrel.PushBack({ 1761,667,62,125 });
+	barrel.PushBack({ 1822,667,62,125 });
+	barrel.PushBack({ 1885,667,62,125 });
+	barrel.PushBack({ 1509,799,62,125 });  //SEGUIR AQUÍ
+	barrel.PushBack({ 1573,799,62,125 });
+	barrel.PushBack({ 1637,799,62,125 });
+	barrel.PushBack({ 1701,799,62,125 });
+	barrelloop.PushBack({ 1765,799,62,125 });
+	barrelloop.PushBack({ 1829,799,62,125 });
+	barrelloop.PushBack({ 1893,799,62,125 });
+	barrelloop.PushBack({ 1509,924,62,125 });
+	barrelloop.PushBack({ 1573,924,62,125 });
+	barrelloop.PushBack({ 1637,924,62,125 });
+	barrelloop.PushBack({ 1701,924,62,125 });
+	barrelloop.PushBack({ 1765,924,62,125 });
+									  
 	barrel.speed = 0.3f;
-	barrelloop.speed = 0.2f;
+	barrelloop.speed = 0.3f;
 	barrel.loop = false;
 	barrelloop.loop = true;
 	collider = App->collisions->AddCollider({ 20, 80, 20, 30 }, Collider::Type::ENEMY, (Module*)App->enemies);
