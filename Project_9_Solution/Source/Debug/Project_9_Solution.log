@@ -1,19 +1,4 @@
-﻿  Enemy.cpp
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Enemy_Tank.cpp
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(38,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(92,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(93,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-  Generating Code...
-  Project_9_Solution.vcxproj -> C:\Users\paums3\My project\Shock-Troopers\Debug\Project_9_Solution.exe
+﻿  ModulePlayer.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe

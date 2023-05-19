@@ -449,46 +449,61 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt//Hurt
 
-	Hurtup.PushBack({ 1554, 19, 29, 56 });
-	Hurtup.PushBack({ 1583, 19, 29, 56 });
-	Hurtup.PushBack({ 1612, 19, 29, 56 });
-	Hurtup.PushBack({ 1641, 19, 29, 56 });
+	Hurtup.PushBack({ 1646, 19, 29, 56 });
+	Hurtup.PushBack({ 1675, 19, 29, 56 });
+	Hurtup.PushBack({ 1705, 19, 29, 56 });
+	Hurtup.PushBack({ 1733, 19, 29, 56 });
+	Hurtup.speed = 0.1f;
+	Hurtup.loop = false;
 
-	Hurtdown.PushBack({ 1554, 75, 29, 56 });
-	Hurtdown.PushBack({ 1583, 75, 29, 56 });
-	Hurtdown.PushBack({ 1612, 75, 29, 56 });
-	Hurtdown.PushBack({ 1641, 75, 29, 56 });
+	Hurtdown.PushBack({ 1646, 244, 29, 56 });
+	Hurtdown.PushBack({ 1675, 244, 29, 56 });
+	Hurtdown.PushBack({ 1705, 244, 29, 56 });
+	Hurtdown.PushBack({ 1733, 244, 29, 56 });
+	Hurtdown.speed = 0.1f;
+	Hurtdown.loop = false;
 
-	Hurtright.PushBack({ 1554, 131, 29, 56 });
-	Hurtright.PushBack({ 1583, 131, 29, 56 });
-	Hurtright.PushBack({ 1612, 131, 29, 56 });
-	Hurtright.PushBack({ 1641, 131, 29, 56 });
+	Hurtright.PushBack({ 1646, 131, 29, 56 });
+	Hurtright.PushBack({ 1675, 131, 29, 56 });
+	Hurtright.PushBack({ 1705, 131, 29, 56 });
+	Hurtright.PushBack({ 1733, 131, 29, 56 });
+	Hurtright.speed = 0.1f;
+	Hurtright.loop = false;
 
-	Hurtleft.PushBack({});
-	Hurtleft.PushBack({});//mirror
-	Hurtleft.PushBack({});
-	Hurtleft.PushBack({});
+	Hurtleft.PushBack({ 1646, 131, 29, 56 },true);
+	Hurtleft.PushBack({ 1675, 131, 29, 56 },true);//mirror
+	Hurtleft.PushBack({ 1705, 131, 29, 56 },true);
+	Hurtleft.PushBack({ 1733, 131, 29, 56 },true);
+	Hurtleft.speed = 0.1f;
+	Hurtleft.loop = false;
 
-	Hurtupleft.PushBack({});
-	Hurtupleft.PushBack({});//mirror
-	Hurtupleft.PushBack({});
-	Hurtupleft.PushBack({});
+	Hurtupleft.PushBack({ 1646,76, 29, 56 }, true);
+	Hurtupleft.PushBack({ 1675,76, 29, 56 }, true);//mirror
+	Hurtupleft.PushBack({ 1705,76, 29, 56 }, true);
+	Hurtupleft.PushBack({ 1733,76, 29, 56 }, true);
+	Hurtupleft.speed = 0.1f;
+	Hurtupleft.loop = false;
 
-	Hurtupright.PushBack({ 1554, 187, 29, 56 });
-	Hurtupright.PushBack({ 1583, 187, 29, 56 });
-	Hurtupright.PushBack({ 1612, 187, 29, 56 });
-	Hurtupright.PushBack({ 1641, 187, 29, 56 });
+	Hurtupright.PushBack({ 1646, 76, 29, 56 });
+	Hurtupright.PushBack({ 1675, 76, 29, 56 });
+	Hurtupright.PushBack({ 1705, 76, 29, 56 });
+	Hurtupright.PushBack({ 1733, 76, 29, 56 });
+	Hurtupright.speed = 0.1f;
+	Hurtupright.loop = false;
 
-	Hurtdownright.PushBack({ 1554, 243, 29, 56 });
-	Hurtdownright.PushBack({ 1583, 243, 29, 56 });
-	Hurtdownright.PushBack({ 1612, 243, 29, 56 });
-	Hurtdownright.PushBack({ 1641, 243, 29, 56 });
+	Hurtdownright.PushBack({ 1646, 188, 29, 56 });
+	Hurtdownright.PushBack({ 1675, 188, 29, 56 });
+	Hurtdownright.PushBack({ 1705, 188, 29, 56 });
+	Hurtdownright.PushBack({ 1733, 188, 29, 56 });
+	Hurtdownright.speed = 0.1f;
+	Hurtdownright.loop = false;
 
-	Hurtdownleft.PushBack({});
-	Hurtdownleft.PushBack({});
-	Hurtdownleft.PushBack({});//mirror
-	Hurtdownleft.PushBack({});
-
+	Hurtdownleft.PushBack({ 1646, 188, 29, 56 }, true);
+	Hurtdownleft.PushBack({ 1675, 188, 29, 56 }, true);
+	Hurtdownleft.PushBack({ 1705, 188, 29, 56 }, true);//mirror
+	Hurtdownleft.PushBack({ 1733, 188, 29, 56 }, true);
+	Hurtdownleft.speed = 0.1f;
+	Hurtdownleft.loop = false;
 
 
 }
@@ -503,7 +518,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.8.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 	isDead = false;
@@ -540,8 +555,11 @@ Update_Status ModulePlayer::Update()
 {
 	shootCoolDown++;
 	dodgeCoolDown++;
+	hurtDuration++;
 
+	
 	//////////////////MOVING//////////////////////////////MOVING//////////////////////////////MOVING//////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if (isHurt == false)
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
 		leftLock == false &&
@@ -770,7 +788,7 @@ Update_Status ModulePlayer::Update()
 
 
 	///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false && isHurt == false)
 	{
 		if (App->player->shootCoolDown > 5 && isDodging == false) {
 			switch (bulletDir)
@@ -821,7 +839,8 @@ Update_Status ModulePlayer::Update()
 
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT) {
+	if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT &&
+		isHurt == false) {
 		switch (moveDir)
 		{
 		case LEFT:
@@ -899,7 +918,8 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE &&
-		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE &&
+		isHurt == false)
 	{
 		switch (moveDir)
 		{
@@ -935,7 +955,7 @@ Update_Status ModulePlayer::Update()
 
 	}
 
-	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 30)
+	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 30 && isHurt == false)
 	{
 
 		dodgeCoolDown = 0;
@@ -944,7 +964,7 @@ Update_Status ModulePlayer::Update()
 
 
 	////////////////////////////////////////////////DODGE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (dodgeCoolDown < 25)
+	if (dodgeCoolDown < 25 && rightLock == false && leftLock == false && downLock == false && upLock == false)
 	{
 
 		collider->SetPos(position.x + 20000, position.y + 20000);
@@ -1044,7 +1064,7 @@ Update_Status ModulePlayer::Update()
 	colliderDown->SetPos(position.x + 3, position.y + 45);
 	colliderRight->SetPos(position.x + 30, position.y);
 	colliderLeft->SetPos(position.x, position.y);
-
+	
 	if (isDodging && rightLock == false && leftLock == false && downLock == false && upLock == false)
 	{
 		legAnimation = &dissapear;
@@ -1205,6 +1225,56 @@ Update_Status ModulePlayer::Update()
 		hp = 0;
 	}
 
+	if (isHurt == true) 
+	{
+		switch (moveDir)
+		{
+		case LEFT:
+			currentAnimation = &Hurtleft;
+
+			break;
+		case RIGHT:
+			currentAnimation = &Hurtright;
+
+			break;
+		case DOWN:
+			currentAnimation = &Hurtdown;
+
+			break;
+		case UP:
+			currentAnimation = &Hurtup;
+
+			break;
+		case DOWNLEFT:
+			currentAnimation = &Hurtdownleft;
+
+			break;
+		case DOWNRIGHT:
+			currentAnimation = &Hurtdownright;
+			break;
+		case UPLEFT:
+			currentAnimation = &Hurtupleft;
+
+			break;
+		case UPRIGHT:
+			currentAnimation = &Hurtupright;
+			break;
+		}
+		if (hurtDuration > 45) 
+			{
+				isHurt = false;
+				Hurtleft.Reset();
+				Hurtright.Reset();
+				Hurtdown.Reset();
+				Hurtup.Reset();
+				Hurtdownleft.Reset();
+				Hurtdownright.Reset();
+				Hurtupleft.Reset();
+				Hurtupright.Reset();
+			} 
+		legAnimation = &dissapear;
+		
+	}
 	currentAnimation->Update();
 	legAnimation->Update();
 
@@ -1282,19 +1352,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::UP_PLAYER && c2->type == Collider::Type::WALL)
 	{
 		upLock = true;
+		
 	}
 
 	if (c1->type == Collider::Type::DOWN_PLAYER && c2->type == Collider::Type::WALL)
 	{
 		downLock = true;
+
 	}
 	if (c1->type == Collider::Type::RIGHT_PLAYER && c2->type == Collider::Type::WALL)
 	{
 		rightLock = true;
+		
 	}
 	if (c1->type == Collider::Type::LEFT_PLAYER && c2->type == Collider::Type::WALL)
 	{
 		leftLock = true;
+		
 	}
 
 
@@ -1303,8 +1377,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		score += 23;
 	}
 
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT && godMode == false)
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT && godMode == false && isHurt == false)
 	{
 		hp--;
+		isHurt = true;
+		hurtDuration = 0;
 	}
 }

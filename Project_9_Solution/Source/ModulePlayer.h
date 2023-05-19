@@ -19,7 +19,10 @@ enum DIR
 	DOWNRIGHT,
 	UPLEFT,
 	UPRIGHT,
-
+	UPRIGHTDIAGONAL,
+	UPLEFTDIAGONAL,
+	DOWNRIGHTDIAGONAL,
+	DOWNLEFTDIAGONAL,
 
 	MAX
 };
@@ -190,7 +193,8 @@ public:
 	bool destroyed = false;
 	bool winCon = false;
 	bool godMode = false;
-
+	bool isHurt = false;
+	int hurtDuration = 0;
 	int offsetx;
 	int offsety;
 
