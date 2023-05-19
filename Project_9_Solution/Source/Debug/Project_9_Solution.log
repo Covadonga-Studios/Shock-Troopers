@@ -1,4 +1,4 @@
-﻿  Enemy_Barrel.cpp
-C:\Users\Ivo\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\Ivo\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Project_9_Solution.vcxproj -> C:\Users\Ivo\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
+﻿  Enemy_Tank.cpp
+C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Project_9_Solution.vcxproj -> C:\Users\paums3\My project\Shock-Troopers\Debug\Project_9_Solution.exe

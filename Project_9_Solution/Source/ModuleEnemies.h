@@ -12,6 +12,7 @@ enum class Enemy_Type
 	BROWNSHIP,
 	MECH,
 	BARREL,
+	TANK,
 };
 
 struct EnemySpawnpoint

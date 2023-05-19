@@ -11,6 +11,7 @@
 #include "Enemy_BrownShip.h"
 #include "Enemy_Mech.h"
 #include "Enemy_Barrel.h"
+#include "Enemy_Tank.h"
 
 #define SPAWN_MARGIN 50
 
@@ -28,7 +29,7 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.5.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.7.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;
@@ -169,6 +170,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::BARREL:
 					enemies[i] = new Enemy_Barrel(info.x, info.y);
+					break;
+				case Enemy_Type::TANK:
+					enemies[i] = new Enemy_Tank(info.x, info.y);
 					break;
 
 			}

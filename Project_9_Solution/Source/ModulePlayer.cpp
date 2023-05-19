@@ -503,7 +503,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.7.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 	isDead = false;
