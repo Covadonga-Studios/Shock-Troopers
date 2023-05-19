@@ -358,7 +358,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnimLeftLeg.PushBack({ 216, 299, 33, 31 });
 	idleAnimDownLeftLeg.PushBack({ 249, 299, 33, 31 });
 
-	dissapear.PushBack({0,0,0,0});
+	dissapear.PushBack({ 0,0,0,0 });
 
 	//Death//Death//Death//Death//Death//Death//Death//Death//Death
 
@@ -489,7 +489,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Hurtdownleft.PushBack({});//mirror
 	Hurtdownleft.PushBack({});
 
-	
+
 
 }
 
@@ -503,7 +503,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.7.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 	isDead = false;
@@ -521,18 +521,18 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 47 }, Collider::Type::PLAYER, this);
-	colliderUp = App->collisions->AddCollider({ position.x, position.y -3, 28, 3 }, Collider::Type::UP_PLAYER, this);
+	colliderUp = App->collisions->AddCollider({ position.x, position.y - 3, 28, 3 }, Collider::Type::UP_PLAYER, this);
 	colliderDown = App->collisions->AddCollider({ position.x, position.y + 47, 28, 3 }, Collider::Type::DOWN_PLAYER, this);
 	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 47 }, Collider::Type::RIGHT_PLAYER, this);
 	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 47 }, Collider::Type::LEFT_PLAYER, this);
-	
+
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
 	//scoreFont = App->fonts->Load("Assets/Fonts/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
 
 	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
-	
+
 	return ret;
 }
 
@@ -541,8 +541,8 @@ Update_Status ModulePlayer::Update()
 	shootCoolDown++;
 	dodgeCoolDown++;
 
-//////////////////MOVING//////////////////////////////MOVING//////////////////////////////MOVING//////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
+	//////////////////MOVING//////////////////////////////MOVING//////////////////////////////MOVING//////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
 		leftLock == false &&
 		upLock == false &&
@@ -570,19 +570,19 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
-			 App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && 
-			 leftLock == false &&
-			 downLock == false &&
-			 isDodging == false)
-		{
-			moveDir = DOWNLEFT;
-			position.x -= speed;
-			position.y += speed;
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
+		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+		leftLock == false &&
+		downLock == false &&
+		isDodging == false)
+	{
+		moveDir = DOWNLEFT;
+		position.x -= speed;
+		position.y += speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNLEFT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT))
 		{
 			if (legAnimation != &upRightAnimLegReverse)
 			{
@@ -590,6 +590,10 @@ Update_Status ModulePlayer::Update()
 				legAnimation = &upRightAnimLegReverse;
 			}
 		}
+		else if (bulletDir == UPLEFT) {
+			legAnimation = &downLeftAnimLeg;
+		}
+
 		else {
 			if (legAnimation != &downLeftAnimLeg)
 			{
@@ -597,21 +601,21 @@ Update_Status ModulePlayer::Update()
 				legAnimation = &downLeftAnimLeg;
 			}
 		}
-		}
-	
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
-			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			 rightLock == false &&
-			 downLock == false &&
-			 isDodging == false)
-		 {
+	}
+
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
+		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
+		rightLock == false &&
+		downLock == false &&
+		isDodging == false)
+	{
 		moveDir = DOWNRIGHT;
 		position.x += speed;
 		position.y += speed;
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = DOWNRIGHT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPLEFT))
 		{
 			if (legAnimation != &upLeftAnimLegReverse)
 			{
@@ -619,19 +623,23 @@ Update_Status ModulePlayer::Update()
 				legAnimation = &upLeftAnimLegReverse;
 			}
 		}
+		else if (bulletDir == UPRIGHT) {
+			if (bulletDir == UPRIGHT) {
+				legAnimation = &downRightAnimLeg;
+			}
+		}
 		else {
 			if (legAnimation != &downRightAnimLeg)
 			{
-				downRightAnimLeg.Reset();
 				legAnimation = &downRightAnimLeg;
 			}
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && 
-			 App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			 rightLock == false && 
-			 upLock == false &&  
-			 isDodging == false)
+	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
+		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
+		rightLock == false &&
+		upLock == false &&
+		isDodging == false)
 	{
 		moveDir = UPRIGHT;
 		position.x += speed;
@@ -656,8 +664,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-			 leftLock == false &&
-			 isDodging == false)
+		leftLock == false &&
+		isDodging == false)
 	{
 		moveDir = LEFT;
 		position.x -= speed;
@@ -680,13 +688,13 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && 
-			 rightLock == false &&
-			 isDodging == false)
+	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
+		rightLock == false &&
+		isDodging == false)
 	{
 		moveDir = RIGHT;
 		position.x += speed;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT|| bulletDir == DOWNLEFT))
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT || bulletDir == DOWNLEFT))
 		{
 			if (legAnimation != &leftAnimLegReverse)
 			{
@@ -704,11 +712,11 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			bulletDir = RIGHT;
-		
+
 	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && 
-			 downLock == false &&
-			 isDodging == false)
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
+		downLock == false &&
+		isDodging == false)
 	{
 		moveDir = DOWN;
 		position.y += speed;
@@ -732,8 +740,8 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
-			 upLock == false &&
-			 isDodging == false)
+		upLock == false &&
+		isDodging == false)
 	{
 		moveDir = UP;
 		position.y -= speed;
@@ -756,9 +764,12 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 	}
+	else if ((App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE || App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE || App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE || App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) && (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)) {
+		moveDir = bulletDir;
+	}
 
 
-///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false)
 	{
 		if (App->player->shootCoolDown > 5 && isDodging == false) {
@@ -780,7 +791,7 @@ Update_Status ModulePlayer::Update()
 				shootCoolDown = 0;
 				break;
 			case UP:
-				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, false,Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
@@ -795,7 +806,7 @@ Update_Status ModulePlayer::Update()
 				shootCoolDown = 0;
 				break;
 			case UPLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x +4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
@@ -850,7 +861,7 @@ Update_Status ModulePlayer::Update()
 			break;
 		}
 	}
-	else 
+	else
 	{
 		switch (bulletDir)
 		{
@@ -861,7 +872,7 @@ Update_Status ModulePlayer::Update()
 			break;
 		case RIGHT:
 			currentAnimation = &shootRightAnim;
-			offsetx = -4;			
+			offsetx = -4;
 			break;
 		case DOWN:
 			currentAnimation = &shootDownAnim;
@@ -879,12 +890,12 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &shootUpLeftAnim;
 			break;
 		case UPRIGHT:
-			currentAnimation = &shootUpRightAnim;		
+			currentAnimation = &shootUpRightAnim;
 			break;
 		}
 	}
 	// If no up/down movement detected, set the current animation back to idle
-	
+
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE &&
 		App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE &&
@@ -894,7 +905,7 @@ Update_Status ModulePlayer::Update()
 		{
 		case LEFT:
 			legAnimation = &idleAnimLeftLeg;
-			
+
 			break;
 		case RIGHT:
 			legAnimation = &idleAnimRightLeg;
@@ -919,14 +930,14 @@ Update_Status ModulePlayer::Update()
 			legAnimation = &idleAnimUpRightLeg;
 			break;
 		}
-	
 
-	
+
+
 	}
 
 	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 30)
 	{
-	
+
 		dodgeCoolDown = 0;
 
 	}
@@ -942,16 +953,16 @@ Update_Status ModulePlayer::Update()
 		switch (moveDir)
 		{
 		case LEFT:
-			if (!leftLock) 
+			if (!leftLock)
 			{
 				currentAnimation = &leftDodge;
 				position.x -= speed * 3;
 			}
-		
+
 			break;
 		case RIGHT:
 
-			if (!rightLock) 
+			if (!rightLock)
 			{
 				currentAnimation = &rightDodge;
 				position.x += speed * 3;
@@ -959,7 +970,7 @@ Update_Status ModulePlayer::Update()
 
 			break;
 		case DOWN:
-			if (!downLock) 
+			if (!downLock)
 			{
 				currentAnimation = &downDodge;
 				position.y += speed * 3;
@@ -968,7 +979,7 @@ Update_Status ModulePlayer::Update()
 			break;
 		case UP:
 
-			if (!upLock) 
+			if (!upLock)
 			{
 				currentAnimation = &upDodge;
 				position.y -= speed * 3;
@@ -977,46 +988,46 @@ Update_Status ModulePlayer::Update()
 			break;
 		case DOWNLEFT:
 
-			if (!downLock && !leftLock) 
+			if (!downLock && !leftLock)
 			{
 				currentAnimation = &leftDownDodge;
 				position.x -= speed * 2;
 				position.y += speed * 2;
 			}
 
-			
+
 			break;
 		case DOWNRIGHT:
 
-			if (!downLock && !rightLock) 
+			if (!downLock && !rightLock)
 			{
 				currentAnimation = &rightDownDodge;
 				position.x += speed * 2;
 				position.y += speed * 2;
 			}
-		
-			
+
+
 			break;
 		case UPLEFT:
 
-			if (!upLock && !leftLock) 
+			if (!upLock && !leftLock)
 			{
 				currentAnimation = &leftUpDodge;
 				position.x -= speed * 2;
 				position.y -= speed * 2;
 			}
 
-			
+
 			break;
 		case UPRIGHT:
 
-			if (!upLock && !rightLock) 
+			if (!upLock && !rightLock)
 			{
 				currentAnimation = &rightUpDodge;
 				position.x += speed * 2;
 				position.y -= speed * 2;
 			}
-			
+
 			break;
 		}
 		shootCoolDown = 0;
@@ -1029,9 +1040,9 @@ Update_Status ModulePlayer::Update()
 		isDodging = false;
 	}
 
-	colliderUp->SetPos(position.x+3, position.y - 3);
-	colliderDown->SetPos(position.x +3 , position.y + 45);
-	colliderRight->SetPos(position.x + 30 , position.y );
+	colliderUp->SetPos(position.x + 3, position.y - 3);
+	colliderDown->SetPos(position.x + 3, position.y + 45);
+	colliderRight->SetPos(position.x + 30, position.y);
 	colliderLeft->SetPos(position.x, position.y);
 
 	if (isDodging && rightLock == false && leftLock == false && downLock == false && upLock == false)
@@ -1039,24 +1050,24 @@ Update_Status ModulePlayer::Update()
 		legAnimation = &dissapear;
 	}
 
-	if (!isDodging) 
+	if (!isDodging)
 	{
-		 upDodge.Reset();
-		 downDodge.Reset();
-		 leftDodge.Reset();
-		 rightDodge.Reset();
-		 rightUpDodge.Reset();
-		 leftUpDodge.Reset();
-		 rightDownDodge.Reset();
-		 leftDownDodge.Reset();
+		upDodge.Reset();
+		downDodge.Reset();
+		leftDodge.Reset();
+		rightDodge.Reset();
+		rightUpDodge.Reset();
+		leftUpDodge.Reset();
+		rightDownDodge.Reset();
+		leftDownDodge.Reset();
 	}
 
 	rightLock = false;
 	leftLock = false;
 	downLock = false;
 	upLock = false;
-	
-	if (hp <= 0) 
+
+	if (hp <= 0)
 	{
 		isDead = true;
 	}
@@ -1092,18 +1103,18 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &deathfrontright;
 			break;
 		}
-		
+
 		legAnimation = &dissapear;
 	}
-////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE
-	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN) 
+	////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE
+	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN)
 	{
 
-	
+
 		switch (bulletDir)
 		{
 		case LEFT:
-		
+
 			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 50, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 80, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
@@ -1111,11 +1122,11 @@ Update_Status ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
 			break;
 		case RIGHT:
-			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 50 , 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
-			App->particles->AddParticle(App->particles->grenade, position.x  +80, position.y -80, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
-			App->particles->AddParticle(App->particles->grenade, position.x +80, position.y -30 , 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
-			App->particles->AddParticle(App->particles->grenade, position.x +100 , position.y -100, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
-			App->particles->AddParticle(App->particles->grenade, position.x +100, position.y , 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 50, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x + 80, position.y - 80, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 80, position.y - 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 100, position.y - 100, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x + 100, position.y, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
 
 			break;
 		case DOWN:
@@ -1127,17 +1138,17 @@ Update_Status ModulePlayer::Update()
 			break;
 		case UP:
 			App->particles->AddParticle(App->particles->grenade, position.x, position.y - 120, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
-			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 130, 0, 0,true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 130, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 130, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 140, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
 			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 140, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
 			break;
 		case DOWNLEFT:
-			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y , 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
-			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y +20 , 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
-			App->particles->AddParticle(App->particles->grenade, position.x  - 60, position.y - 30 , 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y + 20, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
-			App->particles->AddParticle(App->particles->grenade, position.x  - 80, position.y - 40 , 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
 
 
 			break;
@@ -1180,11 +1191,11 @@ Update_Status ModulePlayer::Update()
 		winCon = true;
 	}
 
-	if (winCon == true) 
+	if (winCon == true)
 	{
 		currentAnimation = &Win;
 		legAnimation = &dissapear;
-		if (currentAnimation->HasFinished()) 
+		if (currentAnimation->HasFinished())
 		{
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
 		}
@@ -1209,14 +1220,14 @@ Update_Status ModulePlayer::Update()
 
 		}
 	}
-	
 
-	if (isDead == true && currentAnimation->HasFinished() == true) 
+
+	if (isDead == true && currentAnimation->HasFinished() == true)
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
 	}
 
-	
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -1230,32 +1241,32 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (mirrorLeg == true)
 		{
-			App->render->BlitMirror(texture, position.x + offsetx, position.y +20 + offsety, &rectLeg);
+			App->render->BlitMirror(texture, position.x + offsetx, position.y + 20 + offsety, &rectLeg);
 			offsetx = 0;
 			offsety = 0;
 		}
 		else
 		{
-			App->render->Blit(texture, position.x + offsetx , position.y +20+ offsety, &rectLeg);
+			App->render->Blit(texture, position.x + offsetx, position.y + 20 + offsety, &rectLeg);
 			offsetx = 0;
 			offsety = 0;
 		}
 
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		bool mirror = currentAnimation->GetMirror();
-	
+
 		if (mirror == true)
 		{
 			App->render->BlitMirror(texture, position.x, position.y, &rect);
 
-			
+
 		}
 		else
 		{
 			App->render->Blit(texture, position.x, position.y, &rect);
 		}
 
-		
+
 
 
 	}
