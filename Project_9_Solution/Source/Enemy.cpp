@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "Animation.h"
 
 Enemy::Enemy(int x, int y) : position(x, y)
 {
@@ -33,8 +34,21 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
+	bool mirror = currentAnim->GetMirror();
+
 	if (currentAnim != nullptr)
-		App->render->Blit(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
+		if (mirror == true)
+		{
+			App->render->BlitMirror(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
+
+
+		}
+		else
+		{
+			App->render->Blit(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
+		}
+
+	
 }
 
 void Enemy::OnCollision(Collider* collider)
