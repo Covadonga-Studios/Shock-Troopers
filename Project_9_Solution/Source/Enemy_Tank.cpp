@@ -27,6 +27,11 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	enemyshot1left.PushBack({ 1100, 590, 64, 42 });
 	enemyshot1downleft.PushBack({ 905, 590, 64, 42 });
 
+	enemyshot1rightdowndiagonal.PushBack({ 905, 590, 64, 42 }, true);
+	enemyshot1downleftdiagonal.PushBack({ 905, 590, 64, 42 });
+	enemyshot1rightupdiagonal.PushBack({ 905, 633, 64, 42 }, true);
+	enemyshot1upleftdiagonal.PushBack({ 905, 633, 64, 42 });
+
 	hp = 10;
 
 	collider = App->collisions->AddCollider({ 0, 0, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);

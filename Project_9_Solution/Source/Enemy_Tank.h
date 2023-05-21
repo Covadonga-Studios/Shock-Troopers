@@ -33,12 +33,17 @@ private:
 
 	Animation enemyshot1down;
 	Animation enemyshot1rightdown;
+	Animation enemyshot1rightdowndiagonal;
 	Animation enemyshot1right;
 	Animation enemyshot1rightup;
+	Animation enemyshot1rightupdiagonal;
 	Animation enemyshot1up;
 	Animation enemyshot1upleft;
+	Animation enemyshot1upleftdiagonal;
+	Animation enemyshot1upleftdiagonal;
 	Animation enemyshot1left;
 	Animation enemyshot1downleft;
+	Animation enemyshot1downleftdiagonal;
 
 
 	float dx;
