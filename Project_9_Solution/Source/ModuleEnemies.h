@@ -13,6 +13,8 @@ enum class Enemy_Type
 	MECH,
 	BARREL,
 	TANK,
+	TANKSTOP,
+	BAZOOKA,
 };
 
 struct EnemySpawnpoint

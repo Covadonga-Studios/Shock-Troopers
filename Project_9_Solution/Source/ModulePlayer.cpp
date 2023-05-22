@@ -178,8 +178,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downLeftAnimLegReverse.PushBack({ 18,547,33,31 });
 	downLeftAnimLegReverse.speed = 0.15f;
 
-
-
 	idleAnimDown.PushBack({ 14,181,36,34 });
 	idleAnimDown.PushBack({ 50,181,36,34 });
 	idleAnimDown.PushBack({ 86,181,36,34 });
@@ -1098,11 +1096,9 @@ Update_Status ModulePlayer::Update()
 		{
 		case LEFT:
 			currentAnimation = &deathleft;
-
 			break;
 		case RIGHT:
 			currentAnimation = &deathright;
-
 			break;
 		case DOWN:
 			currentAnimation = &deathback;
@@ -1129,8 +1125,6 @@ Update_Status ModulePlayer::Update()
 	////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE
 	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN)
 	{
-
-
 		switch (bulletDir)
 		{
 		case LEFT:

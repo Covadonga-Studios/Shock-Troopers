@@ -21,6 +21,7 @@ struct Collider
 		DOWN_PLAYER,
 		LEFT_PLAYER,
 		RIGHT_PLAYER,
+		MISSILE,
 
 		MAX
 	};

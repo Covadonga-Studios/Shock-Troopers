@@ -79,10 +79,12 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_Barrel.h" />
+    <ClInclude Include="Enemy_Bazooka.h" />
     <ClInclude Include="Enemy_BrownShip.h" />
     <ClInclude Include="Enemy_Mech.h" />
     <ClInclude Include="Enemy_RedBird.h" />
     <ClInclude Include="Enemy_Tank.h" />
+    <ClInclude Include="Enemy_TankStop.h" />
     <ClInclude Include="InitialScreen.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollisions.h" />
@@ -110,10 +112,12 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Barrel.cpp" />
+    <ClCompile Include="Enemy_Bazooka.cpp" />
     <ClCompile Include="Enemy_BrownShip.cpp" />
     <ClCompile Include="Enemy_Mech.cpp" />
     <ClCompile Include="Enemy_RedBird.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />
+    <ClCompile Include="Enemy_TankStop.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="InitialScreen.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />

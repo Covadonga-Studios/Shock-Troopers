@@ -12,6 +12,8 @@
 #include "Enemy_Mech.h"
 #include "Enemy_Barrel.h"
 #include "Enemy_Tank.h"
+#include "Enemy_TankStop.h"
+#include "Enemy_Bazooka.h"
 
 #define SPAWN_MARGIN 50
 
@@ -173,6 +175,12 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::TANK:
 					enemies[i] = new Enemy_Tank(info.x, info.y);
+					break;
+				case Enemy_Type::TANKSTOP:
+					enemies[i] = new Enemy_TankStop(info.x, info.y);
+					break;
+				case Enemy_Type::BAZOOKA:
+					enemies[i] = new Enemy_Bazooka(info.x, info.y);
 					break;
 
 			}

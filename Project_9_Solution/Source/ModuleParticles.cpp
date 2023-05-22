@@ -125,7 +125,8 @@ bool ModuleParticles::Start()
 	grenade.immortal = true;
 	grenade.lifetime = 90;
 	grenade.anim.speed = 0.3f;
-	
+
+	missile.anim.PushBack({ 146, 0, 13, 13 });
 
 	return true;
 }
@@ -169,13 +170,9 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (particles[i] != nullptr && particles[i]->collider == c1 && particles[i]->immortal == false)
 		{
-			
-			
 				particles[i]->pendingToDelete = true;
 				particles[i]->collider->pendingToDelete = true;
-				break;
-			
-		
+				break;		
 		}
 	}
 }
