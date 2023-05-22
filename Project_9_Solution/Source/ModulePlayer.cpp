@@ -25,7 +25,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downAnimLeg.PushBack({ 183,330,33,31 });
 	downAnimLeg.PushBack({ 216,330,33,31 });
 	downAnimLeg.PushBack({ 249,330,33,31 });
-	downAnimLeg.speed = 0.1f;
+	downAnimLeg.speed = 0.15f;
 
 	upAnimLeg.PushBack({ 18,454,33,31 });
 	upAnimLeg.PushBack({ 51,454,33,31 });
@@ -35,7 +35,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnimLeg.PushBack({ 183,454,33,31 });
 	upAnimLeg.PushBack({ 216,454,33,31 });
 	upAnimLeg.PushBack({ 249,454,33,31 });
-	upAnimLeg.speed = 0.1f;
+	upAnimLeg.speed = 0.15f;
 
 	leftAnimLeg.PushBack({ 18,516,33,31 });
 	leftAnimLeg.PushBack({ 51,516,33,31 });
@@ -45,7 +45,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftAnimLeg.PushBack({ 183,516,33,31 });
 	leftAnimLeg.PushBack({ 216,516,33,31 });
 	leftAnimLeg.PushBack({ 249,516,33,31 });
-	leftAnimLeg.speed = 0.1f;
+	leftAnimLeg.speed = 0.15f;
 
 	rightAnimLeg.PushBack({ 18,392,33,31 });
 	rightAnimLeg.PushBack({ 51,392,33,31 });
@@ -55,7 +55,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnimLeg.PushBack({ 183,392,33,31 });
 	rightAnimLeg.PushBack({ 216,392,33,31 });
 	rightAnimLeg.PushBack({ 249,392,33,31 });
-	rightAnimLeg.speed = 0.1f;
+	rightAnimLeg.speed = 0.15f;
 
 	upRightAnimLeg.PushBack({ 18,423,33,31 });
 	upRightAnimLeg.PushBack({ 51,423,33,31 });
@@ -65,7 +65,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upRightAnimLeg.PushBack({ 183,423,33,31 });
 	upRightAnimLeg.PushBack({ 216,423,33,31 });
 	upRightAnimLeg.PushBack({ 249,423,33,31 });
-	upRightAnimLeg.speed = 0.1f;
+	upRightAnimLeg.speed = 0.15f;
 
 	upLeftAnimLeg.PushBack({ 18,485,33,31 });
 	upLeftAnimLeg.PushBack({ 51,485,33,31 });
@@ -75,7 +75,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upLeftAnimLeg.PushBack({ 183,485,33,31 });
 	upLeftAnimLeg.PushBack({ 216,485,33,31 });
 	upLeftAnimLeg.PushBack({ 249,485,33,31 });
-	upLeftAnimLeg.speed = 0.1f;
+	upLeftAnimLeg.speed = 0.15f;
 
 	downRightAnimLeg.PushBack({ 18,361,33,31 });
 	downRightAnimLeg.PushBack({ 51,361,33,31 });
@@ -85,7 +85,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downRightAnimLeg.PushBack({ 183,361,33,31 });
 	downRightAnimLeg.PushBack({ 216,361,33,31 });
 	downRightAnimLeg.PushBack({ 249,361,33,31 });
-	downRightAnimLeg.speed = 0.1f;
+	downRightAnimLeg.speed = 0.15f;
 
 	downLeftAnimLeg.PushBack({ 18,547,33,31 });
 	downLeftAnimLeg.PushBack({ 51,547,33,31 });
@@ -95,7 +95,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downLeftAnimLeg.PushBack({ 183,547,33,31 });
 	downLeftAnimLeg.PushBack({ 216,547,33,31 });
 	downLeftAnimLeg.PushBack({ 249,547,33,31 });
-	downLeftAnimLeg.speed = 0.1f;
+	downLeftAnimLeg.speed = 0.15f;
 
 	downAnimLegReverse.PushBack({ 249,330,33,31 });
 	downAnimLegReverse.PushBack({ 216,330,33,31 });
@@ -105,7 +105,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downAnimLegReverse.PushBack({ 84,330,33,31 });
 	downAnimLegReverse.PushBack({ 51,330,33,31 });
 	downAnimLegReverse.PushBack({ 18,330,33,31 });
-	downAnimLegReverse.speed = 0.1f;
+	downAnimLegReverse.speed = 0.15f;
 
 	upAnimLegReverse.PushBack({ 249,454,33,31 });
 	upAnimLegReverse.PushBack({ 216,454,33,31 });
@@ -115,7 +115,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnimLegReverse.PushBack({ 84,454,33,31 });
 	upAnimLegReverse.PushBack({ 51,454,33,31 });
 	upAnimLegReverse.PushBack({ 18,454,33,31 });
-	upAnimLegReverse.speed = 0.1f;
+	upAnimLegReverse.speed = 0.15f;
 
 
 	leftAnimLegReverse.PushBack({ 249,516,33,31 });
@@ -126,7 +126,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftAnimLegReverse.PushBack({ 84,516,33,31 });
 	leftAnimLegReverse.PushBack({ 51,516,33,31 });
 	leftAnimLegReverse.PushBack({ 18,516,33,31 });
-	leftAnimLegReverse.speed = 0.1f;
+	leftAnimLegReverse.speed = 0.15f;
 
 	rightAnimLegReverse.PushBack({ 249,392,33,31 });
 	rightAnimLegReverse.PushBack({ 216,392,33,31 });
@@ -136,7 +136,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnimLegReverse.PushBack({ 84,392,33,31 });
 	rightAnimLegReverse.PushBack({ 51,392,33,31 });
 	rightAnimLegReverse.PushBack({ 18,392,33,31 });
-	rightAnimLegReverse.speed = 0.1f;
+	rightAnimLegReverse.speed = 0.15f;
 
 	upRightAnimLegReverse.PushBack({ 249,423,33,31 });
 	upRightAnimLegReverse.PushBack({ 216,423,33,31 });
@@ -146,7 +146,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upRightAnimLegReverse.PushBack({ 84,423,33,31 });
 	upRightAnimLegReverse.PushBack({ 51,423,33,31 });
 	upRightAnimLegReverse.PushBack({ 18,423,33,31 });
-	upRightAnimLegReverse.speed = 0.1f;
+	upRightAnimLegReverse.speed = 0.15f;
 
 	upLeftAnimLegReverse.PushBack({ 249,485,33,31 });
 	upLeftAnimLegReverse.PushBack({ 216,485,33,31 });
@@ -156,7 +156,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upLeftAnimLegReverse.PushBack({ 84,485,33,31 });
 	upLeftAnimLegReverse.PushBack({ 51,485,33,31 });
 	upLeftAnimLegReverse.PushBack({ 18,485,33,31 });
-	upLeftAnimLegReverse.speed = 0.1f;
+	upLeftAnimLegReverse.speed = 0.15f;
 
 	downRightAnimLegReverse.PushBack({ 249,361,33,31 });
 	downRightAnimLegReverse.PushBack({ 216,361,33,31 });
@@ -166,7 +166,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downRightAnimLegReverse.PushBack({ 84,361,33,31 });
 	downRightAnimLegReverse.PushBack({ 51,361,33,31 });
 	downRightAnimLegReverse.PushBack({ 18,361,33,31 });
-	downRightAnimLegReverse.speed = 0.1f;
+	downRightAnimLegReverse.speed = 0.15f;
 
 	downLeftAnimLegReverse.PushBack({ 249,547,33,31 });
 	downLeftAnimLegReverse.PushBack({ 216,547,33,31 });
@@ -176,7 +176,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downLeftAnimLegReverse.PushBack({ 84,547,33,31 });
 	downLeftAnimLegReverse.PushBack({ 51,547,33,31 });
 	downLeftAnimLegReverse.PushBack({ 18,547,33,31 });
-	downLeftAnimLegReverse.speed = 0.1f;
+	downLeftAnimLegReverse.speed = 0.15f;
 
 
 
@@ -1349,23 +1349,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 
 
-	if (c1->type == Collider::Type::UP_PLAYER && c2->type == Collider::Type::WALL)
+	if (c1->type == Collider::Type::UP_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
 	{
 		upLock = true;
 		
 	}
 
-	if (c1->type == Collider::Type::DOWN_PLAYER && c2->type == Collider::Type::WALL)
+	if (c1->type == Collider::Type::DOWN_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
 	{
 		downLock = true;
 
 	}
-	if (c1->type == Collider::Type::RIGHT_PLAYER && c2->type == Collider::Type::WALL)
+	if (c1->type == Collider::Type::RIGHT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
 	{
 		rightLock = true;
 		
 	}
-	if (c1->type == Collider::Type::LEFT_PLAYER && c2->type == Collider::Type::WALL)
+	if (c1->type == Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
 	{
 		leftLock = true;
 		

@@ -45,7 +45,7 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, - 150);
 
-	App->enemies->AddEnemy(Enemy_Type::TANK, 70,  150 - 109);
+	App->enemies->AddEnemy(Enemy_Type::BARREL, 70,  150 - 109);
 
 	
 	
