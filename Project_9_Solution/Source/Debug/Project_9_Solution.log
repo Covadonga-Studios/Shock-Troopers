@@ -1,19 +1,4 @@
-﻿  Enemy_Bazooka.cpp
+﻿  ModulePlayer.cpp
 C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
 C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(42,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(99,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(100,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-  SceneLevel1.cpp
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
   Project_9_Solution.vcxproj -> C:\Users\paums3\My project\Shock-Troopers\Debug\Project_9_Solution.exe

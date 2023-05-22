@@ -1059,7 +1059,7 @@ Update_Status ModulePlayer::Update()
 	}
 
 	colliderUp->SetPos(position.x + 3, position.y - 3);
-	colliderDown->SetPos(position.x + 3, position.y + 45);
+	colliderDown->SetPos(position.x + 3, position.y + 47);
 	colliderRight->SetPos(position.x + 30, position.y);
 	colliderLeft->SetPos(position.x, position.y);
 	
