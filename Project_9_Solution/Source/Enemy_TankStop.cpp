@@ -19,6 +19,14 @@ Enemy_TankStop::Enemy_TankStop(int x, int y) : Enemy(x, y)
 	box.speed = 0.15f;
 	box.loop = false;
 
+	tankStop.PushBack({ 28, 971, 65, 41 });
+	tankStop.PushBack({ 94, 971, 65, 41 });
+	tankStop.PushBack({ 160, 971, 65, 41 });
+	tankStop.PushBack({ 226, 971, 65, 41 });
+	tankStop.PushBack({ 28, 1013, 65, 41 });
+	tankStop.PushBack({ 94, 1013, 65, 41 });
+	tankStop.PushBack({ 160, 1013, 65, 41 });
+
 	currentAnim = &boxidle;
 
 	collider = App->collisions->AddCollider({ 20, 20, 28, 36 }, Collider::Type::ENEMY, (Module*)App->enemies);

@@ -32,9 +32,50 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyshot1left.PushBack({ 278, 600, 43, 47 });
 	enemyshot1downleft.PushBack({ 321, 600, 43, 47 });
 
-	path.PushBack({-1.0f, -0.5f}, 100);
-	path.PushBack({-1.0f, 0.5f}, 80);
-	path.PushBack({-1.0f, 1.0f}, 80);
+	enemyBurning.PushBack({ 1133, 962, 60, 74 });
+	enemyBurning.PushBack({ 1194, 962, 60, 74 });
+	enemyBurning.PushBack({ 1255, 962, 60, 74 });
+	enemyBurning.PushBack({ 1316, 962, 60, 74 });
+	enemyBurning.PushBack({ 1377, 962, 60, 74 });
+	enemyBurning.PushBack({ 1438, 962, 60, 74 });
+	enemyBurning.PushBack({ 1133, 1037, 60, 74 });
+	enemyBurning.PushBack({ 1194, 1037, 60, 74 });
+	enemyBurning.PushBack({ 1255, 1037, 60, 74 });
+	enemyBurning.PushBack({ 1316, 1037, 60, 74 });
+	enemyBurning.PushBack({ 1377, 1037, 60, 74 });
+	enemyBurning.PushBack({ 1438, 1037, 60, 74 });
+	enemyBurning.PushBack({ 1133, 1112, 60, 74 });
+	enemyBurning.PushBack({ 1194, 1112, 60, 74 });
+	enemyBurning.PushBack({ 1255, 1112, 60, 74 });
+	enemyBurning.PushBack({ 1316, 1112, 60, 74 });
+	enemyBurning.PushBack({ 1377, 1112, 60, 74 });
+
+	enemyRunning.PushBack({ 881, 971, 39, 55 });
+	enemyRunning.PushBack({ 921, 971, 39, 55 });
+	enemyRunning.PushBack({ 961, 971, 39, 55 });
+	enemyRunning.PushBack({ 1001, 971, 39, 55 });
+
+	enemyStopping.PushBack({ 821, 1026, 39, 55 });
+	enemyStopping.PushBack({ 921, 1026, 39, 55 });
+	enemyStopping.PushBack({ 961, 1026, 39, 55 });
+	enemyStopping.PushBack({ 1001, 1026, 39, 55 });
+	enemyStopping.PushBack({ 1041, 1026, 39, 55 });
+	enemyStopping.PushBack({ 1081, 1026, 39, 55 });
+
+	enemyLooking.PushBack({ 1625, 304, 33, 50 });
+	enemyLooking.PushBack({ 1659, 304, 33, 50 });
+	enemyLooking.PushBack({ 1693, 304, 33, 50 });
+	enemyLooking.PushBack({ 1728, 304, 33, 50 });
+	enemyLooking.PushBack({ 1763, 304, 33, 50 });
+	enemyLooking.PushBack({ 1625, 355, 33, 50 });
+	enemyLooking.PushBack({ 1659, 355, 33, 50 });
+	enemyLooking.PushBack({ 1693, 355, 33, 50 });
+	enemyLooking.PushBack({ 1728, 355, 33, 50 });
+	enemyLooking.PushBack({ 1763, 355, 33, 50 });
+	enemyLooking.PushBack({ 1625, 406, 66, 50 });
+	enemyLooking.PushBack({ 1693, 406, 33, 50 });
+	enemyLooking.PushBack({ 1728, 406, 33, 50 });
+
 
 	hp = 1;
 

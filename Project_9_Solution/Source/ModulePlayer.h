@@ -166,6 +166,13 @@ public:
 	Animation Hurtdownright;
 	Animation Hurtdownleft;
 
+	Animation Grenade;
+	Animation tankBullet;
+	Animation explosion1;
+	Animation explosionDefault;
+	Animation blueBullet;
+	Animation explosion2;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;

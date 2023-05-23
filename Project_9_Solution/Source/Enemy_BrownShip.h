@@ -33,6 +33,10 @@ private:
 	Animation enemyshot1upleft;
 	Animation enemyshot1left;
 	Animation enemyshot1downleft;
+	Animation enemyBurning;
+	Animation enemyRunning;
+	Animation enemyStopping;
+	Animation enemyLooking;
 
 	float dx;
 	float dy;

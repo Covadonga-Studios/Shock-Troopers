@@ -503,7 +503,82 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Hurtdownleft.speed = 0.1f;
 	Hurtdownleft.loop = false;
 
+	Grenade.PushBack({ 1523, 551, 13, 23 });
+	Grenade.PushBack({ 1536, 551, 21, 23 });
+	Grenade.PushBack({ 1560, 551, 26, 23 });
+	Grenade.PushBack({ 1586, 551, 25, 23 });
+	Grenade.PushBack({ 1523, 575, 13, 23 });
+	Grenade.PushBack({ 1536, 575, 21, 23 });
+	Grenade.PushBack({ 1560, 575, 26, 23 });
+	Grenade.PushBack({ 1586, 575, 25, 23 });
 
+	tankBullet.PushBack({ 28, 925, 35, 32 });
+	tankBullet.PushBack({ 63, 925, 35, 32 });
+	tankBullet.PushBack({ 98, 925, 35, 32 });
+	tankBullet.PushBack({ 133, 925, 35, 32 });
+
+	explosion1.PushBack({ 146, 841, 32, 32 });
+	explosion1.PushBack({ 179, 841, 32, 32 });
+	explosion1.PushBack({ 212, 841, 32, 32 });
+	explosion1.PushBack({ 245, 841, 32, 32 });
+	explosion1.PushBack({ 146, 874, 32, 32 });
+	explosion1.PushBack({ 179, 874, 32, 32 });
+	explosion1.PushBack({ 212, 874, 32, 32 });
+	explosion1.PushBack({ 245, 874, 32, 32 });
+
+	explosionDefault.PushBack({ 1, 1093, 58, 62 });
+	explosionDefault.PushBack({ 60, 1093, 58, 62 });
+	explosionDefault.PushBack({ 119, 1093, 58, 62 });
+	explosionDefault.PushBack({ 178, 1093, 58, 62 });
+	explosionDefault.PushBack({ 237, 1093, 58, 62 });
+	explosionDefault.PushBack({ 296, 1093, 58, 62 });
+	explosionDefault.PushBack({ 355, 1093, 58, 62 });
+	explosionDefault.PushBack({ 414, 1093, 58, 62 });
+	explosionDefault.PushBack({ 473, 1093, 58, 62 });
+	explosionDefault.PushBack({ 532, 1093, 58, 62 });
+	explosionDefault.PushBack({ 591, 1093, 58, 62 });
+	explosionDefault.PushBack({ 650, 1093, 58, 62 });
+	explosionDefault.PushBack({ 709, 1093, 58, 62 });
+	explosionDefault.PushBack({ 768, 1093, 58, 62 });
+	explosionDefault.PushBack({ 827, 1093, 58, 62 });
+	explosionDefault.PushBack({ 886, 1093, 58, 62 });
+	explosionDefault.PushBack({ 945, 1093, 58, 62 });
+	explosionDefault.PushBack({ 1004, 1093, 58, 62 });
+	explosionDefault.PushBack({ 1063, 1093, 58, 62 });
+
+	blueBullet.PushBack({ 311, 739, 13, 94 });
+	blueBullet.PushBack({ 325, 739, 13, 94 });
+	blueBullet.PushBack({ 339, 739, 13, 94 });
+	blueBullet.PushBack({ 353, 739, 13, 94 });
+
+	explosion2.PushBack({ 902, 690, 64, 64 });
+	explosion2.PushBack({ 967, 690, 64, 64 });
+	explosion2.PushBack({ 1032, 690, 64, 64 });
+	explosion2.PushBack({ 1097, 690, 64, 64 });
+	explosion2.PushBack({ 1162, 690, 64, 64 });
+	explosion2.PushBack({ 1227, 690, 64, 64 });
+	explosion2.PushBack({ 1292, 690, 64, 64 });
+	explosion2.PushBack({ 902, 755, 64, 64 });
+	explosion2.PushBack({ 967, 755, 64, 64 });
+	explosion2.PushBack({ 1032, 755, 64, 64 });
+	explosion2.PushBack({ 1097, 755, 64, 64 });
+	explosion2.PushBack({ 1162, 755, 64, 64 });
+	explosion2.PushBack({ 1227, 755, 64, 64 });
+	explosion2.PushBack({ 1292, 755, 64, 64 });
+	explosion2.PushBack({ 902, 820, 64, 64 });
+	explosion2.PushBack({ 967, 820, 64, 64 });
+	explosion2.PushBack({ 1032, 820, 64, 64 });
+	explosion2.PushBack({ 1097, 820, 64, 64 });
+	explosion2.PushBack({ 1162, 820, 64, 64 });
+	explosion2.PushBack({ 1227, 820, 64, 64 });
+	explosion2.PushBack({ 1292, 820, 64, 64 });
+	explosion2.PushBack({ 902, 885, 64, 64 });
+	explosion2.PushBack({ 967, 885, 64, 64 });
+	explosion2.PushBack({ 1032, 885, 64, 64 });
+	explosion2.PushBack({ 1097, 885, 64, 64 });
+	explosion2.PushBack({ 1162, 885, 64, 64 });
+	explosion2.PushBack({ 1227, 885, 64, 64 });
+	explosion2.PushBack({ 1292, 885, 64, 64 });
 }
 
 ModulePlayer::~ModulePlayer()
