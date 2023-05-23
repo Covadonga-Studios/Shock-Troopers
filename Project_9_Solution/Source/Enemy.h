@@ -40,10 +40,18 @@ public:
 	// The enemy's texture
 	SDL_Texture* texture = nullptr;
 
+	SDL_Texture* texture2 = nullptr;
+
 	// Sound fx when destroyed
 	int destroyedFx = 0;
 
 	int hp = 1;
+
+	int offsettexture2x = 0;
+	int offsettexture2y = 0;
+
+	int offsettexture1x = 0;
+	int offsettexture1y = 0;
 
 	// A flag for the enemy removal. Important! We do not delete objects instantly
 	bool pendingToDelete = false;
@@ -51,6 +59,8 @@ public:
 protected:
 	// A ptr to the current animation
 	Animation* currentAnim = nullptr;
+
+	Animation* currentAnim2 = nullptr;
 
 	// The enemy's collider
 	Collider* collider = nullptr;

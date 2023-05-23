@@ -45,6 +45,7 @@ private:
 	Animation enemyshot1downleftdiagonal;
 
 
+
 	float dx;
 	float dy;
 };

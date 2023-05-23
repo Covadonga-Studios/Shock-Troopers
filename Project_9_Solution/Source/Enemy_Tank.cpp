@@ -7,6 +7,8 @@
 #include "ModuleFonts.h"
 #include "stdio.h"
 #include "math.h"
+#include "ModuleTextures.h"
+#include "ModuleRender.h"
 
 
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
@@ -36,8 +38,10 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 
 	hp = 10;
 
-	collider = App->collisions->AddCollider({ 0, 0, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
+
+	collider = App->collisions->AddCollider({ 0, 0, 70, 63 }, Collider::Type::ENEMY, (Module*)App->enemies);
 	currentAnim = &enemydeath1;
+	currentAnim2 = &enemydeath1;
 }
 
 float Dircalculation3(float Dx, float Dy)
@@ -151,11 +155,15 @@ void Enemy_Tank::Update()
 			currentAnim = &enemyshot1upleft;
 			break;
 		case UPRIGHT:
-			currentAnim = &enemyshot1rightup;
+	
+		currentAnim = &enemyshot1rightup;
 			break;
 		}
 
 	collider->SetPos(position.x, position.y);
+	
+	currentAnim2 = &enemydeath1;
+
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
