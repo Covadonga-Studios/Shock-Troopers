@@ -626,12 +626,30 @@ bool ModulePlayer::Start()
 
 Update_Status ModulePlayer::Update()
 {
+	GamePad& pad = App->input->pads[0];
+
 	shootCoolDown++;
 	dodgeCoolDown++;
 	hurtDuration++;
 
 	
 	//////////////////MOVING//////////////////////////////MOVING//////////////////////////////MOVING//////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if (pad.l_x < 0.0f) {
+		App->input->keys[SDL_SCANCODE_A] = Key_State::KEY_REPEAT;
+	}
+	if (pad.l_x > 0.0f) {
+		App->input->keys[SDL_SCANCODE_D] = Key_State::KEY_REPEAT;
+	}
+	if (pad.l_y > 0.0f) {
+		App->input->keys[SDL_SCANCODE_S] = Key_State::KEY_REPEAT;
+	}
+	if (pad.l_y < 0.0f) {
+		App->input->keys[SDL_SCANCODE_W] = Key_State::KEY_REPEAT;
+	}
+	if (pad.r2 == 1) {
+		App->input->keys[SDL_SCANCODE_SPACE] = Key_State::KEY_REPEAT;
+	}
+
 	if (isHurt == false)
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
 		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
