@@ -126,6 +126,17 @@ bool ModuleParticles::Start()
 	grenade.lifetime = 90;
 	grenade.anim.speed = 0.3f;
 
+
+	Grenade.anim.PushBack({ 1523, 551, 13, 23 });
+	Grenade.anim.PushBack({ 1536, 551, 21, 23 });
+	Grenade.anim.PushBack({ 1560, 551, 26, 23 });
+	Grenade.anim.PushBack({ 1586, 551, 25, 23 });
+	Grenade.anim.PushBack({ 1523, 575, 13, 23 });
+	Grenade.anim.PushBack({ 1536, 575, 21, 23 });
+	Grenade.anim.PushBack({ 1560, 575, 26, 23 });
+	Grenade.anim.PushBack({ 1586, 575, 25, 23 });
+	Grenade.lifetime = 60;
+	Grenade.anim.speed = 0.3f;
 	missile.anim.PushBack({ 146, 0, 13, 13 });
 
 	return true;

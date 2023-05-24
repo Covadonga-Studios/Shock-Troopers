@@ -68,6 +68,7 @@ public:
 	Particle PlayerShotUpLeft;
 
 	Particle grenade;
+	Particle Grenade; 
 
 	Particle missile;
 private:

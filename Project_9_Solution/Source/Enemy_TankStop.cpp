@@ -43,7 +43,7 @@ void Enemy_TankStop::Update()
 {
 	shootCooldown++;
 
-	if (shootCooldown > 120) 
+	if (shootCooldown > 140) 
 	{
 		App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 20, -5, 0, false, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;

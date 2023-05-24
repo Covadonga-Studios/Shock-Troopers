@@ -503,15 +503,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Hurtdownleft.speed = 0.1f;
 	Hurtdownleft.loop = false;
 
-	Grenade.PushBack({ 1523, 551, 13, 23 });
-	Grenade.PushBack({ 1536, 551, 21, 23 });
-	Grenade.PushBack({ 1560, 551, 26, 23 });
-	Grenade.PushBack({ 1586, 551, 25, 23 });
-	Grenade.PushBack({ 1523, 575, 13, 23 });
-	Grenade.PushBack({ 1536, 575, 21, 23 });
-	Grenade.PushBack({ 1560, 575, 26, 23 });
-	Grenade.PushBack({ 1586, 575, 25, 23 });
-
 	tankBullet.PushBack({ 28, 925, 35, 32 });
 	tankBullet.PushBack({ 63, 925, 35, 32 });
 	tankBullet.PushBack({ 98, 925, 35, 32 });
@@ -1235,6 +1226,7 @@ Update_Status ModulePlayer::Update()
 		switch (bulletDir)
 		{
 		case LEFT:
+			App->particles->AddParticle(App->particles->Grenade, position.x , position.y , 0, 0, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 50, 0, 0, true, Collider::Type::PLAYER_SHOT, 10);
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 80, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
