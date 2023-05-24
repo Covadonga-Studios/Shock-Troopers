@@ -173,6 +173,8 @@ public:
 	Animation blueBullet;
 	Animation explosion2;
 
+	Animation greyEnemyMeleeDown;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;

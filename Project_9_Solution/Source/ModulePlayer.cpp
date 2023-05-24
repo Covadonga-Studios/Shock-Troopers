@@ -579,7 +579,21 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	explosion2.PushBack({ 1162, 885, 64, 64 });
 	explosion2.PushBack({ 1227, 885, 64, 64 });
 	explosion2.PushBack({ 1292, 885, 64, 64 });
-}
+
+	//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//
+	
+	greyEnemyMeleeDown.PushBack({ 1, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 85, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 169, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 253, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 337, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 421, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 505, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 589, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 673, 1157, 83, 78 });
+	greyEnemyMeleeDown.PushBack({ 757, 1157, 83, 78 });
+
+}	
 
 ModulePlayer::~ModulePlayer()
 {
