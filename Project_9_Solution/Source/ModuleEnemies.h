@@ -15,6 +15,7 @@ enum class Enemy_Type
 	TANK,
 	TANKSTOP,
 	BAZOOKA,
+	HELICOPTER,
 };
 
 struct EnemySpawnpoint

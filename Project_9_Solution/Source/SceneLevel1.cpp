@@ -27,13 +27,14 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/TilesetPart1.png");
-	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
+	bgTexture2 = App->textures->Load("Assets/Sprites/Tileset part 2(1_2).png");
+	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);;
 
 	//Bottomside collider
 	
 	 App->collisions->AddCollider({ 0, -2000, 10, 2424 }, Collider::Type::WALL);
 	 collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 360, -2000, 10, 2424 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 360, -1310, 10, 2424 }, Collider::Type::WALL);
 	// Enemies ---
 	
 
@@ -46,6 +47,8 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, - 150);
 
 	App->enemies->AddEnemy(Enemy_Type::TANK, 70,  150 - 109);
+
+	App->enemies->AddEnemy(Enemy_Type::HELICOPTER, 950, -1548);
 
 	
 	
@@ -74,6 +77,7 @@ Update_Status SceneLevel1::PostUpdate()
 	 
 
 	App->render->Blit(bgTexture, 0, -1820, NULL);
+	App->render->Blit(bgTexture2, 0, -1548, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

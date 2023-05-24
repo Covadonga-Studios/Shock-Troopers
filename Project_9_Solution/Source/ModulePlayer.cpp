@@ -1296,6 +1296,13 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
 	{
 		winCon = true;
+		 
+	}
+	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
+	{
+		
+		App->player->position.x = 0;
+		App->player->position.y = -1548;
 	}
 
 	if (winCon == true)
@@ -1436,23 +1443,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 
 
-	if (c1->type == Collider::Type::UP_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
+	if (c1->type == Collider::Type::UP_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		upLock = true;
 		
 	}
 
-	if (c1->type == Collider::Type::DOWN_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
+	if (c1->type == Collider::Type::DOWN_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		downLock = true;
 
 	}
-	if (c1->type == Collider::Type::RIGHT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
+	if (c1->type == Collider::Type::RIGHT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		rightLock = true;
 		
 	}
-	if (c1->type == Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
+	if (c1->type == Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		leftLock = true;
 		

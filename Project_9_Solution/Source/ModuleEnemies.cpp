@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
+#include "ModulePlayer.h"
 
 #include "Enemy.h"
 #include "Enemy_RedBird.h"
@@ -14,6 +15,7 @@
 #include "Enemy_Tank.h"
 #include "Enemy_TankStop.h"
 #include "Enemy_Bazooka.h"
+#include "Enemy_Helicopter.h"
 
 #define SPAWN_MARGIN 50
 
@@ -124,7 +126,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 		if (spawnQueue[i].type != Enemy_Type::NO_TYPE)
 		{
 			// Spawn a new enemy if the screen has reached a spawn position
-			if (spawnQueue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
+			if (abs(spawnQueue[i].x - App->player->position.x) < 200 && abs(spawnQueue[i].y - App->player->position.y) < 200)
 			{
 				LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
@@ -182,6 +184,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::BAZOOKA:
 					enemies[i] = new Enemy_Bazooka(info.x, info.y);
+					break;
+				case Enemy_Type::HELICOPTER:
+					enemies[i] = new Enemy_Helicopter(info.x, info.y);
 					break;
 
 			}

@@ -14,12 +14,13 @@
     <ProjectGuid>{F00B105C-B164-4FA2-AC11-FBC1A13D6F47}</ProjectGuid>
     <RootNamespace>Project_9_Solution</RootNamespace>
     <ProjectName>Project_9_Solution</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -81,6 +82,7 @@
     <ClInclude Include="Enemy_Barrel.h" />
     <ClInclude Include="Enemy_Bazooka.h" />
     <ClInclude Include="Enemy_BrownShip.h" />
+    <ClInclude Include="Enemy_Helicopter.h" />
     <ClInclude Include="Enemy_Mech.h" />
     <ClInclude Include="Enemy_RedBird.h" />
     <ClInclude Include="Enemy_Tank.h" />
@@ -114,6 +116,7 @@
     <ClCompile Include="Enemy_Barrel.cpp" />
     <ClCompile Include="Enemy_Bazooka.cpp" />
     <ClCompile Include="Enemy_BrownShip.cpp" />
+    <ClCompile Include="Enemy_Helicopter.cpp" />
     <ClCompile Include="Enemy_Mech.cpp" />
     <ClCompile Include="Enemy_RedBird.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />

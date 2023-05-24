@@ -56,6 +56,7 @@ public:
 	// Sprites will be rendered to the screen depending on the camera position
 	SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
+	bool freeCam = false;
 	// The speed at which the camera will be moving
 	int cameraSpeed = 1;
 

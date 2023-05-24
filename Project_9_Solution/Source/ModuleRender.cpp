@@ -93,6 +93,12 @@ Update_Status ModuleRender::Update()
 		}
 	}
    
+	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
+	{
+		freeCam = true; 
+		camera.x = 15;
+		camera.y = -1548;
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
