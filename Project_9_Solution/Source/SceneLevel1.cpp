@@ -40,13 +40,13 @@ bool SceneLevel1::Start()
 
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 70, 0);
 
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, 150);
+	App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 250, 150);
 
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 140, -200);
 
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, - 150);
 
-	App->enemies->AddEnemy(Enemy_Type::TANK, 70,  150 - 109);
+
 
 	App->enemies->AddEnemy(Enemy_Type::HELICOPTER, 950, -1548);
 

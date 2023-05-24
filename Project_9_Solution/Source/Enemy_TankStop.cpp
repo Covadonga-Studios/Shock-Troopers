@@ -26,21 +26,26 @@ Enemy_TankStop::Enemy_TankStop(int x, int y) : Enemy(x, y)
 	tankStop.PushBack({ 28, 1013, 65, 41 });
 	tankStop.PushBack({ 94, 1013, 65, 41 });
 	tankStop.PushBack({ 160, 1013, 65, 41 });
+	tankStop.speed = 0.05f;
+	
 
-	currentAnim = &boxidle;
-
-	collider = App->collisions->AddCollider({ 20, 20, 28, 36 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	tankStopbase.PushBack({ 27,840,110,77 });
+	currentAnim = &tankStop;
+	currentAnim2 = &tankStopbase;
+	collider = App->collisions->AddCollider({ 20, 20, 110, 89 }, Collider::Type::ENEMY, (Module*)App->enemies);
 	hp = 10;
 
+	offsettexture2y = 12;
+	offsettexture2x = -22;
 }
 
 void Enemy_TankStop::Update()
 {
 	shootCooldown++;
 
-	if (shootCooldown > 60) 
+	if (shootCooldown > 120) 
 	{
-		App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y, -5, 0, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 20, -5, 0, false, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 	
@@ -52,12 +57,9 @@ void Enemy_TankStop::Update()
 		currentAnim = &box;
 	}
 
-	if (currentAnim->HasFinished() == true)
-	{
-		pendingToDelete = true;
-	}
 
-	collider->SetPos(position.x + 20, position.y + 24);
+
+	collider->SetPos(position.x -22, position.y );
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();

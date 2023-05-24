@@ -1,8 +1,12 @@
 #include "Enemy_Helicopter.h"
-#include "ModulePlayer.h"
-
+#include "Module.h"
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModuleParticles.h"
+#include "ModulePlayer.h"
+#include "ModuleFonts.h"
+#include "stdio.h"
+#include "math.h"
 
 Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 {
@@ -18,17 +22,67 @@ Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 
 }
 
+float Dircalculation5(float Dx, float Dy)
+{
+	float dir = sqrt(Dx * Dx + Dy * Dy);
+	return dir;
+}
+
+float abss5(float value)
+{
+	if (value < 0)
+		return value * -1;
+	else
+		return value;
+}
+
+
+
 void Enemy_Helicopter::Update()
 {
 	moveCooldown++;
+	shootCooldown++;
 
-	if (moveCooldown < 120) 
-	{
+	int offsetx = 54;
+	int offsety = 80;
 		
+	dx = (App->player->position.x  + App->player->collider->rect.w / 2 - position.x - offsetx);
+	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsety);
+
+	if (moveCooldown > 250)
+	{
+		if (position.x + 50 - App->player->position.x < 0)
+		{
+			position.x++;
+			if (abs(position.x + 50 - App->player->position.x) < 5 ) 
+			{
+				moveCooldown = 0;
+			}
+		}
+		else
+		{
+			position.x--;
+			if (abs(position.x + 50 - App->player->position.x) < 5)
+			{
+				moveCooldown = 0;
+			}
+		}
 	}
 
+	if (shootCooldown > 120) 
+	{
+
+		float dir = Dircalculation5(dx, dy);
+		
+		float dirx = (dx * 1.5f / dir);
+		float diry = (dy * 1.5f / dir);
 
 
+		App->particles->AddParticle(App->particles->laser, position.x + offsetx , position.y +offsety, dirx * 2, diry * 2, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsetx, position.y + offsety, dirx * 2, diry * 2, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsetx, position.y + offsety, dirx * 2, diry * 2, false, Collider::Type::ENEMY_SHOT, 20);
+		shootCooldown = 0;
+	}
 
 	if (pendingToDelete == true && deleting == false)
 	{

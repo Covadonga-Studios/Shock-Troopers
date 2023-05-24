@@ -19,11 +19,14 @@ private:
 	// The path that will define the position in the world
 	Path path;
 	int moveCooldown = 0;
+	int shootCooldown = 0;
 	bool deleting;
 	// Enemy animations
 	Animation box;
 	Animation boxidle;
 	Animation front, back;
+	float dx;
+	float dy;
 };
 
 #endif // __ENEMY_HELICOPTER_H__

@@ -25,6 +25,7 @@ private:
 	Animation boxidle;
 	Animation front, back;
 	Animation tankStop;
+	Animation tankStopbase;
 };
 
 #endif // __ENEMY_MECH_H__
