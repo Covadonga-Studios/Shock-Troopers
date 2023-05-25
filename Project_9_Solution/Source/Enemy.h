@@ -47,6 +47,10 @@ public:
 
 	int hp = 1;
 
+	bool isOnFire = false;
+
+	int grenadeImmunity = 120;
+
 	int offsettexture2x = 0;
 	int offsettexture2y = 0;
 

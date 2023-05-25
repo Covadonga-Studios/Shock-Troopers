@@ -22,6 +22,7 @@ struct Collider
 		LEFT_PLAYER,
 		RIGHT_PLAYER,
 		MISSILE,
+		GRENADE,
 
 		MAX
 	};

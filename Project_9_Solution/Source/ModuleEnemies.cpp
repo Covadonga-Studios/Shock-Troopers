@@ -16,6 +16,7 @@
 #include "Enemy_TankStop.h"
 #include "Enemy_Bazooka.h"
 #include "Enemy_Helicopter.h"
+#include "Enemy_ThreeBarrels.h"
 
 #define SPAWN_MARGIN 50
 
@@ -33,8 +34,8 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.12.png");
-	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.12.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.15.png");
+	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.15.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;
@@ -187,6 +188,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::HELICOPTER:
 					enemies[i] = new Enemy_Helicopter(info.x, info.y);
+					break;
+				case Enemy_Type::BARREL3:
+					enemies[i] = new Enemy_ThreeBarrels(info.x, info.y);
 					break;
 
 			}

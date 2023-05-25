@@ -146,7 +146,10 @@ void Enemy_BrownShip::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &enemydeath1;
+		if (!isOnFire)
+			currentAnim = &enemydeath1;
+		else
+			currentAnim = &enemyBurning;
 	}
 
 	if (currentAnim->HasFinished() == true)
