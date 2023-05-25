@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.8.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.15.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -135,7 +135,7 @@ bool ModuleParticles::Start()
 	Grenade.anim.PushBack({ 1536, 575, 21, 23 });
 	Grenade.anim.PushBack({ 1560, 575, 26, 23 });
 	Grenade.anim.PushBack({ 1586, 575, 25, 23 });
-	Grenade.lifetime = 60;
+	Grenade.lifetime = 20;
 	Grenade.anim.speed = 0.3f;
 	missile.anim.PushBack({ 146, 0, 13, 13 });
 

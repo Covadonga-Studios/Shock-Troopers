@@ -7,14 +7,14 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 {
 	
 	boxidle.PushBack({ 1328, 453, 65, 65 });
-	box.PushBack({ 1394, 453, 65, 65 });
-	box.PushBack({ 1460, 453, 65, 65 });
-	box.PushBack({ 1526, 453, 65, 65 });
-	box.PushBack({ 1592, 453, 65, 65 });
-	box.PushBack({ 1658, 453, 65, 65 });
-	box.PushBack({ 1724, 453, 65, 65 });
-	box.PushBack({ 1790, 453, 65, 65 });
-	box.PushBack({ 1856, 453, 65, 65 });
+	box.PushBack({ 1394, 465, 65, 65 });
+	box.PushBack({ 1460, 465, 65, 65 });
+	box.PushBack({ 1526, 465, 65, 65 });
+	box.PushBack({ 1592, 465, 65, 65 });
+	box.PushBack({ 1658, 465, 65, 65 });
+	box.PushBack({ 1724, 465, 65, 65 });
+	box.PushBack({ 1856, 465, 65, 65 });
+	box.PushBack({ 1790, 465, 65, 65 });
 	box.speed = 0.15f;
 	box.loop = false;
 

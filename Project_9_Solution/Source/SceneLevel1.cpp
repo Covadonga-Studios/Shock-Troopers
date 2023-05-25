@@ -28,6 +28,7 @@ bool SceneLevel1::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/TilesetPart1.png");
 	bgTexture2 = App->textures->Load("Assets/Sprites/Tileset part 2(1_2).png");
+	bgTexture3 = App->textures->Load("Assets/Sprites/background segundo vertical.png");
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);;
 
 	//Bottomside collider
@@ -78,6 +79,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	App->render->Blit(bgTexture, 0, -1820, NULL);
 	App->render->Blit(bgTexture2, 0, -1548, NULL);
+	App->render->Blit(bgTexture3, 2048, -1548 - 2020 + 238, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
