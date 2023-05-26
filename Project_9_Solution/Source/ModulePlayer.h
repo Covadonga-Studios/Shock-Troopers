@@ -203,6 +203,7 @@ public:
 	bool winCon = false;
 	bool godMode = false;
 	bool isHurt = false;
+	bool isShooting = false;
 	int hurtDuration = 0;
 	int offsetx;
 	int offsety;

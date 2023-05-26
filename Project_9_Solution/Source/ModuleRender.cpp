@@ -38,6 +38,7 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}	
+	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	return ret;
 }
@@ -71,27 +72,54 @@ Update_Status ModuleRender::Update()
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
 		
-
-	if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0){
-		camera.x -= cameraSpeed;
-		if (App->player->isDodging == true && App->render->camera.x <= 63) {
-			camera.x -= cameraSpeed * 2;
+	switch (cameraMode)
+	{
+	case 0:
+		if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
+			camera.x -= cameraSpeed;
+			if (App->player->isDodging == true && App->render->camera.x <= 63) {
+				camera.x -= cameraSpeed * 2;
+			}
 		}
+
+		if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+			camera.x += cameraSpeed;
+			if (App->player->isDodging == true && App->render->camera.x >= -63) {
+				
+
+				camera.x += cameraSpeed * 2;
+			}
+		}
+
+		if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y != -1548 && App->player->IsEnabled()) {
+			camera.y -= cameraSpeed;
+			if (App->player->isDodging == true) {
+				camera.y -= cameraSpeed * 2;
+			}
+		}
+		break;
+	case 1:
+
+		break;
+	case 2:
+		if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+			camera.x += cameraSpeed;
+			if (App->player->isDodging == true && App->render->camera.x >= -63) {
+
+
+				camera.x += cameraSpeed * 2;
+			}
+		}
+		break;
+	case 3:
+
+		break;
+	case 4:
+
+		break;
 	}
 
-	if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30<= 30 && App->render->camera.x  != 63 ){
-		camera.x += cameraSpeed;
-		if (App->player->isDodging == true && App->render->camera.x >= -63) {
-			camera.x += cameraSpeed * 2;
-		}
-	}
-
-	if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y != -1548 && App->player->IsEnabled()) {
-		camera.y -= cameraSpeed;
-		if (App->player->isDodging == true) {
-			camera.y -= cameraSpeed * 2;
-		}
-	}
+	
    
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 	{
@@ -131,9 +159,9 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 
 	if (useCamera)
 	{
-		speed = 3;
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
+	
+		dstRect.x -= (camera.x * speed * SCREEN_SIZE);
+		dstRect.y -= (camera.y * speed * SCREEN_SIZE);
 	}
 
 	if (section != nullptr)
@@ -167,9 +195,9 @@ bool ModuleRender::BlitMirror(SDL_Texture* texture, int x, int y, const SDL_Rect
 
 	if (useCamera)
 	{
-		speed = 3;
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
+
+		dstRect.x -= (camera.x * speed * SCREEN_SIZE);
+		dstRect.y -= (camera.y * speed * SCREEN_SIZE);
 	}
 
 	if (section != nullptr)
@@ -205,9 +233,8 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 
 	if (useCamera)
 	{
-		speed = 3;
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
+		dstRect.x -= (camera.x * speed * SCREEN_SIZE);
+		dstRect.y -= (camera.y * speed * SCREEN_SIZE);
 	}
 
 	if (SDL_RenderFillRect(renderer, &dstRect) != 0)

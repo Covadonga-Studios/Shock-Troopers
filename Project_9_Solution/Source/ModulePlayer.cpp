@@ -886,11 +886,12 @@ Update_Status ModulePlayer::Update()
 	///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false && isHurt == false)
 	{
-		if (App->player->shootCoolDown > 5 && isDodging == false) {
+		if (App->player->shootCoolDown > 55 && isDodging == false) {
 			switch (bulletDir)
 			{
 			case LEFT:
 				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
+				
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;

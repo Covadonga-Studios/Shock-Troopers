@@ -1,46 +1,4 @@
-﻿  Enemy_Bazooka.cpp
+﻿  ModulePlayer.cpp
 C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
 C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(47,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(48,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-  Enemy_Helicopter.cpp
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(36,82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(37,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Enemy_RedBird.cpp
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(46,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(47,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-  Enemy_Tank.cpp
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(84,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-C:\Users\paums3\My project\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(85,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
-          with
-          [
-              TYPE=int
-          ]
-  Generating Code...
   Project_9_Solution.vcxproj -> C:\Users\paums3\My project\Shock-Troopers\Debug\Project_9_Solution.exe
