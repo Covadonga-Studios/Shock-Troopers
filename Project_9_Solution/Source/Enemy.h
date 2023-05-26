@@ -24,6 +24,12 @@ public:
 	// Updates animation and collider position
 	virtual void Update();
 
+	float Dircalculation(float Dx, float Dy);
+
+	float abss(float value); 
+
+	int GetTargetDir(float dx, float dy);
+
 	// Called from ModuleEnemies' Update
 	virtual void Draw();
 

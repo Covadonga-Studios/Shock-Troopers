@@ -83,57 +83,6 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	collider = App->collisions->AddCollider({0, 0, 43, 43}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
-float Dircalculation(float Dx, float Dy) 
-{
-	float dir = sqrt(Dx * Dx + Dy * Dy);
-	return dir;
-}
-
-float abss(float value) 
-{
-	if (value < 0)
-		return value * -1;
-	else
-		return value;
-}
-
-int GetTargetDir(float dx,float dy)
-{
-	float diagonal = abss(dx / dy);
-	
-	
-	if (diagonal >= 0.5f && diagonal <= 1.5f) 
-	{
-		if (dx > 0 && dy > 0) 
-			return DOWNRIGHT;
-		else if (dx > 0 && dy < 0) 
-			return UPRIGHT;
-		else if (dx < 0 && dy > 0)
-			return DOWNLEFT;
-		else 
-			return UPLEFT;
-	}
-	else 
-	{
-		if (abss(dx) > abss(dy)) 
-		{
-			if (dx >= 0)
-				return RIGHT;
-			else
-				return LEFT;
-			
-		}
-		else 
-		{
-			if (dy >= 0)
-				return DOWN;
-			else 
-				return UP;
-		}
-	}
-	
-	
-}
 
 void Enemy_BrownShip::Update()
 {

@@ -37,59 +37,7 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 	collider = App->collisions->AddCollider({ 0, 0, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
-float Dircalculation4(float Dx, float Dy)
-{
-	float dir = sqrt(Dx * Dx + Dy * Dy);
-	return dir;
 
-
-}
-
-float abss4(float value)
-{
-	if (value < 0)
-		return value * -1;
-	else
-		return value;
-}
-
-int GetTargetDir4(float dx, float dy)
-{
-	float diagonal = abss4(dx / dy);
-
-
-	if (diagonal >= 0.5f && diagonal <= 1.5f)
-	{
-		if (dx > 0 && dy > 0)
-			return DOWNRIGHT;
-		else if (dx > 0 && dy < 0)
-			return UPRIGHT;
-		else if (dx < 0 && dy > 0)
-			return DOWNLEFT;
-		else
-			return UPLEFT;
-	}
-	else
-	{
-		if (abss4(dx) > abss4(dy))
-		{
-			if (dx >= 0)
-				return RIGHT;
-			else
-				return LEFT;
-
-		}
-		else
-		{
-			if (dy >= 0)
-				return DOWN;
-			else
-				return UP;
-		}
-	}
-
-
-}
 
 void Enemy_Bazooka::Update()
 {
@@ -115,7 +63,7 @@ void Enemy_Bazooka::Update()
 	{
 
 
-		float dir = Dircalculation4(dx, dy);
+		float dir = Dircalculation(dx, dy);
 
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
@@ -127,7 +75,7 @@ void Enemy_Bazooka::Update()
 	}
 
 	if (deleting == false)
-		switch (GetTargetDir4(dx, dy))
+		switch (GetTargetDir(dx, dy))
 		{
 		case LEFT:
 			currentAnim = &enemyshot2left;

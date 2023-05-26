@@ -37,6 +37,59 @@ void Enemy::Update()
 	
 }
 
+float Enemy::Dircalculation(float Dx, float Dy)
+{
+	float dir = sqrt(Dx * Dx + Dy * Dy);
+	return dir;
+}
+
+float Enemy::abss(float value)
+{
+	if (value < 0)
+		return value * -1;
+	else
+		return value;
+}
+
+int Enemy::GetTargetDir(float dx, float dy)
+{
+	float diagonal = abss(dx / dy);
+
+
+	if (diagonal >= 0.5f && diagonal <= 1.5f)
+	{
+		if (dx > 0 && dy > 0)
+			return DOWNRIGHT;
+		else if (dx > 0 && dy < 0)
+			return UPRIGHT;
+		else if (dx < 0 && dy > 0)
+			return DOWNLEFT;
+		else
+			return UPLEFT;
+	}
+	else
+	{
+		if (abss(dx) > abss(dy))
+		{
+			if (dx >= 0)
+				return RIGHT;
+			else
+				return LEFT;
+
+		}
+		else
+		{
+			if (dy >= 0)
+				return DOWN;
+			else
+				return UP;
+		}
+	}
+
+
+}
+
+
 void Enemy::Draw()
 {
 	bool mirror = currentAnim->GetMirror();

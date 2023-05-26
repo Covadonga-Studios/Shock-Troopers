@@ -76,57 +76,6 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	currentAnim2 = &enemydeath1;
 }
 
-float Dircalculation3(float Dx, float Dy)
-{
-	float dir = sqrt(Dx * Dx + Dy * Dy);
-	return dir;
-}
-
-float abss3(float value)
-{
-	if (value < 0)
-		return value * -1;
-	else
-		return value;
-}
-
-int GetTargetDir3(float dx, float dy)
-{
-	float diagonal = abss3(dx / dy);
-
-
-	if (diagonal >= 0.5f && diagonal <= 1.5f)
-	{
-		if (dx > 0 && dy > 0)
-			return DOWNRIGHT;
-		else if (dx > 0 && dy < 0)
-			return UPRIGHT;
-		else if (dx < 0 && dy > 0)
-			return DOWNLEFT;
-		else
-			return UPLEFT;
-	}
-	else
-	{
-		if (abss3(dx) > abss3(dy))
-		{
-			if (dx >= 0)
-				return RIGHT;
-			else
-				return LEFT;
-
-		}
-		else
-		{
-			if (dy >= 0)
-				return DOWN;
-			else
-				return UP;
-		}
-	}
-
-
-}
 
 void Enemy_Tank::Update()
 {
@@ -151,7 +100,7 @@ void Enemy_Tank::Update()
 	{
 
 
-		float dir = Dircalculation3(dx, dy);
+		float dir = Dircalculation(dx, dy);
 
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
@@ -163,7 +112,7 @@ void Enemy_Tank::Update()
 
 
 	if (deleting == false)
-		switch (GetTargetDir3(dx, dy))
+		switch (GetTargetDir(dx, dy))
 		{
 		case LEFT:
 			currentAnim = &enemyshot1left;

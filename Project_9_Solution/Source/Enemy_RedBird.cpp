@@ -37,59 +37,6 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	collider = App->collisions->AddCollider({0, 0, 43, 43}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
-float Dircalculation2(float Dx, float Dy)
-{
-	float dir = sqrt(Dx * Dx + Dy * Dy);
-	return dir;
-
-
-}
-
-float abss2(float value)
-{
-	if (value < 0)
-		return value * -1;
-	else
-		return value;
-}
-
-int GetTargetDir2(float dx, float dy)
-{
-	float diagonal = abss2(dx / dy);
-
-
-	if (diagonal >= 0.5f && diagonal <= 1.5f)
-	{
-		if (dx > 0 && dy > 0)
-			return DOWNRIGHT;
-		else if (dx > 0 && dy < 0)
-			return UPRIGHT;
-		else if (dx < 0 && dy > 0)
-			return DOWNLEFT;
-		else
-			return UPLEFT;
-	}
-	else
-	{
-		if (abss2(dx) > abss2(dy))
-		{
-			if (dx >= 0)
-				return RIGHT;
-			else
-				return LEFT;
-
-		}
-		else
-		{
-			if (dy >= 0)
-				return DOWN;
-			else
-				return UP;
-		}
-	}
-
-
-}
 
 void Enemy_RedBird::Update()
 {
@@ -115,7 +62,7 @@ void Enemy_RedBird::Update()
 	{
 
 		
-		float dir = Dircalculation2(dx, dy);
+		float dir = Dircalculation(dx, dy);
 
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
@@ -128,7 +75,7 @@ void Enemy_RedBird::Update()
 	}
 
 	if (deleting == false)
-	switch (GetTargetDir2(dx, dy))
+	switch (GetTargetDir(dx, dy))
 	{
 	case LEFT:
 		currentAnim = &enemyshot2left;

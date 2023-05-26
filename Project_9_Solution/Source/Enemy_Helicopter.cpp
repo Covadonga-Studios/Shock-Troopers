@@ -22,19 +22,6 @@ Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 
 }
 
-float Dircalculation5(float Dx, float Dy)
-{
-	float dir = sqrt(Dx * Dx + Dy * Dy);
-	return dir;
-}
-
-float abss5(float value)
-{
-	if (value < 0)
-		return value * -1;
-	else
-		return value;
-}
 
 
 
@@ -72,7 +59,7 @@ void Enemy_Helicopter::Update()
 	if (shootCooldown > 120) 
 	{
 
-		float dir = Dircalculation5(dx, dy);
+		float dir = Dircalculation(dx, dy);
 		
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
