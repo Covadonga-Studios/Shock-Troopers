@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.15.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.18.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -139,6 +139,84 @@ bool ModuleParticles::Start()
 	Grenade.anim.speed = 0.3f;
 	missile.anim.PushBack({ 146, 0, 13, 13 });
 
+	//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES
+
+	missileLeft.anim.PushBack({ 1043, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1138, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1233, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1328, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1423, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1518, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1613, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1708, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1803, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1898, 1969, 94, 23 });
+	missileLeft.lifetime = 180;
+	
+
+	missileDownRight.anim.PushBack({ 1151, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1207, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1263, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1319, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1375, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1431, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1487, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1543, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1599, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1655, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1711, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1767, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1823, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1879, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1935, 1995, 55, 52 });
+	missileDownRight.lifetime = 180;
+
+	missileUp.anim.PushBack({ 1692, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1716, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1740, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1764, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1788, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1812, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1836, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1860, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1884, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1908, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1932, 1866, 23, 86 });
+	missileUp.anim.PushBack({ 1956, 1866, 23, 86 });
+	missileUp.lifetime = 180;
+
+	missileDown.anim.PushBack({ 1692, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1716, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1740, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1764, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1788, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1812, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1836, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1860, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1884, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1908, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1932, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1956, 1779, 23, 86 });
+	missileDown.lifetime = 180;
+	
+
+	missileDownLeft.anim.PushBack({ 1995, 1206, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1262, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1318, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1374, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1430, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1486, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1542, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1598, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1654, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1710, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1766, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1822, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1878, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1934, 52, 55 });
+	missileDownLeft.anim.PushBack({ 1995, 1990, 52, 55 });
+	missileDownLeft.lifetime = 180;
+
 	return true;
 }
 
@@ -251,9 +329,14 @@ Particle* ModuleParticles::AddParticle(const Particle& particle, int x, int y, f
 			newParticle->speed.y = speedy;
 			newParticle->immortal = immortal;
 			//Adding the particle's collider
-			if (colliderType != Collider::Type::NONE)
+			if (colliderType != Collider::Type::NONE && colliderType != Collider::Type::MISSILE)
 				newParticle->collider = App->collisions->AddCollider(newParticle->anim.GetCurrentFrame(), colliderType, this);
-
+			
+			if (colliderType == Collider::Type::MISSILE) 
+			{
+				newParticle->collider = App->collisions->AddCollider({x,y,20,20}, colliderType, this);
+			}
+			
 			particles[i] = newParticle;
 			break;
 		}

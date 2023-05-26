@@ -68,8 +68,36 @@ void Enemy_Bazooka::Update()
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
 
+		
 
-		App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+		switch (GetTargetDir(dx, dy))
+		{
+		case LEFT:
+			App->particles->AddParticle(App->particles->missileLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case RIGHT:
+			App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case DOWN:
+			App->particles->AddParticle(App->particles->missileDown, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case UP:
+			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case DOWNLEFT:
+			App->particles->AddParticle(App->particles->missileDownLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case DOWNRIGHT:
+			App->particles->AddParticle(App->particles->missileDownRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case UPLEFT:
+			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case UPRIGHT:
+			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		}
+		
 
 		shootCooldown = 0;
 	}

@@ -189,6 +189,9 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::RIGHT_PLAYER: // yellow
 				App->render->DrawQuad(colliders[i]->rect, 90, 80, 0, alpha);
 				break;
+			case Collider::Type::MISSILE: // yellow
+				App->render->DrawQuad(colliders[i]->rect, 255, 80, 0, alpha);
+				break;
 		}
 	}
 }

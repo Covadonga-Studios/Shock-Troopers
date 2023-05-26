@@ -67,6 +67,12 @@ public:
 	Particle PlayerShotLeft;
 	Particle PlayerShotUpLeft;
 
+	Particle missileLeft;
+	Particle missileUp;
+	Particle missileDown;
+	Particle missileDownRight;
+	Particle missileDownLeft;
+
 	Particle grenade;
 	Particle Grenade; 
 
