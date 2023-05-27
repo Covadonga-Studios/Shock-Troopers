@@ -1078,8 +1078,8 @@ Update_Status ModulePlayer::Update()
 	}
 
 
-	////////////////////////////////////////////////DODGE///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (dodgeCoolDown < 25 && rightLock == false && leftLock == false && downLock == false && upLock == false)
+	///////////////////////////////DODGE/////////////////DODGE//////////////////////DODGE//////////////////////////DODGE////////////////////////////DODGE///////////////////////////////////////////////////////////////
+	if (dodgeCoolDown < 25 /*&& rightLock == false && leftLock == false && downLock == false && upLock == false*/ && isDodging == true)
 	{
 
 		collider->SetPos(position.x + 20000, position.y + 20000);
@@ -1479,37 +1479,51 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::UP_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		upLock = true;
-		if (isDodging)
+		if (isDodging) 
+		{
 			App->input->keys[SDL_SCANCODE_W] = Key_State::KEY_IDLE;
+			isDodging = false;
+		}
+			
 
-		isDodging = false;
+		//isDodging = false;
 	}
 
 	if (c1->type == Collider::Type::DOWN_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		downLock = true;
-		if (isDodging)
-		App->input->keys[SDL_SCANCODE_S] = Key_State::KEY_IDLE;
+		if (isDodging && c1->type != Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
+		{
+			App->input->keys[SDL_SCANCODE_S] = Key_State::KEY_IDLE;
+			isDodging = false;
+			legAnimation = &downAnimLeg;
+		}
 
-		isDodging = false;
+		//isDodging = false;
 	}
 
 	if (c1->type == Collider::Type::RIGHT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		rightLock = true;
 		if (isDodging)
+		{
 			App->input->keys[SDL_SCANCODE_D] = Key_State::KEY_IDLE;
+			isDodging = false;
+		}
 
-		isDodging = false;
+		//isDodging = false;
 	}
 
 	if (c1->type == Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		leftLock = true;
 		if (isDodging)
+		{
 			App->input->keys[SDL_SCANCODE_A] = Key_State::KEY_IDLE;
+			isDodging = false;
+		}
 
-		isDodging = false;
+		//isDodging = false;
 	}
 
 
