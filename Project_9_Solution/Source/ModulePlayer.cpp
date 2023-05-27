@@ -666,7 +666,7 @@ Update_Status ModulePlayer::Update()
 		position.x -= speed;
 		position.y -= speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = UPLEFT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNRIGHT || bulletDir == DOWN || bulletDir == RIGHT))
 		{
@@ -694,7 +694,7 @@ Update_Status ModulePlayer::Update()
 		position.x -= speed;
 		position.y += speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = DOWNLEFT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT))
 		{
@@ -727,7 +727,7 @@ Update_Status ModulePlayer::Update()
 		position.x += speed;
 		position.y += speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = DOWNRIGHT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPLEFT))
 		{
@@ -759,7 +759,7 @@ Update_Status ModulePlayer::Update()
 		position.x += speed;
 		position.y -= speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = UPRIGHT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNLEFT || bulletDir == DOWN || bulletDir == LEFT))
 		{
@@ -784,7 +784,7 @@ Update_Status ModulePlayer::Update()
 		moveDir = LEFT;
 		position.x -= speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = LEFT;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == RIGHT || bulletDir == UPRIGHT || bulletDir == DOWNRIGHT))
 		{
@@ -824,7 +824,7 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = RIGHT;
 
 	}
@@ -835,7 +835,7 @@ Update_Status ModulePlayer::Update()
 		moveDir = DOWN;
 		position.y += speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = DOWN;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
 		{
@@ -860,7 +860,7 @@ Update_Status ModulePlayer::Update()
 		moveDir = UP;
 		position.y -= speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 			bulletDir = UP;
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWN || bulletDir == DOWNRIGHT || bulletDir == DOWNLEFT))
 		{
@@ -878,15 +878,19 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 	}
-	else if ((App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE || App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE || App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE || App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) && (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)) {
+	else if ((App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE & App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) && (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)) {
 		moveDir = bulletDir;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isShooting == false) 
+	{
+		isShooting = true;
+	}
 
 	///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isDodging == false && isHurt == false)
+	if (isDodging == false && isHurt == false && isShooting == true)
 	{
-		if (App->player->shootCoolDown > 55 && isDodging == false) {
+		if (App->player->shootCoolDown > 5 && isDodging == false && cartridge != 0) {
 			switch (bulletDir)
 			{
 			case LEFT:
@@ -931,13 +935,27 @@ Update_Status ModulePlayer::Update()
 				shootCoolDown = 0;
 				break;
 			}
+			cartridge--;
 		}
+	}
+	
+	if (isHurt == true || isDodging == true) 
+	{
+		cartridge = 0;
+	}
 
+	if (cartridge == 0) 
+	{
+		isShooting = false;
+	}
 
+	if (cartridge >= 0 && shootCoolDown > 25) 
+	{
+		cartridge = 6;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT &&
-		isHurt == false) {
+		isHurt == false && isShooting == false) {
 		switch (moveDir)
 		{
 		case LEFT:
@@ -1162,7 +1180,7 @@ Update_Status ModulePlayer::Update()
 	colliderRight->SetPos(position.x + 30, position.y);
 	colliderLeft->SetPos(position.x, position.y);
 	
-	if (isDodging && rightLock == false && leftLock == false && downLock == false && upLock == false)
+	if (isDodging && (rightLock == false || leftLock == false || downLock == false || upLock == false))
 	{
 		legAnimation = &dissapear;
 	}

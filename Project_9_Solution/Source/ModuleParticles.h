@@ -50,7 +50,8 @@ public:
 	// Param particle	- A template particle from which the new particle will be created
 	// Param x, y		- Position x,y in the screen (upper left axis)
 	// Param delay		- Delay time from the moment the function is called until the particle is displayed in screen
-	Particle* AddParticle(const Particle& particle, int x, int y, float speedx, float speedy, bool immortal,Collider::Type colliderType = Collider::Type::NONE, uint delay = 0);
+	Particle* AddParticle(const Particle& particle, int x, int y, float speedx, float speedy, bool immortal,Collider::Type colliderType = Collider::Type::NONE, 
+			   uint delay = 0, bool isColl = false, int w = 0, int h = 0, int offsetx = 0, int offsety = 0);
 
 public:
 	//Template particle for an explosion
@@ -67,6 +68,7 @@ public:
 	Particle PlayerShotLeft;
 	Particle PlayerShotUpLeft;
 
+	Particle missileRight;
 	Particle missileLeft;
 	Particle missileUp;
 	Particle missileDown;

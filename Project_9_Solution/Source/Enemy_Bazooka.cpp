@@ -73,28 +73,28 @@ void Enemy_Bazooka::Update()
 		switch (GetTargetDir(dx, dy))
 		{
 		case LEFT:
-			App->particles->AddParticle(App->particles->missileLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE,0,true, 20,20);
 			break;
 		case RIGHT:
-			App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		case DOWN:
-			App->particles->AddParticle(App->particles->missileDown, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileDown, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		case UP:
-			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		case DOWNLEFT:
-			App->particles->AddParticle(App->particles->missileDownLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileDownLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 23,0,30);
 			break;
 		case DOWNRIGHT:
-			App->particles->AddParticle(App->particles->missileDownRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileDownRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 23,35,30);
 			break;
 		case UPLEFT:
-			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		case UPRIGHT:
-			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		}
 		

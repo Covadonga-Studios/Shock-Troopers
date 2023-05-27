@@ -47,6 +47,8 @@ public:
 	// Defines the total amount of frames during which the particle will be active
 	uint lifetime = 0;
 
+	int offsetxcoll = 0;
+	int offsetycoll = 0;
 	// The particle's collider
 	Collider* collider = nullptr;
 

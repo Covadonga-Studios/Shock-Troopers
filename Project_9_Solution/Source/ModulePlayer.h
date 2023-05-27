@@ -207,6 +207,7 @@ public:
 	int hurtDuration = 0;
 	int offsetx;
 	int offsety;
+	int cartridge = 6; 
 
 	int hp  = 120;
 	int getHP() const

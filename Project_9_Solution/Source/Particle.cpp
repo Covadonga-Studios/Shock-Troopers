@@ -48,7 +48,7 @@ bool Particle::Update()
 		position.y += speed.y;
 
 		if (collider != nullptr)
-			collider->SetPos(position.x, position.y);
+			collider->SetPos(position.x + offsetxcoll, position.y + offsetycoll);
 	}
 
 	return ret;
