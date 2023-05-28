@@ -58,18 +58,20 @@ Update_Status ModuleRender::PreUpdate()
 Update_Status ModuleRender::Update()
 {
 
+	GamePad& pad = App->input->pads[0];
+
 	//Handle positive vertical movement
-	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT || pad.up == true)
 		camera.y -= cameraSpeed;
 
 	//Handle negative vertical movement
-	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT || pad.down == true)
 		camera.y += cameraSpeed;
 
-	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT || pad.left == true)
 		camera.x -= cameraSpeed;
 
-	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT || pad.right == true)
 		camera.x += cameraSpeed;
 		
 	switch (cameraMode)

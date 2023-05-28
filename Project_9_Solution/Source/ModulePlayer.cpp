@@ -629,6 +629,8 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
+
+
 void ModulePlayer::GamepadUpdate()
 {
 	GamePad& pad = App->input->pads[0];
@@ -648,6 +650,7 @@ void ModulePlayer::GamepadUpdate()
 	if (pad.r2 == 1) {
 		App->input->keys[SDL_SCANCODE_SPACE] = Key_State::KEY_REPEAT;
 	}
+
 }
 
 void ModulePlayer::MoveUpdate()
@@ -1073,7 +1076,8 @@ void ModulePlayer::AnimationLegTorsoUpdate()
 
 void ModulePlayer::DodgeUpdate() 
 {
-	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 30 && isHurt == false)
+	GamePad& pad = App->input->pads[0];
+	if ((App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN || pad.a == true) && dodgeCoolDown > 30 && isHurt == false)
 	{
 		dodgeCoolDown = 0;
 		isDodging = true;
@@ -1256,7 +1260,8 @@ void ModulePlayer::LoseWinLogicUpdate()
 
 void ModulePlayer::GrenadeUpdate() 
 {
-	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN && grenadeCoolDown > 40 && isDodging == false)
+	GamePad& pad = App->input->pads[0];
+	if ((App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true ) && grenadeCoolDown > 40 && isDodging == false)
 	{
 		switch (bulletDir)
 		{
