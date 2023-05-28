@@ -629,16 +629,10 @@ bool ModulePlayer::Start()
 	return ret;
 }
 
-Update_Status ModulePlayer::Update()
+void ModulePlayer::GamepadUpdate()
 {
 	GamePad& pad = App->input->pads[0];
 
-	shootCoolDown++;
-	dodgeCoolDown++;
-	hurtDuration++;
-
-	
-	//////////////////MOVING//////////////////////////////MOVING//////////////////////////////MOVING//////////////////////MOVING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	if (pad.l_x < 0.0f) {
 		App->input->keys[SDL_SCANCODE_A] = Key_State::KEY_REPEAT;
 	}
@@ -654,240 +648,246 @@ Update_Status ModulePlayer::Update()
 	if (pad.r2 == 1) {
 		App->input->keys[SDL_SCANCODE_SPACE] = Key_State::KEY_REPEAT;
 	}
+}
 
+void ModulePlayer::MoveUpdate()
+{
 	if (isHurt == false)
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
-		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-		leftLock == false &&
-		upLock == false &&
-		isDodging == false)
-	{
-		moveDir = UPLEFT;
-		position.x -= speed;
-		position.y -= speed;
-
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = UPLEFT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNRIGHT || bulletDir == DOWN || bulletDir == RIGHT))
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
+			App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+			leftLock == false &&
+			upLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &downRightAnimLegReverse)
-			{
-				downRightAnimLegReverse.Reset();
-				legAnimation = &downRightAnimLegReverse;
-			}
-		}
-		else {
-			if (legAnimation != &upLeftAnimLeg)
-			{
-				upLeftAnimLeg.Reset();
-				legAnimation = &upLeftAnimLeg;
-			}
-		}
-	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
-		App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-		leftLock == false &&
-		downLock == false &&
-		isDodging == false)
-	{
-		moveDir = DOWNLEFT;
-		position.x -= speed;
-		position.y += speed;
+			moveDir = UPLEFT;
+			position.x -= speed;
+			position.y -= speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = DOWNLEFT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT))
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = UPLEFT;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNRIGHT || bulletDir == DOWN || bulletDir == RIGHT))
+			{
+				if (legAnimation != &downRightAnimLegReverse)
+				{
+					downRightAnimLegReverse.Reset();
+					legAnimation = &downRightAnimLegReverse;
+				}
+			}
+			else {
+				if (legAnimation != &upLeftAnimLeg)
+				{
+					upLeftAnimLeg.Reset();
+					legAnimation = &upLeftAnimLeg;
+				}
+			}
+		}
+		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
+			App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+			leftLock == false &&
+			downLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &upRightAnimLegReverse)
-			{
-				upRightAnimLegReverse.Reset();
-				legAnimation = &upRightAnimLegReverse;
-			}
-		}
-		else if (bulletDir == UPLEFT) {
-			legAnimation = &downLeftAnimLeg;
-		}
+			moveDir = DOWNLEFT;
+			position.x -= speed;
+			position.y += speed;
 
-		else {
-			if (legAnimation != &downLeftAnimLeg)
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = DOWNLEFT;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT))
 			{
-				downLeftAnimLeg.Reset();
+				if (legAnimation != &upRightAnimLegReverse)
+				{
+					upRightAnimLegReverse.Reset();
+					legAnimation = &upRightAnimLegReverse;
+				}
+			}
+			else if (bulletDir == UPLEFT) {
 				legAnimation = &downLeftAnimLeg;
 			}
+
+			else {
+				if (legAnimation != &downLeftAnimLeg)
+				{
+					downLeftAnimLeg.Reset();
+					legAnimation = &downLeftAnimLeg;
+				}
+			}
 		}
-	}
 
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
-		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
-		rightLock == false &&
-		downLock == false &&
-		isDodging == false)
-	{
-		moveDir = DOWNRIGHT;
-		position.x += speed;
-		position.y += speed;
-
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = DOWNRIGHT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPLEFT))
+		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
+			App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
+			rightLock == false &&
+			downLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &upLeftAnimLegReverse)
-			{
-				upLeftAnimLegReverse.Reset();
-				legAnimation = &upLeftAnimLegReverse;
-			}
-		}
-		else if (bulletDir == UPRIGHT) {
-			if (bulletDir == UPRIGHT) {
-				legAnimation = &downRightAnimLeg;
-			}
-		}
-		else {
-			if (legAnimation != &downRightAnimLeg)
-			{
-				legAnimation = &downRightAnimLeg;
-			}
-		}
-	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
-		App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
-		rightLock == false &&
-		upLock == false &&
-		isDodging == false)
-	{
-		moveDir = UPRIGHT;
-		position.x += speed;
-		position.y -= speed;
+			moveDir = DOWNRIGHT;
+			position.x += speed;
+			position.y += speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = UPRIGHT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNLEFT || bulletDir == DOWN || bulletDir == LEFT))
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = DOWNRIGHT;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPLEFT))
+			{
+				if (legAnimation != &upLeftAnimLegReverse)
+				{
+					upLeftAnimLegReverse.Reset();
+					legAnimation = &upLeftAnimLegReverse;
+				}
+			}
+			else if (bulletDir == UPRIGHT) {
+				if (bulletDir == UPRIGHT) {
+					legAnimation = &downRightAnimLeg;
+				}
+			}
+			else {
+				if (legAnimation != &downRightAnimLeg)
+				{
+					legAnimation = &downRightAnimLeg;
+				}
+			}
+		}
+		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
+			App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
+			rightLock == false &&
+			upLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &downLeftAnimLegReverse)
-			{
-				downLeftAnimLegReverse.Reset();
-				legAnimation = &downLeftAnimLegReverse;
-			}
-		}
-		else {
-			if (legAnimation != &upRightAnimLeg)
-			{
-				upRightAnimLeg.Reset();
-				legAnimation = &upRightAnimLeg;
-			}
-		}
-	}
-	else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-		leftLock == false &&
-		isDodging == false)
-	{
-		moveDir = LEFT;
-		position.x -= speed;
+			moveDir = UPRIGHT;
+			position.x += speed;
+			position.y -= speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = LEFT;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == RIGHT || bulletDir == UPRIGHT || bulletDir == DOWNRIGHT))
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = UPRIGHT;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWNLEFT || bulletDir == DOWN || bulletDir == LEFT))
+			{
+				if (legAnimation != &downLeftAnimLegReverse)
+				{
+					downLeftAnimLegReverse.Reset();
+					legAnimation = &downLeftAnimLegReverse;
+				}
+			}
+			else {
+				if (legAnimation != &upRightAnimLeg)
+				{
+					upRightAnimLeg.Reset();
+					legAnimation = &upRightAnimLeg;
+				}
+			}
+		}
+		else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
+			leftLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &rightAnimLegReverse)
+			moveDir = LEFT;
+			position.x -= speed;
+
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = LEFT;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == RIGHT || bulletDir == UPRIGHT || bulletDir == DOWNRIGHT))
 			{
-				rightAnimLegReverse.Reset();
-				legAnimation = &rightAnimLegReverse;
+				if (legAnimation != &rightAnimLegReverse)
+				{
+					rightAnimLegReverse.Reset();
+					legAnimation = &rightAnimLegReverse;
+				}
+			}
+			else {
+				if (legAnimation != &leftAnimLeg)
+				{
+					leftAnimLeg.Reset();
+					legAnimation = &leftAnimLeg;
+				}
 			}
 		}
-		else {
-			if (legAnimation != &leftAnimLeg)
-			{
-				leftAnimLeg.Reset();
-				legAnimation = &leftAnimLeg;
-			}
-		}
-	}
-	else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
-		rightLock == false &&
-		isDodging == false)
-	{
-		moveDir = RIGHT;
-		position.x += speed;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT || bulletDir == DOWNLEFT))
+		else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
+			rightLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &leftAnimLegReverse)
+			moveDir = RIGHT;
+			position.x += speed;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT || bulletDir == DOWNLEFT))
 			{
-				leftAnimLegReverse.Reset();
-				legAnimation = &leftAnimLegReverse;
+				if (legAnimation != &leftAnimLegReverse)
+				{
+					leftAnimLegReverse.Reset();
+					legAnimation = &leftAnimLegReverse;
+				}
 			}
-		}
-		else {
-			if (legAnimation != &rightAnimLeg)
-			{
-				rightAnimLeg.Reset();
-				legAnimation = &rightAnimLeg;
+			else {
+				if (legAnimation != &rightAnimLeg)
+				{
+					rightAnimLeg.Reset();
+					legAnimation = &rightAnimLeg;
+				}
 			}
+
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = RIGHT;
+
 		}
-
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = RIGHT;
-
-	}
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
-		downLock == false &&
-		isDodging == false)
-	{
-		moveDir = DOWN;
-		position.y += speed;
-
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = DOWN;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
+		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
+			downLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &upAnimLegReverse)
-			{
-				upAnimLegReverse.Reset();
-				legAnimation = &upAnimLegReverse;
-			}
-		}
-		else {
-			if (legAnimation != &downAnimLeg)
-			{
-				downAnimLeg.Reset();
-				legAnimation = &downAnimLeg;
-			}
-		}
-	}
-	else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
-		upLock == false &&
-		isDodging == false)
-	{
-		moveDir = UP;
-		position.y -= speed;
+			moveDir = DOWN;
+			position.y += speed;
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
-			bulletDir = UP;
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWN || bulletDir == DOWNRIGHT || bulletDir == DOWNLEFT))
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = DOWN;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == UP || bulletDir == UPRIGHT || bulletDir == UPLEFT))
+			{
+				if (legAnimation != &upAnimLegReverse)
+				{
+					upAnimLegReverse.Reset();
+					legAnimation = &upAnimLegReverse;
+				}
+			}
+			else {
+				if (legAnimation != &downAnimLeg)
+				{
+					downAnimLeg.Reset();
+					legAnimation = &downAnimLeg;
+				}
+			}
+		}
+		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
+			upLock == false &&
+			isDodging == false)
 		{
-			if (legAnimation != &downAnimLegReverse)
-			{
-				downAnimLegReverse.Reset();
-				legAnimation = &downAnimLegReverse;
-			}
-		}
-		else {
-			if (legAnimation != &upAnimLeg)
-			{
-				upAnimLeg.Reset();
-				legAnimation = &upAnimLeg;
-			}
-		}
-	}
-	else if ((App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE & App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) && (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)) {
-		moveDir = bulletDir;
-	}
+			moveDir = UP;
+			position.y -= speed;
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isShooting == false) 
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
+				bulletDir = UP;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == DOWN || bulletDir == DOWNRIGHT || bulletDir == DOWNLEFT))
+			{
+				if (legAnimation != &downAnimLegReverse)
+				{
+					downAnimLegReverse.Reset();
+					legAnimation = &downAnimLegReverse;
+				}
+			}
+			else {
+				if (legAnimation != &upAnimLeg)
+				{
+					upAnimLeg.Reset();
+					legAnimation = &upAnimLeg;
+				}
+			}
+		}
+		else if ((App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE & App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) && (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)) {
+			moveDir = bulletDir;
+		}
+}
+
+void ModulePlayer::ShootingUpdate() 
+{
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isShooting == false)
 	{
 		isShooting = true;
 	}
 
-	///////////////SHOOTING/////////////////////////////////SHOOTING/////////////////////////SHOOTING//////////////////////SHOOTING/////////////SHOOTING/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	if (isDodging == false && isHurt == false && isShooting == true)
 	{
 		if (App->player->shootCoolDown > 5 && isDodging == false && cartridge != 0) {
@@ -895,7 +895,7 @@ Update_Status ModulePlayer::Update()
 			{
 			case LEFT:
 				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
-				
+
 				App->audio->PlayFx(laserFx);
 				shootCoolDown = 0;
 				break;
@@ -938,22 +938,25 @@ Update_Status ModulePlayer::Update()
 			cartridge--;
 		}
 	}
-	
-	if (isHurt == true || isDodging == true) 
+
+	if (isHurt == true || isDodging == true)
 	{
 		cartridge = 0;
 	}
 
-	if (cartridge == 0) 
+	if (cartridge == 0)
 	{
 		isShooting = false;
 	}
 
-	if (cartridge >= 0 && shootCoolDown > 25) 
+	if (cartridge >= 0 && shootCoolDown > 25)
 	{
 		cartridge = 6;
 	}
+}
 
+void ModulePlayer::AnimationLegTorsoUpdate() 
+{
 	if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT &&
 		isHurt == false && isShooting == false) {
 		switch (moveDir)
@@ -1065,25 +1068,24 @@ Update_Status ModulePlayer::Update()
 			legAnimation = &idleAnimUpRightLeg;
 			break;
 		}
-
-
-
 	}
+}
 
+void ModulePlayer::DodgeUpdate() 
+{
 	if (App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN && dodgeCoolDown > 30 && isHurt == false)
 	{
-
 		dodgeCoolDown = 0;
 		isDodging = true;
 	}
 
 
-	///////////////////////////////DODGE/////////////////DODGE//////////////////////DODGE//////////////////////////DODGE////////////////////////////DODGE///////////////////////////////////////////////////////////////
+
 	if (dodgeCoolDown < 25 /*&& rightLock == false && leftLock == false && downLock == false && upLock == false*/ && isDodging == true)
 	{
 
 		collider->SetPos(position.x + 20000, position.y + 20000);
-	
+
 
 		switch (moveDir)
 		{
@@ -1174,13 +1176,8 @@ Update_Status ModulePlayer::Update()
 
 		isDodging = false;
 	}
-	
-	colliderUp->SetPos(position.x + 3, position.y - 3);
-	colliderDown->SetPos(position.x + 3, position.y + 47);
-	colliderRight->SetPos(position.x + 30, position.y);
-	colliderLeft->SetPos(position.x, position.y);
-	
-	if (isDodging /*&& (rightLock == false || leftLock == false || downLock == false || upLock == false)*/)
+
+	if (isDodging)
 	{
 		legAnimation = &dissapear;
 	}
@@ -1196,12 +1193,10 @@ Update_Status ModulePlayer::Update()
 		rightDownDodge.Reset();
 		leftDownDodge.Reset();
 	}
+}
 
-	rightLock = false;
-	leftLock = false;
-	downLock = false;
-	upLock = false;
-
+void ModulePlayer::LoseWinLogicUpdate() 
+{
 	if (hp <= 0)
 	{
 		isDead = true;
@@ -1239,13 +1234,34 @@ Update_Status ModulePlayer::Update()
 
 		legAnimation = &dissapear;
 	}
-	////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE////////////////////////////////GRENADE
-	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN)
+
+
+
+	if (isDead == true && currentAnimation->HasFinished() == true)
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
+	}
+
+	if (winCon == true)
+	{
+		currentAnimation = &Win;
+		legAnimation = &dissapear;
+		if (currentAnimation->HasFinished())
+		{
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
+		}
+	}
+
+}
+
+void ModulePlayer::GrenadeUpdate() 
+{
+	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN && grenadeCoolDown > 40 && isDodging == false)
 	{
 		switch (bulletDir)
 		{
 		case LEFT:
-			App->particles->AddParticle(App->particles->Grenade, position.x , position.y , -2, 1, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, 1, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 50, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y - 80, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1321,9 +1337,12 @@ Update_Status ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->grenade, position.x + 80, position.y - 109 + 40, 0, 0, true, Collider::Type::GRENADE, 40);
 			break;
 		}
-
+		grenadeCoolDown = 0;
 	}
+}
 
+void ModulePlayer::DebugLogicUpdate() 
+{
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
 	{
 		if (godMode == false)
@@ -1335,30 +1354,23 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
 	{
 		winCon = true;
-		 
+
 	}
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 	{
-		
+
 		App->player->position.x = 2048;
 		App->player->position.y = -1548;
-	}
-
-	if (winCon == true)	
-	{
-		currentAnimation = &Win;
-		legAnimation = &dissapear;
-		if (currentAnimation->HasFinished())
-		{
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
-		}
 	}
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
 	{
 		hp = 0;
 	}
+}
 
-	if (isHurt == true) 
+void ModulePlayer::HurtUpdate() 
+{
+	if (isHurt == true)
 	{
 		switch (moveDir)
 		{
@@ -1393,27 +1405,59 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &Hurtupright;
 			break;
 		}
-		if (hurtDuration > 45) 
-			{
-				isHurt = false;
-				Hurtleft.Reset();
-				Hurtright.Reset();
-				Hurtdown.Reset();
-				Hurtup.Reset();
-				Hurtdownleft.Reset();
-				Hurtdownright.Reset();
-				Hurtupleft.Reset();
-				Hurtupright.Reset();
-			} 
+		if (hurtDuration > 45)
+		{
+			isHurt = false;
+			Hurtleft.Reset();
+			Hurtright.Reset();
+			Hurtdown.Reset();
+			Hurtup.Reset();
+			Hurtdownleft.Reset();
+			Hurtdownright.Reset();
+			Hurtupleft.Reset();
+			Hurtupright.Reset();
+		}
 		legAnimation = &dissapear;
-		
+
 	}
+}
+
+Update_Status ModulePlayer::Update()
+{
+	shootCoolDown++;
+	dodgeCoolDown++;
+	hurtDuration++;
+	grenadeCoolDown++;
+	timerCounter++;
+
+	GamepadUpdate();
+	MoveUpdate();
+	ShootingUpdate();
+	AnimationLegTorsoUpdate();
+	DodgeUpdate();
+
+	//Update collider positions
+	colliderUp->SetPos(position.x + 3, position.y - 3);
+	colliderDown->SetPos(position.x + 3, position.y + 47);
+	colliderRight->SetPos(position.x + 32, position.y);
+	colliderLeft->SetPos(position.x, position.y);
+
+	//Turn off wall collisions for next tick to check if there is a collision
+	rightLock = false;
+	leftLock = false;
+	downLock = false;
+	upLock = false;
+
+	LoseWinLogicUpdate();
+	GrenadeUpdate();
+	DebugLogicUpdate();
+	HurtUpdate();
+	
 	currentAnimation->Update();
 	legAnimation->Update();
 
 
 	//Timer
-	timerCounter++;
 	if (timerCounter == 240)
 	{
 		timerCounter = 0;
@@ -1422,12 +1466,6 @@ Update_Status ModulePlayer::Update()
 			timer--;
 
 		}
-	}
-
-
-	if (isDead == true && currentAnimation->HasFinished() == true)
-	{
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 90);
 	}
 
 
@@ -1479,10 +1517,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::UP_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		upLock = true;
-		if (isDodging) 
+		if (isDodging && moveDir != LEFT && moveDir != RIGHT)
 		{
 			App->input->keys[SDL_SCANCODE_W] = Key_State::KEY_IDLE;
 			isDodging = false;
+			legAnimation = &upAnimLeg;
 		}
 			
 
@@ -1492,7 +1531,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::DOWN_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		downLock = true;
-		if (isDodging && c1->type != Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY))
+		if (isDodging && moveDir != LEFT && moveDir != RIGHT)
 		{
 			App->input->keys[SDL_SCANCODE_S] = Key_State::KEY_IDLE;
 			isDodging = false;
@@ -1505,10 +1544,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::RIGHT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		rightLock = true;
-		if (isDodging)
+		if (isDodging && moveDir != UP && moveDir != DOWN)
 		{
 			App->input->keys[SDL_SCANCODE_D] = Key_State::KEY_IDLE;
 			isDodging = false;
+			legAnimation = &rightAnimLeg;
 		}
 
 		//isDodging = false;
@@ -1517,10 +1557,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::LEFT_PLAYER && (c2->type == Collider::Type::WALL || c2->type == Collider::Type::ENEMY) && App->render->freeCam == false)
 	{
 		leftLock = true;
-		if (isDodging)
+		if (isDodging && moveDir != UP && moveDir != DOWN)
 		{
 			App->input->keys[SDL_SCANCODE_A] = Key_State::KEY_IDLE;
 			isDodging = false;
+			legAnimation = &leftAnimLeg;
 		}
 
 		//isDodging = false;

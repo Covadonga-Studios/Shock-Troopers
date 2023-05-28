@@ -71,6 +71,16 @@ public:
 	// Collision callback, called when the player intersects with another collider
 	void OnCollision(Collider* c1, Collider* c2) override;
 
+	void MoveUpdate();
+	void GamepadUpdate();
+	void ShootingUpdate();
+	void AnimationLegTorsoUpdate();
+	void DodgeUpdate();
+	void LoseWinLogicUpdate();
+	void GrenadeUpdate();
+	void DebugLogicUpdate();
+	void HurtUpdate();
+
 public:
 	// Position of the player in the map
 	iPoint position;
@@ -180,6 +190,7 @@ public:
 	int shootCoolDown = 10;
 	int dodgeCoolDown = 30;
 	int dodgeDuration = 15;
+	int grenadeCoolDown = 20;
 	bool isDodging = false;
 	int dx;
 	int dy;
