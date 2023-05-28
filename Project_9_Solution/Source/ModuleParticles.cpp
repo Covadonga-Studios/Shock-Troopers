@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.18.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.19.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
