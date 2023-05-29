@@ -34,10 +34,11 @@ bool SceneLevel1::Start()
 	//Bottomside collider
 	
 	 App->collisions->AddCollider({ 0, -2000, 10, 2424 }, Collider::Type::WALL);
-	 collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
+	 //collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 360, -1310, 10, 2424 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 0, -1548, 1000, 10 }, Collider::Type::WALL);
 	// Enemies ---
-	
+	//-1548
 
 	App->enemies->AddEnemy(Enemy_Type::TANK, 70, 0);
 
@@ -74,7 +75,7 @@ Update_Status SceneLevel1::Update()
 Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	collider->SetPos(App->render->camera.x,App->render->camera.y + 215);
+	//collider->SetPos(App->render->camera.x,App->render->camera.y + 215);
 	 
 
 	App->render->Blit(bgTexture, 0, -1820, NULL);

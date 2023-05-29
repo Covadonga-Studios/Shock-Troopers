@@ -76,6 +76,40 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyLooking.PushBack({ 1693, 406, 33, 50 });
 	enemyLooking.PushBack({ 1728, 406, 33, 50 });
 
+	walkingUp.PushBack({ 1132, 1187, 41, 50 });
+	walkingUp.PushBack({ 1174, 1187, 41, 50 });
+	walkingUp.PushBack({ 1216, 1187, 41, 50 });
+	walkingUp.PushBack({ 1258, 1187, 41, 50 });
+	walkingUp.PushBack({ 1300, 1187, 41, 50 });
+	walkingUp.PushBack({ 1342, 1187, 41, 50 });
+	walkingUp.PushBack({ 1384, 1187, 41, 50 });
+
+	walkingLeft.PushBack({ 1132, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1174, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1216, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1258, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1300, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1342, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1384, 1238, 41, 50 });
+	walkingLeft.PushBack({ 1426, 1238, 41, 50 });
+
+	walkingDownRight.PushBack({ 1132, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1174, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1216, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1258, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1300, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1342, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1384, 1289, 41, 50 });
+	walkingDownRight.PushBack({ 1426, 1289, 41, 50 });
+
+	walkingUpLeft.PushBack({ 1132, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1174, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1216, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1258, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1300, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1342, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1384, 1340, 41, 50 });
+	walkingUpLeft.PushBack({ 1426, 1340, 41, 50 });
 
 	hp = 1;
 

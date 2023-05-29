@@ -25,6 +25,8 @@ private:
 	Animation box;
 	Animation boxidle;
 	Animation front, back;
+	Animation helicopterArriving;
+	Animation helicopterFight;
 	float dx;
 	float dy;
 };

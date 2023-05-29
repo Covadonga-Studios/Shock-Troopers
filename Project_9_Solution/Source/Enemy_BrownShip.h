@@ -37,6 +37,10 @@ private:
 	Animation enemyRunning;
 	Animation enemyStopping;
 	Animation enemyLooking;
+	Animation walkingUp;
+	Animation walkingLeft;
+	Animation walkingDownRight;
+	Animation walkingUpLeft;
 
 	float dx;
 	float dy;

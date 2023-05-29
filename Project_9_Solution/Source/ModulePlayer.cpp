@@ -881,6 +881,21 @@ void ModulePlayer::MoveUpdate()
 		else if ((App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE & App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE) && (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT)) {
 			moveDir = bulletDir;
 		}
+
+		switch (App->render->cameraMode)
+		{
+		case 0:
+
+			if (App->render->camera.y + SCREEN_HEIGHT < position.y + 47)
+			{
+				position.y--;
+				isDodging = false;
+			}
+			break;
+		case 1:
+			break;
+		}
+
 }
 
 void ModulePlayer::ShootingUpdate() 
@@ -1371,6 +1386,10 @@ void ModulePlayer::DebugLogicUpdate()
 	{
 		hp = 0;
 	}
+	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
+	{
+		App->render->cameraMode++;
+	}
 }
 
 void ModulePlayer::HurtUpdate() 
@@ -1469,7 +1488,6 @@ Update_Status ModulePlayer::Update()
 		if (timer != 0)
 		{
 			timer--;
-
 		}
 	}
 
