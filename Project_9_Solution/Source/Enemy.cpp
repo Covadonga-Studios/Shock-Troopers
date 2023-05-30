@@ -93,13 +93,18 @@ int Enemy::GetTargetDir(float dx, float dy)
 void Enemy::Draw()
 {
 	bool mirror = currentAnim->GetMirror();
-
+	bool mirror2 = currentAnim2->GetMirror();
 
 	if (currentAnim2 != nullptr)
-	{
-		App->render->Blit(texture2, position.x + offsettexture2x, position.y + offsettexture2y, &(currentAnim2->GetCurrentFrame()));
-	}
-
+		if (mirror == false)
+		{
+			App->render->Blit(texture2, position.x + offsettexture2x, position.y + offsettexture2y, &(currentAnim2->GetCurrentFrame()));
+		}
+		else 
+		{
+			App->render->BlitMirror(texture, position.x + offsettexture1x, position.y + offsettexture1y, &(currentAnim->GetCurrentFrame()));
+		}
+	
 
 	if (currentAnim != nullptr)
 		if (mirror == true)

@@ -53,7 +53,7 @@ public:
 		}
 	}
 	bool GetMirror() const
-	{
+	{	
 		return mirror;
 	}
 

@@ -18,6 +18,7 @@
 #include "Enemy_Helicopter.h"
 #include "Enemy_ThreeBarrels.h"
 #include "Enemy_BlackSoldier.h"
+#include "Enemy_FinalBoss.h"
 
 #define SPAWN_MARGIN 50
 
@@ -35,8 +36,8 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.15.png");
-	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.15.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.26.png");
+	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.26.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;
@@ -196,6 +197,10 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case Enemy_Type::BLACKSOLDIER:
 					enemies[i] = new Enemy_BlackSoldier(info.x, info.y);
 					break;
+				case Enemy_Type::FINALBOSS:
+					enemies[i] = new Enemy_FinalBoss(info.x, info.y);
+					break;
+
 
 			}
 			enemies[i]->texture = texture;

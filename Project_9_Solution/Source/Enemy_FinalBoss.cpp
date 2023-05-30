@@ -16,11 +16,11 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 
 	cannonDown.PushBack({ 1383, 696, 107, 74 });
 
-	cannonDownLeft.PushBack({ 1383, 772, 107, 74 });
+	cannonDownLeft.PushBack({ 1383, 772, 107, 74 }, true);
 
 	cannonDownRight.PushBack({ 1383, 772, 107, 74 }, true);
 
-	cannonLeft.PushBack({ 1383, 848, 107, 74 });
+	cannonLeft.PushBack({ 1383, 848, 107, 74 }, true);
 
 	cannonRight.PushBack({ 1383, 848, 107, 74 }, true);
 
@@ -141,35 +141,43 @@ void Enemy_FinalBoss::Update()
 		switch (GetTargetDir(dx, dy))
 		{
 		case LEFT:
-			currentAnim = &enemyshot1left;
+			currentAnim = &turretLeft;
+			currentAnim2 = &cannonLeft;
 			break;
 		case RIGHT:
-			currentAnim = &enemyshot1right;
+			currentAnim = &turretRight;
+			currentAnim2 = &cannonRight;
 			break;
 		case DOWN:
-			currentAnim = &enemyshot1down;
+			currentAnim = &turretDown;
+			currentAnim2 = &cannonDown;
 			break;
 		case UP:
-			currentAnim = &enemyshot1up;
+			currentAnim = &turretDown;
+			currentAnim2 = &cannonDown;
 			break;
 		case DOWNLEFT:
-			currentAnim = &enemyshot1downleft;
+			currentAnim = &turretDownLeft;
+			currentAnim2 = &cannonDownLeft;
 			break;
 		case DOWNRIGHT:
-			currentAnim = &enemyshot1rightdown;
+			currentAnim = &turretDownRight;
+			currentAnim2 = &cannonDownRight;
 			break;
 		case UPLEFT:
-			currentAnim = &enemyshot1upleft;
+			currentAnim = &turretDown;
+			currentAnim2 = &cannonDown;
 			break;
 		case UPRIGHT:
 
-			currentAnim = &enemyshot1rightup;
+			currentAnim = &turretDown;
+			currentAnim2 = &cannonDown;
 			break;
 		}
 
 	collider->SetPos(position.x, position.y);
 
-	currentAnim2 = &enemydeath1;
+	//currentAnim2 = &enemydeath1;
 
 
 	// Call to the base class. It must be called at the end

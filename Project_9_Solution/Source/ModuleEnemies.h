@@ -18,6 +18,7 @@ enum class Enemy_Type
 	HELICOPTER,
 	BARREL3,
 	BLACKSOLDIER,
+	FINALBOSS,
 };
 
 struct EnemySpawnpoint

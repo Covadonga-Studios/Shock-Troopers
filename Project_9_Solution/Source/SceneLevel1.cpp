@@ -40,7 +40,7 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	App->enemies->AddEnemy(Enemy_Type::BLACKSOLDIER, 70, 0);
+	App->enemies->AddEnemy(Enemy_Type::FINALBOSS, 70, 0);
 
 	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 250, 150);
 
