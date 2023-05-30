@@ -26,6 +26,7 @@ private:
 	Animation front, back;
 	Animation tankStop;
 	Animation tankStopbase;
+	Animation bullet;
 };
 
 #endif // __ENEMY_MECH_H__

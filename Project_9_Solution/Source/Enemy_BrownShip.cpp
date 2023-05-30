@@ -217,6 +217,54 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyMeleeRight.PushBack({ 1672, 1248, 50, 53 }, true);
 	enemyMeleeRight.PushBack({ 1723, 1248, 50, 53 }, true);
 
+	greenDeathUpRight.PushBack({ 623, 1520, 55, 55 });
+	greenDeathUpRight.PushBack({ 679, 1520, 55, 55 });
+	greenDeathUpRight.PushBack({ 735, 1520, 55, 55 });
+	greenDeathUpRight.PushBack({ 791, 1520, 55, 55 });
+	greenDeathUpRight.PushBack({ 847, 1520, 55, 55 });
+	greenDeathUpRight.PushBack({ 903, 1520, 55, 55 });
+	greenDeathUpRight.PushBack({ 959, 1520, 55, 55 });
+
+	greenDeathUpLeft.PushBack({ 623, 1520, 55, 55 }, true);
+	greenDeathUpLeft.PushBack({ 679, 1520, 55, 55 }, true);
+	greenDeathUpLeft.PushBack({ 735, 1520, 55, 55 }, true);
+	greenDeathUpLeft.PushBack({ 791, 1520, 55, 55 }, true);
+	greenDeathUpLeft.PushBack({ 847, 1520, 55, 55 }, true);
+	greenDeathUpLeft.PushBack({ 903, 1520, 55, 55 }, true);
+	greenDeathUpLeft.PushBack({ 959, 1520, 55, 55 }, true);
+
+	greenDeathDownRight.PushBack({ 623, 1576, 55, 55 });
+	greenDeathDownRight.PushBack({ 679, 1576, 55, 55 });
+	greenDeathDownRight.PushBack({ 735, 1576, 55, 55 });
+	greenDeathDownRight.PushBack({ 791, 1576, 55, 55 });
+	greenDeathDownRight.PushBack({ 847, 1576, 55, 55 });
+	greenDeathDownRight.PushBack({ 903, 1576, 55, 55 });
+	greenDeathDownRight.PushBack({ 959, 1576, 55, 55 });
+
+	greenDeathDownLeft.PushBack({ 623, 1576, 55, 55 }, true);
+	greenDeathDownLeft.PushBack({ 679, 1576, 55, 55 }, true);
+	greenDeathDownLeft.PushBack({ 735, 1576, 55, 55 }, true);
+	greenDeathDownLeft.PushBack({ 791, 1576, 55, 55 }, true);
+	greenDeathDownLeft.PushBack({ 847, 1576, 55, 55 }, true);
+	greenDeathDownLeft.PushBack({ 903, 1576, 55, 55 }, true);
+	greenDeathDownLeft.PushBack({ 959, 1576, 55, 55 }, true);
+
+	greenDeathRight.PushBack({ 623, 1632, 55, 55 });
+	greenDeathRight.PushBack({ 679, 1632, 55, 55 });
+	greenDeathRight.PushBack({ 735, 1632, 55, 55 });
+	greenDeathRight.PushBack({ 791, 1632, 55, 55 });
+	greenDeathRight.PushBack({ 847, 1632, 55, 55 });
+	greenDeathRight.PushBack({ 903, 1632, 55, 55 });
+	greenDeathRight.PushBack({ 959, 1632, 55, 55 });
+
+	greenDeathLeft.PushBack({ 623, 1632, 55, 55 }, true);
+	greenDeathLeft.PushBack({ 679, 1632, 55, 55 }, true);
+	greenDeathLeft.PushBack({ 735, 1632, 55, 55 }, true);
+	greenDeathLeft.PushBack({ 791, 1632, 55, 55 }, true);
+	greenDeathLeft.PushBack({ 847, 1632, 55, 55 }, true);
+	greenDeathLeft.PushBack({ 903, 1632, 55, 55 }, true);
+	greenDeathLeft.PushBack({ 959, 1632, 55, 55 }, true);
+
 	hp = 1;
 
 	

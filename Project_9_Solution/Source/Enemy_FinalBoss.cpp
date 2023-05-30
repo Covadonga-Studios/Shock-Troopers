@@ -77,6 +77,16 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 	tankMissileLeft.PushBack({ 1045, 2006, 50, 28 }, true);
 	tankMissileLeft.PushBack({ 1096, 2006, 50, 28 }, true);
 
+	turretDown.PushBack({ 4, 1060, 42, 27 });
+
+	turretDownLeft.PushBack({ 48, 1060, 42, 27});
+
+	turretDownRight.PushBack({ 48, 1060, 42, 27 }, true);
+
+	turretLeft.PushBack({ 92, 1060, 42, 27 });
+
+	turretRight.PushBack({ 92, 1060, 42, 27 }, true);
+
 
 	//POR AHORA CUT CONTENT
 	//enemyshot1rightdowndiagonal.PushBack({ 905, 590, 64, 42 }, true);

@@ -47,6 +47,12 @@ private:
 	Animation tankMissileRight;
 	Animation tankMissileLeft;
 
+	Animation turretDown;
+	Animation turretDownLeft;
+	Animation turretDownRight;
+	Animation turretLeft;
+	Animation turretRight;
+
 
 
 	float dx;

@@ -235,6 +235,15 @@ bool ModuleParticles::Start()
 	blueBullet.anim.PushBack({ 571, 57, 13, 64 });
 	blueBullet.anim.speed = 0.1f;
 
+	bulletHit.anim.PushBack({ 172, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 189, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 206, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 223, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 240, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 257, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 274, 925, 16, 32 });
+	bulletHit.anim.PushBack({ 291, 925, 16, 32 });
+
 	return true;
 }
 

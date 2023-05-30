@@ -195,6 +195,15 @@ public:
 
 	Animation powerUpThreeBullets;
 
+	Animation fogonazoDown;
+	Animation fogonazoDownRight;
+	Animation fogonazoDownLeft;
+	Animation fogonazoUp;
+	Animation fogonazoUpRight;
+	Animation fogonazoUpLeft;
+	Animation fogonazoRight;
+	Animation fogonazoLeft;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;

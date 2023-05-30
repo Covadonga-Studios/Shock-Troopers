@@ -30,6 +30,83 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyshot2left.PushBack({ 278, 647, 43, 47 });
 	enemyshot2downleft.PushBack({ 321, 647, 43, 47 });
 
+	enemyWalking.PushBack({ 389, 1365, 34, 51 });
+	enemyWalking.PushBack({ 424, 1365, 34, 51 });
+	enemyWalking.PushBack({ 459, 1365, 34, 51 });
+	enemyWalking.PushBack({ 494, 1365, 34, 51 });
+	enemyWalking.PushBack({ 529, 1365, 34, 51 });
+	enemyWalking.PushBack({ 564, 1365, 34, 51 });
+	enemyWalking.PushBack({ 599, 1365, 34, 51 });
+	enemyWalking.PushBack({ 634, 1365, 34, 51 });
+
+	enemyDeathUpRight.PushBack({ 231, 1520, 55, 55 });
+	enemyDeathUpRight.PushBack({ 287, 1520, 55, 55 });
+	enemyDeathUpRight.PushBack({ 343, 1520, 55, 55 });
+	enemyDeathUpRight.PushBack({ 399, 1520, 55, 55 });
+	enemyDeathUpRight.PushBack({ 455, 1520, 55, 55 });
+	enemyDeathUpRight.PushBack({ 511, 1520, 55, 55 });
+	enemyDeathUpRight.PushBack({ 567, 1520, 55, 55 });
+
+	enemyDeathUpLeft.PushBack({ 231, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.PushBack({ 287, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.PushBack({ 343, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.PushBack({ 399, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.PushBack({ 455, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.PushBack({ 511, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.PushBack({ 567, 1520, 55, 55 }, true);
+
+	enemyDeathDownRight.PushBack({ 231, 1576, 55, 55 });
+	enemyDeathDownRight.PushBack({ 287, 1576, 55, 55 });
+	enemyDeathDownRight.PushBack({ 343, 1576, 55, 55 });
+	enemyDeathDownRight.PushBack({ 399, 1576, 55, 55 });
+	enemyDeathDownRight.PushBack({ 455, 1576, 55, 55 });
+	enemyDeathDownRight.PushBack({ 511, 1576, 55, 55 });
+	enemyDeathDownRight.PushBack({ 567, 1576, 55, 55 });
+
+	enemyDeathDownLeft.PushBack({ 231, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.PushBack({ 287, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.PushBack({ 343, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.PushBack({ 399, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.PushBack({ 455, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.PushBack({ 511, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.PushBack({ 567, 1576, 55, 55 }, true);
+
+	enemyDeathLeft.PushBack({ 231, 1632, 55, 55 });
+	enemyDeathLeft.PushBack({ 287, 1632, 55, 55 });
+	enemyDeathLeft.PushBack({ 343, 1632, 55, 55 });
+	enemyDeathLeft.PushBack({ 399, 1632, 55, 55 });
+	enemyDeathLeft.PushBack({ 455, 1632, 55, 55 });
+	enemyDeathLeft.PushBack({ 511, 1632, 55, 55 });
+	enemyDeathLeft.PushBack({ 567, 1632, 55, 55 });
+
+	enemyDeathRight.PushBack({ 231, 1632, 55, 55 }, true);
+	enemyDeathRight.PushBack({ 287, 1632, 55, 55 }, true);
+	enemyDeathRight.PushBack({ 343, 1632, 55, 55 }, true);
+	enemyDeathRight.PushBack({ 399, 1632, 55, 55 }, true);
+	enemyDeathRight.PushBack({ 455, 1632, 55, 55 }, true);
+	enemyDeathRight.PushBack({ 511, 1632, 55, 55 }, true);
+	enemyDeathRight.PushBack({ 567, 1632, 55, 55 }, true);
+
+	enemyRollRight.PushBack({ 269, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 308, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 347, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 386, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 425, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 464, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 503, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 542, 1688, 38, 53 });
+	enemyRollRight.PushBack({ 581, 1688, 38, 53 });
+
+	enemyRollLeft.PushBack({ 269, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 308, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 347, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 386, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 425, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 464, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 503, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 542, 1742, 38, 53 });
+	enemyRollLeft.PushBack({ 581, 1742, 38, 53 });
+
 	hp = 1;
 
 	currentAnim = &flyAnim;

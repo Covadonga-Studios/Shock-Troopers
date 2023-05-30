@@ -43,6 +43,7 @@ private:
 	Animation enemyshot1left;
 	Animation enemyshot1downleft;
 	Animation enemyshot1downleftdiagonal;
+	
 
 
 

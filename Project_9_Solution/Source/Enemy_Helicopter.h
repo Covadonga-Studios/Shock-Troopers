@@ -27,6 +27,13 @@ private:
 	Animation front, back;
 	Animation helicopterArriving;
 	Animation helicopterFight;
+
+	Animation helicopterBullet;
+
+	Animation fogonazoLeft;
+	Animation fogonazoRight;
+	Animation fogonazoDown;
+
 	float dx;
 	float dy;
 };

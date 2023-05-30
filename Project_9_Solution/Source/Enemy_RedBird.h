@@ -40,6 +40,18 @@ private:
 	Animation enemyshot2left;
 	Animation enemyshot2downleft;
 
+	Animation enemyWalking;
+
+	Animation enemyDeathUpRight;
+	Animation enemyDeathUpLeft;
+	Animation enemyDeathDownRight;
+	Animation enemyDeathDownLeft;
+	Animation enemyDeathLeft;
+	Animation enemyDeathRight;
+
+	Animation enemyRollRight;
+	Animation enemyRollLeft;
+
 
 	float dx;
 		float dy;

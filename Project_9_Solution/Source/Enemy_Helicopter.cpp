@@ -19,6 +19,21 @@ Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 	helicopterFight.PushBack({ 1515, 1095, 110, 98 });
 	helicopterFight.PushBack({ 1626, 1095, 110, 98 });
 	helicopterFight.PushBack({ 1737, 1095, 110, 98 });
+
+	helicopterBullet.PushBack({ 767, 539, 4, 4 });
+	helicopterBullet.PushBack({ 767, 543, 4, 4 });
+
+	fogonazoLeft.PushBack({ 772, 539, 27, 29 });
+	fogonazoLeft.PushBack({ 800, 539, 27, 29 });
+	fogonazoLeft.PushBack({ 828, 539, 27, 29 });
+
+	fogonazoRight.PushBack({ 772, 539, 27, 29 }, true);
+	fogonazoRight.PushBack({ 800, 539, 27, 29 }, true);
+	fogonazoRight.PushBack({ 828, 539, 27, 29 }, true);
+
+	fogonazoDown.PushBack({ 772, 569, 27, 29 });
+	fogonazoDown.PushBack({ 800, 569, 27, 29 });
+	fogonazoDown.PushBack({ 828, 569, 27, 29 });
 	
 
 	currentAnim = &boxidle;
