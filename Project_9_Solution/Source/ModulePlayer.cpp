@@ -607,6 +607,15 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	monkeyLeavingLeft.PushBack({ 880, 1260, 25, 24 }, true);
 
 
+	//POWERUPS // POWERUPS //POWERUPS // POWERUPS //POWERUPS // POWERUPS //POWERUPS // POWERUPS //POWERUPS // POWERUPS//POWERUPS // POWERUPS
+
+	powerUpThreeBullets.PushBack({ 542, 8, 13, 13 });
+	powerUpThreeBullets.PushBack({ 556, 8, 13, 13 });
+	powerUpThreeBullets.PushBack({ 542, 22, 13, 13 });
+	powerUpThreeBullets.PushBack({ 556, 22, 13, 13 });
+	powerUpThreeBullets.PushBack({ 542, 36, 13, 13 });
+	powerUpThreeBullets.PushBack({ 556, 36, 13, 13 });
+
 }	
 
 ModulePlayer::~ModulePlayer()
@@ -619,7 +628,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.14.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.25.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 	isDead = false;

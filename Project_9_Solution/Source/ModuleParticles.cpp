@@ -229,10 +229,10 @@ bool ModuleParticles::Start()
 	missileDownLeft.anim.PushBack({ 1935 + 2, 1995, 55, 52 },true);
 	missileDownLeft.lifetime = 180;
 
-	blueBullet.anim.PushBack({ 311, 739, 13, 64 });
-	blueBullet.anim.PushBack({ 325, 739, 13, 64 });
-	blueBullet.anim.PushBack({ 339, 739, 13, 64 });
-	blueBullet.anim.PushBack({ 353, 739, 13, 64 });
+	blueBullet.anim.PushBack({ 529, 57, 13, 64 });
+	blueBullet.anim.PushBack({ 543, 57, 13, 64 });
+	blueBullet.anim.PushBack({ 557, 57, 13, 64 });
+	blueBullet.anim.PushBack({ 571, 57, 13, 64 });
 	blueBullet.anim.speed = 0.1f;
 
 	return true;

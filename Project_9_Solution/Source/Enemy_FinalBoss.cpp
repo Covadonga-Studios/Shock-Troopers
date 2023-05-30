@@ -60,6 +60,68 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 	enemyshot1downleft.PushBack({ 1035, 590, 64, 42 });
 	enemyshot1downleft.speed = 0.1f;
 
+	cannonDown.PushBack({ 1383, 696, 107, 74 });
+
+	cannonDownLeft.PushBack({ 1383, 772, 107, 74 });
+
+	cannonDownRight.PushBack({ 1383, 772, 107, 74 }, true);
+
+	cannonLeft.PushBack({ 1383, 848, 107, 74 });
+
+	cannonRight.PushBack({ 1383, 848, 107, 74 }, true);
+
+	bulletDown.PushBack({ 445, 1888, 48, 48 });
+	bulletDown.PushBack({ 494, 1888, 48, 48 });
+	bulletDown.PushBack({ 543, 1888, 48, 48 });
+	bulletDown.PushBack({ 592, 1888, 48, 48 });
+	bulletDown.PushBack({ 641, 1888, 48, 48 });
+	bulletDown.PushBack({ 690, 1888, 48, 48 });
+
+	bulletDownLeft.PushBack({ 445, 1937, 48, 48 });
+	bulletDownLeft.PushBack({ 494, 1937, 48, 48 });
+	bulletDownLeft.PushBack({ 543, 1937, 48, 48 });
+	bulletDownLeft.PushBack({ 592, 1937, 48, 48 });
+	bulletDownLeft.PushBack({ 641, 1937, 48, 48 });
+	bulletDownLeft.PushBack({ 690, 1937, 48, 48 });
+
+	bulletDownRight.PushBack({ 445, 1937, 48, 48 }, true);
+	bulletDownRight.PushBack({ 494, 1937, 48, 48 }, true);
+	bulletDownRight.PushBack({ 543, 1937, 48, 48 }, true);
+	bulletDownRight.PushBack({ 592, 1937, 48, 48 }, true);
+	bulletDownRight.PushBack({ 641, 1937, 48, 48 }, true);
+	bulletDownRight.PushBack({ 690, 1937, 48, 48 }, true);
+	
+	bulletLeft.PushBack({ 445, 1986, 48, 48 });
+	bulletLeft.PushBack({ 494, 1986, 48, 48 });
+	bulletLeft.PushBack({ 543, 1986, 48, 48 });
+	bulletLeft.PushBack({ 592, 1986, 48, 48 });
+	bulletLeft.PushBack({ 641, 1986, 48, 48 });
+	bulletLeft.PushBack({ 690, 1986, 48, 48 });
+
+	bulletRight.PushBack({ 445, 1986, 48, 48 }, true);
+	bulletRight.PushBack({ 494, 1986, 48, 48 }, true);
+	bulletRight.PushBack({ 543, 1986, 48, 48 }, true);
+	bulletRight.PushBack({ 592, 1986, 48, 48 }, true);
+	bulletRight.PushBack({ 641, 1986, 48, 48 }, true);
+	bulletRight.PushBack({ 690, 1986, 48, 48 }, true);
+
+	tankMissileRight.PushBack({ 739, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 790, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 841, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 892, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 943, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 994, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 1045, 2006, 50, 28 });
+	tankMissileRight.PushBack({ 1096, 2006, 50, 28 });
+
+	tankMissileLeft.PushBack({ 739, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 790, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 841, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 892, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 943, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 994, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 1045, 2006, 50, 28 }, true);
+	tankMissileLeft.PushBack({ 1096, 2006, 50, 28 }, true);
 
 
 	//POR AHORA CUT CONTENT

@@ -44,6 +44,21 @@ private:
 	Animation enemyshot1downleft;
 	Animation enemyshot1downleftdiagonal;
 
+	Animation cannonDown;
+	Animation cannonDownLeft;
+	Animation cannonDownRight;
+	Animation cannonLeft;
+	Animation cannonRight;
+
+	Animation bulletDown;
+	Animation bulletDownLeft;
+	Animation bulletDownRight;
+	Animation bulletLeft;
+	Animation bulletRight;
+
+	Animation tankMissileRight;
+	Animation tankMissileLeft;
+
 
 
 	float dx;
