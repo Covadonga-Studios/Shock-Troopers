@@ -30,6 +30,31 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 	enemyshot2left.PushBack({ 278, 647, 43, 47 });
 	enemyshot2downleft.PushBack({ 321, 647, 43, 47 });
 
+	enemyDying.PushBack({ 1, 1237, 41, 53 });
+	enemyDying.PushBack({ 43, 1237, 41, 53 });
+	enemyDying.PushBack({ 85, 1237, 41, 53 });
+	enemyDying.PushBack({ 127, 1237, 41, 53 });
+	enemyDying.PushBack({ 169, 1237, 41, 53 });
+	enemyDying.PushBack({ 211, 1237, 41, 53 });
+	enemyDying.PushBack({ 253, 1237, 41, 53 });
+
+	enemyBurning.PushBack({ 1, 1294, 57, 68 });
+	enemyBurning.PushBack({ 59, 1294, 57, 68 });
+	enemyBurning.PushBack({ 117, 1294, 57, 68 });
+	enemyBurning.PushBack({ 175, 1294, 57, 68 });
+	enemyBurning.PushBack({ 233, 1294, 57, 68 });
+	enemyBurning.PushBack({ 291, 1294, 57, 68 });
+	enemyBurning.PushBack({ 349, 1294, 57, 68 });
+	enemyBurning.PushBack({ 407, 1294, 57, 68 });
+	enemyBurning.PushBack({ 465, 1294, 57, 68 });
+	enemyBurning.PushBack({ 523, 1294, 57, 68 });
+	enemyBurning.PushBack({ 581, 1294, 57, 68 });
+	enemyBurning.PushBack({ 639, 1294, 57, 68 });
+	enemyBurning.PushBack({ 697, 1294, 57, 68 });
+	enemyBurning.PushBack({ 755, 1294, 57, 68 });
+	enemyBurning.PushBack({ 813, 1294, 57, 68 });
+	enemyBurning.PushBack({ 871, 1294, 57, 68 });
+
 	hp = 1;
 
 	currentAnim = &flyAnim;

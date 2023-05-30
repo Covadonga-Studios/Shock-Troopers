@@ -29,6 +29,7 @@ private:
 	Animation helicopterArriving;
 	Animation helicopterFight;
 	Animation greyEnemyMeleeDown;
+	Animation blackSoldierDeath;
 	float dx;
 	float dy;
 };

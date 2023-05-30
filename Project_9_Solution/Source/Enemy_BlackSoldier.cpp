@@ -31,6 +31,14 @@ Enemy_BlackSoldier::Enemy_BlackSoldier(int x, int y) : Enemy(x, y)
 	greyEnemyMeleeDown.PushBack({ 673, 1157, 83, 78 });
 	greyEnemyMeleeDown.PushBack({ 757, 1157, 83, 78 });
 
+	blackSoldierDeath.PushBack({ 1, 1363, 53, 57 });
+	blackSoldierDeath.PushBack({ 55, 1363, 53, 57 });
+	blackSoldierDeath.PushBack({ 109, 1363, 53, 57 });
+	blackSoldierDeath.PushBack({ 163, 1363, 53, 57 });
+	blackSoldierDeath.PushBack({ 217, 1363, 53, 57 });
+	blackSoldierDeath.PushBack({ 271, 1363, 53, 57 });
+	blackSoldierDeath.PushBack({ 325, 1363, 53, 57 });
+
 	currentAnim = &greyEnemyMeleeDown;
 
 	collider = App->collisions->AddCollider({ 20, 20, 83, 78 }, Collider::Type::ENEMY, (Module*)App->enemies);

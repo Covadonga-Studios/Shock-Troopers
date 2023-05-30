@@ -183,6 +183,14 @@ public:
 	Animation blueBullet;
 	Animation explosion2;
 
+	Animation banana;
+	Animation monkeyRight;
+	Animation monkeyLeft;
+	Animation monkeyHappy;
+	Animation monkeyAngry;
+	Animation monkeyLeavingRight;
+	Animation monkeyLeavingLeft;
+
 	Animation greyEnemyMeleeDown;
 
 	int bulletDir = 0;

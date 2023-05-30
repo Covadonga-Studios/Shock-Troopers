@@ -39,8 +39,20 @@ private:
 	Animation enemyLooking;
 	Animation walkingUp;
 	Animation walkingLeft;
+	Animation walkingRight;
 	Animation walkingDownRight;
+	Animation walkingDownLeft;
 	Animation walkingUpLeft;
+	Animation walkingUpRight;
+	Animation enemyFallingRight;
+	Animation enemyFallingLeft;
+	Animation enemyRunningRight;
+	Animation enemyRunningLeft;
+	Animation enemyRunningUpRight;
+	Animation enemyRunningUpLeft;
+	Animation enemyRunningUp;
+	Animation enemyMeleeLeft;
+	Animation enemyMeleeRight;
 
 	float dx;
 	float dy;

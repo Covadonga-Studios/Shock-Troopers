@@ -93,6 +93,15 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingLeft.PushBack({ 1384, 1238, 41, 50 });
 	walkingLeft.PushBack({ 1426, 1238, 41, 50 });
 
+	walkingRight.PushBack({ 1132, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1174, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1216, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1258, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1300, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1342, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1384, 1238, 41, 50 }, true);
+	walkingRight.PushBack({ 1426, 1238, 41, 50 }, true);
+
 	walkingDownRight.PushBack({ 1132, 1289, 41, 50 });
 	walkingDownRight.PushBack({ 1174, 1289, 41, 50 });
 	walkingDownRight.PushBack({ 1216, 1289, 41, 50 });
@@ -102,6 +111,15 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingDownRight.PushBack({ 1384, 1289, 41, 50 });
 	walkingDownRight.PushBack({ 1426, 1289, 41, 50 });
 
+	walkingDownLeft.PushBack({ 1132, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1174, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1216, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1258, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1300, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1342, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1384, 1289, 41, 50 }, true);
+	walkingDownLeft.PushBack({ 1426, 1289, 41, 50 }, true);
+
 	walkingUpLeft.PushBack({ 1132, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1174, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1216, 1340, 41, 50 });
@@ -110,6 +128,94 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingUpLeft.PushBack({ 1342, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1384, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1426, 1340, 41, 50 });
+
+	walkingUpRight.PushBack({ 1132, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1174, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1216, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1258, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1300, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1342, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1384, 1340, 41, 50 }, true);
+	walkingUpRight.PushBack({ 1426, 1340, 41, 50 }, true);
+
+	enemyFallingRight.PushBack({ 1, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 92, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 183, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 274, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 365, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 456, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 547, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 638, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 729, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 820, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 911, 1421, 90, 98 });
+	enemyFallingRight.PushBack({ 1002, 1421, 90, 98 });
+
+	enemyFallingLeft.PushBack({ 1, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 92, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 183, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 274, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 365, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 456, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 547, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 638, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 729, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 820, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 911, 1421, 90, 98 }, true);
+	enemyFallingLeft.PushBack({ 1002, 1421, 90, 98 }, true);
+
+	enemyRunningRight.PushBack({ 931, 1260, 49, 51 });
+	enemyRunningRight.PushBack({ 981, 1260, 49, 51 });
+	enemyRunningRight.PushBack({ 1031, 1260, 49, 51 });
+	enemyRunningRight.PushBack({ 1081, 1260, 49, 51 });
+
+	enemyRunningLeft.PushBack({ 931, 1260, 49, 51 }, true);
+	enemyRunningLeft.PushBack({ 981, 1260, 49, 51 }, true);
+	enemyRunningLeft.PushBack({ 1031, 1260, 49, 51 }, true);
+	enemyRunningLeft.PushBack({ 1081, 1260, 49, 51 }, true);
+
+	enemyRunningUpRight.PushBack({ 931, 1312, 49, 51 });
+	enemyRunningUpRight.PushBack({ 981, 1312, 49, 51 });
+	enemyRunningUpRight.PushBack({ 1031, 1312, 49, 51 });
+	enemyRunningUpRight.PushBack({ 1081, 1312, 49, 51 });
+
+	enemyRunningUpLeft.PushBack({ 931, 1312, 49, 51 }, true);
+	enemyRunningUpLeft.PushBack({ 981, 1312, 49, 51 }, true);
+	enemyRunningUpLeft.PushBack({ 1031, 1312, 49, 51 }, true);
+	enemyRunningUpLeft.PushBack({ 1081, 1312, 49, 51 }, true);
+
+	enemyRunningUp.PushBack({ 931, 1364, 49, 51 });
+	enemyRunningUp.PushBack({ 981, 1364, 49, 51 });
+	enemyRunningUp.PushBack({ 1031, 1364, 49, 51 });
+	enemyRunningUp.PushBack({ 1081, 1364, 49, 51 });
+
+	enemyMeleeLeft.PushBack({ 1468, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1519, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1570, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1621, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1672, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1723, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1774, 1194, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1468, 1248, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1519, 1248, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1570, 1248, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1621, 1248, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1672, 1248, 50, 53 });
+	enemyMeleeLeft.PushBack({ 1723, 1248, 50, 53 });
+
+	enemyMeleeRight.PushBack({ 1468, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1519, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1570, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1621, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1672, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1723, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1774, 1194, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1468, 1248, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1519, 1248, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1570, 1248, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1621, 1248, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1672, 1248, 50, 53 }, true);
+	enemyMeleeRight.PushBack({ 1723, 1248, 50, 53 }, true);
 
 	hp = 1;
 
