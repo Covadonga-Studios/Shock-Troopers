@@ -14,11 +14,11 @@
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 {
 	
-		enemydeath1.PushBack({ 713, 473, 70, 64 });
-		enemydeath1.PushBack({ 784, 473, 70, 64 });
-		enemydeath1.PushBack({ 855, 473, 70, 64 });
-		enemydeath1.speed = 0.1f;
-		enemydeath1.loop = true;
+	enemydeath1.PushBack({ 713, 473, 70, 64 });
+	enemydeath1.PushBack({ 784, 473, 70, 64 });
+	enemydeath1.PushBack({ 855, 473, 70, 64 });
+	enemydeath1.speed = 0.1f;
+	enemydeath1.loop = true;
 	
 	enemyshot1down.PushBack({ 905, 547, 64, 42 });
 	enemyshot1down.PushBack({ 970, 547, 64, 42 });

@@ -54,6 +54,13 @@ private:
 	Animation enemyMeleeLeft;
 	Animation enemyMeleeRight;
 
+	Animation greenDeathUpRight;
+	Animation greenDeathUpLeft;
+	Animation greenDeathDownRight;
+	Animation greenDeathDownLeft;
+	Animation greenDeathRight;
+	Animation greenDeathLeft;
+
 	float dx;
 	float dy;
 };

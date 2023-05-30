@@ -1,38 +1,48 @@
-<<<<<<< Updated upstream
-﻿  ModuleParticles.cpp
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(319,78): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+﻿  Application.cpp
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_BrownShip.cpp
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(273,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
           with
           [
-              TYPE=float
+              TYPE=int
           ]
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(319,56): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(274,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
           with
           [
-              TYPE=float
+              TYPE=int
           ]
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(324,72): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+  Enemy_FinalBoss.cpp
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(110,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
           with
           [
-              TYPE=float
+              TYPE=int
           ]
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(324,50): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(111,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
           with
           [
-              TYPE=float
+              TYPE=int
           ]
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(345,30): warning C4244: '=': conversión de 'int' a 'TYPE'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(346,30): warning C4244: '=': conversión de 'int' a 'TYPE'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-  Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe
-=======
-﻿  Project_9_Solution.vcxproj -> C:\Users\User\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
->>>>>>> Stashed changes
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(144,19): error C2065: 'enemyshot1left': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(147,19): error C2065: 'enemyshot1right': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(150,19): error C2065: 'enemyshot1down': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(153,19): error C2065: 'enemyshot1up': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(156,19): error C2065: 'enemyshot1downleft': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(159,19): error C2065: 'enemyshot1rightdown': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(162,19): error C2065: 'enemyshot1upleft': identificador no declarado
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(166,19): error C2065: 'enemyshot1rightup': identificador no declarado
+  Enemy_Helicopter.cpp
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(42,82): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(43,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  ModuleFadeToBlack.cpp
+D:\Shock-Troopers\Project_9_Solution\Source\ModuleFadeToBlack.cpp(78,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
+  Path.cpp
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...

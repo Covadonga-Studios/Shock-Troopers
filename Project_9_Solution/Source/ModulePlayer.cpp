@@ -616,6 +616,40 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	powerUpThreeBullets.PushBack({ 542, 36, 13, 13 });
 	powerUpThreeBullets.PushBack({ 556, 36, 13, 13 });
 
+	//FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO 
+
+	fogonazoDown.PushBack({ 769, 1841, 60, 61 });
+	fogonazoDown.PushBack({ 830, 1841, 60, 61 });
+	fogonazoDown.PushBack({ 891, 1841, 60, 61 });
+
+	fogonazoDownRight.PushBack({ 952, 1841, 60, 61 });
+	fogonazoDownRight.PushBack({ 1013, 1841, 60, 61 });
+	fogonazoDownRight.PushBack({ 1074, 1841, 60, 61 });
+
+	fogonazoDownLeft.PushBack({ 952, 1841, 60, 61 }, true);
+	fogonazoDownLeft.PushBack({ 1013, 1841, 60, 61 }, true);
+	fogonazoDownLeft.PushBack({ 1074, 1841, 60, 61 }, true);
+
+	fogonazoUp.PushBack({ 1135, 1841, 60, 61 });
+	fogonazoUp.PushBack({ 1196, 1841, 60, 61 });
+	fogonazoUp.PushBack({ 1257, 1841, 60, 61 });
+	
+	fogonazoUpRight.PushBack({ 1257, 1841, 60, 61 });
+	fogonazoUpRight.PushBack({ 1318, 1841, 60, 61 });
+	fogonazoUpRight.PushBack({ 1379, 1841, 60, 61 });
+
+	fogonazoUpLeft.PushBack({ 1257, 1841, 60, 61 }, true);
+	fogonazoUpLeft.PushBack({ 1318, 1841, 60, 61 }, true);
+	fogonazoUpLeft.PushBack({ 1379, 1841, 60, 61 }, true);
+
+	fogonazoRight.PushBack({ 1440, 1841, 60, 61 });
+	fogonazoRight.PushBack({ 1501, 1841, 60, 61 });
+	fogonazoRight.PushBack({ 1562, 1841, 60, 61 });
+
+	fogonazoLeft.PushBack({ 1440, 1841, 60, 61 }, true);
+	fogonazoLeft.PushBack({ 1501, 1841, 60, 61 }, true);
+	fogonazoLeft.PushBack({ 1562, 1841, 60, 61 }, true);
+
 }	
 
 ModulePlayer::~ModulePlayer()

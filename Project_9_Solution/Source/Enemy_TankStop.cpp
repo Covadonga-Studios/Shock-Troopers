@@ -28,6 +28,10 @@ Enemy_TankStop::Enemy_TankStop(int x, int y) : Enemy(x, y)
 	tankStop.PushBack({ 160, 1013, 65, 41 });
 	tankStop.speed = 0.05f;
 	
+	bullet.PushBack({ 28, 925, 35, 32 });
+	bullet.PushBack({ 64, 925, 35, 32 });
+	bullet.PushBack({ 100, 925, 35, 32 });
+	bullet.PushBack({ 136, 925, 35, 32 });
 
 	tankStopbase.PushBack({ 27,840,110,77 });
 	currentAnim = &tankStop;
