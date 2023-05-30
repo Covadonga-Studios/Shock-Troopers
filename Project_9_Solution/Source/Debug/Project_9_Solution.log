@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿  ModuleParticles.cpp
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -32,3 +33,6 @@ C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePa
               TYPE=float
           ]
   Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe
+=======
+﻿  Project_9_Solution.vcxproj -> C:\Users\User\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
+>>>>>>> Stashed changes
