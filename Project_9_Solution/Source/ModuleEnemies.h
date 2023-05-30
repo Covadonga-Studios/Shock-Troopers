@@ -17,6 +17,7 @@ enum class Enemy_Type
 	BAZOOKA,
 	HELICOPTER,
 	BARREL3,
+	BLACKSOLDIER,
 };
 
 struct EnemySpawnpoint

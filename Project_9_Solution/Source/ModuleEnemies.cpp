@@ -17,6 +17,7 @@
 #include "Enemy_Bazooka.h"
 #include "Enemy_Helicopter.h"
 #include "Enemy_ThreeBarrels.h"
+#include "Enemy_BlackSoldier.h"
 
 #define SPAWN_MARGIN 50
 
@@ -191,6 +192,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::BARREL3:
 					enemies[i] = new Enemy_ThreeBarrels(info.x, info.y);
+					break;
+				case Enemy_Type::BLACKSOLDIER:
+					enemies[i] = new Enemy_BlackSoldier(info.x, info.y);
 					break;
 
 			}

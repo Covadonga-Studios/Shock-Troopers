@@ -537,10 +537,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	explosionDefault.PushBack({ 1004, 1093, 58, 62 });
 	explosionDefault.PushBack({ 1063, 1093, 58, 62 });
 
-	blueBullet.PushBack({ 311, 739, 13, 94 });
-	blueBullet.PushBack({ 325, 739, 13, 94 });
-	blueBullet.PushBack({ 339, 739, 13, 94 });
-	blueBullet.PushBack({ 353, 739, 13, 94 });
+	
 
 	explosion2.PushBack({ 902, 690, 64, 64 });
 	explosion2.PushBack({ 967, 690, 64, 64 });
@@ -571,18 +568,44 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	explosion2.PushBack({ 1227, 885, 64, 64 });
 	explosion2.PushBack({ 1292, 885, 64, 64 });
 
-	//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//RANDOM ENEMY//
-	
-	greyEnemyMeleeDown.PushBack({ 1, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 85, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 169, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 253, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 337, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 421, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 505, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 589, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 673, 1157, 83, 78 });
-	greyEnemyMeleeDown.PushBack({ 757, 1157, 83, 78 });
+	//MONKE
+
+	banana.PushBack({ 854, 1161, 16, 16 });
+	banana.PushBack({ 871, 1161, 16, 16 });
+
+	monkeyRight.PushBack({ 854, 1178, 29, 23 });
+	monkeyRight.PushBack({ 884, 1178, 29, 23 });
+	monkeyRight.PushBack({ 914, 1178, 29, 23 });
+	monkeyRight.PushBack({ 944, 1178, 29, 23 });
+	monkeyRight.PushBack({ 974, 1178, 29, 23 });
+	monkeyRight.PushBack({ 1004, 1178, 29, 23 });
+
+	monkeyLeft.PushBack({ 854, 1178, 29, 23 }, true);
+	monkeyLeft.PushBack({ 884, 1178, 29, 23 }, true);
+	monkeyLeft.PushBack({ 914, 1178, 29, 23 }, true);
+	monkeyLeft.PushBack({ 944, 1178, 29, 23 }, true);
+	monkeyLeft.PushBack({ 974, 1178, 29, 23 }, true);
+	monkeyLeft.PushBack({ 1004, 1178, 29, 23 }, true);
+
+	monkeyHappy.PushBack({ 854, 1202, 22, 30 });
+	monkeyHappy.PushBack({ 877, 1202, 22, 30 });
+	monkeyHappy.PushBack({ 900, 1202, 22, 30 });
+	monkeyHappy.PushBack({ 923, 1202, 22, 30 });
+	monkeyHappy.PushBack({ 946, 1202, 22, 30 });
+	monkeyHappy.PushBack({ 969, 1202, 22, 30 });
+	monkeyHappy.PushBack({ 992, 1202, 22, 30 });
+
+	monkeyAngry.PushBack({ 854, 1233, 27, 26 });
+	monkeyAngry.PushBack({ 882, 1233, 27, 26 });
+	monkeyAngry.PushBack({ 910, 1233, 27, 26 });
+	monkeyAngry.PushBack({ 938, 1233, 27, 26 });
+
+	monkeyLeavingRight.PushBack({ 854, 1260, 25, 24 });
+	monkeyLeavingRight.PushBack({ 880, 1260, 25, 24 });
+
+	monkeyLeavingLeft.PushBack({ 854, 1260, 25, 24 }, true);
+	monkeyLeavingLeft.PushBack({ 880, 1260, 25, 24 }, true);
+
 
 }	
 

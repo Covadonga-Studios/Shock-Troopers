@@ -40,6 +40,9 @@ private:
 	Animation enemyshot2left;
 	Animation enemyshot2downleft;
 
+	Animation enemyBurning;
+	Animation enemyDying;
+
 
 	float dx;
 	float dy;
