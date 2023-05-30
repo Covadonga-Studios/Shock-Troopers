@@ -79,6 +79,9 @@ public:
 	Particle Grenade; 
 
 	Particle missile;
+
+	Particle blueBullet;
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

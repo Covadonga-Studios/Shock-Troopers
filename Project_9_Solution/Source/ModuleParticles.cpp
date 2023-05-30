@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.19.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.26.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -228,6 +228,12 @@ bool ModuleParticles::Start()
 	missileDownLeft.anim.PushBack({ 1879 + 2, 1995, 55, 52 },true);
 	missileDownLeft.anim.PushBack({ 1935 + 2, 1995, 55, 52 },true);
 	missileDownLeft.lifetime = 180;
+
+	blueBullet.anim.PushBack({ 311, 739, 13, 64 });
+	blueBullet.anim.PushBack({ 325, 739, 13, 64 });
+	blueBullet.anim.PushBack({ 339, 739, 13, 64 });
+	blueBullet.anim.PushBack({ 353, 739, 13, 64 });
+	blueBullet.anim.speed = 0.1f;
 
 	return true;
 }
