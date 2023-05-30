@@ -27,22 +27,10 @@ private:
 	// The total height of the wave
 	int waveHeight = 15;
 	int shootCooldown;
+	int shootCooldown2;
 	// The enemy animation
 	Animation flyAnim;
 	Animation enemydeath1;
-
-	Animation enemyshot1down;
-	Animation enemyshot1rightdown;
-	Animation enemyshot1rightdowndiagonal;
-	Animation enemyshot1right;
-	Animation enemyshot1rightup;
-	Animation enemyshot1rightupdiagonal;
-	Animation enemyshot1up;
-	Animation enemyshot1upleft;
-	Animation enemyshot1upleftdiagonal;
-	Animation enemyshot1left;
-	Animation enemyshot1downleft;
-	Animation enemyshot1downleftdiagonal;
 
 	Animation cannonDown;
 	Animation cannonDownLeft;
