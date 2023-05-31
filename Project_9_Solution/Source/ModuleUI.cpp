@@ -23,16 +23,24 @@ bool ModuleUI::Start()
 {
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
+	texture = App->textures->Load("Assets/Sprites/UI_EMELENTS.png");
 
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
-	scoreFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
+	generalFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
 	char lookupTableTimer[] = { "0123456789" };
 	timerFont = App->fonts->Load("Assets/Fonts/TIME number.png", lookupTableTimer);
-	char lookupTableBullets[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };		  
-	bulletFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTableBullets, 3);
+	
+	portraitRed.PushBack({ 240,16,16,16 });
+	portraitWhite.PushBack({ 240,33,16,16 });
+
+	weapon[0].PushBack({ 0,10,31,15 });
+	weapon[1].PushBack({ 32,10,31,15 });
+	weapon[2].PushBack({ 64,10,31,15 });
+
+	infinityRect = { 119, 0, 16, 8 };
 
 	timerRect = { 0, 0, 30, 8 };
+	grenadeRect = { 241, 0, 15, 15 };
 	//Initialise each sprite for each chunk
 	for (int i = 0; i < 16; i++)
 	{
@@ -51,6 +59,10 @@ bool ModuleUI::Start()
 	hpRectDown = { 111, 0, 8, 8 };
 
 	return ret;
+
+
+
+	
 }
 
 Update_Status ModuleUI::Update()
@@ -101,16 +113,30 @@ Update_Status ModuleUI::PostUpdate()
 		}
 	}
 
+	//Temporal. normal 0, flame 1,, 3way 2
+	int weapontype = 0;
+
+	currentWeapon = &weapon[weapontype];
+
+
 	sprintf_s(scoreText, 10, "%08d", App->player->getScore());
 
 	sprintf_s(timerText, 10, "%2d", App->player->getTimer());
 
-	sprintf_s(bulletText, 10, "%02d", App->player->grenadeCounter);
+	sprintf_s(grenadeText, 10, "%02d", App->player->grenadeCounter);
+	
+	
+	//replace with the actual ammo variable when we have it
+	sprintf_s(ammoText, 10, "%02d", ammo);
+
+
+
 
 	
-	App->fonts->BlitText(41, 8, scoreFont, scoreText);
+	App->fonts->BlitText(41, 8, generalFont, scoreText);
 	App->fonts->BlitText(145, 17, timerFont, timerText);
-	App->fonts->BlitText(41, 200, bulletFont, bulletText);
+	App->fonts->BlitText(24, 208, generalFont, grenadeText);
+
 
 	int x = App->render->camera.x;
 	int y = App->render->camera.y;
@@ -122,6 +148,41 @@ Update_Status ModuleUI::PostUpdate()
 		HPBar[i].hpRect = HPBar[i].hpState->GetCurrentFrame();
 		App->render->Blit(texture, x + 8, y + 64 + (8 * i), &HPBar[i].hpRect);
 	}
+
+	if (red)
+	{
+		portrait = &portraitRed;
+	}
+	else
+	{
+		portrait = &portraitWhite;
+	}
+	if (portraitTimer == 2)
+	{
+		portraitTimer = 0;
+		red = !red;
+	}
+	portraitTimer++;
+		
+	App->render->Blit(texture, x + 8, y + 16, &portrait->GetCurrentFrame());
+
+
+	App->render->Blit(texture, x + 9, y + 201, &grenadeRect);
+
+
+	weaponRect = currentWeapon->GetCurrentFrame();
+	App->render->Blit(texture, x + 50, y + 200, &weaponRect);
+
+	if (weapontype == 0)
+	{
+		App->render->Blit(texture, x + 84, y + 208, &infinityRect);
+	}
+	else
+	{
+		App->fonts->BlitText(84, 208, generalFont, ammoText);
+	}
+
+
 
 	App->render->Blit(texture, x + 8, y + 56, &hpRectUp);
 	App->render->Blit(texture, x + 8, y + 192, &hpRectDown);

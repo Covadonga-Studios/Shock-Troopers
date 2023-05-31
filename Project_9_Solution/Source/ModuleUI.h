@@ -34,7 +34,14 @@ public:
 	// The UI spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 
-	
+
+	Animation portraitRed;
+	Animation portraitWhite;
+	Animation* portrait = nullptr;
+	bool red = true;
+	int portraitTimer = 0;
+
+
 	//Create a chunk of 8 HP for the HP bar
 	struct HPBarChunk
 	{
@@ -57,11 +64,22 @@ public:
 	SDL_Rect hpRectDown;
 
 	//Score
-	int scoreFont = -1;
+	int generalFont = -1;
 	char scoreText[10] = { "\0" };
 
-	int bulletFont = -1;
-	char bulletText[10] = { "\0" };
+	char grenadeText[10] = { "\0" };
+	SDL_Rect grenadeRect;
+
+	Animation* currentWeapon = nullptr;
+	//Normal:0, Flame:1 3Way:2
+	Animation weapon[3];
+	SDL_Rect weaponRect;
+	char ammoText[10] = { "\0" };
+
+
+	//temp
+	int ammo = 150;
+	SDL_Rect infinityRect;
 
 	//Timer
 	int timerFont = -1;
