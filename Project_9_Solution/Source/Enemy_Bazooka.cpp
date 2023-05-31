@@ -147,28 +147,28 @@ void Enemy_Bazooka::Update()
 		switch (GetTargetDir(dx, dy))
 		{
 		case LEFT:
-			currentAnim = &enemyshot2left;
+			currentAnim = &bazookaLeft;
 			break;
 		case RIGHT:
-			currentAnim = &enemyshot2right;
+			currentAnim = &bazookaRight;
 			break;
 		case DOWN:
-			currentAnim = &enemyshot2down;
+			currentAnim = &bazookaDown;
 			break;
 		case UP:
-			currentAnim = &enemyshot2up;
+			currentAnim = &bazookaUp;
 			break;
 		case DOWNLEFT:
-			currentAnim = &enemyshot2downleft;
+			currentAnim = &bazookaDownLeft;
 			break;
 		case DOWNRIGHT:
-			currentAnim = &enemyshot2rightdown;
+			currentAnim = &bazookaDownRight;
 			break;
 		case UPLEFT:
-			currentAnim = &enemyshot2upleft;
+			currentAnim = &bazookaUpLeft;
 			break;
 		case UPRIGHT:
-			currentAnim = &enemyshot2rightup;
+			currentAnim = &bazookaUpRight;
 			break;
 		}
 

@@ -28,6 +28,8 @@ private:
 	int waveHeight = 15;
 	int shootCooldown;
 	int shootCooldown2;
+	int shootCooldown3;
+	int shootCooldown4;
 	// The enemy animation
 	Animation flyAnim;
 	Animation enemydeath1;

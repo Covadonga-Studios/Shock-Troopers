@@ -36,9 +36,9 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.26.png");
-	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.26.png");
-	texture3 = App->textures->Load("Assets/Sprites/spritesheet2.26.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.27.png");
+	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.27.png");
+	texture3 = App->textures->Load("Assets/Sprites/spritesheet2.27.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;

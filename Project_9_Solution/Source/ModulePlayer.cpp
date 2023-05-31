@@ -1369,7 +1369,7 @@ void ModulePlayer::LoseWinLogicUpdate()
 void ModulePlayer::GrenadeUpdate() 
 {
 	GamePad& pad = App->input->pads[0];
-	if ((App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true ) && grenadeCoolDown > 40 && isDodging == false)
+	if ((App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true ) && grenadeCoolDown > 40 && isDodging == false && grenadeCounter > 0)
 	{
 		switch (bulletDir)
 		{
@@ -1451,6 +1451,7 @@ void ModulePlayer::GrenadeUpdate()
 			break;
 		}
 		grenadeCoolDown = 0;
+		grenadeCounter--;
 	}
 }
 

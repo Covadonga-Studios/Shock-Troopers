@@ -23,18 +23,14 @@ bool ModuleUI::Start()
 {
 	bool ret = true;
 
-
-
-
 	texture = App->textures->Load("Assets/Sprites/spritesheet_definitiva_i_swear_i_swear.png");
-
-
-
 
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
 	scoreFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
 	char lookupTableTimer[] = { "0123456789" };
 	timerFont = App->fonts->Load("Assets/Fonts/TIME number.png", lookupTableTimer);
+	char lookupTableBullets[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };		  
+	bulletFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTableBullets, 3);
 
 	timerRect = { 0, 0, 30, 8 };
 	//Initialise each sprite for each chunk
@@ -59,8 +55,6 @@ bool ModuleUI::Start()
 
 Update_Status ModuleUI::Update()
 {
-	
-
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -111,17 +105,16 @@ Update_Status ModuleUI::PostUpdate()
 
 	sprintf_s(timerText, 10, "%2d", App->player->getTimer());
 
+	sprintf_s(bulletText, 10, "%02d", App->player->grenadeCounter);
+
 	
 	App->fonts->BlitText(41, 8, scoreFont, scoreText);
 	App->fonts->BlitText(145, 17, timerFont, timerText);
-
-
+	App->fonts->BlitText(41, 200, bulletFont, bulletText);
 
 	int x = App->render->camera.x;
 	int y = App->render->camera.y;
 	App->render->Blit(texture, x + 138, y + 8, &timerRect);
-
-
 
 	//Blit each HP chunk in order
 	for (int i = 0; i < 16; i++)
@@ -135,5 +128,3 @@ Update_Status ModuleUI::PostUpdate()
 
 	return Update_Status::UPDATE_CONTINUE;
 }
-
-

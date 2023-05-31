@@ -50,15 +50,18 @@ public:
 		Animation* hpState = nullptr;
 		SDL_Rect hpRect;
 	};
+
 	//the total HP bar is an array of 16 chunks
 	HPBarChunk HPBar[16];
 	SDL_Rect hpRectUp;
 	SDL_Rect hpRectDown;
 
-
 	//Score
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
+
+	int bulletFont = -1;
+	char bulletText[10] = { "\0" };
 
 	//Timer
 	int timerFont = -1;
