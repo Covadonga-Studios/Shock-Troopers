@@ -16,11 +16,11 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 
 	cannonDown.PushBack({ 1383, 696, 107, 74 });
 
-	cannonDownLeft.PushBack({ 1383, 772, 107, 74 }, true);
+	cannonDownLeft.PushBack({ 1383, 772, 107, 74 });
 
 	cannonDownRight.PushBack({ 1383, 772, 107, 74 }, true);
 
-	cannonLeft.PushBack({ 1383, 848, 107, 74 }, true);
+	cannonLeft.PushBack({ 1383, 848, 107, 74 });
 
 	cannonRight.PushBack({ 1383, 848, 107, 74 }, true);
 
