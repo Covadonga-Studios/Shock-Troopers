@@ -212,6 +212,24 @@ public:
 
 	Animation barricade;
 
+	Animation missileLauncher;
+	Animation missileLauncherBrokenBody;
+	Animation missileLauncherBrokenTop;
+	Animation missileLauncherTopRight;
+	Animation missileLauncherTopLeft;
+	Animation missileLauncherLeft;
+	Animation missileLauncherRight;
+	Animation missileLauncherDownLeft;
+	Animation missileLauncherDownRight;
+
+	Animation medicTent;
+	Animation medicTentBroken;
+	Animation towerBreaking;
+	Animation tower2Breaking;
+
+	Animation medicsWalking;
+	Animation medicsHurt;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;

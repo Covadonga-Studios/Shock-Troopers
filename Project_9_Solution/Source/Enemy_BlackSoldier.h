@@ -30,6 +30,10 @@ private:
 	Animation helicopterFight;
 	Animation greyEnemyMeleeDown;
 	Animation blackSoldierDeath;
+	Animation fogonazo;
+	Animation shooting;
+	Animation idle;
+
 	float dx;
 	float dy;
 };

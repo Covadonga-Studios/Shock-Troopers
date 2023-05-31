@@ -674,6 +674,65 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	peekyDownLeft.PushBack({ 1088, 1231, 33, 28 });
 
+	//MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER 
+
+	missileLauncher.PushBack({ 6, 1694, 52, 55 });
+	missileLauncher.PushBack({ 59, 1694, 52, 55 });
+
+	missileLauncherBrokenBody.PushBack({ 6, 1750, 52, 55 });
+	missileLauncherBrokenTop.PushBack({ 67, 1750, 44, 50 });
+
+	missileLauncherDownLeft.PushBack({ 6, 1806, 44, 51 });
+	missileLauncherDownRight.PushBack({ 6, 1806, 44, 51 }, true);
+	missileLauncherLeft.PushBack({ 51, 1750, 44, 51 });
+	missileLauncherRight.PushBack({ 51, 1750, 44, 51 }, true);
+	missileLauncherTopLeft.PushBack({ 96, 1750, 44, 51 });
+	missileLauncherTopRight.PushBack({ 96, 1750, 44, 51 }, true);
+
+	//STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES 
+
+	medicTent.PushBack({ 1160, 1601, 76, 190 });
+	medicTent.PushBack({ 1237, 1601, 76, 190 });
+	medicTent.PushBack({ 1314, 1601, 76, 190 });
+	medicTent.PushBack({ 1391, 1601, 76, 190 });
+
+	medicTentBroken.PushBack({ 1314, 1410, 76, 190 });
+	medicTentBroken.PushBack({ 1391, 1410, 76, 190 });
+
+	towerBreaking.PushBack({ 1468, 1302, 86, 195 });
+	towerBreaking.PushBack({ 1555, 1302, 86, 195 });
+	towerBreaking.PushBack({ 1642, 1302, 86, 195 });
+	towerBreaking.PushBack({ 1729, 1302, 86, 195 });
+	towerBreaking.PushBack({ 1816, 1302, 86, 195 });
+	towerBreaking.PushBack({ 1468, 1498, 86, 195 });
+	towerBreaking.PushBack({ 1555, 1498, 86, 195 });
+	towerBreaking.PushBack({ 1642, 1498, 86, 195 });
+	towerBreaking.PushBack({ 1729, 1498, 86, 195 });
+	towerBreaking.PushBack({ 1816, 1498, 86, 195 });
+
+	tower2Breaking.PushBack({ 1853, 1125, 64, 125 });
+	tower2Breaking.PushBack({ 1918, 1125, 64, 125 });
+	tower2Breaking.PushBack({ 1983, 1125, 64, 125 });
+
+	//MEDICS //MEDICS //MEDICS //MEDICS //MEDICS //MEDICS //MEDICS //MEDICS 
+
+	medicsWalking.PushBack({ 1795, 1, 126, 48 });
+	medicsWalking.PushBack({ 1795, 50, 126, 48 });
+	medicsWalking.PushBack({ 1795, 99, 126, 48 });
+	medicsWalking.PushBack({ 1795, 148, 126, 48 });
+	medicsWalking.PushBack({ 1795, 197, 126, 48 });
+	medicsWalking.PushBack({ 1795, 246, 126, 48 });
+	medicsWalking.PushBack({ 1795, 295, 126, 48 });
+	medicsWalking.PushBack({ 1795, 344, 126, 48 });
+
+	medicsHurt.PushBack({ 1919, 1251, 137, 77 });
+	medicsHurt.PushBack({ 1919, 1329, 137, 77 });
+	medicsHurt.PushBack({ 1919, 1407, 137, 77 });
+	medicsHurt.PushBack({ 1919, 1485, 137, 77 });
+	medicsHurt.PushBack({ 1919, 1563, 137, 77 });
+	medicsHurt.PushBack({ 1919, 1641, 137, 77 });
+	medicsHurt.PushBack({ 1919, 1719, 137, 77 });
+
 }	
 
 ModulePlayer::~ModulePlayer()
