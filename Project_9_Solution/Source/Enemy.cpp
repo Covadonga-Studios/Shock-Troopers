@@ -34,6 +34,8 @@ void Enemy::Update()
 	if (currentAnim2 != nullptr)
 		currentAnim2->Update();
 
+	if (currentAnim3 != nullptr)
+		currentAnim3->Update();
 	
 }
 
@@ -95,6 +97,21 @@ void Enemy::Draw()
 	
 	bool mirror = currentAnim->GetMirror();
 	bool mirror2 = false;
+	bool mirror3 = false;
+
+	if (currentAnim3 != nullptr)
+		mirror3 = currentAnim3->GetMirror();
+
+	if (currentAnim3 != nullptr)
+		if (mirror3 == true)
+		{
+			App->render->BlitMirror(texture3, position.x + offsettexture3x, position.y + offsettexture3y, &(currentAnim3->GetCurrentFrame()));
+
+		}
+		else
+		{
+			App->render->Blit(texture3, position.x + offsettexture3x, position.y + offsettexture3y, &(currentAnim3->GetCurrentFrame()));
+		}
 
 	if (currentAnim2 != nullptr)
 		mirror2 = currentAnim2->GetMirror();

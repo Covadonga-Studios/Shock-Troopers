@@ -84,6 +84,12 @@ public:
 
 	Particle bulletHit;
 
+	Particle bulletDown;
+	Particle bulletDownLeft;
+	Particle bulletDownRight;
+	Particle bulletLeft;
+	Particle bulletRight;
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

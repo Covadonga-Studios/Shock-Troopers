@@ -954,7 +954,11 @@ void ModulePlayer::MoveUpdate()
 
 			if (App->render->camera.y + SCREEN_HEIGHT < position.y + 47)
 			{
+
+				App->player->downLock = true;
+
 				position.y--;
+				
 				isDodging = false;
 			}
 			break;

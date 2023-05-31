@@ -53,7 +53,7 @@ private:
 	Animation turretLeft;
 	Animation turretRight;
 
-
+	Animation baseFinalBoss;
 
 	float dx;
 	float dy;

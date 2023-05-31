@@ -244,6 +244,46 @@ bool ModuleParticles::Start()
 	bulletHit.anim.PushBack({ 274, 925, 16, 32 });
 	bulletHit.anim.PushBack({ 291, 925, 16, 32 });
 
+	bulletDown.anim.PushBack({ 445, 1888, 48, 48 });
+	bulletDown.anim.PushBack({ 494, 1888, 48, 48 });
+	bulletDown.anim.PushBack({ 543, 1888, 48, 48 });
+	bulletDown.anim.PushBack({ 592, 1888, 48, 48 });
+	bulletDown.anim.PushBack({ 641, 1888, 48, 48 });
+	bulletDown.anim.PushBack({ 690, 1888, 48, 48 });
+	bulletDown.anim.speed = 0.1f;
+
+	bulletDownLeft.anim.PushBack({ 445, 1937, 48, 48 });
+	bulletDownLeft.anim.PushBack({ 494, 1937, 48, 48 });
+	bulletDownLeft.anim.PushBack({ 543, 1937, 48, 48 });
+	bulletDownLeft.anim.PushBack({ 592, 1937, 48, 48 });
+	bulletDownLeft.anim.PushBack({ 641, 1937, 48, 48 });
+	bulletDownLeft.anim.PushBack({ 690, 1937, 48, 48 });
+	bulletDownLeft.anim.speed = 0.1f;
+
+	bulletDownRight.anim.PushBack({ 445, 1937, 48, 48 }, true);
+	bulletDownRight.anim.PushBack({ 494, 1937, 48, 48 }, true);
+	bulletDownRight.anim.PushBack({ 543, 1937, 48, 48 }, true);
+	bulletDownRight.anim.PushBack({ 592, 1937, 48, 48 }, true);
+	bulletDownRight.anim.PushBack({ 641, 1937, 48, 48 }, true);
+	bulletDownRight.anim.PushBack({ 690, 1937, 48, 48 }, true);
+	bulletDownRight.anim.speed = 0.1f;
+
+	bulletLeft.anim.PushBack({ 445, 1986, 48, 48 });
+	bulletLeft.anim.PushBack({ 494, 1986, 48, 48 });
+	bulletLeft.anim.PushBack({ 543, 1986, 48, 48 });
+	bulletLeft.anim.PushBack({ 592, 1986, 48, 48 });
+	bulletLeft.anim.PushBack({ 641, 1986, 48, 48 });
+	bulletLeft.anim.PushBack({ 690, 1986, 48, 48 });
+	bulletLeft.anim.speed = 0.1f;
+
+	bulletRight.anim.PushBack({ 445, 1986, 48, 48 }, true);
+	bulletRight.anim.PushBack({ 494, 1986, 48, 48 }, true);
+	bulletRight.anim.PushBack({ 543, 1986, 48, 48 }, true);
+	bulletRight.anim.PushBack({ 592, 1986, 48, 48 }, true);
+	bulletRight.anim.PushBack({ 641, 1986, 48, 48 }, true);
+	bulletRight.anim.PushBack({ 690, 1986, 48, 48 }, true);
+	bulletRight.anim.speed = 0.1f;
+
 	return true;
 }
 

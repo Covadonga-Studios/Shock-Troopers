@@ -48,6 +48,8 @@ public:
 
 	SDL_Texture* texture2 = nullptr;
 
+	SDL_Texture* texture3 = nullptr;
+
 	// Sound fx when destroyed
 	int destroyedFx = 0;
 
@@ -56,6 +58,9 @@ public:
 	bool isOnFire = false;
 
 	int grenadeImmunity = 120;
+
+	int offsettexture3x = 0;
+	int offsettexture3y = 0;
 
 	int offsettexture2x = 0;
 	int offsettexture2y = 0;
@@ -72,6 +77,7 @@ protected:
 
 	Animation* currentAnim2 = nullptr;
 
+	Animation* currentAnim3 = nullptr;
 	// The enemy's collider
 	Collider* collider = nullptr;
 

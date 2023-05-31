@@ -86,6 +86,7 @@ private:
 	// The enemies sprite sheet
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* texture2 = nullptr;
+	SDL_Texture* texture3 = nullptr;
 
 	// The audio fx for destroying an enemy
 	int enemyDestroyedFx = 0;
