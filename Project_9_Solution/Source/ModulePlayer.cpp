@@ -618,37 +618,61 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO 
 
-	fogonazoDown.PushBack({ 769, 1841, 60, 61 });
-	fogonazoDown.PushBack({ 830, 1841, 60, 61 });
-	fogonazoDown.PushBack({ 891, 1841, 60, 61 });
+	fogonazoDown.PushBack({ 845, 1856, 60, 61 });
+	fogonazoDown.PushBack({ 906, 1841, 60, 61 });
+	fogonazoDown.PushBack({ 967, 1841, 60, 61 });
 
-	fogonazoDownRight.PushBack({ 952, 1841, 60, 61 });
-	fogonazoDownRight.PushBack({ 1013, 1841, 60, 61 });
-	fogonazoDownRight.PushBack({ 1074, 1841, 60, 61 });
+	fogonazoDownRight.PushBack({ 1028, 1841, 60, 61 });
+	fogonazoDownRight.PushBack({ 1089, 1841, 60, 61 });
+	fogonazoDownRight.PushBack({ 1150, 1841, 60, 61 });
 
-	fogonazoDownLeft.PushBack({ 952, 1841, 60, 61 }, true);
-	fogonazoDownLeft.PushBack({ 1013, 1841, 60, 61 }, true);
-	fogonazoDownLeft.PushBack({ 1074, 1841, 60, 61 }, true);
+	fogonazoDownLeft.PushBack({ 1028, 1841, 60, 61 }, true);
+	fogonazoDownLeft.PushBack({ 1089, 1841, 60, 61 }, true);
+	fogonazoDownLeft.PushBack({ 1150, 1841, 60, 61 }, true);
 
-	fogonazoUp.PushBack({ 1135, 1841, 60, 61 });
-	fogonazoUp.PushBack({ 1196, 1841, 60, 61 });
-	fogonazoUp.PushBack({ 1257, 1841, 60, 61 });
+	fogonazoUp.PushBack({ 1211, 1841, 60, 61 });
+	fogonazoUp.PushBack({ 1272, 1841, 60, 61 });
+	fogonazoUp.PushBack({ 1333, 1841, 60, 61 });
 	
-	fogonazoUpRight.PushBack({ 1257, 1841, 60, 61 });
-	fogonazoUpRight.PushBack({ 1318, 1841, 60, 61 });
-	fogonazoUpRight.PushBack({ 1379, 1841, 60, 61 });
+	fogonazoUpRight.PushBack({ 1394, 1841, 60, 61 });
+	fogonazoUpRight.PushBack({ 1455, 1841, 60, 61 });
+	fogonazoUpRight.PushBack({ 1516, 1841, 60, 61 });
 
-	fogonazoUpLeft.PushBack({ 1257, 1841, 60, 61 }, true);
-	fogonazoUpLeft.PushBack({ 1318, 1841, 60, 61 }, true);
-	fogonazoUpLeft.PushBack({ 1379, 1841, 60, 61 }, true);
+	fogonazoUpLeft.PushBack({ 1394, 1841, 60, 61 }, true);
+	fogonazoUpLeft.PushBack({ 1455, 1841, 60, 61 }, true);
+	fogonazoUpLeft.PushBack({ 1516, 1841, 60, 61 }, true);
 
-	fogonazoRight.PushBack({ 1440, 1841, 60, 61 });
-	fogonazoRight.PushBack({ 1501, 1841, 60, 61 });
-	fogonazoRight.PushBack({ 1562, 1841, 60, 61 });
+	fogonazoRight.PushBack({ 1577, 1841, 60, 61 });
+	fogonazoRight.PushBack({ 1638, 1841, 60, 61 });
+	fogonazoRight.PushBack({ 1699, 1841, 60, 61 });
 
-	fogonazoLeft.PushBack({ 1440, 1841, 60, 61 }, true);
-	fogonazoLeft.PushBack({ 1501, 1841, 60, 61 }, true);
-	fogonazoLeft.PushBack({ 1562, 1841, 60, 61 }, true);
+	fogonazoLeft.PushBack({ 1577, 1841, 60, 61 }, true);
+	fogonazoLeft.PushBack({ 1638, 1841, 60, 61 }, true);
+	fogonazoLeft.PushBack({ 1699, 1841, 60, 61 }, true);
+
+	flameThrower.PushBack({ 382, 1934, 30, 37 });
+	flameThrower.PushBack({ 413, 1934, 30, 37 });
+	flameThrower.PushBack({ 444, 1934, 30, 37 });
+	flameThrower.PushBack({ 475, 1934, 30, 37 });
+	flameThrower.PushBack({ 382, 1972, 30, 37 });
+	flameThrower.PushBack({ 413, 1972, 30, 37 });
+	flameThrower.PushBack({ 444, 1972, 30, 37 });
+	flameThrower.PushBack({ 475, 1972, 30, 37 });
+	flameThrower.PushBack({ 382, 2010, 30, 37 });
+	flameThrower.PushBack({ 413, 2010, 30, 37 });
+	flameThrower.PushBack({ 444, 2010, 30, 37 });
+	flameThrower.PushBack({ 475, 2010, 30, 37 });
+
+	//BARRICADE //BARRICADE //BARRICADE //BARRICADE //BARRICADE //BARRICADE //BARRICADE 
+
+	barricade.PushBack({ 619, 1244, 97, 42 });
+	barricade.PushBack({ 717, 1244, 97, 42 });
+
+	peekyDownRight.PushBack({ 1020, 1231, 33, 28 });
+
+	peekyDown.PushBack({ 1054, 1231, 33, 28 });
+
+	peekyDownLeft.PushBack({ 1088, 1231, 33, 28 });
 
 }	
 

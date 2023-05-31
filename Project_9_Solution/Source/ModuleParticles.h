@@ -74,6 +74,9 @@ public:
 	Particle missileDown;
 	Particle missileDownRight;
 	Particle missileDownLeft;
+	Particle missileUpRight;
+	Particle missileUpLeft;
+	Particle missileExplosion;
 
 	Particle grenade;
 	Particle Grenade; 
@@ -84,11 +87,16 @@ public:
 
 	Particle bulletHit;
 
-	Particle bulletDown;
-	Particle bulletDownLeft;
-	Particle bulletDownRight;
-	Particle bulletLeft;
-	Particle bulletRight;
+	Particle finalBulletDown;
+	Particle finalBulletDownLeft;
+	Particle finalBulletDownRight;
+	Particle finalBulletLeft;
+	Particle finalBulletRight;
+
+	Particle finalMissileDownRight;
+	Particle finalMissileDownLeft;
+
+	Particle dust;
 
 private:
 	// Particles spritesheet loaded into an SDL Texture

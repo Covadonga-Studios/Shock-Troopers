@@ -204,6 +204,14 @@ public:
 	Animation fogonazoRight;
 	Animation fogonazoLeft;
 
+	Animation peekyDownRight;
+	Animation peekyDown;
+	Animation peekyDownLeft;
+
+	Animation flameThrower;
+
+	Animation barricade;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;

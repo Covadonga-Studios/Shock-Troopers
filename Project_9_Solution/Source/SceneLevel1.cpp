@@ -59,6 +59,16 @@ bool SceneLevel1::Start()
 	App->enemies->Enable();
 	App->UI->Enable();
 	App->collisions->Enable();
+
+
+	door.PushBack({ 620, 1688, 153, 19 });
+	door.PushBack({ 620, 1708, 153, 19 });
+	door.PushBack({ 620, 1728, 153, 19 });
+	door.PushBack({ 620, 1748, 153, 19 });
+	door.PushBack({ 620, 1768, 153, 19 });
+	door.PushBack({ 620, 1788, 153, 19 });
+	door.PushBack({ 620, 1808, 153, 19 });
+	door.PushBack({ 620, 1828, 153, 19 });
 	
 
 	return ret;

@@ -107,6 +107,59 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollLeft.PushBack({ 542, 1742, 38, 53 });
 	enemyRollLeft.PushBack({ 581, 1742, 38, 53 });
 
+	enemyRollDownPointingLeft.PushBack({ 317, 741, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 785, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 829, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 873, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 917, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 961, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 1005, 65, 43 });
+	enemyRollDownPointingLeft.PushBack({ 317, 1049, 65, 43 });
+
+	enemyRollDownPointingRight.PushBack({ 317, 741, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 785, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 829, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 873, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 917, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 961, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 1005, 65, 43 }, true);
+	enemyRollDownPointingRight.PushBack({ 317, 1049, 65, 43 }, true);
+
+	enemyRollUpPointingLeft.PushBack({ 317, 1049, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 1005, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 961, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 917, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 873, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 829, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 785, 65, 43 });
+	enemyRollUpPointingLeft.PushBack({ 317, 741, 65, 43 });
+
+	enemyRollUpPointingRight.PushBack({ 317, 1049, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 1005, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 961, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 917, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 873, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 829, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 785, 65, 43 }, true);
+	enemyRollUpPointingRight.PushBack({ 317, 741, 65, 43 }, true);
+
+	enemyBurning.PushBack({ 800, 1792, 59, 63 });
+	enemyBurning.PushBack({ 860, 1792, 59, 63 });
+	enemyBurning.PushBack({ 820, 1792, 59, 63 });
+	enemyBurning.PushBack({ 980, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1040, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1100, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1160, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1220, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1280, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1340, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1400, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1460, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1520, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1580, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1640, 1792, 59, 63 });
+	enemyBurning.PushBack({ 1700, 1792, 59, 63 });
+
 	hp = 1;
 
 	currentAnim = &flyAnim;

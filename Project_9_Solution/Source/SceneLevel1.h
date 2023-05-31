@@ -37,6 +37,9 @@ public:
 	SDL_Texture* bgTexture2 = nullptr;
 	SDL_Texture* bgTexture3 = nullptr;
 	Collider* collider = nullptr;
+
+private: 
+	Animation door;
 };
 
 #endif

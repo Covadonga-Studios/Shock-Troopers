@@ -55,6 +55,22 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 	enemyBurning.PushBack({ 813, 1294, 57, 68 });
 	enemyBurning.PushBack({ 871, 1294, 57, 68 });
 
+	bazookaRight.PushBack({ 10, 1868, 41, 55 });
+
+	bazookaLeft.PushBack({ 10, 1868, 41, 55 }, true);
+
+	bazookaUp.PushBack({ 53, 1868, 41, 55 });
+
+	bazookaUpLeft.PushBack({ 10, 1925, 41, 55 });
+
+	bazookaUpRight.PushBack({ 10, 1925, 41, 55 }, true);
+
+	bazookaDown.PushBack({ 53, 1925, 41, 55 });
+
+	bazookaDownLeft.PushBack({ 96, 1868, 41, 55 });
+
+	bazookaDownRight.PushBack({ 96, 1868, 41, 55 }, true);
+
 	hp = 1;
 
 	currentAnim = &flyAnim;
@@ -116,10 +132,10 @@ void Enemy_Bazooka::Update()
 			App->particles->AddParticle(App->particles->missileDownRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 23,35,30);
 			break;
 		case UPLEFT:
-			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
+			App->particles->AddParticle(App->particles->missileUpLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		case UPRIGHT:
-			App->particles->AddParticle(App->particles->missileUp, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
+			App->particles->AddParticle(App->particles->missileUpRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 0, true, 20, 20);
 			break;
 		}
 		

@@ -40,56 +40,56 @@ bool ModuleParticles::Start()
 	laser.lifetime = 180;
 	laser.anim.speed = 0.2f;
 
-	PlayerShotUp.anim.PushBack({ 120, 0, 13, 13 });
-	PlayerShotUp.anim.PushBack({ 133, 0, 13, 13 });
+	PlayerShotUp.anim.PushBack({ 120, 280, 13, 13 });
+	PlayerShotUp.anim.PushBack({ 133, 280, 13, 13 });
 	PlayerShotUp.speed.x = 5;
 	PlayerShotUp.lifetime = 180;
 	PlayerShotUp.anim.speed = 0.2f;
 
 
-	PlayerShotUpRight.anim.PushBack({ 146, 0, 13, 13 });
-	PlayerShotUpRight.anim.PushBack({ 159, 0, 13, 13 });
+	PlayerShotUpRight.anim.PushBack({ 146, 280, 13, 13 });
+	PlayerShotUpRight.anim.PushBack({ 159, 280, 13, 13 });
 	PlayerShotUpRight.speed.x = 5;
 	PlayerShotUpRight.lifetime = 180;
 	PlayerShotUpRight.anim.speed = 0.2f;
 
 
-	PlayerShotRight.anim.PushBack({ 172, 0, 13, 13 });
-	PlayerShotRight.anim.PushBack({ 185, 0, 13, 13 });
+	PlayerShotRight.anim.PushBack({ 172, 280, 13, 13 });
+	PlayerShotRight.anim.PushBack({ 185, 280, 13, 13 });
 	PlayerShotRight.speed.x = 5;
 	PlayerShotRight.lifetime = 180;
 	PlayerShotRight.anim.speed = 0.2f;
 
 
-	PlayerShotDownRight.anim.PushBack({ 198, 0, 13, 13 });
-	PlayerShotDownRight.anim.PushBack({ 211, 0, 13, 13 });
+	PlayerShotDownRight.anim.PushBack({ 198, 280, 13, 13 });
+	PlayerShotDownRight.anim.PushBack({ 211, 280, 13, 13 });
 	PlayerShotDownRight.speed.x = 5;
 	PlayerShotDownRight.lifetime = 180;
 	PlayerShotDownRight.anim.speed = 0.2f;
 
 
-	PlayerShotDown.anim.PushBack({ 224, 0, 13, 13 });
-	PlayerShotDown.anim.PushBack({ 237, 0, 13, 13 });
+	PlayerShotDown.anim.PushBack({ 224, 280, 13, 13 });
+	PlayerShotDown.anim.PushBack({ 237, 280, 13, 13 });
 	PlayerShotDown.speed.x = 5;
 	PlayerShotDown.lifetime = 180;
 	PlayerShotDown.anim.speed = 0.2f;
 
 
-	PlayerShotDownLeft.anim.PushBack({ 198, 0, 13, 13 }, true);
-	PlayerShotDownLeft.anim.PushBack({ 211, 0, 13, 13 }, true);
+	PlayerShotDownLeft.anim.PushBack({ 198, 280, 13, 13 }, true);
+	PlayerShotDownLeft.anim.PushBack({ 211, 280, 13, 13 }, true);
 	PlayerShotDownLeft.speed.x = 5;
 	PlayerShotDownLeft.lifetime = 180;
 	PlayerShotDownLeft.anim.speed = 0.2f;
 
 
-	PlayerShotLeft.anim.PushBack({ 172, 0, 13, 13 }, true);
-	PlayerShotLeft.anim.PushBack({ 185, 0, 13, 13 }, true);
+	PlayerShotLeft.anim.PushBack({ 172, 280, 13, 13 }, true);
+	PlayerShotLeft.anim.PushBack({ 185, 280, 13, 13 }, true);
 	PlayerShotLeft.speed.x = 5;
 	PlayerShotLeft.lifetime = 180;
 	PlayerShotLeft.anim.speed = 0.2f;
 
-	PlayerShotUpLeft.anim.PushBack({ 146, 0, 13, 13 }, true);
-	PlayerShotUpLeft.anim.PushBack({ 159, 0, 13, 13 }, true);
+	PlayerShotUpLeft.anim.PushBack({ 146, 280, 13, 13 }, true);
+	PlayerShotUpLeft.anim.PushBack({ 159, 280, 13, 13 }, true);
 	PlayerShotUpLeft.speed.x = 5;
 	PlayerShotUpLeft.lifetime = 180;
 	PlayerShotUpLeft.anim.speed = 0.2f;
@@ -141,93 +141,126 @@ bool ModuleParticles::Start()
 
 	//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES//MISSILES
 
-	missileLeft.anim.PushBack({ 1043, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1138, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1233, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1328, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1423, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1518, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1613, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1708, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1803, 1969, 94, 23 });
-	missileLeft.anim.PushBack({ 1898, 1969, 94, 23 });
+	missileLeft.anim.PushBack({ 1098, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1193, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1288, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1383, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1478, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1573, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1668, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1763, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1858, 1971, 94, 23 });
+	missileLeft.anim.PushBack({ 1953, 1971, 94, 23 });
 	missileLeft.lifetime = 180;
 
-	missileRight.anim.PushBack({ 1043, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1138, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1233, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1328, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1423, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1518, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1613, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1708, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1803, 1969, 94, 23 }, true);
-	missileRight.anim.PushBack({ 1898, 1969, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1098, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1193, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1288, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1383, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1478, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1573, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1668, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1763, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1858, 1971, 94, 23 }, true);
+	missileRight.anim.PushBack({ 1953, 1971, 94, 23 }, true);
 	missileRight.lifetime = 180;
 	
 
-	missileDownRight.anim.PushBack({ 1151 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1207 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1263 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1319 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1375 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1431 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1487 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1543 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1599 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1655 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1711 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1767 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1823 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1879 + 2, 1995, 55, 52 });
-	missileDownRight.anim.PushBack({ 1935 + 2, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1208, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1264, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1320, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1376, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1432, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1488, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1544, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1599, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1656, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1712, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1768, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1824, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1880, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1936, 1995, 55, 52 });
+	missileDownRight.anim.PushBack({ 1992, 1995, 55, 52 });
 	missileDownRight.lifetime = 180;
 
-	missileUp.anim.PushBack({ 1692, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1716, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1740, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1764, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1788, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1812, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1836, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1860, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1884, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1908, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1932, 1866, 23, 86 });
-	missileUp.anim.PushBack({ 1956, 1866, 23, 86 });
+	missileDownLeft.anim.PushBack({ 1208, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1264, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1320, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1376, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1432, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1488, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1544, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1599, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1656, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1712, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1768, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1824, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1880, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1936, 1995, 55, 52 }, true);
+	missileDownLeft.anim.PushBack({ 1992, 1995, 55, 52 }, true);
+	missileDownLeft.lifetime = 180;
+
+	missileUp.anim.PushBack({ 1760, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1784, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1808, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1832, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1856, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1880, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1904, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1928, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1952, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 1976, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 2000, 1884, 23, 86 });
+	missileUp.anim.PushBack({ 2024, 1884, 23, 86 });
 	missileUp.lifetime = 180;
 
-	missileDown.anim.PushBack({ 1692, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1716, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1740, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1764, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1788, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1812, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1836, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1860, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1884, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1908, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1932, 1779, 23, 86 });
-	missileDown.anim.PushBack({ 1956, 1779, 23, 86 });
+	missileDown.anim.PushBack({ 1760, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1784, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1808, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1832, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1856, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1880, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1904, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1928, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1952, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 1976, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 2000, 1797, 23, 86 });
+	missileDown.anim.PushBack({ 2024, 1797, 23, 86 });
 	missileDown.lifetime = 180;
-	
 
-	missileDownLeft.anim.PushBack({ 1151 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1207 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1263 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1319 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1375 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1431 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1487 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1543 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1599 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1655 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1711 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1767 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1823 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1879 + 2, 1995, 55, 52 },true);
-	missileDownLeft.anim.PushBack({ 1935 + 2, 1995, 55, 52 },true);
-	missileDownLeft.lifetime = 180;
+	missileUpRight.anim.PushBack({ 920, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 976, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1032, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1088, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1144, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1200, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1256, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1312, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1368, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1424, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1480, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1536, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1592, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1648, 1918, 55, 52 });
+	missileUpRight.anim.PushBack({ 1704, 1918, 55, 52 });
+	missileUpRight.lifetime = 180;
+
+	missileUpLeft.anim.PushBack({ 920, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 976, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1032, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1088, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1144, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1200, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1256, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1312, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1368, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1424, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1480, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1536, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1592, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1648, 1918, 55, 52 }, true);
+	missileUpLeft.anim.PushBack({ 1704, 1918, 55, 52 }, true);
+	missileUpLeft.lifetime = 180;
 
 	blueBullet.anim.PushBack({ 529, 57, 13, 64 });
 	blueBullet.anim.PushBack({ 543, 57, 13, 64 });
@@ -244,45 +277,82 @@ bool ModuleParticles::Start()
 	bulletHit.anim.PushBack({ 274, 925, 16, 32 });
 	bulletHit.anim.PushBack({ 291, 925, 16, 32 });
 
-	bulletDown.anim.PushBack({ 445, 1888, 48, 48 });
-	bulletDown.anim.PushBack({ 494, 1888, 48, 48 });
-	bulletDown.anim.PushBack({ 543, 1888, 48, 48 });
-	bulletDown.anim.PushBack({ 592, 1888, 48, 48 });
-	bulletDown.anim.PushBack({ 641, 1888, 48, 48 });
-	bulletDown.anim.PushBack({ 690, 1888, 48, 48 });
-	bulletDown.anim.speed = 0.1f;
+	finalBulletDown.anim.PushBack({ 506, 1901, 48, 48 });
+	finalBulletDown.anim.PushBack({ 555, 1901, 48, 48 });
+	finalBulletDown.anim.PushBack({ 604, 1901, 48, 48 });
+	finalBulletDown.anim.PushBack({ 653, 1901, 48, 48 });
+	finalBulletDown.anim.PushBack({ 702, 1901, 48, 48 });
+	finalBulletDown.anim.PushBack({ 751, 1901, 48, 48 });
+	finalBulletDown.anim.speed = 0.1f;
 
-	bulletDownLeft.anim.PushBack({ 445, 1937, 48, 48 });
-	bulletDownLeft.anim.PushBack({ 494, 1937, 48, 48 });
-	bulletDownLeft.anim.PushBack({ 543, 1937, 48, 48 });
-	bulletDownLeft.anim.PushBack({ 592, 1937, 48, 48 });
-	bulletDownLeft.anim.PushBack({ 641, 1937, 48, 48 });
-	bulletDownLeft.anim.PushBack({ 690, 1937, 48, 48 });
-	bulletDownLeft.anim.speed = 0.1f;
+	finalBulletDownLeft.anim.PushBack({ 506, 1950, 48, 48 });
+	finalBulletDownLeft.anim.PushBack({ 555, 1950, 48, 48 });
+	finalBulletDownLeft.anim.PushBack({ 604, 1950, 48, 48 });
+	finalBulletDownLeft.anim.PushBack({ 653, 1950, 48, 48 });
+	finalBulletDownLeft.anim.PushBack({ 702, 1950, 48, 48 });
+	finalBulletDownLeft.anim.PushBack({ 751, 1950, 48, 48 });
+	finalBulletDownLeft.anim.speed = 0.1f;
 
-	bulletDownRight.anim.PushBack({ 445, 1937, 48, 48 }, true);
-	bulletDownRight.anim.PushBack({ 494, 1937, 48, 48 }, true);
-	bulletDownRight.anim.PushBack({ 543, 1937, 48, 48 }, true);
-	bulletDownRight.anim.PushBack({ 592, 1937, 48, 48 }, true);
-	bulletDownRight.anim.PushBack({ 641, 1937, 48, 48 }, true);
-	bulletDownRight.anim.PushBack({ 690, 1937, 48, 48 }, true);
-	bulletDownRight.anim.speed = 0.1f;
+	finalBulletDownRight.anim.PushBack({ 506, 1950, 48, 48 }, true);
+	finalBulletDownRight.anim.PushBack({ 555, 1950, 48, 48 }, true);
+	finalBulletDownRight.anim.PushBack({ 604, 1950, 48, 48 }, true);
+	finalBulletDownRight.anim.PushBack({ 653, 1950, 48, 48 }, true);
+	finalBulletDownRight.anim.PushBack({ 702, 1950, 48, 48 }, true);
+	finalBulletDownRight.anim.PushBack({ 751, 1950, 48, 48 }, true);
+	finalBulletDownRight.anim.speed = 0.1f;
 
-	bulletLeft.anim.PushBack({ 445, 1986, 48, 48 });
-	bulletLeft.anim.PushBack({ 494, 1986, 48, 48 });
-	bulletLeft.anim.PushBack({ 543, 1986, 48, 48 });
-	bulletLeft.anim.PushBack({ 592, 1986, 48, 48 });
-	bulletLeft.anim.PushBack({ 641, 1986, 48, 48 });
-	bulletLeft.anim.PushBack({ 690, 1986, 48, 48 });
-	bulletLeft.anim.speed = 0.1f;
+	finalBulletLeft.anim.PushBack({ 506, 1999, 48, 48 });
+	finalBulletLeft.anim.PushBack({ 555, 1999, 48, 48 });
+	finalBulletLeft.anim.PushBack({ 604, 1999, 48, 48 });
+	finalBulletLeft.anim.PushBack({ 653, 1999, 48, 48 });
+	finalBulletLeft.anim.PushBack({ 702, 1999, 48, 48 });
+	finalBulletLeft.anim.PushBack({ 751, 1999, 48, 48 });
+	finalBulletLeft.anim.speed = 0.1f;
 
-	bulletRight.anim.PushBack({ 445, 1986, 48, 48 }, true);
-	bulletRight.anim.PushBack({ 494, 1986, 48, 48 }, true);
-	bulletRight.anim.PushBack({ 543, 1986, 48, 48 }, true);
-	bulletRight.anim.PushBack({ 592, 1986, 48, 48 }, true);
-	bulletRight.anim.PushBack({ 641, 1986, 48, 48 }, true);
-	bulletRight.anim.PushBack({ 690, 1986, 48, 48 }, true);
-	bulletRight.anim.speed = 0.1f;
+	finalBulletRight.anim.PushBack({ 506, 1999, 48, 48 }, true);
+	finalBulletRight.anim.PushBack({ 555, 1999, 48, 48 }, true);
+	finalBulletRight.anim.PushBack({ 604, 1999, 48, 48 }, true);
+	finalBulletRight.anim.PushBack({ 653, 1999, 48, 48 }, true);
+	finalBulletRight.anim.PushBack({ 702, 1999, 48, 48 }, true);
+	finalBulletRight.anim.PushBack({ 751, 1999, 48, 48 }, true);
+	finalBulletRight.anim.speed = 0.1f;
+
+	finalMissileDownRight.anim.PushBack({ 800, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 851, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 902, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 953, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 1004, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 1055, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 1106, 2019, 50, 28 });
+	finalMissileDownRight.anim.PushBack({ 1157, 2019, 50, 28 });
+
+	finalMissileDownLeft.anim.PushBack({ 800, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 851, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 902, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 953, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 1004, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 1055, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 1106, 2019, 50, 28 }, true);
+	finalMissileDownLeft.anim.PushBack({ 1157, 2019, 50, 28 }, true);
+
+	missileExplosion.anim.PushBack({ 301, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 332, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 363, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 394, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 425, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 456, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 487, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 518, 1250, 30, 28 });
+	missileExplosion.anim.PushBack({ 549, 1250, 30, 28 });
+
+	dust.anim.PushBack({ 383, 1040, 52, 52 });
+	dust.anim.PushBack({ 436, 1040, 52, 52 });
+	dust.anim.PushBack({ 489, 1040, 52, 52 });
+	dust.anim.PushBack({ 542, 1040, 52, 52 });
+	dust.anim.PushBack({ 595, 1040, 52, 52 });
+	dust.anim.PushBack({ 648, 1040, 52, 52 });
+	dust.anim.PushBack({ 701, 1040, 52, 52 });
+	dust.anim.PushBack({ 754, 1040, 52, 52 });
 
 	return true;
 }

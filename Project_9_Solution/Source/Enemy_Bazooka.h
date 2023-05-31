@@ -40,6 +40,15 @@ private:
 	Animation enemyshot2left;
 	Animation enemyshot2downleft;
 
+	Animation bazookaRight;
+	Animation bazookaLeft;
+	Animation bazookaUp;
+	Animation bazookaUpLeft;
+	Animation bazookaUpRight;
+	Animation bazookaDown;
+	Animation bazookaDownLeft;
+	Animation bazookaDownRight;
+
 	Animation enemyBurning;
 	Animation enemyDying;
 

@@ -51,6 +51,12 @@ private:
 
 	Animation enemyRollRight;
 	Animation enemyRollLeft;
+	Animation enemyRollDownPointingLeft;
+	Animation enemyRollDownPointingRight;
+	Animation enemyRollUpPointingLeft;
+	Animation enemyRollUpPointingRight;
+
+	Animation enemyBurning;
 
 
 	float dx;
