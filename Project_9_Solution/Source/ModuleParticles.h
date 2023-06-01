@@ -7,7 +7,7 @@
 #include "Particle.h"
 #include "Collider.h"
 
-#define MAX_ACTIVE_PARTICLES 100
+#define MAX_ACTIVE_PARTICLES 200
 
 struct SDL_Texture;
 struct Collider;
@@ -98,6 +98,11 @@ public:
 
 	Particle dust;
 
+	Particle tankBullet;
+	Particle explosionDefault;
+	Particle powerUpThreeBullets;
+
+	Particle flameThrower;
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

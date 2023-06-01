@@ -49,6 +49,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyBurning.PushBack({ 1255, 1112, 60, 74 });
 	enemyBurning.PushBack({ 1316, 1112, 60, 74 });
 	enemyBurning.PushBack({ 1377, 1112, 60, 74 });
+	enemyBurning.loop = false;
 
 	enemyRunning.PushBack({ 881, 971, 39, 55 });
 	enemyRunning.PushBack({ 921, 971, 39, 55 });
@@ -283,8 +284,10 @@ void Enemy_BrownShip::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		if (!isOnFire)
+		if (!isOnFire) {
+
 			currentAnim = &enemydeath1;
+		}
 		else
 			currentAnim = &enemyBurning;
 	}

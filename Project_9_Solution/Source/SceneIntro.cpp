@@ -7,6 +7,11 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include "ModuleCollisions.h"
+#include "ModuleEnemies.h"
+#include "ModulePlayer.h"
+#include "ModuleParticles.h"
+#include "ModuleUI.h"
 
 SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 {
@@ -36,7 +41,11 @@ bool SceneIntro::Start()
 	textFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
 
 	text = "press space to start";
-
+	App->player->Disable();
+	App->enemies->Disable();
+	App->UI->Disable();
+	App->collisions->Disable();
+	App->particles->Disable();
 
 	return ret;
 }

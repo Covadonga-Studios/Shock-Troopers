@@ -114,7 +114,7 @@ Update_Status ModuleUI::PostUpdate()
 	}
 
 	//Temporal. normal 0, flame 1,, 3way 2
-	int weapontype = 0;
+	int weapontype = App->player->weapon;
 
 	currentWeapon = &weapon[weapontype];
 
@@ -127,7 +127,7 @@ Update_Status ModuleUI::PostUpdate()
 	
 	
 	//replace with the actual ammo variable when we have it
-	sprintf_s(ammoText, 10, "%02d", ammo);
+	sprintf_s(ammoText, 10, "%02d", App->player->bullets);
 
 
 
@@ -171,7 +171,7 @@ Update_Status ModuleUI::PostUpdate()
 
 
 	weaponRect = currentWeapon->GetCurrentFrame();
-	App->render->Blit(texture, x + 50, y + 200, &weaponRect);
+	App->render->Blit(texture, x + 50, y + 201, &weaponRect);
 
 	if (weapontype == 0)
 	{

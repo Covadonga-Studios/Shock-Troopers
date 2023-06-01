@@ -19,6 +19,7 @@ enum class Enemy_Type
 	BARREL3,
 	BLACKSOLDIER,
 	FINALBOSS,
+	BARRICADE,
 };
 
 struct EnemySpawnpoint

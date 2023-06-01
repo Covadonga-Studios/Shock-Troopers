@@ -22,6 +22,7 @@ private:
 	int shootCooldown = 0;
 	bool isShooting = false;
 	bool deleting;
+	bool isMelee;
 	// Enemy animations
 	Animation box;
 	Animation boxidle;
@@ -33,6 +34,7 @@ private:
 	Animation fogonazo;
 	Animation shooting;
 	Animation idle;
+	Collider* collider2 = nullptr;
 
 	float dx;
 	float dy;

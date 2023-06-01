@@ -503,10 +503,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Hurtdownleft.speed = 0.1f;
 	Hurtdownleft.loop = false;
 
-	tankBullet.PushBack({ 28, 925, 35, 32 });
-	tankBullet.PushBack({ 63, 925, 35, 32 });
-	tankBullet.PushBack({ 98, 925, 35, 32 });
-	tankBullet.PushBack({ 133, 925, 35, 32 });
+
 
 	explosion1.PushBack({ 146, 841, 32, 32 });
 	explosion1.PushBack({ 179, 841, 32, 32 });
@@ -517,25 +514,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	explosion1.PushBack({ 212, 874, 32, 32 });
 	explosion1.PushBack({ 245, 874, 32, 32 });
 
-	explosionDefault.PushBack({ 1, 1093, 58, 62 });
-	explosionDefault.PushBack({ 60, 1093, 58, 62 });
-	explosionDefault.PushBack({ 119, 1093, 58, 62 });
-	explosionDefault.PushBack({ 178, 1093, 58, 62 });
-	explosionDefault.PushBack({ 237, 1093, 58, 62 });
-	explosionDefault.PushBack({ 296, 1093, 58, 62 });
-	explosionDefault.PushBack({ 355, 1093, 58, 62 });
-	explosionDefault.PushBack({ 414, 1093, 58, 62 });
-	explosionDefault.PushBack({ 473, 1093, 58, 62 });
-	explosionDefault.PushBack({ 532, 1093, 58, 62 });
-	explosionDefault.PushBack({ 591, 1093, 58, 62 });
-	explosionDefault.PushBack({ 650, 1093, 58, 62 });
-	explosionDefault.PushBack({ 709, 1093, 58, 62 });
-	explosionDefault.PushBack({ 768, 1093, 58, 62 });
-	explosionDefault.PushBack({ 827, 1093, 58, 62 });
-	explosionDefault.PushBack({ 886, 1093, 58, 62 });
-	explosionDefault.PushBack({ 945, 1093, 58, 62 });
-	explosionDefault.PushBack({ 1004, 1093, 58, 62 });
-	explosionDefault.PushBack({ 1063, 1093, 58, 62 });
 
 	
 
@@ -607,14 +585,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	monkeyLeavingLeft.PushBack({ 880, 1260, 25, 24 }, true);
 
 
-	//POWERUPS // POWERUPS //POWERUPS // POWERUPS //POWERUPS // POWERUPS //POWERUPS // POWERUPS //POWERUPS // POWERUPS//POWERUPS // POWERUPS
 
-	powerUpThreeBullets.PushBack({ 542, 8, 13, 13 });
-	powerUpThreeBullets.PushBack({ 556, 8, 13, 13 });
-	powerUpThreeBullets.PushBack({ 542, 22, 13, 13 });
-	powerUpThreeBullets.PushBack({ 556, 22, 13, 13 });
-	powerUpThreeBullets.PushBack({ 542, 36, 13, 13 });
-	powerUpThreeBullets.PushBack({ 556, 36, 13, 13 });
 
 	//FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO //FOGONAZO 
 
@@ -650,29 +621,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	fogonazoLeft.PushBack({ 1638, 1841, 60, 61 }, true);
 	fogonazoLeft.PushBack({ 1699, 1841, 60, 61 }, true);
 
-	flameThrower.PushBack({ 382, 1934, 30, 37 });
-	flameThrower.PushBack({ 413, 1934, 30, 37 });
-	flameThrower.PushBack({ 444, 1934, 30, 37 });
-	flameThrower.PushBack({ 475, 1934, 30, 37 });
-	flameThrower.PushBack({ 382, 1972, 30, 37 });
-	flameThrower.PushBack({ 413, 1972, 30, 37 });
-	flameThrower.PushBack({ 444, 1972, 30, 37 });
-	flameThrower.PushBack({ 475, 1972, 30, 37 });
-	flameThrower.PushBack({ 382, 2010, 30, 37 });
-	flameThrower.PushBack({ 413, 2010, 30, 37 });
-	flameThrower.PushBack({ 444, 2010, 30, 37 });
-	flameThrower.PushBack({ 475, 2010, 30, 37 });
-
-	//BARRICADE //BARRICADE //BARRICADE //BARRICADE //BARRICADE //BARRICADE //BARRICADE 
-
-	barricade.PushBack({ 619, 1244, 97, 42 });
-	barricade.PushBack({ 717, 1244, 97, 42 });
-
-	peekyDownRight.PushBack({ 1020, 1231, 33, 28 });
-
-	peekyDown.PushBack({ 1054, 1231, 33, 28 });
-
-	peekyDownLeft.PushBack({ 1088, 1231, 33, 28 });
 
 	//MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER 
 
@@ -763,10 +711,10 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 47 }, Collider::Type::PLAYER, this);
-	colliderUp = App->collisions->AddCollider({ position.x, position.y - 3, 28, 3 }, Collider::Type::UP_PLAYER, this);
-	colliderDown = App->collisions->AddCollider({ position.x, position.y + 47, 28, 3 }, Collider::Type::DOWN_PLAYER, this);
-	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 47 }, Collider::Type::RIGHT_PLAYER, this);
-	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 47 }, Collider::Type::LEFT_PLAYER, this);
+	colliderUp = App->collisions->AddCollider({ position.x, position.y - 3, 32, 3 }, Collider::Type::UP_PLAYER, this);
+	colliderDown = App->collisions->AddCollider({ position.x, position.y + 47, 32, 3 }, Collider::Type::DOWN_PLAYER, this);
+	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 4 }, Collider::Type::RIGHT_PLAYER, this);
+	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 4 }, Collider::Type::LEFT_PLAYER, this);
 
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
@@ -1060,64 +1008,201 @@ void ModulePlayer::ShootingUpdate()
 
 	if (isDodging == false && isHurt == false && isShooting == true)
 	{
-		if (App->player->shootCoolDown > 5 && isDodging == false && cartridge != 0) {
-			switch (bulletDir)
-			{
-			case LEFT:
-				App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
 
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case RIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 5, 0, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case DOWN:
-				App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 5, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case UP:
-				App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case DOWNLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -5, 5, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case DOWNRIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 5, 5, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case UPLEFT:
-				App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
-			case UPRIGHT:
-				App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 5, -5, false, Collider::Type::PLAYER_SHOT);
-				App->audio->PlayFx(laserFx);
-				shootCoolDown = 0;
-				break;
+		switch (weapon)
+		{
+		case 0:
+			if (App->player->shootCoolDown > 5 && isDodging == false && cartridge != 0) {
+				switch (bulletDir)
+				{
+				case LEFT:
+					App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
+
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case RIGHT:
+					App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWN:
+					App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UP:
+					App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWNLEFT:
+					App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWNRIGHT:
+					App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UPLEFT:
+					App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UPRIGHT:
+					App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				}
+				cartridge--;
 			}
-			cartridge--;
+			break;
+		case 1:
+			if (App->player->shootCoolDown > 5 && isDodging == false) {
+				switch (bulletDir)
+				{
+				case LEFT:
+					App->particles->AddParticle(App->particles->flameThrower, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case RIGHT:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y + 12, 5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWN:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 9, position.y + 26, 0, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UP:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 17, position.y, 0, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWNLEFT:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 18, -5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWNRIGHT:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y + 18, 5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UPLEFT:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UPRIGHT:
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y, 5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				}
+				bullets--;
+			}
+			break;
+		case 2:
+			if (App->player->shootCoolDown > 7 && isDodging == false) {
+				switch (bulletDir)
+				{
+				case LEFT:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x , position.y + 12, -5, -1, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x , position.y + 12, -5, 1, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case RIGHT:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y + 12, 5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y + 12, 5, 1, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y + 12, 5, -1, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWN:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 9, position.y + 26, 0, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 9, position.y + 26, 1, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 9, position.y + 26, -1, 5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UP:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 17, position.y, 0, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 17, position.y, -1, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 17, position.y, 1, -5, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWNLEFT:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 4, position.y + 18, -5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 4, position.y + 18, -3, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 4, position.y + 18, -5, 3, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case DOWNRIGHT:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y + 18, 5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y + 18, 3, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y + 12, 5, 3, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UPLEFT:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 4, position.y + 1, -3, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 4, position.y + 1, -5, -3, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				case UPRIGHT:
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y, 5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y, 3, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->powerUpThreeBullets, position.x + 20, position.y, 5, -3, false, Collider::Type::PLAYER_SHOT);
+					App->audio->PlayFx(laserFx);
+					shootCoolDown = 0;
+					break;
+				}
+				bullets--;
+			}
+			break;
 		}
+
+	
 	}
 
 	if (isHurt == true || isDodging == true)
 	{
 		cartridge = 0;
 	}
-
-	if (cartridge == 0)
+	switch (weapon)
 	{
-		isShooting = false;
+	case 0:
+		if (cartridge == 0)
+		{
+			isShooting = false;
+		}
+		break;
+	case 1:
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_UP && isShooting == true)
+		{
+			isShooting = false;
+		}
+		break;
+	case 2:
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_UP && isShooting == true)
+		{
+			isShooting = false;
+		}
+		break;
 	}
+	
 
 	if (cartridge >= 0 && shootCoolDown > 25)
 	{
@@ -1595,8 +1680,19 @@ void ModulePlayer::HurtUpdate()
 			Hurtupright.Reset();
 		}
 		legAnimation = &dissapear;
-
 	}
+	
+	if (hurtDuration == 120) 
+	{
+		invincible = false;
+	}
+	
+	if (hurtDuration > 45 && hurtDuration < 120 && hurtDuration % 2 != 0 && invincible == true)
+	{
+		legAnimation = &dissapear;
+		currentAnimation = &dissapear;
+	}
+
 }
 
 Update_Status ModulePlayer::Update()
@@ -1614,10 +1710,10 @@ Update_Status ModulePlayer::Update()
 	DodgeUpdate();
 
 	//Update collider positions
-	colliderUp->SetPos(position.x + 3, position.y - 3);
-	colliderDown->SetPos(position.x + 3, position.y + 47);
-	colliderRight->SetPos(position.x + 32, position.y);
-	colliderLeft->SetPos(position.x, position.y);
+	colliderUp->SetPos(position.x , position.y + 40);
+	colliderDown->SetPos(position.x, position.y + 47);
+	colliderRight->SetPos(position.x + 32, position.y + 43);
+	colliderLeft->SetPos(position.x - 3, position.y + 43);
 
 	//Turn off wall collisions for next tick to check if there is a collision
 	rightLock = false;
@@ -1629,10 +1725,11 @@ Update_Status ModulePlayer::Update()
 	GrenadeUpdate();
 	DebugLogicUpdate();
 	HurtUpdate();
+
+
 	
 	currentAnimation->Update();
 	legAnimation->Update();
-
 
 	//Timer
 	if (timerCounter == 240)
@@ -1643,8 +1740,6 @@ Update_Status ModulePlayer::Update()
 			timer--;
 		}
 	}
-
-
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -1749,10 +1844,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		score += 23;
 	}
 
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT && godMode == false && isHurt == false)
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT && godMode == false && invincible == false)
 	{
-		hp--;
+		hp -= 24;
 		isHurt = true;
+		invincible = true;
 		hurtDuration = 0;
 	}
 }

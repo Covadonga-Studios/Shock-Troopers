@@ -111,33 +111,50 @@ void Enemy_Tank::Update()
 	}
 
 
+	offsettexture1x = 0;
+	offsettexture1y = 0;
 	if (deleting == false)
 		switch (GetTargetDir(dx, dy))
 		{
 		case LEFT:
 			currentAnim = &enemyshot1left;
+			offsettexture1x = -10;
+			offsettexture1y = -11;
 			break;
 		case RIGHT:
 			currentAnim = &enemyshot1right;
+			offsettexture1x = 15;
+			offsettexture1y = -11;
 			break;
 		case DOWN:
 			currentAnim = &enemyshot1down;
+			offsettexture1x = 3;
+			offsettexture1y = 3;
 			break;
 		case UP:
 			currentAnim = &enemyshot1up;
+			offsettexture1x = 3;
+			offsettexture1y = -12;
 			break;
 		case DOWNLEFT:
 			currentAnim = &enemyshot1downleft;
+			offsettexture1x = -5;
+			offsettexture1y = -1;
 			break;
 		case DOWNRIGHT:
 			currentAnim = &enemyshot1rightdown;
+			offsettexture1x = 10;
+			offsettexture1y = -3;
 			break;
 		case UPLEFT:
 			currentAnim = &enemyshot1upleft;
+			offsettexture1x = 2;
+			offsettexture1y = -9;
 			break;
 		case UPRIGHT:
-	
-		currentAnim = &enemyshot1rightup;
+			currentAnim = &enemyshot1rightup;
+			offsettexture1x = 4;
+			offsettexture1y = -9;
 			break;
 		}
 

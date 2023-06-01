@@ -19,6 +19,7 @@
 #include "Enemy_ThreeBarrels.h"
 #include "Enemy_BlackSoldier.h"
 #include "Enemy_FinalBoss.h"
+#include "Enemy_Barricade.h"
 
 #define SPAWN_MARGIN 50
 
@@ -200,6 +201,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::FINALBOSS:
 					enemies[i] = new Enemy_FinalBoss(info.x, info.y);
+					break;
+				case Enemy_Type::BARRICADE:
+					enemies[i] = new Enemy_Barricade(info.x, info.y);
 					break;
 
 

@@ -19,6 +19,7 @@ private:
 	// The path that will define the position in the world
 	Path path;
 	int shootCooldown = 0;
+	int deathTimer = 0;
 	bool deleting;
 	// Enemy animations
 	Animation box;
@@ -27,6 +28,7 @@ private:
 	Animation tankStop;
 	Animation tankStopbase;
 	Animation bullet;
+	Animation tankStopded;
 };
 
 #endif // __ENEMY_MECH_H__

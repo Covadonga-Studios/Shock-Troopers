@@ -37,6 +37,8 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 	enemyDying.PushBack({ 169, 1237, 41, 53 });
 	enemyDying.PushBack({ 211, 1237, 41, 53 });
 	enemyDying.PushBack({ 253, 1237, 41, 53 });
+	enemyDying.speed = 0.1f;
+	enemyDying.loop = false;
 
 	enemyBurning.PushBack({ 1, 1294, 57, 68 });
 	enemyBurning.PushBack({ 59, 1294, 57, 68 });
@@ -54,6 +56,8 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 	enemyBurning.PushBack({ 755, 1294, 57, 68 });
 	enemyBurning.PushBack({ 813, 1294, 57, 68 });
 	enemyBurning.PushBack({ 871, 1294, 57, 68 });
+	enemyBurning.speed = 0.1f;
+	enemyBurning.loop = false;
 
 	bazookaRight.PushBack({ 10, 1868, 41, 55 });
 
@@ -92,7 +96,10 @@ void Enemy_Bazooka::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &enemydeath2;
+		if (!isOnFire)
+			currentAnim = &enemyDying;
+		else
+			currentAnim = &enemyBurning;
 	}
 
 	if (currentAnim->HasFinished() == true)

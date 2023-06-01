@@ -28,6 +28,8 @@ Enemy_TankStop::Enemy_TankStop(int x, int y) : Enemy(x, y)
 	tankStop.PushBack({ 160, 1013, 65, 41 });
 	tankStop.speed = 0.05f;
 	
+	tankStopded.PushBack({ 28, 971, 65, 41 });
+
 	bullet.PushBack({ 28, 925, 35, 32 });
 	bullet.PushBack({ 64, 925, 35, 32 });
 	bullet.PushBack({ 100, 925, 35, 32 });
@@ -47,9 +49,9 @@ void Enemy_TankStop::Update()
 {
 	shootCooldown++;
 
-	if (shootCooldown > 140) 
+	if (shootCooldown > 140 && deathTimer == false) 
 	{
-		App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 20, -5, 0, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->tankBullet, position.x - 5, position.y + 10, -5, 0, false, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 	
@@ -58,10 +60,23 @@ void Enemy_TankStop::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &box;
+		currentAnim = &tankStopded;
+
+
+		App->particles->AddParticle(App->particles->missileExplosion, position.x + 5, position.y + 6, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->missileExplosion, position.x + 10, position.y + 20, 0, 0, false, Collider::Type::NONE,5);
+		App->particles->AddParticle(App->particles->missileExplosion, position.x + 20, position.y, 0, 0, false, Collider::Type::NONE,7);
 	}
 
 
+	if (deleting == true) 
+	{
+		offsettexture1y -= 3;
+		deathTimer++;
+	}
+
+	if (deathTimer >= 60)
+		pendingToDelete = true;
 
 	collider->SetPos(position.x -22, position.y );
 	// Call to the base class. It must be called at the end

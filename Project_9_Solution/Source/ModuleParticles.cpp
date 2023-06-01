@@ -344,6 +344,8 @@ bool ModuleParticles::Start()
 	missileExplosion.anim.PushBack({ 487, 1250, 30, 28 });
 	missileExplosion.anim.PushBack({ 518, 1250, 30, 28 });
 	missileExplosion.anim.PushBack({ 549, 1250, 30, 28 });
+	missileExplosion.anim.speed = 0.3f;
+	missileExplosion.lifetime = 60;
 
 	dust.anim.PushBack({ 383, 1040, 52, 52 });
 	dust.anim.PushBack({ 436, 1040, 52, 52 });
@@ -353,6 +355,59 @@ bool ModuleParticles::Start()
 	dust.anim.PushBack({ 648, 1040, 52, 52 });
 	dust.anim.PushBack({ 701, 1040, 52, 52 });
 	dust.anim.PushBack({ 754, 1040, 52, 52 });
+	dust.anim.speed = 0.4f;
+	dust.lifetime = 30;
+
+	tankBullet.anim.PushBack({ 28, 925, 35, 32 });
+	tankBullet.anim.PushBack({ 63, 925, 35, 32 });
+	tankBullet.anim.PushBack({ 98, 925, 35, 32 });
+	tankBullet.anim.PushBack({ 133, 925, 35, 32 });
+
+	explosionDefault.anim.PushBack({ 1, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 60, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 119, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 178, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 237, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 296, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 355, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 414, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 473, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 532, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 591, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 650, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 709, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 768, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 827, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 886, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 945, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 1004, 1093, 58, 62 });
+	explosionDefault.anim.PushBack({ 1063, 1093, 58, 62 });
+	explosionDefault.anim.speed = 0.4f;
+	explosionDefault.lifetime = 40;
+
+	flameThrower.anim.PushBack({ 382, 1934, 30, 37 });
+	flameThrower.anim.PushBack({ 413, 1934, 30, 37 });
+	flameThrower.anim.PushBack({ 444, 1934, 30, 37 });
+	flameThrower.anim.PushBack({ 475, 1934, 30, 37 });
+	flameThrower.anim.PushBack({ 382, 1972, 30, 37 });
+	flameThrower.anim.PushBack({ 413, 1972, 30, 37 });
+	flameThrower.anim.PushBack({ 444, 1972, 30, 37 });
+	flameThrower.anim.PushBack({ 475, 1972, 30, 37 });
+	flameThrower.anim.PushBack({ 382, 2010, 30, 37 });
+	flameThrower.anim.PushBack({ 413, 2010, 30, 37 });
+	flameThrower.anim.PushBack({ 444, 2010, 30, 37 });
+	flameThrower.anim.PushBack({ 475, 2010, 30, 37 });
+	flameThrower.anim.speed = 0.35f;
+	flameThrower.lifetime = 30;
+
+	powerUpThreeBullets.anim.PushBack({ 542, 8, 13, 13 });
+	powerUpThreeBullets.anim.PushBack({ 556, 8, 13, 13 });
+	powerUpThreeBullets.anim.PushBack({ 542, 22, 13, 13 });
+	powerUpThreeBullets.anim.PushBack({ 556, 22, 13, 13 });
+	powerUpThreeBullets.anim.PushBack({ 542, 36, 13, 13 });
+	powerUpThreeBullets.anim.PushBack({ 556, 36, 13, 13 });
+	powerUpThreeBullets.anim.speed = 0.2f;
+	powerUpThreeBullets.lifetime = 80;
 
 	return true;
 }

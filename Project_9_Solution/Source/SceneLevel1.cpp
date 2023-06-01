@@ -7,6 +7,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 #include "ModuleUI.h"
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
@@ -40,7 +41,7 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	App->enemies->AddEnemy(Enemy_Type::FINALBOSS, 70, 0);
+	App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 70, 0);
 
 	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 250, 150);
 
@@ -59,6 +60,7 @@ bool SceneLevel1::Start()
 	App->enemies->Enable();
 	App->UI->Enable();
 	App->collisions->Enable();
+	App->particles->Enable();
 
 
 	door.PushBack({ 620, 1688, 153, 19 });
