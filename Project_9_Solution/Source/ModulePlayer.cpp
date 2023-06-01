@@ -1569,138 +1569,6 @@ void ModulePlayer::LoseWinLogicUpdate()
 
 void ModulePlayer::GrenadeUpdate() 
 {
-	
-}
-
-void ModulePlayer::DebugLogicUpdate() 
-{
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
-	{
-		if (godMode == false)
-			godMode = true;
-		else
-			godMode = false;
-	}
-
-	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
-	{
-		winCon = true;
-
-	}
-	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
-	{
-
-		App->player->position.x = 2048;
-		App->player->position.y = -1548;
-	}
-	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
-	{
-		hp = 0;
-	}
-	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
-	{
-		App->render->cameraMode++;
-	}
-}
-
-void ModulePlayer::HurtUpdate() 
-{
-	if (isHurt == true)
-	{
-		switch (moveDir)
-		{
-		case LEFT:
-			currentAnimation = &Hurtleft;
-
-			break;
-		case RIGHT:
-			currentAnimation = &Hurtright;
-
-			break;
-		case DOWN:
-			currentAnimation = &Hurtdown;
-
-			break;
-		case UP:
-			currentAnimation = &Hurtup;
-
-			break;
-		case DOWNLEFT:
-			currentAnimation = &Hurtdownleft;
-
-			break;
-		case DOWNRIGHT:
-			currentAnimation = &Hurtdownright;
-			break;
-		case UPLEFT:
-			currentAnimation = &Hurtupleft;
-
-			break;
-		case UPRIGHT:
-			currentAnimation = &Hurtupright;
-			break;
-		}
-		if (hurtDuration > 45)
-		{
-			isHurt = false;
-			Hurtleft.Reset();
-			Hurtright.Reset();
-			Hurtdown.Reset();
-			Hurtup.Reset();
-			Hurtdownleft.Reset();
-			Hurtdownright.Reset();
-			Hurtupleft.Reset();
-			Hurtupright.Reset();
-		}
-		legAnimation = &dissapear;
-	}
-	
-	if (hurtDuration == 120) 
-	{
-		invincible = false;
-	}
-	
-	if (hurtDuration > 45 && hurtDuration < 120 && hurtDuration % 2 != 0 && invincible == true)
-	{
-		legAnimation = &dissapear;
-		currentAnimation = &dissapear;
-	}
-
-}
-
-Update_Status ModulePlayer::Update()
-{
-	shootCoolDown++;
-	dodgeCoolDown++;
-	hurtDuration++;
-	grenadeCoolDown++;
-	timerCounter++;
-
-	if (isThrowing == true) { grenadeAnimationTimer++; }
-
-	GamepadUpdate();
-	MoveUpdate();
-	ShootingUpdate();
-	AnimationLegTorsoUpdate();
-	DodgeUpdate();
-
-	//Update collider positions
-	colliderUp->SetPos(position.x , position.y + 40);
-	colliderDown->SetPos(position.x, position.y + 47);
-	colliderRight->SetPos(position.x + 32, position.y + 43);
-	colliderLeft->SetPos(position.x - 3, position.y + 43);
-
-	//Turn off wall collisions for next tick to check if there is a collision
-	rightLock = false;
-	leftLock = false;
-	downLock = false;
-	upLock = false;
-
-	LoseWinLogicUpdate();
-	GrenadeUpdate();
-	DebugLogicUpdate();
-	HurtUpdate();
-
 	GamePad& pad = App->input->pads[0];
 	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true) {
 		isThrowing = true;
@@ -1827,6 +1695,138 @@ Update_Status ModulePlayer::Update()
 		grenadeThrowUpRight.Reset();
 		grenadeAnimationTimer = 0;
 	}
+}
+
+void ModulePlayer::DebugLogicUpdate() 
+{
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN)
+	{
+		if (godMode == false)
+			godMode = true;
+		else
+			godMode = false;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN)
+	{
+		winCon = true;
+
+	}
+	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
+	{
+
+		App->player->position.x = 20;
+		App->player->position.y = -1528;
+	}
+	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
+	{
+		hp = 0;
+	}
+	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
+	{
+		App->render->cameraMode++;
+	}
+}
+
+void ModulePlayer::HurtUpdate() 
+{
+	if (isHurt == true)
+	{
+		switch (moveDir)
+		{
+		case LEFT:
+			currentAnimation = &Hurtleft;
+
+			break;
+		case RIGHT:
+			currentAnimation = &Hurtright;
+
+			break;
+		case DOWN:
+			currentAnimation = &Hurtdown;
+
+			break;
+		case UP:
+			currentAnimation = &Hurtup;
+
+			break;
+		case DOWNLEFT:
+			currentAnimation = &Hurtdownleft;
+
+			break;
+		case DOWNRIGHT:
+			currentAnimation = &Hurtdownright;
+			break;
+		case UPLEFT:
+			currentAnimation = &Hurtupleft;
+
+			break;
+		case UPRIGHT:
+			currentAnimation = &Hurtupright;
+			break;
+		}
+		if (hurtDuration > 45)
+		{
+			isHurt = false;
+			Hurtleft.Reset();
+			Hurtright.Reset();
+			Hurtdown.Reset();
+			Hurtup.Reset();
+			Hurtdownleft.Reset();
+			Hurtdownright.Reset();
+			Hurtupleft.Reset();
+			Hurtupright.Reset();
+		}
+		legAnimation = &dissapear;
+	}
+	
+	if (hurtDuration == 120) 
+	{
+		invincible = false;
+	}
+	
+	if (hurtDuration > 45 && hurtDuration < 120 && hurtDuration % 2 != 0 && invincible == true)
+	{
+		legAnimation = &dissapear;
+		currentAnimation = &dissapear;
+	}
+
+}
+
+Update_Status ModulePlayer::Update()
+{
+	shootCoolDown++;
+	dodgeCoolDown++;
+	hurtDuration++;
+	grenadeCoolDown++;
+	timerCounter++;
+
+	if (isThrowing == true) { grenadeAnimationTimer++; }
+
+	GamepadUpdate();
+	MoveUpdate();
+	ShootingUpdate();
+	AnimationLegTorsoUpdate();
+	DodgeUpdate();
+
+	//Update collider positions
+	colliderUp->SetPos(position.x , position.y + 40);
+	colliderDown->SetPos(position.x, position.y + 47);
+	colliderRight->SetPos(position.x + 32, position.y + 43);
+	colliderLeft->SetPos(position.x - 3, position.y + 43);
+
+	//Turn off wall collisions for next tick to check if there is a collision
+	rightLock = false;
+	leftLock = false;
+	downLock = false;
+	upLock = false;
+
+	LoseWinLogicUpdate();
+	GrenadeUpdate();
+	DebugLogicUpdate();
+	HurtUpdate();
+
+	
 	currentAnimation->Update();
 	legAnimation->Update();
 

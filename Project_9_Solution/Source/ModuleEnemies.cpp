@@ -131,7 +131,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 		if (spawnQueue[i].type != Enemy_Type::NO_TYPE)
 		{
 			// Spawn a new enemy if the screen has reached a spawn position
-			if (abs(spawnQueue[i].x - App->player->position.x) < 200 && abs(spawnQueue[i].y - App->player->position.y) < 200)
+			if (abs(spawnQueue[i].x - App->player->position.x) < 200 && abs(spawnQueue[i].y - App->player->position.y) < 300)
 			{
 				LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 

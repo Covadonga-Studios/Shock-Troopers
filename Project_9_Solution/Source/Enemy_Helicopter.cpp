@@ -7,18 +7,17 @@
 #include "ModuleFonts.h"
 #include "stdio.h"
 #include "math.h"
+#include "SceneLevel1.h"
 
 Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 {
 
 	boxidle.PushBack({ 686, 1798, 108, 80 });
 	
-	helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
-	helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
-
 	helicopterFight.PushBack({ 1515, 1095, 110, 98 });
 	helicopterFight.PushBack({ 1626, 1095, 110, 98 });
 	helicopterFight.PushBack({ 1737, 1095, 110, 98 });
+	helicopterFight.speed = 0.1f;
 
 	helicopterBullet.PushBack({ 767, 539, 4, 4 });
 	helicopterBullet.PushBack({ 767, 543, 4, 4 });
@@ -35,8 +34,7 @@ Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 	fogonazoDown.PushBack({ 800, 569, 27, 29 });
 	fogonazoDown.PushBack({ 828, 569, 27, 29 });
 	
-
-	currentAnim = &boxidle;
+	currentAnim = &helicopterFight;
 
 	collider = App->collisions->AddCollider({ 20, 20, 108, 80}, Collider::Type::ENEMY, (Module*)App->enemies);
 	hp = 40;
@@ -50,14 +48,19 @@ void Enemy_Helicopter::Update()
 {
 	moveCooldown++;
 	shootCooldown++;
-
+	startCooldown++;
 	int offsetx = 54;
 	int offsety = 80;
 		
 	dx = (App->player->position.x  + App->player->collider->rect.w / 2 - position.x - offsetx);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsety);
 
-	if (moveCooldown > 250)
+	if ( startCooldown < 120) 
+	{
+		position.y++;
+	}
+
+	if (moveCooldown > 250 && startCooldown > 120)
 	{
 		if (position.x + 50 - App->player->position.x < 0)
 		{
@@ -77,7 +80,7 @@ void Enemy_Helicopter::Update()
 		}
 	}
 
-	if (shootCooldown > 120) 
+	if (shootCooldown > 120 && startCooldown > 120)
 	{
 
 		float dir = Dircalculation(dx, dy);
@@ -104,7 +107,10 @@ void Enemy_Helicopter::Update()
 		pendingToDelete = true;
 	}
 
-	collider->SetPos(position.x, position.y);
+	if (startCooldown > 120)
+		collider->SetPos(position.x, position.y);
+	else
+		collider->SetPos(5000, 5000);
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();

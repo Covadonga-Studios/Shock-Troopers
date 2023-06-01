@@ -36,10 +36,18 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTexture2 = nullptr;
 	SDL_Texture* bgTexture3 = nullptr;
+	SDL_Texture* bridgebg = nullptr;
+	SDL_Texture* helicoming = nullptr;
 	Collider* collider = nullptr;
+	int offsetheli = 0;
+	bool helispawn = false;
+	
 
 private: 
 	Animation door;
+	Animation helicopterArriving;
+	Animation* currentAnimation;
+	
 };
 
 #endif

@@ -20,6 +20,8 @@ private:
 	Path path;
 	int moveCooldown = 0;
 	int shootCooldown = 0;
+	int startCooldown = 0;
+	bool spawning = false;
 	bool deleting;
 	// Enemy animations
 	Animation box;
@@ -27,6 +29,7 @@ private:
 	Animation front, back;
 	Animation helicopterArriving;
 	Animation helicopterFight;
+	Animation helicopterDeath;
 
 	Animation helicopterBullet;
 

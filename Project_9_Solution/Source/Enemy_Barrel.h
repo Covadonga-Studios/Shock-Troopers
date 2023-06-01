@@ -25,6 +25,8 @@ private:
 	Animation barrelidle;
 	Animation barrelloop;
 	Animation front, back;
+	Collider* collider2 = nullptr;
+	Collider* collider3 = nullptr;
 };
 
 #endif // __ENEMY_BARREL_H__

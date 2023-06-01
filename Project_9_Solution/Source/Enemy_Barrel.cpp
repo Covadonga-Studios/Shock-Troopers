@@ -41,6 +41,10 @@ Enemy_Barrel::Enemy_Barrel(int x, int y) : Enemy(x, y)
 	barrel.loop = false;
 	barrelloop.loop = true;
 	collider = App->collisions->AddCollider({ 20, 80, 20, 30 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider2 = App->collisions->AddCollider({ 20, 80, 20, 30 }, Collider::Type::ENEMY_SHOT, (Module*)App->enemies);
+	collider3 = App->collisions->AddCollider({ 20, 80, 20, 30 }, Collider::Type::PLAYER_SHOT, (Module*)App->enemies);
+	collider2->SetPos(2000, 3000);
+	collider3->SetPos(2000, 3000);
 	hp = 1;
 
 }
@@ -70,6 +74,13 @@ void Enemy_Barrel::Update()
 	if (currentAnim->HasFinished() == true && currentAnim != &barrel)
 	{
 		pendingToDelete = true;
+		collider2->pendingToDelete = true;
+		collider3->pendingToDelete = true;
+	}
+	if (deleting == true) 
+	{
+		collider2->SetPos(position.x + 20, position.y + 88);
+		collider3->SetPos(position.x + 20, position.y + 88);
 	}
 
 	collider->SetPos(position.x + 20, position.y + 88);
