@@ -230,6 +230,15 @@ public:
 	Animation medicsWalking;
 	Animation medicsHurt;
 
+	Animation grenadeThrowRight;
+	Animation grenadeThrowLeft;
+	Animation grenadeThrowDownLeft;
+	Animation grenadeThrowDownRight;
+	Animation grenadeThrowUp;
+	Animation grenadeThrowDown;
+	Animation grenadeThrowUpRight;
+	Animation grenadeThrowUpLeft;
+
 	int bulletDir = 0;
 	int moveDir = 0;
 	int shootCoolDown = 10;
@@ -260,6 +269,8 @@ public:
 	bool godMode = false;
 	bool isHurt = false;
 	bool isShooting = false;
+	bool isThrowing = false;
+	int grenadeAnimationTimer = 0;
 	int hurtDuration = 0;
 	int offsetx;
 	int offsety;
