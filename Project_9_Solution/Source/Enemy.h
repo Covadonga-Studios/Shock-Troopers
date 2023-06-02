@@ -59,6 +59,8 @@ public:
 
 	int grenadeImmunity = 120;
 
+	int flameImmunity = 20;
+
 	int offsettexture3x = 0;
 	int offsettexture3y = 0;
 
@@ -68,8 +70,11 @@ public:
 	int offsettexture1x = 0;
 	int offsettexture1y = 0;
 
+	int enemyMode = 0;
+
 	// A flag for the enemy removal. Important! We do not delete objects instantly
 	bool pendingToDelete = false;
+
 
 protected:
 	// A ptr to the current animation

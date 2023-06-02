@@ -16,8 +16,10 @@ Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 	
 	helicopterFight.PushBack({ 1515, 1095, 110, 98 });
 	helicopterFight.PushBack({ 1626, 1095, 110, 98 });
-	helicopterFight.PushBack({ 1737, 1095, 110, 98 });
+	
 	helicopterFight.speed = 0.1f;
+
+	helicopterDeath.PushBack({ 1737, 1095, 110, 98 });
 
 	helicopterBullet.PushBack({ 767, 539, 4, 4 });
 	helicopterBullet.PushBack({ 767, 543, 4, 4 });
@@ -49,6 +51,11 @@ void Enemy_Helicopter::Update()
 	moveCooldown++;
 	shootCooldown++;
 	startCooldown++;
+
+	if (deleting == true) 
+	{
+		deathTimer++;
+	}
 	int offsetx = 54;
 	int offsety = 80;
 		
@@ -60,7 +67,7 @@ void Enemy_Helicopter::Update()
 		position.y++;
 	}
 
-	if (moveCooldown > 250 && startCooldown > 120)
+	if (moveCooldown > 250 && startCooldown > 120 && deleting == false)
 	{
 		if (position.x + 50 - App->player->position.x < 0)
 		{
@@ -80,7 +87,7 @@ void Enemy_Helicopter::Update()
 		}
 	}
 
-	if (shootCooldown > 120 && startCooldown > 120)
+	if (shootCooldown > 120 && startCooldown > 120 && deleting == false)
 	{
 
 		float dir = Dircalculation(dx, dy);
@@ -99,10 +106,10 @@ void Enemy_Helicopter::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &box;
+		currentAnim = &helicopterDeath;
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (deathTimer > 200)
 	{
 		pendingToDelete = true;
 	}

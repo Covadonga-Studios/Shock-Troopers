@@ -24,6 +24,7 @@ private:
 	// The original spawning position. The wave will be calculated from that
 	int spawn_y = 0;
 	bool deleting = false;
+	int deathTimer;
 	// The total height of the wave
 	int waveHeight = 15;
 	int shootCooldown;

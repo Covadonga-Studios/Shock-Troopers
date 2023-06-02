@@ -37,10 +37,12 @@ public:
 	SDL_Texture* bgTexture2 = nullptr;
 	SDL_Texture* bgTexture3 = nullptr;
 	SDL_Texture* bridgebg = nullptr;
-	SDL_Texture* helicoming = nullptr;
+	SDL_Texture* defaultspritesheet = nullptr;
+	SDL_Texture* defaultspritesheet2 = nullptr;
 	Collider* collider = nullptr;
 	int offsetheli = 0;
 	bool helispawn = false;
+	bool doorspawn = false;
 	
 
 private: 

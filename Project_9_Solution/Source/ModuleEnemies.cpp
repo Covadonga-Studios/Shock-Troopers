@@ -20,6 +20,8 @@
 #include "Enemy_BlackSoldier.h"
 #include "Enemy_FinalBoss.h"
 #include "Enemy_Barricade.h"
+#include "Enemy_Door.h"
+#include "Enemy_Tanquecoche.h"
 
 #define SPAWN_MARGIN 50
 
@@ -37,9 +39,9 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.27.png");
-	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.27.png");
-	texture3 = App->textures->Load("Assets/Sprites/spritesheet2.27.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	texture2 = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	texture3 = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
 	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;
@@ -104,7 +106,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
+bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y, int enemyMode)
 {
 	bool ret = false;
 
@@ -115,6 +117,7 @@ bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
 			spawnQueue[i].type = type;
 			spawnQueue[i].x = x;
 			spawnQueue[i].y = y;
+			spawnQueue[i].enemyMode = enemyMode;
 			ret = true;
 			break;
 		}
@@ -205,13 +208,21 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case Enemy_Type::BARRICADE:
 					enemies[i] = new Enemy_Barricade(info.x, info.y);
 					break;
+				case Enemy_Type::DOOR:
+					enemies[i] = new Enemy_Door(info.x, info.y);
 
+					break;
+				case Enemy_Type::MISSILELAUNCHER:
+					enemies[i] = new Enemy_Tanquecoche(info.x, info.y);
+		
+					break;
 
 			}
 			enemies[i]->texture = texture;
 			enemies[i]->texture2 = texture2;
 			enemies[i]->texture3 = texture3;
 			enemies[i]->destroyedFx = enemyDestroyedFx;
+			enemies[i]->enemyMode = info.enemyMode;
 			break;
 		}
 	}

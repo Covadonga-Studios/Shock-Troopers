@@ -24,8 +24,6 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 
 	cannonRight.PushBack({ 1383, 848, 107, 74 }, true);
 
-	
-
 	tankMissileRight.PushBack({ 739, 2006, 50, 28 });
 	tankMissileRight.PushBack({ 790, 2006, 50, 28 });
 	tankMissileRight.PushBack({ 841, 2006, 50, 28 });

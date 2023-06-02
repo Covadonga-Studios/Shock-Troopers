@@ -145,7 +145,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 
 	enemyBurning.PushBack({ 800, 1792, 59, 63 });
 	enemyBurning.PushBack({ 860, 1792, 59, 63 });
-	enemyBurning.PushBack({ 820, 1792, 59, 63 });
+	enemyBurning.PushBack({ 920, 1792, 59, 63 });
 	enemyBurning.PushBack({ 980, 1792, 59, 63 });
 	enemyBurning.PushBack({ 1040, 1792, 59, 63 });
 	enemyBurning.PushBack({ 1100, 1792, 59, 63 });
@@ -159,6 +159,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyBurning.PushBack({ 1580, 1792, 59, 63 });
 	enemyBurning.PushBack({ 1640, 1792, 59, 63 });
 	enemyBurning.PushBack({ 1700, 1792, 59, 63 });
+	enemyBurning.speed = 0.1f;
+	enemyBurning.loop = false;
 
 	hp = 1;
 
@@ -180,7 +182,11 @@ void Enemy_RedBird::Update()
 	{
  		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &enemydeath2;
+		
+		if (!isOnFire)
+			currentAnim = &enemydeath2;
+		else
+			currentAnim = &enemyBurning;
 	}
 
 	if (currentAnim->HasFinished() == true)

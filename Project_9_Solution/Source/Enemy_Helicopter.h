@@ -21,6 +21,7 @@ private:
 	int moveCooldown = 0;
 	int shootCooldown = 0;
 	int startCooldown = 0;
+	int deathTimer= 0; 
 	bool spawning = false;
 	bool deleting;
 	// Enemy animations

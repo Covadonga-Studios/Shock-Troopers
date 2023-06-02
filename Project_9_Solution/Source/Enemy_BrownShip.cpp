@@ -50,6 +50,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyBurning.PushBack({ 1316, 1112, 60, 74 });
 	enemyBurning.PushBack({ 1377, 1112, 60, 74 });
 	enemyBurning.loop = false;
+	enemyBurning.speed = 0.1f;
 
 	enemyRunning.PushBack({ 881, 971, 39, 55 });
 	enemyRunning.PushBack({ 921, 971, 39, 55 });

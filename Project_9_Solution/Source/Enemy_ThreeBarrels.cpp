@@ -2,11 +2,11 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
-
+#include "ModuleParticles.h"
 Enemy_ThreeBarrels::Enemy_ThreeBarrels(int x, int y) : Enemy(x, y)
 {
 
-	boxidle.PushBack({ 1809, 339, 56, 65 });
+	boxidle.PushBack({ 112, 1964, 56, 65 });
 
 
 	box.speed = 0.15f;
@@ -27,11 +27,19 @@ void Enemy_ThreeBarrels::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &box;
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 6, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 6, 0, 0, false, Collider::Type::NONE,5);
+
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (deleting == true) 
 	{
+		deathTimer++;
+	}
+
+	if (deathTimer > 60)
+	{
+
 		pendingToDelete = true;
 	}
 

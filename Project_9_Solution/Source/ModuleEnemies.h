@@ -20,12 +20,15 @@ enum class Enemy_Type
 	BLACKSOLDIER,
 	FINALBOSS,
 	BARRICADE,
+	DOOR,
+	MISSILELAUNCHER,
 };
 
 struct EnemySpawnpoint
 {
 	Enemy_Type type = Enemy_Type::NO_TYPE;
 	int x, y;
+	int enemyMode = 0;
 };
 
 class Enemy;
@@ -65,7 +68,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	// Add an enemy into the queue to be spawned later
-	bool AddEnemy(Enemy_Type type, int x, int y);
+	bool AddEnemy(Enemy_Type type, int x, int y, int enemyMode = 0);
 
 	// Iterates the queue and checks for camera position
 	void HandleEnemiesSpawn();

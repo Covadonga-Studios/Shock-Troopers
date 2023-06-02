@@ -93,7 +93,7 @@ Update_Status ModuleRender::Update()
 			}
 		}
 
-		if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y > -1548 && App->player->IsEnabled() || App->render->camera.y < -1500 && App->render->camera.y > -1548) {
+		if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y > -1536 && App->player->IsEnabled() || App->render->camera.y < -1500 && App->render->camera.y > -1536) {
 			camera.y -= cameraSpeed;
 			if (App->player->isDodging == true) {
 				camera.y -= cameraSpeed * 2;

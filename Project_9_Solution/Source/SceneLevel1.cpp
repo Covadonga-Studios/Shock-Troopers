@@ -32,7 +32,9 @@ bool SceneLevel1::Start()
 	bgTexture2 = App->textures->Load("Assets/Sprites/Tileset part 2(1_2).png");
 	bgTexture3 = App->textures->Load("Assets/Sprites/background segundo vertical.png");
 	bridgebg = App->textures->Load("Assets/Sprites/shocktro030.png");
-	helicoming = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	defaultspritesheet = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	defaultspritesheet2 = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);;
 
 	//Bottomside collider
@@ -61,15 +63,6 @@ bool SceneLevel1::Start()
 	App->collisions->Enable();
 	App->particles->Enable();
 
-	door.PushBack({ 620, 1688, 153, 19 });
-	door.PushBack({ 620, 1708, 153, 19 });
-	door.PushBack({ 620, 1728, 153, 19 });
-	door.PushBack({ 620, 1748, 153, 19 });
-	door.PushBack({ 620, 1768, 153, 19 });
-	door.PushBack({ 620, 1788, 153, 19 });
-	door.PushBack({ 620, 1808, 153, 19 });
-	door.PushBack({ 620, 1828, 153, 19 });
-
 	helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
 	helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
 
@@ -80,7 +73,11 @@ bool SceneLevel1::Start()
 Update_Status SceneLevel1::Update()
 {
 
-	
+	if (App->player->position.y < -1300 && doorspawn == false)
+	{
+		App->enemies->AddEnemy(Enemy_Type::DOOR, 103, -1536);
+		doorspawn = true;
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -98,18 +95,21 @@ Update_Status SceneLevel1::PostUpdate()
 		helispawn = true;
 
 	}
-
+	
 	App->render->Blit(bgTexture, 0, -1820, NULL);
+
+
 	App->render->Blit(bridgebg, 891, -1548, NULL);
 	if (App->player->position.x > 930 && offsetheli < 390)
 	{
 		offsetheli += 2;
-		App->render->Blit(helicoming, 871 + offsetheli, -1470, &rect);
-
+		App->render->Blit(defaultspritesheet, 871 + offsetheli, -1470, &rect);
 	}
 	
 	App->render->Blit(bgTexture2, 0, -1548, NULL);
 	App->render->Blit(bgTexture3, 2048, -1548 - 2020 + 238, NULL);
+
+
 	currentAnimation->Update();
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -120,6 +120,7 @@ bool SceneLevel1::CleanUp()
 	App->enemies->Disable();
 	App->UI->Disable();
 	App->collisions->Disable();
+	App->particles->Disable();
 
 	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)
 

@@ -27,6 +27,7 @@ const Collider* Enemy::GetCollider() const
 void Enemy::Update()
 {
 	grenadeImmunity++;
+	flameImmunity++;
 
 	if (currentAnim != nullptr)
 		currentAnim->Update();
@@ -147,6 +148,12 @@ void Enemy::OnCollision(Collider* collider)
 {
 	if (collider->type == Collider::Type::PLAYER_SHOT)
 		hp--;
+	if (collider->type == Collider::Type::FLAME && flameImmunity > 7) 
+	{
+		hp -= 2;
+		flameImmunity = 0;
+	}
+	
 
 	if (collider->type == Collider::Type::GRENADE && grenadeImmunity > 120) 
 	{
@@ -157,7 +164,7 @@ void Enemy::OnCollision(Collider* collider)
 
 	if (hp <= 0) 
 	{
-		if (collider->type == Collider::Type::GRENADE)
+		if (collider->type == Collider::Type::GRENADE || collider->type == Collider::Type::FLAME)
 			isOnFire = true;
 
 		App->audio->PlayFx(destroyedFx);
@@ -169,7 +176,6 @@ void Enemy::OnCollision(Collider* collider)
 
 void Enemy::SetToDelete()
 {
-	App->player->score += 500;
 	pendingToDelete = true;
 	if (collider != nullptr)
 		collider->pendingToDelete = true;

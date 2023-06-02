@@ -277,7 +277,7 @@ public:
 	int cartridge = 6; 
 	int grenadeCounter = 15;
 	bool invincible = false;
-	int weapon = 2;
+	int weapon = 1;
 	int bullets = 0;
 
 	int hp  = 120;

@@ -438,10 +438,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	Win.PushBack({ 1574, 311, 40, 56 });
 	Win.PushBack({ 1294, 367, 40, 56 });
 	Win.PushBack({ 1334, 367, 40, 56 });
+	Win.PushBack({ 1375, 367, 40, 56 });
+	Win.PushBack({ 1416, 367, 40, 56 });
 	Win.PushBack({ 1494, 367, 40, 56 });
-	Win.PushBack({ 1534, 367, 40, 56 });
-	Win.PushBack({ 1574, 367, 40, 56 });
-	Win.PushBack({ 1614, 367, 40, 56 });
 	Win.loop = false;
 	Win.speed = 0.1f;
 
@@ -624,18 +623,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER //MISSILE LAUNCHER 
 
-	missileLauncher.PushBack({ 6, 1694, 52, 55 });
-	missileLauncher.PushBack({ 59, 1694, 52, 55 });
 
-	missileLauncherBrokenBody.PushBack({ 6, 1750, 52, 55 });
-	missileLauncherBrokenTop.PushBack({ 67, 1750, 44, 50 });
-
-	missileLauncherDownLeft.PushBack({ 6, 1806, 44, 51 });
-	missileLauncherDownRight.PushBack({ 6, 1806, 44, 51 }, true);
-	missileLauncherLeft.PushBack({ 51, 1750, 44, 51 });
-	missileLauncherRight.PushBack({ 51, 1750, 44, 51 }, true);
-	missileLauncherTopLeft.PushBack({ 96, 1750, 44, 51 });
-	missileLauncherTopRight.PushBack({ 96, 1750, 44, 51 }, true);
 
 	//STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES 
 
@@ -750,7 +738,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.25.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
 	currentAnimation = &idleAnimUp;
 	legAnimation = &upAnimLeg;
 	isDead = false;
@@ -1122,42 +1110,42 @@ void ModulePlayer::ShootingUpdate()
 				switch (bulletDir)
 				{
 				case LEFT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x, position.y + 12, -5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x, position.y + 12, -5, 0, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case RIGHT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y + 12, 5, 0, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y - 12, 5, 0, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWN:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 9, position.y + 26, 0, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 9, position.y + 26, 0, 5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UP:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 17, position.y, 0, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 17, position.y, 0, -5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNLEFT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 18, -5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 18, -5, 5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNRIGHT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y + 18, 5, 5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y + 18, 5, 5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UPLEFT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 1, -5, -5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UPRIGHT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y, 5, -5, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y, 5, -5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
@@ -1386,7 +1374,7 @@ void ModulePlayer::AnimationLegTorsoUpdate()
 void ModulePlayer::DodgeUpdate() 
 {
 	GamePad& pad = App->input->pads[0];
-	if ((App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN || pad.a == true) && dodgeCoolDown > 30 && isHurt == false)
+	if ((App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN || pad.a == true) && dodgeCoolDown > 30 && isHurt == false && isThrowing == false)
 	{
 		dodgeCoolDown = 0;
 		isDodging = true;
@@ -1570,7 +1558,7 @@ void ModulePlayer::LoseWinLogicUpdate()
 void ModulePlayer::GrenadeUpdate() 
 {
 	GamePad& pad = App->input->pads[0];
-	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true) {
+	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true && isDodging == false) {
 		isThrowing = true;
 	}
 	if (isThrowing == true && grenadeCoolDown > 40 && isDodging == false && grenadeCounter > 0)
@@ -1938,14 +1926,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 
-	if (c1->type == Collider::Type::ENEMY && c2->type == Collider::Type::PLAYER_SHOT)
+	if (c1->type == Collider::Type::PLAYER && (c2->type == Collider::Type::ENEMY_SHOT || c2->type == Collider::Type::MISSILE) && godMode == false && invincible == false)
 	{
-		score += 23;
-	}
-
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::ENEMY_SHOT && godMode == false && invincible == false)
-	{
-		hp -= 24;
+		hp -= 22;
 		isHurt = true;
 		invincible = true;
 		hurtDuration = 0;

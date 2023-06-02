@@ -88,10 +88,14 @@ void Enemy_Tank::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
-		currentAnim = &enemydeath1;
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (deleting == true) 
+	{
+		deathTimer++;
+	}
+
+	if (deathTimer > 60)
 	{
 		pendingToDelete = true;
 	}
@@ -110,9 +114,14 @@ void Enemy_Tank::Update()
 		shootCooldown = 0;
 	}
 
+	if (deleting == false) 
+	{
+		offsettexture1x = 0;
+		offsettexture1y = 0;
+	}
 
-	offsettexture1x = 0;
-	offsettexture1y = 0;
+	
+	
 	if (deleting == false)
 		switch (GetTargetDir(dx, dy))
 		{
@@ -157,6 +166,15 @@ void Enemy_Tank::Update()
 			offsettexture1y = -9;
 			break;
 		}
+
+	if (deleting == true)
+	{
+		offsettexture1y -= 3;
+		deathTimer++;
+	}
+
+	if (deathTimer >= 60)
+		pendingToDelete = true;
 
 	collider->SetPos(position.x, position.y);
 	
