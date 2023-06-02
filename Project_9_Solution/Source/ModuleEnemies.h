@@ -23,6 +23,8 @@ enum class Enemy_Type
 	DOOR,
 	MISSILELAUNCHER,
 	ITEMPICKUP,
+	CAMILLER,
+	STRUCTURES,
 };
 
 struct EnemySpawnpoint

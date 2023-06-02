@@ -48,13 +48,11 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 70, 0, 0);
+	App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 100, -50, 1);
 
-	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 250, 150);
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, 150);
 
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 140, -200);
 
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, - 150);
 
 
 	App->player->Enable();
@@ -93,7 +91,6 @@ Update_Status SceneLevel1::PostUpdate()
 	{
 		App->enemies->AddEnemy(Enemy_Type::HELICOPTER, 988, -1649);
 		helispawn = true;
-
 	}
 	
 	App->render->Blit(bgTexture, 0, -1820, NULL);

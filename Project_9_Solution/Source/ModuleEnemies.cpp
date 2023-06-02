@@ -23,6 +23,8 @@
 #include "Enemy_Door.h"
 #include "Enemy_Tanquecoche.h"
 #include "Enemy_Itempickup.h"
+#include "Enemy_Camillers.h"
+#include "Enemy_Structures.h"
 
 #define SPAWN_MARGIN 50
 
@@ -217,6 +219,12 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::ITEMPICKUP:
 					enemies[i] = new Enemy_Itempickup(info.x, info.y);
+					break;
+				case Enemy_Type::CAMILLER:
+					enemies[i] = new Enemy_Camillers(info.x, info.y);
+					break;
+				case Enemy_Type::STRUCTURES:
+					enemies[i] = new Enemy_Structures(info.x, info.y);
 					break;
 
 			}

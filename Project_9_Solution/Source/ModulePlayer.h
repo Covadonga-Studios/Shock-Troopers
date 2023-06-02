@@ -222,10 +222,7 @@ public:
 	Animation missileLauncherDownLeft;
 	Animation missileLauncherDownRight;
 
-	Animation medicTent;
-	Animation medicTentBroken;
-	Animation towerBreaking;
-	Animation tower2Breaking;
+
 
 	Animation medicsWalking;
 	Animation medicsHurt;
@@ -279,7 +276,7 @@ public:
 	int cartridge = 6; 
 	int grenadeCounter = 15;
 	bool invincible = false;
-	int weapon = 1;
+	int weapon = 0;
 	int bullets = 0;
 
 	int hp  = 120;

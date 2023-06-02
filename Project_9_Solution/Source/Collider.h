@@ -24,6 +24,7 @@ struct Collider
 		MISSILE,
 		GRENADE,
 		FLAME,
+		ITEM,
 
 		MAX
 	};

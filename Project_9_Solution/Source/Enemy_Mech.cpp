@@ -28,7 +28,6 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 void Enemy_Mech::Update()
 {
 	
-
 	if (pendingToDelete == true && deleting == false)
 	{
 		pendingToDelete = false;

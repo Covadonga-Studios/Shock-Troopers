@@ -278,8 +278,8 @@ void Enemy_BrownShip::Update()
 {
 	shootCooldown++;
 
-	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
-	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
+	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
+	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);
 
 	if (pendingToDelete == true && deleting == false) 
 	{
@@ -293,7 +293,7 @@ void Enemy_BrownShip::Update()
 			currentAnim = &enemyBurning;
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (currentAnim->HasFinished() == true && deleting == true)
 	{
 		pendingToDelete = true;
 	}
@@ -308,7 +308,7 @@ void Enemy_BrownShip::Update()
 		float diry = (dy * 1.5f / dir);
 		
 		
-		App->particles->AddParticle(App->particles->laser, position.x, position.y,dirx, diry, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsetshootx, position.y + offsetshooty ,dirx, diry, false, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 
@@ -318,6 +318,8 @@ void Enemy_BrownShip::Update()
 	{
 	case LEFT:
 		currentAnim = &enemyshot1left;
+		offsetshootx = 2;
+		offsetshooty = 10;
 		break;
 	case RIGHT:
 		currentAnim = &enemyshot1right;

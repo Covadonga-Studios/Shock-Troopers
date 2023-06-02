@@ -90,7 +90,7 @@ Enemy_Itempickup::Enemy_Itempickup(int x, int y) : Enemy(x, y)
 
 	currentAnim = &life;
 
-	collider = App->collisions->AddCollider({ 20, 20, 30, 15}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 20, 20, 30, 15}, Collider::Type::ITEM, (Module*)App->enemies);
 	hp = 1;
 
 }

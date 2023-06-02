@@ -148,9 +148,13 @@ void Enemy::OnCollision(Collider* collider)
 {
 	if (collider->type == Collider::Type::PLAYER_SHOT)
 		hp--;
+
+	if (this->collider->type == Collider::Type::ITEM && collider->type == Collider::Type::PLAYER)
+		hp--;
+
 	if (collider->type == Collider::Type::FLAME && flameImmunity > 7) 
 	{
-		hp -= 2;
+		hp -= 3;
 		flameImmunity = 0;
 	}
 	

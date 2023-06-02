@@ -61,6 +61,9 @@ private:
 	Animation greenDeathRight;
 	Animation greenDeathLeft;
 
+	int offsetshootx;
+	int offsetshooty;
+
 	float dx;
 	float dy;
 };

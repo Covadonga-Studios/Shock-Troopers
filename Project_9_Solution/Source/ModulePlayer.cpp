@@ -5,6 +5,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
+#include "ModuleEnemies.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
@@ -627,47 +628,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES //STRUCTURES 
 
-	medicTent.PushBack({ 1160, 1601, 76, 190 });
-	medicTent.PushBack({ 1237, 1601, 76, 190 });
-	medicTent.PushBack({ 1314, 1601, 76, 190 });
-	medicTent.PushBack({ 1391, 1601, 76, 190 });
-
-	medicTentBroken.PushBack({ 1314, 1410, 76, 190 });
-	medicTentBroken.PushBack({ 1391, 1410, 76, 190 });
-
-	towerBreaking.PushBack({ 1468, 1302, 86, 195 });
-	towerBreaking.PushBack({ 1555, 1302, 86, 195 });
-	towerBreaking.PushBack({ 1642, 1302, 86, 195 });
-	towerBreaking.PushBack({ 1729, 1302, 86, 195 });
-	towerBreaking.PushBack({ 1816, 1302, 86, 195 });
-	towerBreaking.PushBack({ 1468, 1498, 86, 195 });
-	towerBreaking.PushBack({ 1555, 1498, 86, 195 });
-	towerBreaking.PushBack({ 1642, 1498, 86, 195 });
-	towerBreaking.PushBack({ 1729, 1498, 86, 195 });
-	towerBreaking.PushBack({ 1816, 1498, 86, 195 });
-
-	tower2Breaking.PushBack({ 1853, 1125, 64, 125 });
-	tower2Breaking.PushBack({ 1918, 1125, 64, 125 });
-	tower2Breaking.PushBack({ 1983, 1125, 64, 125 });
+	
 
 	//MEDICS //MEDICS //MEDICS //MEDICS //MEDICS //MEDICS //MEDICS //MEDICS 
 
-	medicsWalking.PushBack({ 1795, 1, 126, 48 });
-	medicsWalking.PushBack({ 1795, 50, 126, 48 });
-	medicsWalking.PushBack({ 1795, 99, 126, 48 });
-	medicsWalking.PushBack({ 1795, 148, 126, 48 });
-	medicsWalking.PushBack({ 1795, 197, 126, 48 });
-	medicsWalking.PushBack({ 1795, 246, 126, 48 });
-	medicsWalking.PushBack({ 1795, 295, 126, 48 });
-	medicsWalking.PushBack({ 1795, 344, 126, 48 });
-
-	medicsHurt.PushBack({ 1919, 1251, 137, 77 });
-	medicsHurt.PushBack({ 1919, 1329, 137, 77 });
-	medicsHurt.PushBack({ 1919, 1407, 137, 77 });
-	medicsHurt.PushBack({ 1919, 1485, 137, 77 });
-	medicsHurt.PushBack({ 1919, 1563, 137, 77 });
-	medicsHurt.PushBack({ 1919, 1641, 137, 77 });
-	medicsHurt.PushBack({ 1919, 1719, 137, 77 });
 
 	//GRENADE //GRENADE //GRENADE //GRENADE //GRENADE //GRENADE //GRENADE //GRENADE 
 	grenadeThrowRight.PushBack({ 230, 11, 36, 34 });
@@ -750,6 +714,7 @@ bool ModulePlayer::Start()
 	hp = 120;
 	score = 000;
 	timer = 99;
+	weapon = 0;
 
 	position.x = 150;
 	position.y = 120;
@@ -1639,8 +1604,8 @@ void ModulePlayer::GrenadeUpdate()
 		switch (bulletDir)
 		{
 		case LEFT:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, 1, true, Collider::Type::NONE);
-
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, 1, true, Collider::Type::NONE,0);
+			
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 50, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y - 80, 0, 0, true, Collider::Type::GRENADE, 30);
 			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y - 30, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1697,11 +1662,11 @@ void ModulePlayer::GrenadeUpdate()
 		case UPLEFT:
 			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -1, -2, true, Collider::Type::NONE);
 
-			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y - 109, 0, 0, true, Collider::Type::PLAYER_SHOT, 20);
-			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 20, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
-			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 109 + 30, 0, 0, true, Collider::Type::PLAYER_SHOT, 30);
-			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 40);
-			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 109 + 40, 0, 0, true, Collider::Type::PLAYER_SHOT, 40);
+			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y - 109, 0, 0, true, Collider::Type::GRENADE, 20);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 20, 0, 0, true, Collider::Type::GRENADE, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 109 + 30, 0, 0, true, Collider::Type::GRENADE, 30);
+			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 40, 0, 0, true, Collider::Type::GRENADE, 40);
+			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 109 + 40, 0, 0, true, Collider::Type::GRENADE, 40);
 			break;
 		case UPRIGHT:
 			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 2, -2, true, Collider::Type::NONE);
@@ -1786,6 +1751,12 @@ void ModulePlayer::DebugLogicUpdate()
 	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
 	{
 		App->render->cameraMode++;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F7] == Key_State::KEY_DOWN)
+	{
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, position.x, position.y- 40);
+
 	}
 }
 
