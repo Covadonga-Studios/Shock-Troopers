@@ -37,4 +37,4 @@ N - dodge
 
 ## *Welcome to our webpage!*
 
-You can consult now our [GitHub Page]([url](https://github.com/Covadonga-Studios/Shock-Troopers))
+You can consult now our [GitHub Page](https://github.com/Covadonga-Studios/Shock-Troopers)
