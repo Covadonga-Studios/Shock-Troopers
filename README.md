@@ -33,3 +33,8 @@ S - move downwards
 D - move to the right
 SPACE - shooting/stabing
 N - dodge
+
+
+## *Welcome to our webpage!*
+
+You can consult now our [GitHub Page]([url](https://github.com/Covadonga-Studios/Shock-Troopers))
