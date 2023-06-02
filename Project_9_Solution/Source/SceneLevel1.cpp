@@ -48,7 +48,7 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	App->enemies->AddEnemy(Enemy_Type::BARREL, 70, 0);
+	App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 70, 0, 0);
 
 	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 250, 150);
 

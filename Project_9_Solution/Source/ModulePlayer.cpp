@@ -1172,6 +1172,11 @@ void ModulePlayer::ShootingUpdate()
 			}
 			break;
 		case 1:
+			if (bullets <= 0)
+			{
+				weapon = 0;
+			}
+
 			if (App->player->shootCoolDown > 5 && isDodging == false) {
 				switch (bulletDir)
 				{
@@ -1216,9 +1221,14 @@ void ModulePlayer::ShootingUpdate()
 					shootCoolDown = 0;
 					break;
 				}
+				bullets--;
 			}
 			break;
 		case 2:
+			if (bullets <= 0)
+			{
+				weapon = 0;
+			}
 			if (App->player->shootCoolDown > 7 && isDodging == false) {
 				switch (bulletDir)
 				{
@@ -1283,8 +1293,6 @@ void ModulePlayer::ShootingUpdate()
 			}
 			break;
 		}
-
-	
 	}
 
 	if (isHurt == true || isDodging == true)

@@ -87,6 +87,7 @@
     <ClInclude Include="Enemy_Door.h" />
     <ClInclude Include="Enemy_FinalBoss.h" />
     <ClInclude Include="Enemy_Helicopter.h" />
+    <ClInclude Include="Enemy_Itempickup.h" />
     <ClInclude Include="Enemy_Mech.h" />
     <ClInclude Include="Enemy_RedBird.h" />
     <ClInclude Include="Enemy_Tank.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="Enemy_Door.cpp" />
     <ClCompile Include="Enemy_FinalBoss.cpp" />
     <ClCompile Include="Enemy_Helicopter.cpp" />
+    <ClCompile Include="Enemy_Itempickup.cpp" />
     <ClCompile Include="Enemy_Mech.cpp" />
     <ClCompile Include="Enemy_RedBird.cpp" />
     <ClCompile Include="Enemy_Tank.cpp" />

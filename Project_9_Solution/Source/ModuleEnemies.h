@@ -22,6 +22,7 @@ enum class Enemy_Type
 	BARRICADE,
 	DOOR,
 	MISSILELAUNCHER,
+	ITEMPICKUP,
 };
 
 struct EnemySpawnpoint
