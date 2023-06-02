@@ -43,9 +43,19 @@ For the duration of this semester, as Covadonga Studios, a group of first years 
 
 Shock Troopers is an eight way shooter "run and gun" that offers a lot of gameplay options considering the year it was released on. The original game had a bunch of characters and two gamemodes with 3 paths. We are foccusing on Milky, going through the first level of the jungle route in "Lonely Wolf". The gameplay itself is pretty intuitive, containing eight way movement and shooting and our main goal being killing enemies and going forward to the end of the level while dodging bullets and putting our abilities, like rolls or grenades, to the best use possible.
 
-[Covadonga Studios' Logo](https://github.com/Covadonga-Studios/Shock-Troopers/wiki#covadonga-studios-logo)
+## **Covadonga Studios' Logo**
 
-[Group Photo](https://github.com/Covadonga-Studios/Shock-Troopers/wiki#group-photo)
 
-[Our Motto](https://github.com/Covadonga-Studios/Shock-Troopers/wiki#our-motto)
+![CovadongaStudios](https://user-images.githubusercontent.com/74564975/221546262-7b4d5f70-5780-485d-8219-bff083237abb.jpg)
+
+
+## **Group Photo**
+(**Us in Covadonga with our friend Pelayo**)
+
+![WhatsApp Image 2023-03-13 at 14 23 51 (1)](https://user-images.githubusercontent.com/74564975/225070785-13975fb8-8abc-413f-9ef4-0bc4a004e02f.jpeg)
+
+## **Our Motto**
+"Vamos a Covadonga?" 
+-We think it defines our optimistic and future-focused mentality in the work field-
+
 
