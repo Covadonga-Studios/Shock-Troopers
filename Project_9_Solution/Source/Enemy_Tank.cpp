@@ -81,8 +81,10 @@ void Enemy_Tank::Update()
 {
 	shootCooldown++;
 
-	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
-	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
+	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
+	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);
+	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
+	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
 	if (pendingToDelete == true && deleting == false)
 	{
@@ -110,7 +112,7 @@ void Enemy_Tank::Update()
 		float diry = (dy * 1.5f / dir);
 
 
-		App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
 		shootCooldown = 0;
 	}
 
@@ -123,49 +125,66 @@ void Enemy_Tank::Update()
 	
 	
 	if (deleting == false)
-		switch (GetTargetDir(dx, dy))
+		switch (GetTargetDir(dx2, dy2))
 		{
 		case LEFT:
 			currentAnim = &enemyshot1left;
 			offsettexture1x = -10;
 			offsettexture1y = -11;
+			offsetshootx = -12;
+			offsetshooty = 11;
 			break;
 		case RIGHT:
 			currentAnim = &enemyshot1right;
 			offsettexture1x = 15;
 			offsettexture1y = -11;
+			offsetshootx = 78;
+			offsetshooty = 12;
 			break;
 		case DOWN:
 			currentAnim = &enemyshot1down;
 			offsettexture1x = 3;
 			offsettexture1y = 3;
+			offsetshootx = 33;
+			offsetshooty = 38;
 			break;
 		case UP:
 			currentAnim = &enemyshot1up;
 			offsettexture1x = 3;
 			offsettexture1y = -12;
+			offsetshootx = 32;
+			offsetshooty = -19;
 			break;
 		case DOWNLEFT:
 			currentAnim = &enemyshot1downleft;
 			offsettexture1x = -5;
 			offsettexture1y = -1;
+			offsetshootx = -3;
+			offsetshooty = 31;
 			break;
 		case DOWNRIGHT:
 			currentAnim = &enemyshot1rightdown;
 			offsettexture1x = 10;
 			offsettexture1y = -3;
+			offsetshootx = 70;
+			offsetshooty = 37;
 			break;
 		case UPLEFT:
 			currentAnim = &enemyshot1upleft;
 			offsettexture1x = 2;
 			offsettexture1y = -9;
+			offsetshootx = 7;
+			offsetshooty = -10;
 			break;
 		case UPRIGHT:
 			currentAnim = &enemyshot1rightup;
 			offsettexture1x = 4;
 			offsettexture1y = -9;
+			offsetshootx = 59;
+			offsetshooty = -14;
 			break;
 		}
+		
 
 	if (deleting == true)
 	{

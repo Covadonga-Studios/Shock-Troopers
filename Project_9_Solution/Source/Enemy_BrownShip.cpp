@@ -281,6 +281,9 @@ void Enemy_BrownShip::Update()
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);
 
+	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
+	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
+
 	if (pendingToDelete == true && deleting == false) 
 	{
 		pendingToDelete = false;
@@ -314,33 +317,47 @@ void Enemy_BrownShip::Update()
 
 
 	if (deleting == false)
-	switch (GetTargetDir(dx,dy))
+	switch (GetTargetDir(dx2,dy2))
 	{
 	case LEFT:
 		currentAnim = &enemyshot1left;
-		offsetshootx = 2;
-		offsetshooty = 10;
+		offsetshootx = -2;
+		offsetshooty = 15;
 		break;
 	case RIGHT:
 		currentAnim = &enemyshot1right;
+		offsetshootx = 40;
+		offsetshooty = 15;
 		break;
 	case DOWN:
 		currentAnim = &enemyshot1down;
+		offsetshootx = 25;
+		offsetshooty = 35;
 		break;
 	case UP:
 		currentAnim = &enemyshot1up;
+		offsetshootx = 20;
+		offsetshooty = -5;
 		break;
 	case DOWNLEFT:
 		currentAnim = &enemyshot1downleft;
+		offsetshootx = 5;
+		offsetshooty = 27;
 		break;
 	case DOWNRIGHT:
 		currentAnim = &enemyshot1rightdown;
+		offsetshootx = 35;
+		offsetshooty = 28;
 		break;
 	case UPLEFT:
 		currentAnim = &enemyshot1upleft;
+		offsetshootx = 5;
+		offsetshooty = 1;
 		break;
 	case UPRIGHT:
 		currentAnim = &enemyshot1rightup;
+		offsetshootx = 30;
+		offsetshooty = 2;
 		break;
 	}
 

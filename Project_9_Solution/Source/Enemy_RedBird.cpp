@@ -175,8 +175,11 @@ void Enemy_RedBird::Update()
 
 	shootCooldown++;
 
-	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
-	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
+	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
+	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);
+
+	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
+	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
 	if (pendingToDelete == true && deleting == false)
 	{
@@ -204,38 +207,53 @@ void Enemy_RedBird::Update()
 		float diry = (dy * 1.5f / dir);
 
 
-		App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
 
-		App->particles->AddParticle(App->particles->laser, position.x , position.y, dirx, diry, false, Collider::Type::ENEMY_SHOT, 20);
+		App->particles->AddParticle(App->particles->laser, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT, 20);
 		shootCooldown = 0;
 	}
 
 	if (deleting == false)
-	switch (GetTargetDir(dx, dy))
+	switch (GetTargetDir(dx2, dy2))
 	{
 	case LEFT:
 		currentAnim = &enemyshot2left;
+		offsetshootx = -2;
+		offsetshooty = 15;
 		break;
 	case RIGHT:
 		currentAnim = &enemyshot2right;
+		offsetshootx = 40;
+		offsetshooty = 15;
 		break;
 	case DOWN:
 		currentAnim = &enemyshot2down;
+		offsetshootx = 25;
+		offsetshooty = 35;
 		break;
 	case UP:
 		currentAnim = &enemyshot2up;
+		offsetshootx = 20;
 		break;
 	case DOWNLEFT:
 		currentAnim = &enemyshot2downleft;
+		offsetshootx = 5;
+		offsetshooty = 22;
 		break;
 	case DOWNRIGHT:
 		currentAnim = &enemyshot2rightdown;
+		offsetshootx = 30;
+		offsetshooty = 30;
 		break;
 	case UPLEFT:
 		currentAnim = &enemyshot2upleft;
+		offsetshootx = 5;
+		offsetshooty = -1;
 		break;
 	case UPRIGHT:
 		currentAnim = &enemyshot2rightup;
+		offsetshootx = 35;
+		offsetshooty = 10;
 		break;
 	}
 

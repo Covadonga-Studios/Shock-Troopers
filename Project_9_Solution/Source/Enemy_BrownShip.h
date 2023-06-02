@@ -67,6 +67,9 @@ private:
 
 	float dx;
 	float dy;
+
+	float dx2;
+	float dy2;
 };
 
 #endif // __ENEMY_BROWNSHIP_H__

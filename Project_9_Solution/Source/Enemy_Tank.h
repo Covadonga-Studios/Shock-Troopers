@@ -47,9 +47,13 @@ private:
 	
 
 
-
+	int offsetshootx;
+	int offsetshooty;
 	float dx;
 	float dy;
+
+	float dx2;
+	float dy2;
 };
 
 #endif // __ENEMY_TANK_H__

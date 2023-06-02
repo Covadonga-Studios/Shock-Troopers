@@ -57,10 +57,14 @@ private:
 	Animation enemyRollUpPointingRight;
 
 	Animation enemyBurning;
-
+	int offsetshootx;
+	int offsetshooty;
 
 	float dx;
-		float dy;
+	float dy;
+
+	float dx2;
+	float dy2;
 };
 
 #endif // __ENEMY_REDBIRD_H__
