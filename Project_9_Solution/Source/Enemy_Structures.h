@@ -22,7 +22,11 @@ private:
 	bool start;
 	float dx;
 	float dy;
+	int shootCooldown;
+	int dissapearCooldown;
+
 	// Enemy animations
+	Animation dissapear;
 	Animation medicTent;
 	Animation medicTentBroken;
 	Animation towerBreaking;

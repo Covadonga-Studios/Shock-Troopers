@@ -63,6 +63,7 @@ private:
 
 	int offsetshootx;
 	int offsetshooty;
+	
 
 	float dx;
 	float dy;

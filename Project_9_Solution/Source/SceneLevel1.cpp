@@ -48,7 +48,7 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 100, -50, 1);
+	App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 100, -50, 2);
 
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, 150);
 

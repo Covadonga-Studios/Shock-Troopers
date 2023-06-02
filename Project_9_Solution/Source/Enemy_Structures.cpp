@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 
 Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 {
@@ -17,7 +18,7 @@ Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 	medicTentBroken.PushBack({ 1314, 1410, 76, 190 });
 	medicTentBroken.PushBack({ 1391, 1410, 76, 190 });
 	medicTentBroken.loop = false;
-	medicTentBroken.speed = 0.07f;
+	medicTentBroken.speed = 0.1f;
 
 	tower.PushBack({ 1468, 1302, 86, 195 });
 
@@ -49,8 +50,10 @@ Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 	tower2Breaking.loop = false;
 	tower2Breaking.speed = 0.1f;
 
+	dissapear.PushBack({ 0,0,0,0 });
 
-	currentAnim = &medicTent;
+
+	
 
 	hp = 1;
 
@@ -58,6 +61,12 @@ Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 
 void Enemy_Structures::Update()
 {
+	shootCooldown++;
+
+	if (deleting == true) 
+	{
+		dissapearCooldown++;
+	}
 
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
@@ -67,7 +76,7 @@ void Enemy_Structures::Update()
 		switch (enemyMode)
 		{
 		case 0:
-			currentAnim2 = &medicTent;
+			currentAnim = &medicTent;
 			collider = App->collisions->AddCollider({ 20, 20, 76, 190 }, Collider::Type::ENEMY, (Module*)App->enemies);
 			break;
 		case 1:
@@ -87,19 +96,25 @@ void Enemy_Structures::Update()
 	switch (enemyMode)
 	{
 	case 0:
+
+		collider->SetPos(position.x, position.y);
 		if (pendingToDelete == true && deleting == false)
 		{
 			pendingToDelete = false;
 			deleting = true;
-			currentAnim2 = &medicTentBroken;
+			currentAnim = &medicTentBroken;
 		}
 
-		if (currentAnim2->HasFinished() == true)
+		if (dissapearCooldown > 40)
 		{
 			pendingToDelete = true;
 		}
 		break;
 	case 1:
+		offsettexture1x = 15;
+		offsettexture1y = 5;
+
+		collider->SetPos(position.x, position.y);
 		if (deleting == false)
 		{
 			switch (GetTargetDir(dx, dy))
@@ -129,38 +144,100 @@ void Enemy_Structures::Update()
 				currentAnim = &enemyshot1rightup;
 				break;
 			}
+		}
+			if (shootCooldown > 150 && deleting == false)
+			{
+				float dir = Dircalculation(dx, dy);
+
+				float dirx = (dx * 1.5f / dir);
+				float diry = (dy * 1.5f / dir);
+
+				App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+				shootCooldown = 0;
+			}
 
 			if (pendingToDelete == true && deleting == false)
 			{
 				pendingToDelete = false;
 				deleting = true;
 				currentAnim2 = &towerBreaking;
+				currentAnim = &dissapear;
 			}
 
-			if (currentAnim2->HasFinished() == true)
+			if (dissapearCooldown > 80)
 			{
 				pendingToDelete = true;
 			}
 			break;
 	case 2:
-		if (pendingToDelete == true && deleting == false)
-		{
-			pendingToDelete = false;
-			deleting = true;
-			currentAnim2 = &tower2Breaking;
-		}
+		offsettexture1x = 15;
+		offsettexture1y = -5;
 
-		if (currentAnim2->HasFinished() == true)
+		collider->SetPos(position.x, position.y);
+		if (deleting == false)
 		{
-			pendingToDelete = true;
+			switch (GetTargetDir(dx, dy))
+			{
+			case LEFT:
+				currentAnim = &enemyshot1left;
+				break;
+			case RIGHT:
+				currentAnim = &enemyshot1right;
+				break;
+			case DOWN:
+				currentAnim = &enemyshot1down;
+				break;
+			case UP:
+				currentAnim = &enemyshot1up;
+				break;
+			case DOWNLEFT:
+				currentAnim = &enemyshot1downleft;
+				break;
+			case DOWNRIGHT:
+				currentAnim = &enemyshot1rightdown;
+				break;
+			case UPLEFT:
+				currentAnim = &enemyshot1upleft;
+				break;
+			case UPRIGHT:
+				currentAnim = &enemyshot1rightup;
+				break;
+			}
 		}
-		break;
-		}
+			if (shootCooldown > 150 && deleting == false)
+			{
 
+
+				float dir = Dircalculation(dx, dy);
+
+				float dirx = (dx * 1.5f / dir);
+				float diry = (dy * 1.5f / dir);
+
+
+				App->particles->AddParticle(App->particles->laser, position.x , position.y , dirx, diry, false, Collider::Type::ENEMY_SHOT);
+				shootCooldown = 0;
+			}
+
+			if (pendingToDelete == true && deleting == false)
+			{
+				pendingToDelete = false;
+				deleting = true;
+				currentAnim2 = &tower2Breaking;
+				currentAnim = &dissapear;
+			}
+
+			if (dissapearCooldown > 80)
+			{
+				pendingToDelete = true;
+			}
+			break;
 	}
+
+		
 		collider->SetPos(position.x, position.y);
 		// Call to the base class. It must be called at the end
 		// It will update the collider depending on the position
 		Enemy::Update();
+
 	
 }
