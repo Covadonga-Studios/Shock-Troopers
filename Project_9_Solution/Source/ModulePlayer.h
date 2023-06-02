@@ -274,6 +274,8 @@ public:
 	int hurtDuration = 0;
 	int offsetx;
 	int offsety;
+	int offsetx2;
+	int offsety2;
 	int cartridge = 6; 
 	int grenadeCounter = 15;
 	bool invincible = false;

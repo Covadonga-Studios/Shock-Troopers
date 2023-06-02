@@ -743,6 +743,7 @@ bool ModulePlayer::Start()
 	legAnimation = &upAnimLeg;
 	isDead = false;
 	winCon = false;
+	isHurt = false;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -761,6 +762,18 @@ bool ModulePlayer::Start()
 	colliderRight = App->collisions->AddCollider({ position.x + 6, position.y, 3, 4 }, Collider::Type::RIGHT_PLAYER, this);
 	colliderLeft = App->collisions->AddCollider({ position.x , position.y, 3, 4 }, Collider::Type::LEFT_PLAYER, this);
 
+	deathfront.Reset();
+	deathback.Reset();
+	deathright.Reset();
+	deathleft.Reset();
+	deathfrontright.Reset();
+	deathfrontleft.Reset();
+	deathbackright.Reset();
+	deathbackleft.Reset();
+
+	Win.Reset();
+
+	
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
@@ -796,16 +809,27 @@ void ModulePlayer::GamepadUpdate()
 
 void ModulePlayer::MoveUpdate()
 {
-	if (isHurt == false)
+	if (isHurt == false && isDead == false && winCon == false)
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
 			App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-			leftLock == false &&
-			upLock == false &&
 			isDodging == false)
 		{
 			moveDir = UPLEFT;
-			position.x -= speed;
-			position.y -= speed;
+			if (leftLock == false &&
+				upLock == false) {
+				position.x -= speed;
+				position.y -= speed;
+			}
+			else if (leftLock == false) 
+			{
+				position.x -= speed;
+			}
+			else if (upLock == false) 
+			{
+				position.y -= speed;
+			}
+
+		;
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 				bulletDir = UPLEFT;
@@ -827,13 +851,25 @@ void ModulePlayer::MoveUpdate()
 		}
 		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
 			App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-			leftLock == false &&
-			downLock == false &&
+			
 			isDodging == false)
 		{
 			moveDir = DOWNLEFT;
-			position.x -= speed;
-			position.y += speed;
+			if (leftLock == false &&
+				downLock == false) 
+			{
+				position.x -= speed;
+				position.y += speed;
+			}
+			else if (leftLock == false)
+			{
+				position.x -= speed;
+			}
+			else if (downLock == false)
+			{
+				position.y += speed;
+			}
+	
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 				bulletDir = DOWNLEFT;
@@ -860,13 +896,24 @@ void ModulePlayer::MoveUpdate()
 
 		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
 			App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
-			rightLock == false &&
-			downLock == false &&
 			isDodging == false)
 		{
 			moveDir = DOWNRIGHT;
-			position.x += speed;
-			position.y += speed;
+			if (rightLock == false &&
+				downLock == false)
+			{
+				position.x += speed;
+				position.y += speed;
+			}
+			else if (rightLock == false)
+			{
+				position.x += speed;
+			}
+			else if (downLock == false)
+			{
+				position.y += speed;
+			}
+
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 				bulletDir = DOWNRIGHT;
@@ -892,13 +939,24 @@ void ModulePlayer::MoveUpdate()
 		}
 		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
 			App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
-			rightLock == false &&
-			upLock == false &&
 			isDodging == false)
 		{
 			moveDir = UPRIGHT;
-			position.x += speed;
-			position.y -= speed;
+			if (rightLock == false &&
+				upLock == false)
+			{
+				position.x += speed;
+				position.y -= speed;
+			}
+			else if (rightLock == false)
+			{
+				position.x += speed;
+			}
+			else if (upLock == false)
+			{
+				position.y -= speed;
+			}
+
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
 				bulletDir = UPRIGHT;
@@ -919,10 +977,12 @@ void ModulePlayer::MoveUpdate()
 			}
 		}
 		else if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
-			leftLock == false &&
+			
 			isDodging == false)
 		{
 			moveDir = LEFT;
+
+			if (leftLock == false)
 			position.x -= speed;
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
@@ -944,11 +1004,14 @@ void ModulePlayer::MoveUpdate()
 			}
 		}
 		else if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT &&
-			rightLock == false &&
+		
 			isDodging == false)
 		{
 			moveDir = RIGHT;
-			position.x += speed;
+			if (rightLock == false) {
+				position.x += speed;
+			}
+		
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && (bulletDir == LEFT || bulletDir == UPLEFT || bulletDir == DOWNLEFT))
 			{
 				if (legAnimation != &leftAnimLegReverse)
@@ -970,10 +1033,12 @@ void ModulePlayer::MoveUpdate()
 
 		}
 		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT &&
-			downLock == false &&
+		
 			isDodging == false)
 		{
 			moveDir = DOWN;
+
+			if (downLock == false)
 			position.y += speed;
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
@@ -995,10 +1060,11 @@ void ModulePlayer::MoveUpdate()
 			}
 		}
 		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
-			upLock == false &&
 			isDodging == false)
 		{
 			moveDir = UP;
+
+			if (upLock == false)
 			position.y -= speed;
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && isShooting == false)
@@ -1110,47 +1176,46 @@ void ModulePlayer::ShootingUpdate()
 				switch (bulletDir)
 				{
 				case LEFT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x, position.y + 12, -5, 0, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x - 11, position.y - 3, -5, 0, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case RIGHT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y - 12, 5, 0, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 15, position.y - 3, 5, 0, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWN:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 9, position.y + 26, 0, 5, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x - 2, position.y + 16, 0, 5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UP:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 17, position.y, 0, -5, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 7, position.y - 13, 0, -5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNLEFT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 18, -5, 5, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x - 11, position.y + 7, -4, 4, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNRIGHT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y + 18, 5, 5, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 10, position.y + 8, 5, 5, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UPLEFT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 4, position.y + 1, -5, -5, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x - 7, position.y - 11, -4, -4, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UPRIGHT:
-					App->particles->AddParticle(App->particles->flameThrower, position.x + 20, position.y, 5, -5, true, Collider::Type::FLAME);
+					App->particles->AddParticle(App->particles->flameThrower, position.x + 13, position.y - 11, 4, -4, true, Collider::Type::FLAME);
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				}
-				bullets--;
 			}
 			break;
 		case 2:
@@ -1298,7 +1363,7 @@ void ModulePlayer::AnimationLegTorsoUpdate()
 			break;
 		}
 	}
-	else
+	else 
 	{
 		switch (bulletDir)
 		{
@@ -1856,13 +1921,16 @@ Update_Status ModulePlayer::PostUpdate()
 
 		if (mirror == true)
 		{
-			App->render->BlitMirror(texture, position.x, position.y, &rect);
-
+			App->render->BlitMirror(texture, position.x + offsetx2, position.y + offsety2, &rect);
+			offsetx2 = 0;
+			offsety2 = 0;
 
 		}
 		else
 		{
-			App->render->Blit(texture, position.x, position.y, &rect);
+			App->render->Blit(texture, position.x + offsetx2, position.y + offsety2, &rect);
+			offsetx2 = 0;
+			offsety2 = 0;
 		}
 	}
 	return Update_Status::UPDATE_CONTINUE;
