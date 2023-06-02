@@ -1,4 +1,5 @@
-﻿  SceneLevel1.cpp
+﻿  Enemy_Camillers.cpp
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Camillers.cpp(69,9): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
   Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe

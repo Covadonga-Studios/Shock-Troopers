@@ -24,7 +24,7 @@ Enemy_Camillers::Enemy_Camillers(int x, int y) : Enemy(x, y)
 	medicsHurt.PushBack({ 1919, 1641, 137, 77 });
 	medicsHurt.PushBack({ 1919, 1719, 137, 77 });
 	medicsHurt.loop = false;
-	medicsHurt.speed = 0.2f;
+	medicsHurt.speed = 0.1f;
 
 	enemydeath1.PushBack({ 20, 720, 41, 53 });
 	enemydeath1.PushBack({ 61, 720, 41, 53 });
@@ -70,7 +70,7 @@ void Enemy_Camillers::Update()
 
 	}
 
-	if (par > 80 && deleting == true)
+	if (par > 120 && deleting == true)
 	{
 		pendingToDelete = true;
 	}
