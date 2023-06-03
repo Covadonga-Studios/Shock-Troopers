@@ -27,13 +27,18 @@ HOW TO PLAY:
 The game is about advancing through a jungle killing enemies by shooting, stabing and thrownig bombs.
 
 the controls are:
-W - move upwards
-A - move to the left
-S - move downwards
-D - move to the right
-SPACE - shooting/stabing
-N - dodge
-
+W or Left stick up - move upwards
+A or Left stick left - move to the left
+S or Left stick down - move downwards
+D or Left stick right - move to the right
+SPACE or R2 - shooting/stabing
+N or X - dodge
+M or Square - grenade
+F1 - Hitboxes
+F2 - God mode
+F3 - Insta Win
+F4 - Insta Lose
+F5 - Teleport
 
 ## **Welcome to our webpage!**
 
