@@ -52,7 +52,7 @@ bool SceneLevel1::Start()
 	//-1548
 
 	
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -80,2);
+		App->enemies->AddEnemy(Enemy_Type::HELICOPTER, 0, -80,2);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -80, 2);
 

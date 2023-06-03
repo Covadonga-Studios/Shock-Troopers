@@ -107,6 +107,16 @@ void Enemy_Helicopter::Update()
 		pendingToDelete = false;
 		deleting = true;
 		currentAnim = &helicopterDeath;
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +20, position.y, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y +50, 0, 0, false, Collider::Type::NONE, 10);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +50, position.y +50, 0, 0, false, Collider::Type::NONE,20);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y, 0, 0, false, Collider::Type::NONE, 30);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y +50, 0, 0, false, Collider::Type::NONE, 40 );
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +50, position.y, 0, 0, false, Collider::Type::NONE, 50);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 50, position.y, 0, 5, false, Collider::Type::NONE, 100);
+	}
+	if (deathTimer > 100) {
+		position.y++;
 	}
 
 	if (deathTimer > 200)

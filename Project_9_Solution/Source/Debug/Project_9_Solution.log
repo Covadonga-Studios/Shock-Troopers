@@ -1,34 +1,6 @@
-﻿  ModuleParticles.cpp
-D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-D:\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(494,78): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-D:\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(494,56): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-D:\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(499,72): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-D:\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(499,50): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-D:\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(520,30): warning C4244: '=': conversión de 'int' a 'TYPE'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-D:\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(521,30): warning C4244: '=': conversión de 'int' a 'TYPE'; posible pérdida de datos
-          with
-          [
-              TYPE=float
-          ]
-  Project_9_Solution.vcxproj -> D:\Shock-Troopers\Debug\Project_9_Solution.exe
+﻿  Enemy_Helicopter.cpp
+C:\Users\User\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\User\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\User\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(62,82): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\User\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(63,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Project_9_Solution.vcxproj -> C:\Users\User\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
