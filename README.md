@@ -27,6 +27,7 @@ HOW TO PLAY:
 The game is about advancing through a jungle killing enemies by shooting, stabing and thrownig bombs.
 
 the controls are:
+
 W or Left stick up - move upwards
 
 A or Left stick left - move to the left
