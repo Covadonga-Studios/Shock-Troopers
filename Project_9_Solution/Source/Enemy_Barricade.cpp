@@ -29,13 +29,7 @@ Enemy_Barricade::Enemy_Barricade(int x, int y) : Enemy(x, y)
 	enemydeath1.speed = 0.1f;
 	enemydeath1.loop = false;
 
-	//CHECKEAR
-	lightMGenemyDown.PushBack({ 987, 1971, 36, 41 });
-	//CHECKEAR
-	lightMGenemyDownRight.PushBack({ 1024, 1971, 36, 41 });
-	//CHECKEAR
-	lightMGenemyDownLeft.PushBack({ 1061, 1971, 36,41 });
-	//CHECKEAR
+	
 
 	currentAnim = &peekyDown;
 	currentAnim2 = &barricade;

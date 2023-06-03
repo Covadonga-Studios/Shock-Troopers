@@ -41,6 +41,9 @@ private:
 	Animation enemyshot1upleft;
 	Animation enemyshot1left;
 	Animation enemyshot1downleft;
+	Animation lightMGenemyDownRight;
+	Animation lightMGenemyDownLeft;
+	Animation lightMGenemyDown;
 };
 
 #endif // __ENEMY_STRUCTURES_H__

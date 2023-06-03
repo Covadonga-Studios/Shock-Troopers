@@ -50,6 +50,14 @@ Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 	tower2Breaking.loop = false;
 	tower2Breaking.speed = 0.1f;
 
+
+	lightMGenemyDown.PushBack({ 987, 1971, 36, 41 });
+
+	lightMGenemyDownRight.PushBack({ 1024, 1971, 36, 41 });
+
+	lightMGenemyDownLeft.PushBack({ 1061, 1971, 36,41 });
+
+
 	dissapear.PushBack({ 0,0,0,0 });
 
 

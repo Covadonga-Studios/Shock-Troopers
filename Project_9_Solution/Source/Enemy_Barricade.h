@@ -30,11 +30,6 @@ private:
 	Animation peekyDownLeft;
 	Animation enemydeath1;
 
-	//checkear
-	Animation lightMGenemyDownRight;
-	Animation lightMGenemyDownLeft;
-	Animation lightMGenemyDown;
-
 
 	int shootCooldown = 0;
 	int randomoffset = 0;

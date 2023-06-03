@@ -71,9 +71,9 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 
 	bazookaDown.PushBack({ 53, 1925, 41, 55 });
 
-	bazookaDownLeft.PushBack({ 96, 1868, 41, 55 });
+	bazookaDownLeft.PushBack({ 16, 1982, 28, 54 });
 
-	bazookaDownRight.PushBack({ 96, 1868, 41, 55 }, true);
+	bazookaDownRight.PushBack({ 16, 1982, 28, 54 }, true);
 
 	hp = 1;
 
