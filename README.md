@@ -28,16 +28,27 @@ The game is about advancing through a jungle killing enemies by shooting, stabin
 
 the controls are:
 W or Left stick up - move upwards
+
 A or Left stick left - move to the left
+
 S or Left stick down - move downwards
+
 D or Left stick right - move to the right
+
 SPACE or R2 - shooting/stabing
+
 N or X - dodge
+
 M or Square - grenade
+
 F1 - Hitboxes
+
 F2 - God mode
+
 F3 - Insta Win
+
 F4 - Insta Lose
+
 F5 - Teleport
 
 ## **Welcome to our webpage!**
