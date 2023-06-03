@@ -60,7 +60,7 @@ public:
 	bool freeCam = false;
 	// The speed at which the camera will be moving
 	int cameraSpeed = 1;
-
+	int radius;
 };
 
 #endif //__MODULE_RENDER_H__

@@ -28,6 +28,9 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
+	App->player->position.x = 0;
+		App->player->position.y = 0;
+
 	bgTexture = App->textures->Load("Assets/Sprites/TilesetPart1.png");
 	bgTexture2 = App->textures->Load("Assets/Sprites/Tileset part 2(1_2).png");
 	bgTexture3 = App->textures->Load("Assets/Sprites/background segundo vertical.png");
@@ -48,12 +51,19 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 100, 0, 2);
+	
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -80,2);
 
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, 150);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -80, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -120,2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -120, 2);
 
 
-
+		wave2 = false;
+		doorspawn = false;
+		helispawn = false;
 
 	App->player->Enable();
 	App->enemies->Enable();
@@ -70,6 +80,21 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
+
+
+
+	if (App->player->position.y < -200 && wave2 == false)
+	{
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -250);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -350, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -250);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -350, 1);
+		wave2 = true;
+	}
+
 
 	if (App->player->position.y < -1300 && doorspawn == false)
 	{

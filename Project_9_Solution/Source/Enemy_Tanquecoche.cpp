@@ -14,52 +14,6 @@
 Enemy_Tanquecoche::Enemy_Tanquecoche(int x, int y) : Enemy(x, y)
 {
 
-	enemydeath1.PushBack({ 713, 473, 70, 64 });
-	enemydeath1.PushBack({ 784, 473, 70, 64 });
-	enemydeath1.PushBack({ 855, 473, 70, 64 });
-	enemydeath1.speed = 0.1f;
-	enemydeath1.loop = true;
-
-	enemyshot1down.PushBack({ 905, 547, 64, 42 });
-	enemyshot1down.PushBack({ 970, 547, 64, 42 });
-	enemyshot1down.PushBack({ 1035, 547, 64, 42 });
-	enemyshot1down.speed = 0.1f;
-
-	enemyshot1rightdown.PushBack({ 905, 590, 64, 42 }, true);
-	enemyshot1rightdown.PushBack({ 970, 590, 64, 42 }, true);
-	enemyshot1rightdown.PushBack({ 1035, 590, 64, 42 }, true);
-	enemyshot1rightdown.speed = 0.1f;
-
-	enemyshot1right.PushBack({ 1100, 590, 64, 42 }, true);
-	enemyshot1right.PushBack({ 1165, 590, 64, 42 }, true);
-	enemyshot1right.PushBack({ 1230, 590, 64, 42 }, true);
-	enemyshot1right.speed = 0.1f;
-
-	enemyshot1rightup.PushBack({ 905, 633, 64, 42 }, true);
-	enemyshot1rightup.PushBack({ 970, 633, 64, 42 }, true);
-	enemyshot1rightup.PushBack({ 1035, 633, 64, 42 }, true);
-	enemyshot1rightup.speed = 0.1f;
-
-	enemyshot1up.PushBack({ 1295, 633, 64, 42 });
-	enemyshot1up.PushBack({ 1360, 633, 64, 42 });
-	enemyshot1up.PushBack({ 1425, 633, 64, 42 });
-	enemyshot1up.speed = 0.1f;
-
-	enemyshot1upleft.PushBack({ 905, 633, 64, 42 });
-	enemyshot1upleft.PushBack({ 970, 633, 64, 42 });
-	enemyshot1upleft.PushBack({ 1035, 633, 64, 42 });
-	enemyshot1upleft.speed = 0.1f;
-
-	enemyshot1left.PushBack({ 1100, 590, 64, 42 });
-	enemyshot1left.PushBack({ 1165, 590, 64, 42 });
-	enemyshot1left.PushBack({ 1230, 590, 64, 42 });
-	enemyshot1left.speed = 0.1f;
-
-	enemyshot1downleft.PushBack({ 905, 590, 64, 42 });
-	enemyshot1downleft.PushBack({ 970, 590, 64, 42 });
-	enemyshot1downleft.PushBack({ 1035, 590, 64, 42 });
-	enemyshot1downleft.speed = 0.1f;
-
 	missileLauncher.PushBack({ 6, 1694, 52, 55 });
 	missileLauncher.PushBack({ 59, 1694, 52, 55 });
 
@@ -92,10 +46,7 @@ void Enemy_Tanquecoche::Update()
 {
 	shootCooldown++;
 
-	if (enemyMode == 1) 
-	{
-		test = 10;
-	}
+	
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
@@ -137,34 +88,7 @@ void Enemy_Tanquecoche::Update()
 
 
 
-	/*if (deleting == false)
-		switch (GetTargetDir(dx, dy))
-		{
-		case LEFT:
-			currentAnim = &missileLauncherLeft;
-			offsettexture1y = -5;
-		
-			break;
-		case RIGHT:
-			currentAnim = &missileLauncherRight;
-			offsettexture1y = -5;
-		case DOWNLEFT:
-			currentAnim = &missileLauncherDownLeft;
-			offsettexture1y = -5;
-			break;
-		case DOWNRIGHT:
-			currentAnim = &missileLauncherDownRight;
-			offsettexture1y = -5;
-			break;
-		case UPLEFT:
-			currentAnim = &missileLauncherTopLeft;
-			offsettexture1y = -5;
-			break;
-		case UPRIGHT:
-			currentAnim = &missileLauncherTopRight;
-			offsettexture1y = -5;
-			break;
-		}*/
+
 
 	if (deleting == true)
 	{

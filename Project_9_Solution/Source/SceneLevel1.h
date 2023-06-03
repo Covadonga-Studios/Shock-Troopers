@@ -43,7 +43,8 @@ public:
 	int offsetheli = 0;
 	bool helispawn = false;
 	bool doorspawn = false;
-	
+	bool wave1 = false;
+	bool wave2 = false;
 
 private: 
 	Animation door;

@@ -96,6 +96,7 @@
     <ClInclude Include="Enemy_TankStop.h" />
     <ClInclude Include="Enemy_Tanquecoche.h" />
     <ClInclude Include="Enemy_ThreeBarrels.h" />
+    <ClInclude Include="Enemy_Torpedo.h" />
     <ClInclude Include="InitialScreen.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollisions.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Enemy_TankStop.cpp" />
     <ClCompile Include="Enemy_Tanquecoche.cpp" />
     <ClCompile Include="Enemy_ThreeBarrels.cpp" />
+    <ClCompile Include="Enemy_Torpedo.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="InitialScreen.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
