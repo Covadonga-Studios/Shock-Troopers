@@ -56,6 +56,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyRunning.PushBack({ 921, 971, 39, 55 });
 	enemyRunning.PushBack({ 961, 971, 39, 55 });
 	enemyRunning.PushBack({ 1001, 971, 39, 55 });
+	enemyRunning.speed = 0.1f;
 
 	enemyStopping.PushBack({ 821, 1026, 39, 55 });
 	enemyStopping.PushBack({ 921, 1026, 39, 55 });
@@ -121,6 +122,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingDownLeft.PushBack({ 1342, 1289, 41, 50 }, true);
 	walkingDownLeft.PushBack({ 1384, 1289, 41, 50 }, true);
 	walkingDownLeft.PushBack({ 1426, 1289, 41, 50 }, true);
+	walkingDownLeft.speed = 0.1f;
 
 	walkingUpLeft.PushBack({ 1132, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1174, 1340, 41, 50 });
@@ -152,6 +154,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyFallingRight.PushBack({ 820, 1421, 90, 98 });
 	enemyFallingRight.PushBack({ 911, 1421, 90, 98 });
 	enemyFallingRight.PushBack({ 1002, 1421, 90, 98 });
+	enemyFallingRight.speed = 0.2f;
 
 	enemyFallingLeft.PushBack({ 1, 1421, 90, 98 }, true);
 	enemyFallingLeft.PushBack({ 92, 1421, 90, 98 }, true);
@@ -165,6 +168,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyFallingLeft.PushBack({ 820, 1421, 90, 98 }, true);
 	enemyFallingLeft.PushBack({ 911, 1421, 90, 98 }, true);
 	enemyFallingLeft.PushBack({ 1002, 1421, 90, 98 }, true);
+	enemyFallingLeft.speed = 0.1f;
 
 	enemyRunningRight.PushBack({ 931, 1260, 49, 51 });
 	enemyRunningRight.PushBack({ 981, 1260, 49, 51 });
@@ -276,15 +280,54 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 
 void Enemy_BrownShip::Update()
 {
-	shootCooldown++;
+	if (spawn > spawnlimit) {
+		offsettexture1x = 0;
+		offsettexture1y = 0;
 
+	}
+	
+
+	if (spawn < spawnlimit)
+	switch (enemyMode)
+	{
+	case 0:
+		spawnlimit = 50;
+		currentAnim = &enemyFallingRight;
+		offsettexture1y = -60;
+		position.x++;
+
+	
+		break;
+	case 1:
+		spawnlimit = 50;
+		currentAnim = &enemyFallingLeft;
+		offsettexture1y = -60;
+		position.x--;
+		break;
+	case 2:
+		spawnlimit = 50;
+		currentAnim = &enemyRunning;
+		position.y++;
+		break;
+	case 3:
+		spawnlimit = 50;
+		currentAnim = &enemyRunning;
+		position.y++;
+		break;
+
+	}
+
+	
+
+	shootCooldown++;
+	spawn++;
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);
 
 	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
-	if (pendingToDelete == true && deleting == false) 
+	if (pendingToDelete == true && deleting == false && spawn > spawnlimit) 
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -296,12 +339,12 @@ void Enemy_BrownShip::Update()
 			currentAnim = &enemyBurning;
 	}
 
-	if (currentAnim->HasFinished() == true && deleting == true)
+	if (currentAnim->HasFinished() == true && deleting == true && spawn > spawnlimit)
 	{
 		pendingToDelete = true;
 	}
 
-	if (shootCooldown > 150 && deleting == false)
+	if (shootCooldown > 150 && deleting == false && spawn > spawnlimit)
 	{
 
 		 
@@ -316,7 +359,7 @@ void Enemy_BrownShip::Update()
 	}
 
 
-	if (deleting == false)
+	if (deleting == false && spawn > spawnlimit)
 	switch (GetTargetDir(dx2,dy2))
 	{
 	case LEFT:
@@ -361,7 +404,12 @@ void Enemy_BrownShip::Update()
 		break;
 	}
 
+	if (spawn > spawnlimit)
 	collider->SetPos(position.x, position.y);
+	else 
+	{
+		collider->SetPos(-10000, 4000);
+	}
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position

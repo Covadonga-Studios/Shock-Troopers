@@ -136,14 +136,31 @@ void ModuleEnemies::HandleEnemiesSpawn()
 	{
 		if (spawnQueue[i].type != Enemy_Type::NO_TYPE)
 		{
-			// Spawn a new enemy if the screen has reached a spawn position
-			if (abs(spawnQueue[i].x - App->player->position.x) < 200 && abs(spawnQueue[i].y - App->player->position.y) < 300)
+			switch (App->render->cameraMode)
 			{
-				LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+			default:
+				if (/*abs(spawnQueue[i].x - App->player->position.x) < 150 &&*/ abs(spawnQueue[i].y - App->player->position.y) < 100)
+				{
+					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
-				SpawnEnemy(spawnQueue[i]);
-				spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+					SpawnEnemy(spawnQueue[i]);
+					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+				}
+				break;
+				break;
+
+			case 1:
+				if (/*abs(spawnQueue[i].x - App->player->position.x) < 150 &&*/ abs(spawnQueue[i].y - App->player->position.y) < 100)
+				{
+					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+					SpawnEnemy(spawnQueue[i]);
+					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+				}
+				break;
 			}
+			// Spawn a new enemy if the screen has reached a spawn position
+		
 		}
 	}
 }

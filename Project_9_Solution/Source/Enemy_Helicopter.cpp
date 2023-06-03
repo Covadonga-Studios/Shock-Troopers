@@ -39,7 +39,7 @@ Enemy_Helicopter::Enemy_Helicopter(int x, int y) : Enemy(x, y)
 	currentAnim = &helicopterFight;
 
 	collider = App->collisions->AddCollider({ 20, 20, 108, 80}, Collider::Type::ENEMY, (Module*)App->enemies);
-	hp = 40;
+	hp = 120;
 
 }
 

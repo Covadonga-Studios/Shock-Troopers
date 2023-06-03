@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
+#include "SceneIntro.h"
 
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_scancode.h"
@@ -59,101 +60,102 @@ Update_Status ModuleRender::Update()
 {
 
 	GamePad& pad = App->input->pads[0];
-
-	//Handle positive vertical movement
-	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT || pad.up == true)
-		camera.y -= cameraSpeed;
-
-	//Handle negative vertical movement
-	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT || pad.down == true)
-		camera.y += cameraSpeed;
-
-	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT || pad.left == true)
-		camera.x -= cameraSpeed;
-
-	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT || pad.right == true)
-		camera.x += cameraSpeed;
-		
-	switch (cameraMode)
+	if (App->sceneIntro->IsEnabled() == false) 
 	{
-	case 0:
-		if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
-			camera.x -= cameraSpeed;
-			if (App->player->isDodging == true && App->render->camera.x <= 63) {
-				camera.x -= cameraSpeed * 2;
-			}
-		}
-
-		if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
-			camera.x += cameraSpeed;
-			if (App->player->isDodging == true && App->render->camera.x >= -63) {
-				
-
-				camera.x += cameraSpeed * 2;
-			}
-		}
-
-		if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y > -1536 && App->player->IsEnabled() || App->render->camera.y < -1500 && App->render->camera.y > -1536) {
+		//Handle positive vertical movement
+		if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT || pad.up == true)
 			camera.y -= cameraSpeed;
-			if (App->player->isDodging == true) {
-				camera.y -= cameraSpeed * 2;
-			}
-		}
-		break;
-	case 1:
 
-		break;
-	case 2:
-		if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30) {
-			camera.x += cameraSpeed;
-			if (App->player->isDodging == true ) {
+		//Handle negative vertical movement
+		if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT || pad.down == true)
+			camera.y += cameraSpeed;
 
-
-				camera.x += cameraSpeed * 2;
-			}
-		}
-		break;
-	case 3:
-
-		break;
-	case 4:
-	
-	case 5:
-		if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
+		if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT || pad.left == true)
 			camera.x -= cameraSpeed;
-			if (App->player->isDodging == true && App->render->camera.x <= 63) {
-				camera.x -= cameraSpeed * 2;
-			}
-		}
 
-		if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+		if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT || pad.right == true)
 			camera.x += cameraSpeed;
-			if (App->player->isDodging == true && App->render->camera.x >= -63) {
 
-
-				camera.x += cameraSpeed * 2;
+		switch (cameraMode)
+		{
+		case 0:
+			if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
+				camera.x -= cameraSpeed;
+				if (App->player->isDodging == true && App->render->camera.x <= 63) {
+					camera.x -= cameraSpeed * 2;
+				}
 			}
+
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+				camera.x += cameraSpeed;
+				if (App->player->isDodging == true && App->render->camera.x >= -63) {
+
+
+					camera.x += cameraSpeed * 2;
+				}
+			}
+
+			if (App->player->position.y - App->render->camera.y <= 75 && App->render->camera.y > -1536 && App->player->IsEnabled() || App->render->camera.y < -1500 && App->render->camera.y > -1536) {
+				camera.y -= cameraSpeed;
+				if (App->player->isDodging == true) {
+					camera.y -= cameraSpeed * 2;
+				}
+			}
+			break;
+		case 1:
+
+			break;
+		case 2:
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30) {
+				camera.x += cameraSpeed;
+				if (App->player->isDodging == true) {
+
+
+					camera.x += cameraSpeed * 2;
+				}
+			}
+			break;
+		case 3:
+
+			break;
+		case 4:
+
+		case 5:
+			if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
+				camera.x -= cameraSpeed;
+				if (App->player->isDodging == true && App->render->camera.x <= 63) {
+					camera.x -= cameraSpeed * 2;
+				}
+			}
+
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+				camera.x += cameraSpeed;
+				if (App->player->isDodging == true && App->render->camera.x >= -63) {
+
+
+					camera.x += cameraSpeed * 2;
+				}
+			}
+
+			if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y > -1548 && App->player->IsEnabled()) {
+				camera.y -= cameraSpeed;
+				if (App->player->isDodging == true) {
+					camera.y -= cameraSpeed * 2;
+				}
+			}
+			break;
+			break;
 		}
 
-		if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y > -1548 && App->player->IsEnabled()) {
-			camera.y -= cameraSpeed;
-			if (App->player->isDodging == true) {
-				camera.y -= cameraSpeed * 2;
-			}
+
+
+		if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
+		{
+			freeCam = true;
+			camera.x = 20;
+			camera.y = -1528;
 		}
-		break;
-		break;
 	}
-
-	
-   
-	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
-	{
-		freeCam = true; 
-		camera.x = 20;
-		camera.y = -1528;
-	}
-
 	return Update_Status::UPDATE_CONTINUE;
 }
 
