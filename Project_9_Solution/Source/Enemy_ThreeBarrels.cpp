@@ -8,7 +8,7 @@ Enemy_ThreeBarrels::Enemy_ThreeBarrels(int x, int y) : Enemy(x, y)
 
 	boxidle.PushBack({ 112, 1964, 56, 65 });
 
-
+	box.PushBack({176, 1971,72,56});
 	box.speed = 0.15f;
 	box.loop = false;
 
@@ -21,6 +21,16 @@ Enemy_ThreeBarrels::Enemy_ThreeBarrels(int x, int y) : Enemy(x, y)
 
 void Enemy_ThreeBarrels::Update()
 {
+
+	switch (enemyMode)
+	{
+	case 0:
+		currentAnim = &boxidle;
+		break;
+	case 1:
+		currentAnim = &box;
+		break;
+	}
 
 
 	if (pendingToDelete == true && deleting == false)

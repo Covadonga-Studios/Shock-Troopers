@@ -179,36 +179,28 @@ void Enemy_Structures::Update()
 			break;
 	case 2:
 		offsettexture1x = 15;
-		offsettexture1y = -5;
+		offsettexture1y = 15;
+
+		dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - 15);
+		dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - 15);
 
 		collider->SetPos(position.x, position.y);
 		if (deleting == false)
 		{
 			switch (GetTargetDir(dx, dy))
 			{
-			case LEFT:
-				currentAnim = &enemyshot1left;
-				break;
+		
 			case RIGHT:
 				currentAnim = &enemyshot1right;
 				break;
 			case DOWN:
-				currentAnim = &enemyshot1down;
-				break;
-			case UP:
-				currentAnim = &enemyshot1up;
+				currentAnim = &lightMGenemyDownRight;
 				break;
 			case DOWNLEFT:
-				currentAnim = &enemyshot1downleft;
+				currentAnim = &lightMGenemyDownLeft;
 				break;
 			case DOWNRIGHT:
-				currentAnim = &enemyshot1rightdown;
-				break;
-			case UPLEFT:
-				currentAnim = &enemyshot1upleft;
-				break;
-			case UPRIGHT:
-				currentAnim = &enemyshot1rightup;
+				currentAnim = &lightMGenemyDown;
 				break;
 			}
 		}

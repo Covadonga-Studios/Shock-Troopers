@@ -26,7 +26,7 @@ private:
 	bool deleting = false;
 	// The total height of the wave
 	int waveHeight = 15;
-	int shootCooldown;
+	int shootCooldown = 120;
 	// The enemy animation
 	Animation flyAnim;
 	Animation enemydeath2;
@@ -65,6 +65,9 @@ private:
 
 	float dx2;
 	float dy2;
+
+	int spawn = 0;
+	int spawnlimit = 150;
 };
 
 #endif // __ENEMY_REDBIRD_H__

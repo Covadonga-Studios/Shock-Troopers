@@ -54,6 +54,8 @@ private:
 
 	float dx2;
 	float dy2;
+
+	int start = 0;
 };
 
 #endif // __ENEMY_TANK_H__

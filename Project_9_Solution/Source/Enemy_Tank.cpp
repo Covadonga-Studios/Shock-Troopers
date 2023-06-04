@@ -80,6 +80,12 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 void Enemy_Tank::Update()
 {
 	shootCooldown++;
+	start++;
+
+	if (start < 60) 
+	{
+		position.y++;
+	}
 
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);

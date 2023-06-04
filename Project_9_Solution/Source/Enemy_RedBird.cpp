@@ -96,6 +96,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollRight.PushBack({ 503, 1688, 38, 53 });
 	enemyRollRight.PushBack({ 542, 1688, 38, 53 });
 	enemyRollRight.PushBack({ 581, 1688, 38, 53 });
+	enemyRollRight.speed = 0.2f;
 
 	enemyRollLeft.PushBack({ 269, 1742, 38, 53 });
 	enemyRollLeft.PushBack({ 308, 1742, 38, 53 });
@@ -106,6 +107,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollLeft.PushBack({ 503, 1742, 38, 53 });
 	enemyRollLeft.PushBack({ 542, 1742, 38, 53 });
 	enemyRollLeft.PushBack({ 581, 1742, 38, 53 });
+	enemyRollLeft.speed = 0.2f;
 
 	enemyRollDownPointingLeft.PushBack({ 317, 741, 65, 43 });
 	enemyRollDownPointingLeft.PushBack({ 317, 785, 65, 43 });
@@ -115,6 +117,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollDownPointingLeft.PushBack({ 317, 961, 65, 43 });
 	enemyRollDownPointingLeft.PushBack({ 317, 1005, 65, 43 });
 	enemyRollDownPointingLeft.PushBack({ 317, 1049, 65, 43 });
+	enemyRollDownPointingLeft.speed = 0.2f;
 
 	enemyRollDownPointingRight.PushBack({ 317, 741, 65, 43 }, true);
 	enemyRollDownPointingRight.PushBack({ 317, 785, 65, 43 }, true);
@@ -124,6 +127,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollDownPointingRight.PushBack({ 317, 961, 65, 43 }, true);
 	enemyRollDownPointingRight.PushBack({ 317, 1005, 65, 43 }, true);
 	enemyRollDownPointingRight.PushBack({ 317, 1049, 65, 43 }, true);
+	enemyRollDownPointingRight.speed = 0.2f;
 
 	enemyRollUpPointingLeft.PushBack({ 317, 1049, 65, 43 });
 	enemyRollUpPointingLeft.PushBack({ 317, 1005, 65, 43 });
@@ -133,6 +137,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollUpPointingLeft.PushBack({ 317, 829, 65, 43 });
 	enemyRollUpPointingLeft.PushBack({ 317, 785, 65, 43 });
 	enemyRollUpPointingLeft.PushBack({ 317, 741, 65, 43 });
+	enemyRollUpPointingLeft.speed = 0.2f;
 
 	enemyRollUpPointingRight.PushBack({ 317, 1049, 65, 43 }, true);
 	enemyRollUpPointingRight.PushBack({ 317, 1005, 65, 43 }, true);
@@ -142,6 +147,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyRollUpPointingRight.PushBack({ 317, 829, 65, 43 }, true);
 	enemyRollUpPointingRight.PushBack({ 317, 785, 65, 43 }, true);
 	enemyRollUpPointingRight.PushBack({ 317, 741, 65, 43 }, true);
+	enemyRollUpPointingRight.speed = 0.2f;
 
 	enemyBurning.PushBack({ 800, 1792, 59, 63 });
 	enemyBurning.PushBack({ 860, 1792, 59, 63 });
@@ -174,6 +180,7 @@ void Enemy_RedBird::Update()
 {
 
 	shootCooldown++;
+	spawn++;
 
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsetshooty);
@@ -181,7 +188,37 @@ void Enemy_RedBird::Update()
 	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
-	if (pendingToDelete == true && deleting == false)
+	if (spawn < spawnlimit)
+		switch (enemyMode)
+		{
+		case 0:
+			spawnlimit = 50;
+			currentAnim = &enemyRollRight;
+		
+			position.x++;
+
+
+			break;
+		case 1:
+			spawnlimit = 50;
+			currentAnim = &enemyRollLeft;
+		
+			position.x--;
+			break;
+		case 2:
+			spawnlimit = 50;
+			currentAnim = &enemyRollDownPointingRight;
+			position.y++;
+			break;
+		case 3:
+			spawnlimit = 50;
+			currentAnim = &enemyRollDownPointingLeft;
+			position.y++;
+			break;
+
+		}
+
+	if (pendingToDelete == true && deleting == false && spawn > spawnlimit)
 	{
  		pendingToDelete = false;
 		deleting = true;
@@ -192,12 +229,12 @@ void Enemy_RedBird::Update()
 			currentAnim = &enemyBurning;
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (currentAnim->HasFinished() == true && spawn > spawnlimit)
 	{
 		pendingToDelete = true;
 	}
 
-	if (shootCooldown > 233 && deleting == false)
+	if (shootCooldown > 233 && deleting == false && spawn > spawnlimit)
 	{
 
 		
@@ -213,7 +250,7 @@ void Enemy_RedBird::Update()
 		shootCooldown = 0;
 	}
 
-	if (deleting == false)
+	if (deleting == false && spawn > spawnlimit)
 	switch (GetTargetDir(dx2, dy2))
 	{
 	case LEFT:
@@ -257,8 +294,10 @@ void Enemy_RedBird::Update()
 		break;
 	}
 
-	collider->SetPos(position.x, position.y);
-
+	if (spawn > spawnlimit)
+		collider->SetPos(position.x, position.y);
+	else
+		collider->SetPos(-1300, 5465);
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();

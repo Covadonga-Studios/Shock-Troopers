@@ -51,14 +51,18 @@ bool SceneLevel1::Start()
 	// Enemies ---
 	//-1548
 
-	
-		App->enemies->AddEnemy(Enemy_Type::HELICOPTER, 0, -80,2);
+	//Structures: 0 -> MedicTent, 1 ->tower1, 2 ->tower2
+	//Itempickup: 0 -> Hpboost, 1 -> diamond, 2 ->bomb, 3 -> flamethrower, 4 -> threeway
+	//Brownship (el huevon verde): 0 -> Parachute right spawn, 1 -> Parachute left spawn, 2 -> Corriendo hacia abajo, 3 -> Slideando abajo de la montaña
+	//RedBird (el huevon blanco): 0 -> roll right, 1 -> roll left, 3-> roll down right, 4 -> roll down left
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -80, 2);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 0, -80,2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -120,2);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -80, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -120, 2);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 50, -120,2);
+
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 200, -120, 2);
 
 
 		wave2 = false;
@@ -85,13 +89,13 @@ Update_Status SceneLevel1::Update()
 
 	if (App->player->position.y < -200 && wave2 == false)
 	{
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -250);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 0, -250);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -350, 1);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -350, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -250);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 50, -250);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -350, 1);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 200, -350, 1);
 		wave2 = true;
 	}
 

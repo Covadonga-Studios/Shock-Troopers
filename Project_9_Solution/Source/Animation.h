@@ -54,7 +54,7 @@ public:
 	}
 	bool GetMirror() const
 	{	
-	return mirror;
+	  return mirror;
 	}
 
 	const SDL_Rect& GetCurrentFrame() const
