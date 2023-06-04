@@ -1047,9 +1047,8 @@ void ModulePlayer::MoveUpdate()
 			moveDir = bulletDir;
 		}
 
-		switch (App->render->cameraMode)
-		{
-		case 0:
+		
+	
 
 			if (App->render->camera.y + SCREEN_HEIGHT < position.y + 47)
 			{
@@ -1060,10 +1059,37 @@ void ModulePlayer::MoveUpdate()
 				
 				isDodging = false;
 			}
-			break;
-		case 1:
-			break;
-		}
+
+			if (App->render->camera.y  > position.y )
+			{
+
+				App->player->upLock = true;
+
+				position.y++;
+
+				isDodging = false;
+			}
+
+			if (App->render->camera.x > position.x)
+			{
+
+				App->player->leftLock = true;
+
+				position.x++;
+
+				isDodging = false;
+			}
+			if (App->render->camera.x + SCREEN_WIDTH < position.x +33)
+			{
+
+				App->player->rightLock = true;
+
+				position.x--;
+
+				isDodging = false;
+			}
+
+			
 
 }
 
@@ -1734,8 +1760,8 @@ void ModulePlayer::DebugLogicUpdate()
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 	{
 
-		App->player->position.x = 1050;
-		App->player->position.y = -1450;
+		App->player->position.x = 1980;
+		App->player->position.y = -1400;
 	}
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
 	{

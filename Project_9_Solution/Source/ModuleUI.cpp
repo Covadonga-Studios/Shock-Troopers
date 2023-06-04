@@ -126,18 +126,30 @@ Update_Status ModuleUI::PostUpdate()
 
 	sprintf_s(grenadeText, 10, "%02d", App->player->grenadeCounter);
 	
-	
+	sprintf_s(xText, 10, "%5d", App->player->position.x);
+	sprintf_s(yText, 10, "%5d", App->player->position.y);
+
+
 	//replace with the actual ammo variable when we have it
 	sprintf_s(ammoText, 10, "%02d", App->player->bullets);
 
 
-
+	
 	App->render->Blit(palmeratexture, -42, -1300, NULL);
 	
 	App->fonts->BlitText(41, 8, generalFont, scoreText);
 	App->fonts->BlitText(145, 17, timerFont, timerText);
 	App->fonts->BlitText(24, 208, generalFont, grenadeText);
 
+	
+	if (App->collisions->debug)
+	{
+		App->fonts->BlitText(200, 8, generalFont, DebugText);
+		App->fonts->BlitText(200, 24, generalFont, xText);
+		App->fonts->BlitText(248, 24, generalFont, yText);
+
+
+	}
 
 	int x = App->render->camera.x;
 	int y = App->render->camera.y;

@@ -79,23 +79,23 @@ Update_Status ModuleRender::Update()
 		switch (cameraMode)
 		{
 		case 0:
-			if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
+			if (App->player->position.x - App->render->camera.x <= 120 && App->render->camera.x >= 0) {
 				camera.x -= cameraSpeed;
-				if (App->player->isDodging == true && App->render->camera.x <= 63) {
+				if (App->player->isDodging == true && App->render->camera.x >= 0) {
 					camera.x -= cameraSpeed * 2;
 				}
 			}
 
-			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 120 && App->render->camera.x + SCREEN_WIDTH <= 365) {
 				camera.x += cameraSpeed;
-				if (App->player->isDodging == true && App->render->camera.x >= -63) {
+				if (App->player->isDodging == true && App->render->camera.x + SCREEN_WIDTH <= 365) {
 
 
 					camera.x += cameraSpeed * 2;
 				}
 			}
 
-			if (App->player->position.y - App->render->camera.y <= 75 && App->render->camera.y > -1536 && App->player->IsEnabled() || App->render->camera.y < -1500 && App->render->camera.y > -1536) {
+			if (App->player->position.y - App->render->camera.y <= 127 && App->render->camera.y > -1536 && App->player->IsEnabled() || App->render->camera.y < -1500 && App->render->camera.y > -1536) {
 				camera.y -= cameraSpeed;
 				if (App->player->isDodging == true) {
 					camera.y -= cameraSpeed * 2;
@@ -106,7 +106,7 @@ Update_Status ModuleRender::Update()
 
 			break;
 		case 2:
-			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30) {
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 120) {
 				camera.x += cameraSpeed;
 				if (App->player->isDodging == true) {
 
@@ -119,25 +119,34 @@ Update_Status ModuleRender::Update()
 
 			break;
 		case 4:
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 120) {
+				camera.x += cameraSpeed;
+				if (App->player->isDodging == true) {
 
+
+					camera.x += cameraSpeed * 2;
+				}
+			}
+			break;
 		case 5:
-			if (App->player->position.x - App->render->camera.x <= 30 && App->render->camera.x != 0) {
+			if (App->player->position.x - App->render->camera.x <= 120 && App->render->camera.x >= 2048) {
 				camera.x -= cameraSpeed;
-				if (App->player->isDodging == true && App->render->camera.x <= 63) {
+				if (App->player->isDodging == true && App->render->camera.x >= 2048) {
 					camera.x -= cameraSpeed * 2;
 				}
 			}
 
-			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 30 && App->render->camera.x != 63) {
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 120 && App->render->camera.x + SCREEN_WIDTH <= 2413) {
 				camera.x += cameraSpeed;
-				if (App->player->isDodging == true && App->render->camera.x >= -63) {
+				if (App->player->isDodging == true && App->render->camera.x + SCREEN_WIDTH <= 2413) {
 
 
 					camera.x += cameraSpeed * 2;
 				}
 			}
 
-			if (App->player->position.y - App->render->camera.y <= 30 && App->render->camera.y > -1548 && App->player->IsEnabled()) {
+
+			if (App->player->position.y - App->render->camera.y <= 127 && App->render->camera.y > -3329 && App->player->IsEnabled()) {
 				camera.y -= cameraSpeed;
 				if (App->player->isDodging == true) {
 					camera.y -= cameraSpeed * 2;
@@ -152,8 +161,8 @@ Update_Status ModuleRender::Update()
 		if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 		{
 			freeCam = true;
-			camera.x = 1050;
-			camera.y = -1450;
+			camera.x = 1980;
+			camera.y = -1400;
 		}
 	}
 	return Update_Status::UPDATE_CONTINUE;

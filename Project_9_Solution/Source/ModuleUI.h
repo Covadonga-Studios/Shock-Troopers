@@ -1,6 +1,7 @@
 #pragma once
 #include "Module.h"
 #include "Animation.h"
+#include "ModuleCollisions.h"
 
 struct SDL_Texture;
 
@@ -75,6 +76,13 @@ public:
 	Animation weapon[3];
 	SDL_Rect weaponRect;
 	char ammoText[10] = { "\0" };
+
+
+
+	char* DebugText = "milky x and y";
+	char xText[10] = { "\0" };
+	char yText[10] = { "\0" };
+	;
 
 
 	//temp

@@ -245,6 +245,8 @@ public:
 	bool isDodging = false;
 	int dx;
 	int dy;
+	int kills;
+	int bigkill;
 	// The player's collider
 	Collider* collider = nullptr;
 	Collider* colliderUp = nullptr;

@@ -114,6 +114,7 @@ void Enemy_Helicopter::Update()
 		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y +50, 0, 0, false, Collider::Type::NONE, 40 );
 		App->particles->AddParticle(App->particles->explosionDefault, position.x +50, position.y, 0, 0, false, Collider::Type::NONE, 50);
 		App->particles->AddParticle(App->particles->explosionDefault, position.x + 50, position.y, 0, 3, false, Collider::Type::NONE, 100);
+		App->player->bigkill = 1;
 	}
 	if (deathTimer > 100) {
 		position.y++;

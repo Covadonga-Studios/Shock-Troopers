@@ -26,7 +26,7 @@
 #include "Enemy_Camillers.h"
 #include "Enemy_Structures.h"
 
-#define SPAWN_MARGIN 50
+#define SPAWN_MARGIN 100
 
 
 ModuleEnemies::ModuleEnemies(bool startEnabled) : Module(startEnabled)
@@ -140,7 +140,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 			switch (App->render->cameraMode)
 			{
 			default:
-				if (/*abs(spawnQueue[i].x - App->player->position.x) < 150 &&*/ abs(spawnQueue[i].y - App->player->position.y) < 100)
+				if (abs(spawnQueue[i].x - App->player->position.x) < 365 && abs(spawnQueue[i].y - App->player->position.y) < 100)
 				{
 					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
@@ -151,7 +151,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 				
 
 			case 1:
-				if (/*abs(spawnQueue[i].x - App->player->position.x) < 150 &&*/ abs(spawnQueue[i].y - App->player->position.y) < 100)
+				if (abs(spawnQueue[i].x - App->player->position.x) < 450 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
 				{
 					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 

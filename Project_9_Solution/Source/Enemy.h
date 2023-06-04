@@ -72,6 +72,8 @@ public:
 
 	int enemyMode = 0;
 
+	
+
 	bool die;
 
 	// A flag for the enemy removal. Important! We do not delete objects instantly

@@ -90,277 +90,277 @@ bool SceneLevel1::Start()
 	//Los tres barriles el 0 es sideways y el uno hacia abajo
 		
 	
-////PRIMERA OLEADA
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
-//
-//	//OLEADA DE BARRILES 
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -200, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -220, 4);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -200, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -150, 4);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -200, 1);
-//
-//	//OLEADA PRIMER BLANCO
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -300, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -300, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -300, 1);
-//
-//	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -300, 1);
-//
-//	//PRIMERA OLEADA bis
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -450, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -450, 1);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -490, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -490, 1);
-//
-//	//INTERMEDIO
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -580, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -580, 1);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -690, 4);
-//
-//	//OLEADA BARRILES + BARRICADAS + CAJAS
-//
-//	App->enemies->AddEnemy(Enemy_Type::MECH, 60, -700, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::MECH, 220, -700, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL, 80, -830, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -830, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -820, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -820, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -870, 5);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -870, 5);
-//
-//	//OLEADA BARRICADA SACOS 
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 5);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1000, 1);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1180, 5);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1130, 0);
-//
-//	//OLEADA TANKES + LANZACOHETES 
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1250, 4);
-//
-//	App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1300, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::TANK, 240, -1301, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1200, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1241, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1300, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1301, 0);
-//
-//	//OLEADA PREPUERTA
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1400, 5);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1350, 0);
-//
-//	//PUERTA OLEADA
-//
-//	App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 95, -1550, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -1550, 2);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1450, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1500, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1450, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1500, 0);
-//
-//	//CAMINO AL PUENTE
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 450, -1600, 3);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 500, -1600, 3);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 550, -1600, 3);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 600, -1600, 3);
-//
-//	//PUENTE 
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1450, 0);
-//
-//	App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1400, 0);
-//
-//	//PRIMERA OLEADA
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30,0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70,0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
-//
-//	//OLEADA DE BARRILES 
-//		
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -200, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -220, 4);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -200, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -150, 4);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -200, 1);
-//
-//	//OLEADA PRIMER BLANCO
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -300, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -300, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -300, 1);
-//
-//		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -300, 1);
-//
-//	//PRIMERA OLEADA bis
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -450, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -450, 1);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -490, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -490, 1);
-//	
-//	//INTERMEDIO
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -580, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -580, 1);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -690, 4);
-//
-//	//OLEADA BARRILES + BARRICADAS + CAJAS
-//
-//		App->enemies->AddEnemy(Enemy_Type::MECH, 60, -700, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::MECH, 220, -700, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARREL, 80, -830, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -830, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -820, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -820, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -870, 5);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -870, 5);
-//
-//	//OLEADA BARRICADA SACOS 
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 5);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950,0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1000, 1);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000,0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1180, 5);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1130, 0);
-//
-//	//OLEADA TANKES + LANZACOHETES 
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1250, 4);
-//
-//		App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1300, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::TANK, 240, -1301, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1200, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1241, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1300, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1301, 0);
-//
-//	//OLEADA PREPUERTA
-//
-//		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1400, 5);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1350, 0);
-//
-//	//PUERTA OLEADA
-//
-//		App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 95, -1550, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -1550, 2);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1450, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1500, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1450, 0);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1500, 0);
-//
-//	//CAMINO AL PUENTE
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 450, -1600, 3);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 500, -1600, 3);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 550, -1600, 3);
-//
-//		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 600, -1600, 3);
+//PRIMERA OLEADA
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
+
+	//OLEADA DE BARRILES 
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -200, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -220, 4);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -200, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -150, 4);
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -200, 1);
+
+	//OLEADA PRIMER BLANCO
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -300, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -300, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -300, 1);
+
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -300, 1);
+
+	//PRIMERA OLEADA bis
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -450, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -450, 1);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -490, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -490, 1);
+
+	//INTERMEDIO
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -580, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -580, 1);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -690, 4);
+
+	//OLEADA BARRILES + BARRICADAS + CAJAS
+
+	App->enemies->AddEnemy(Enemy_Type::MECH, 60, -700, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::MECH, 220, -700, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL, 80, -830, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -830, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -820, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -820, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -870, 5);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -870, 5);
+
+	//OLEADA BARRICADA SACOS 
+
+	App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 5);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1000, 1);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
+
+	App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1180, 5);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1130, 0);
+
+	//OLEADA TANKES + LANZACOHETES 
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1250, 4);
+
+	App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1300, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::TANK, 240, -1301, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1200, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1241, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1300, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1301, 0);
+
+	//OLEADA PREPUERTA
+
+	App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1400, 5);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1350, 0);
+
+	//PUERTA OLEADA
+
+	App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 95, -1550, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -1550, 2);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1450, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1500, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1450, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1500, 0);
+
+	//CAMINO AL PUENTE
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 450, -1600, 3);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 500, -1600, 3);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 550, -1600, 3);
+
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 600, -1600, 3);
+
+	//PUENTE 
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1450, 0);
+
+	App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1400, 0);
+
+	//PRIMERA OLEADA
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30,0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70,0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
+
+	//OLEADA DE BARRILES 
+		
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -200, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -220, 4);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -200, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -150, 4);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -200, 1);
+
+	//OLEADA PRIMER BLANCO
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -300, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -300, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -300, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -300, 1);
+
+	//PRIMERA OLEADA bis
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -450, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -450, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -490, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -490, 1);
+	
+	//INTERMEDIO
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -580, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -580, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -690, 4);
+
+	//OLEADA BARRILES + BARRICADAS + CAJAS
+
+		App->enemies->AddEnemy(Enemy_Type::MECH, 60, -700, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::MECH, 220, -700, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL, 80, -830, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -830, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -820, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -820, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -870, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -870, 5);
+
+	//OLEADA BARRICADA SACOS 
+
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950,0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1000, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000,0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1180, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1130, 0);
+
+	//OLEADA TANKES + LANZACOHETES 
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1250, 4);
+
+		App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1300, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::TANK, 240, -1301, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1200, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1241, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1300, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1301, 0);
+
+	//OLEADA PREPUERTA
+
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1400, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1350, 0);
+
+	//PUERTA OLEADA
+
+		App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 95, -1550, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -1550, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1450, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1500, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1450, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1500, 0);
+
+	//CAMINO AL PUENTE
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 450, -1600, 3);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 500, -1600, 3);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 550, -1600, 3);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 600, -1600, 3);
 
 	//PUENTE 
 
@@ -452,16 +452,46 @@ bool SceneLevel1::Start()
 
 		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 2350, -1600, 4);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1700, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2100, -1650, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2250, -1700, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2150, -1650, 2);
 
 	//MONO MOMENTO OLEADAS
 
-		App->enemies->AddEnemy(Enemy_Type::MECH, 2200, -1750, 0);
+		App->enemies->AddEnemy(Enemy_Type::MECH, 2217, -1675, 0); //aqui iria el mono :'(
+		
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1731, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2240, -1751, 2);
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 2200, -1750, 0);
-		
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2130, -1750, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2130, -1800, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2130, -1850, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2130, -1900, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1750, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1800, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1850, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1900, 2);
+
+	//MEDICOZONA OLEADAS
+
+		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2262, -2090, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2050, -1940, 2);
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2150, -1940, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2250, -2000, 0);
+		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2300, -2050, 0);
+		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2250, -2100, 0);
+		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2300, -2150, 0);
+
+	//OLEADA DEL NEGRO
+
+		App->enemies->AddEnemy(Enemy_Type::BLACKSOLDIER, 2227, -2360, 0);
+		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2300, -2150, 0);
 
 		wave2 = false;
 		doorspawn = false;
@@ -482,8 +512,32 @@ Update_Status SceneLevel1::Update()
 	{
 		App->enemies->AddEnemy(Enemy_Type::DOOR, 103, -1536);
 		doorspawn = true;
+	
 	}
 
+	if (App->player->position.y < -1450 && App->render->cameraMode == 0) 
+	{
+		App->player->kills = 0;
+		App->render->cameraMode = 1;
+		App->render->camera.x = 33;
+		App->render->camera.y = -1536;
+	}
+	if (App->player->kills >= 4 && App->render->cameraMode == 1)
+	{
+		App->render->cameraMode = 2;
+	}
+	if (App->player->position.x >= 1030 && App->render->cameraMode == 2)
+	{
+		App->player->bigkill = 0;
+		App->render->cameraMode = 3;
+		App->render->camera.x = 877;
+		App->render->camera.y = -1536;
+	}
+	if (App->player->bigkill ==1 && App->render->cameraMode == 3)
+	{
+		
+		App->render->cameraMode = 4;
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 

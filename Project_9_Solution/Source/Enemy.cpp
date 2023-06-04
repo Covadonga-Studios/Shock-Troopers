@@ -104,7 +104,7 @@ int Enemy::GetTargetDir(float dx, float dy)
 void Enemy::Draw()
 {
 	
-	bool mirror = currentAnim->GetMirror();
+	bool mirror = false;
 	bool mirror2 = false;
 	bool mirror3 = false;
 
@@ -135,6 +135,9 @@ void Enemy::Draw()
 		{
 			App->render->Blit(texture2, position.x + offsettexture2x, position.y + offsettexture2y, &(currentAnim2->GetCurrentFrame()));
 		}
+
+	if (currentAnim != nullptr)
+		mirror = currentAnim->GetMirror();
 
 	if (currentAnim != nullptr)
 		if (mirror == true)
@@ -191,6 +194,7 @@ void Enemy::OnCollision(Collider* collider)
 void Enemy::SetToDelete()
 {
 	pendingToDelete = true;
+	App->player->kills++;
 	//if (collider != nullptr)
 		//collider->pendingToDelete = true;
 }
