@@ -132,7 +132,7 @@ Update_Status ModuleUI::PostUpdate()
 
 
 
-	App->render->Blit(palmeratexture, -42, -1370, NULL);
+	App->render->Blit(palmeratexture, -42, -1300, NULL);
 	
 	App->fonts->BlitText(41, 8, generalFont, scoreText);
 	App->fonts->BlitText(145, 17, timerFont, timerText);

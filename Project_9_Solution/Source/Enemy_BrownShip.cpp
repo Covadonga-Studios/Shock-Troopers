@@ -290,7 +290,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	hp = 1;
 
 	
-	collider = App->collisions->AddCollider({ 0, 0, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ position.x, position.y, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 
@@ -420,7 +420,7 @@ void Enemy_BrownShip::Update()
 
 
 	if (deleting == false && spawn > spawnlimit) {
-		collider->SetPos(position.x, position.y);
+		//collider->SetPos(position.x, position.y);
 		switch (GetTargetDir(dx2, dy2))
 		{
 		case LEFT:
@@ -466,11 +466,14 @@ void Enemy_BrownShip::Update()
 		}
 	}
 
-	if (spawn > spawnlimit)
-	collider->SetPos(position.x, position.y);
+	if (spawn > spawnlimit) {
+		collider->SetPos(position.x, position.y);
+		collider->type = Collider::Type::ENEMY;
+	}
 	else 
 	{
-		collider->SetPos(-10000, 4000);
+		collider->type = Collider::Type::NONE;
+		
 	}
 
 	// Call to the base class. It must be called at the end

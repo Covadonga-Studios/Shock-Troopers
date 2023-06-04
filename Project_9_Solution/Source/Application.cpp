@@ -37,11 +37,11 @@ Application::Application()
 	
 	modules[6] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	modules[7] =	player =		new ModulePlayer(false);
-	modules[8] =	particles =		new ModuleParticles(true);
+	modules[8] =	particles =		new ModuleParticles(false);
 	modules[9] =	UI =			new ModuleUI(false);
 
 
-	modules[10] =	collisions =	new ModuleCollisions(true);
+	modules[10] =	collisions =	new ModuleCollisions(false);
 	modules[11] =	fade =			new ModuleFadeToBlack(true);
 	modules[12] =	fonts =			new ModuleFonts(true);
 	modules[13] =	initialScreen =	new InitialScreen(true);

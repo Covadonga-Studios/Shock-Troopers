@@ -28,8 +28,13 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	App->player->position.x = 0;
-		App->player->position.y = 0;
+	App->player->Enable();
+	App->enemies->Enable();
+	App->UI->Enable();
+	App->collisions->Enable();
+	App->particles->Enable();
+
+
 	App->render->camera.x = 32;
 	App->render->camera.y = 0;
 
@@ -56,109 +61,132 @@ bool SceneLevel1::Start()
 
 	//Structures: 0 -> MedicTent, 1 ->tower1, 2 ->tower2
 	//Itempickup: 0 -> Hpboost, 1 -> diamond, 2 ->bomb, 3 -> flamethrower, 4 -> threeway
-	//Brownship (el huevon verde): 0 -> Parachute right spawn, 1 -> Parachute left spawn, 2 -> Corriendo hacia abajo, 3 -> Slideando abajo de la montaña 4-> quietito
+	//Brownship (el huevon verde): 0 -> Parachute right spawn, 1 -> Parachute left spawn, 2 -> Corriendo hacia abajo, 3 -> Slideando abajo de la montaña 4-> quietito 5-> prismaticos
 	//RedBird (el huevon blanco): 0 -> roll right, 1 -> roll left, 3-> roll down right, 4 -> roll down left
 	//Los tres barriles el 0 es sideways y el uno hacia abajo
 		
 	
 	//PRIMERA OLEADA
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -80,0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30,0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -80, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -60, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -120,0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -100,0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -120, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -100, 1);
 
 	//OLEADA DE BARRILES 
 		
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -250, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -230, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -270, 4);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -250, 4);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -250, 0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -230, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -200, 4);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -180, 4);
 
-		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -250, 1);
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -230, 1);
 
 	//OLEADA PRIMER BLANCO
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -350, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -330, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -350, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -330, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -350, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -330, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -350, 1);
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -330, 1);
 
 	//PRIMERA OLEADA bis
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -500, 0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -480, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -500, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -480, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -540, 0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -520, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -540, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -520, 1);
 	
 	//INTERMEDIO
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -630, 0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -610, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -630, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -610, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -730, 4);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -720, 4);
 
 	//OLEADA BARRILES + BARRICADAS
 
-		App->enemies->AddEnemy(Enemy_Type::BARREL, 60, -850, 0);
+		App->enemies->AddEnemy(Enemy_Type::BARREL, 60, -830, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -850, 0);
+		App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -830, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -870, 2);
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -850, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -870, 2);
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -850, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -920, 5);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -900, 5);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -920, 5);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -900, 5);
 
 	//OLEADA BARRICADA SACOS 
 
-		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1100, 5);
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1080, 5);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000,0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -980,0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1030, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1050,0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1030,0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1100, 1);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1080, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1230, 5);
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1210, 5);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1230, 0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1210, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1160, 0);
 
 	//OLEADA TANKES + LANZACOHETES 
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1300, 4);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1280, 4);
 
-		App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1350, 0);
+		App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1330, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::TANK, 250, -1350, 0);
+		App->enemies->AddEnemy(Enemy_Type::TANK, 240, -1331, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1230, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1271, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1330, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1331, 0);
+
+	//PUERTA OLEADA
+
+		App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 95, -1550, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -1550, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1400, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1450, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1400, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1450, 0);
+
+	//CAMINO AL PUENTE
+
 
 		wave2 = false;
 		doorspawn = false;
 		helispawn = false;
 
-	App->player->Enable();
-	App->enemies->Enable();
-	App->UI->Enable();
-	App->collisions->Enable();
-	App->particles->Enable();
+	
 
 	helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
 	helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
