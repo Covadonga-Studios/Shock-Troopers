@@ -114,7 +114,7 @@ void Enemy_Itempickup::Update()
             currentAnim = &loopLife;
         }
 
-        if (pendingToDelete == true && deleting == false)
+        if (hp <= 0 && deleting == false)
         {
             pendingToDelete = false;
             deleting = true;
@@ -126,7 +126,7 @@ void Enemy_Itempickup::Update()
 
         if (currentAnim->HasFinished() == true && deleting == true)
         {
-            pendingToDelete = true;
+            die = true;
         }
 
         break;
@@ -138,7 +138,7 @@ void Enemy_Itempickup::Update()
         }
 
 
-        if (pendingToDelete == true && deleting == false)
+        if (hp <= 0 && deleting == false)
         {
             pendingToDelete = false;
             deleting = true;
@@ -148,7 +148,7 @@ void Enemy_Itempickup::Update()
 
         if (currentAnim->HasFinished() == true && deleting == true)
         {
-            pendingToDelete = true;
+            die = true;
         }
         break;
     case 2:
@@ -164,7 +164,7 @@ void Enemy_Itempickup::Update()
             currentAnim = &loopBomb;
         }
 
-        if (pendingToDelete == true && deleting == false)
+        if (hp <= 0&& deleting == false)
         {
             pendingToDelete = false;
             deleting = true;
@@ -175,7 +175,7 @@ void Enemy_Itempickup::Update()
 
         if (currentAnim->HasFinished() == true && deleting == true)
         {
-            pendingToDelete = true;
+            die = true;
         }
         break;
     case 3:
@@ -185,7 +185,7 @@ void Enemy_Itempickup::Update()
             spawn = true;
         }
   
-        if (pendingToDelete == true && deleting == false)
+        if (hp <= 0&& deleting == false)
         {
             pendingToDelete = false;
             deleting = true;
@@ -197,7 +197,7 @@ void Enemy_Itempickup::Update()
 
         if (deleting == true)
         {
-            pendingToDelete = true;
+            die = true;
         }
         break;
     case 4:
@@ -207,7 +207,7 @@ void Enemy_Itempickup::Update()
                 currentAnim = &threeWayLoop;
         }
       
-        if (pendingToDelete == true && deleting == false)
+        if (hp <= 0 && deleting == false)
         {
             pendingToDelete = false;
             deleting = true;
@@ -219,7 +219,7 @@ void Enemy_Itempickup::Update()
 
         if (deleting == true)
         {
-            pendingToDelete = true;
+            die = true;
         }
         break;
     }

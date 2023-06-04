@@ -92,7 +92,7 @@ void Enemy_Bazooka::Update()
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -102,9 +102,9 @@ void Enemy_Bazooka::Update()
 			currentAnim = &enemyBurning;
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (currentAnim->HasFinished() && hp <= 0)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	if (shootCooldown > 233 && deleting == false)

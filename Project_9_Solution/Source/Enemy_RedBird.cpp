@@ -230,7 +230,7 @@ void Enemy_RedBird::Update()
 
 		}
 
-	if (pendingToDelete == true && deleting == false && spawn > spawnlimit)
+	if (hp <= 0 && deleting == false && spawn > spawnlimit)
 	{
  		pendingToDelete = false;
 		deleting = true;
@@ -254,8 +254,6 @@ void Enemy_RedBird::Update()
 				break;
 			case UP:
 				currentAnim = &enemyDeathDownLeft;
-
-
 				break;
 			case DOWNLEFT:
 
@@ -280,7 +278,7 @@ void Enemy_RedBird::Update()
 
 	if (currentAnim->HasFinished() == true && spawn > spawnlimit)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	if (shootCooldown > 233 && deleting == false && spawn > spawnlimit)

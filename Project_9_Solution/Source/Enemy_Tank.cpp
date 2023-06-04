@@ -92,7 +92,7 @@ void Enemy_Tank::Update()
 	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -105,7 +105,7 @@ void Enemy_Tank::Update()
 
 	if (deathTimer > 60)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	if (shootCooldown > 150 && deleting == false)

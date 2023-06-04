@@ -68,7 +68,7 @@ Update_Status ModuleEnemies::PreUpdate()
 
 Update_Status ModuleEnemies::Update()
 {
-	HandleEnemiesSpawn();
+	HandleEnemiesDespawn();
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -76,7 +76,8 @@ Update_Status ModuleEnemies::Update()
 			enemies[i]->Update();
 	}
 
-	HandleEnemiesDespawn();
+	HandleEnemiesSpawn();
+
 
 	return Update_Status::UPDATE_CONTINUE;
 }

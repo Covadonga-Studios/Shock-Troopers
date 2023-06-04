@@ -56,7 +56,7 @@ void Enemy_TankStop::Update()
 	}
 	
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -76,7 +76,7 @@ void Enemy_TankStop::Update()
 	}
 
 	if (deathTimer >= 60)
-		pendingToDelete = true;
+		die = true;
 
 	collider->SetPos(position.x -22, position.y );
 	// Call to the base class. It must be called at the end

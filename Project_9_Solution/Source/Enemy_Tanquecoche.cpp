@@ -50,7 +50,7 @@ void Enemy_Tanquecoche::Update()
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -68,13 +68,10 @@ void Enemy_Tanquecoche::Update()
 
 	if (shootCooldown > test && deleting == false)
 	{
-
-
 		float dir = Dircalculation(dx, dy);
 
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
-
 
 		App->particles->AddParticle(App->particles->missileRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
 		shootCooldown = 0;
@@ -86,10 +83,6 @@ void Enemy_Tanquecoche::Update()
 		offsettexture1y = -26;
 	}
 
-
-
-
-
 	if (deleting == true)
 	{
 		offsettexture1y -= 3;
@@ -97,7 +90,7 @@ void Enemy_Tanquecoche::Update()
 	}
 
 	if (deathTimer >= 60)
-		pendingToDelete = true;
+		die = true;
 
 	collider->SetPos(position.x, position.y - 20);
 

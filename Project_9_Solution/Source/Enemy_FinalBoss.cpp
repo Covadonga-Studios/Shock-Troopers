@@ -88,7 +88,7 @@ void Enemy_FinalBoss::Update()
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetx);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - offsety);
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -97,7 +97,7 @@ void Enemy_FinalBoss::Update()
 
 	if (currentAnim->HasFinished() == true)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	if (deleting == false)

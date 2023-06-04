@@ -42,6 +42,9 @@ void Enemy::Update()
 
 	if (currentAnim3 != nullptr)
 		currentAnim3->Update();
+
+	if (die == true)
+	SetToDelete();
 	
 }
 
@@ -171,14 +174,16 @@ void Enemy::OnCollision(Collider* collider)
 	}
 	
 
-	if (hp <= 0) 
+	if (hp <= 0 )
+		
 	{
 		if (collider->type == Collider::Type::GRENADE || collider->type == Collider::Type::FLAME)
 			isOnFire = true;
 
 		App->audio->PlayFx(destroyedFx);
 
-		SetToDelete();
+		
+	
 	}
 
 }
@@ -186,6 +191,6 @@ void Enemy::OnCollision(Collider* collider)
 void Enemy::SetToDelete()
 {
 	pendingToDelete = true;
-	if (collider != nullptr)
-		collider->pendingToDelete = true;
+	//if (collider != nullptr)
+		//collider->pendingToDelete = true;
 }

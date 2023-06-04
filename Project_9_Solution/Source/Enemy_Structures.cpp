@@ -106,7 +106,7 @@ void Enemy_Structures::Update()
 	case 0:
 
 		collider->SetPos(position.x, position.y);
-		if (pendingToDelete == true && deleting == false)
+		if (hp <= 0 && deleting == false)
 		{
 			pendingToDelete = false;
 			deleting = true;
@@ -115,7 +115,7 @@ void Enemy_Structures::Update()
 
 		if (dissapearCooldown > 40)
 		{
-			pendingToDelete = true;
+			die = true;
 		}
 		break;
 	case 1:
@@ -164,7 +164,7 @@ void Enemy_Structures::Update()
 				shootCooldown = 0;
 			}
 
-			if (pendingToDelete == true && deleting == false)
+			if (hp <= 0 && deleting == false)
 			{
 				pendingToDelete = false;
 				deleting = true;
@@ -174,7 +174,7 @@ void Enemy_Structures::Update()
 
 			if (dissapearCooldown > 80)
 			{
-				pendingToDelete = true;
+				die = true;
 			}
 			break;
 	case 2:
@@ -218,7 +218,7 @@ void Enemy_Structures::Update()
 				shootCooldown = 0;
 			}
 
-			if (pendingToDelete == true && deleting == false)
+			if (hp <= 0 && deleting == false)
 			{
 				pendingToDelete = false;
 				deleting = true;
@@ -228,7 +228,7 @@ void Enemy_Structures::Update()
 
 			if (dissapearCooldown > 80)
 			{
-				pendingToDelete = true;
+				die = true;
 			}
 			break;
 	}

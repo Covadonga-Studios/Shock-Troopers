@@ -326,9 +326,10 @@ void Enemy_BrownShip::Update()
 		position.y++;
 		break;
 	case 3:
-		spawnlimit = 50;
+		spawnlimit = 50; 
 		currentAnim = &slide;
-		position.y++;
+		position.y += 2;
+		position.x++;       
 		break;
 	case 4:
 		spawnlimit = 0;
@@ -351,7 +352,7 @@ void Enemy_BrownShip::Update()
 	dx2 = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy2 = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
-	if (pendingToDelete == true && deleting == false && spawn > spawnlimit) 
+	if (hp <= 0 && deleting == false && spawn > spawnlimit) 
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -401,7 +402,7 @@ void Enemy_BrownShip::Update()
 
 	if (currentAnim->HasFinished() == true && deleting == true && spawn > spawnlimit)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	if (shootCooldown > 150 && deleting == false && spawn > spawnlimit)

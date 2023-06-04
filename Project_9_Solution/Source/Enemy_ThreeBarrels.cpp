@@ -42,6 +42,8 @@ void Enemy_ThreeBarrels::Update()
 		break;
 	case 2:
 		currentAnim2 = &box;
+		offsettexture1x = 35;
+		offsettexture1y = -9;
 		if (shootCooldown > 120 && deleting == false)
 		{
 
@@ -83,7 +85,7 @@ void Enemy_ThreeBarrels::Update()
 
 
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <=0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -114,7 +116,7 @@ void Enemy_ThreeBarrels::Update()
 	if (deathTimer > 25)
 	{
 
-		pendingToDelete = true;
+		die = true;
 	}
 
 	collider->SetPos(position.x, position.y);

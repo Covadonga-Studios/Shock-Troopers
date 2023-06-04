@@ -52,7 +52,7 @@ void Enemy_Camillers::Update()
 	if (deleting == false && par % 2 == 0)
 		position.x--;
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -72,7 +72,7 @@ void Enemy_Camillers::Update()
 
 	if (par > 120 && deleting == true)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	collider->SetPos(position.x , position.y );

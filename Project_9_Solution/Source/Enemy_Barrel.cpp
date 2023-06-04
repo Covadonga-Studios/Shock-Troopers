@@ -54,7 +54,7 @@ void Enemy_Barrel::Update()
 	if (deleting == true)
 		timer++;
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -73,7 +73,7 @@ void Enemy_Barrel::Update()
 
 	if (currentAnim->HasFinished() == true && currentAnim != &barrel)
 	{
-		pendingToDelete = true;
+		die = true;
 		collider2->pendingToDelete = true;
 		collider3->pendingToDelete = true;
 	}

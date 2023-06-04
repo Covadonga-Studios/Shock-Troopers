@@ -28,7 +28,7 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 void Enemy_Mech::Update()
 {
 	
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -37,7 +37,7 @@ void Enemy_Mech::Update()
 
 	if (currentAnim->HasFinished() == true)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 	 
 	collider->SetPos(position.x + 20, position.y + 24);

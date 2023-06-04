@@ -128,7 +128,7 @@ ModuleCollisions::~ModuleCollisions()
 Update_Status ModuleCollisions::PreUpdate()
 {
 	// Remove all colliders scheduled for deletion
-	for(uint i = 0; i < MAX_COLLIDERS; ++i)
+	for(uint i = 0; i < MAX_COLLIDERS ; ++i)
 	{
 		if(colliders[i] != nullptr && colliders[i]->pendingToDelete == true)
 		{
@@ -197,9 +197,6 @@ void ModuleCollisions::DebugDraw()
 		
 		switch(colliders[i]->type)
 		{
-			case Collider::Type::NONE: // white
-			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
-			break;
 			case Collider::Type::WALL: // blue
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
@@ -259,6 +256,7 @@ bool ModuleCollisions::CleanUp()
 
 	return true;
 }
+
 
 Collider* ModuleCollisions::AddCollider(SDL_Rect rect, Collider::Type type, Module* listener)
 {
