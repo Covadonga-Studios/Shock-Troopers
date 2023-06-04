@@ -99,6 +99,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingLeft.PushBack({ 1342, 1238, 41, 50 });
 	walkingLeft.PushBack({ 1384, 1238, 41, 50 });
 	walkingLeft.PushBack({ 1426, 1238, 41, 50 });
+	walkingLeft.speed = 0.1f;
 
 	walkingRight.PushBack({ 1132, 1238, 41, 50 }, true);
 	walkingRight.PushBack({ 1174, 1238, 41, 50 }, true);
@@ -108,6 +109,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingRight.PushBack({ 1342, 1238, 41, 50 }, true);
 	walkingRight.PushBack({ 1384, 1238, 41, 50 }, true);
 	walkingRight.PushBack({ 1426, 1238, 41, 50 }, true);
+	walkingRight.speed = 0.1f;
+
 
 	walkingDownRight.PushBack({ 1132, 1289, 41, 50 });
 	walkingDownRight.PushBack({ 1174, 1289, 41, 50 });
@@ -117,6 +120,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingDownRight.PushBack({ 1342, 1289, 41, 50 });
 	walkingDownRight.PushBack({ 1384, 1289, 41, 50 });
 	walkingDownRight.PushBack({ 1426, 1289, 41, 50 });
+	
 
 	walkingDownLeft.PushBack({ 1132, 1289, 41, 50 }, true);
 	walkingDownLeft.PushBack({ 1174, 1289, 41, 50 }, true);
@@ -136,6 +140,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	walkingUpLeft.PushBack({ 1342, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1384, 1340, 41, 50 });
 	walkingUpLeft.PushBack({ 1426, 1340, 41, 50 });
+	
 
 	walkingUpRight.PushBack({ 1132, 1340, 41, 50 }, true);
 	walkingUpRight.PushBack({ 1174, 1340, 41, 50 }, true);
@@ -178,11 +183,13 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyRunningRight.PushBack({ 981, 1260, 49, 51 });
 	enemyRunningRight.PushBack({ 1031, 1260, 49, 51 });
 	enemyRunningRight.PushBack({ 1081, 1260, 49, 51 });
+	enemyRunningRight.speed = 0.1f;
 
 	enemyRunningLeft.PushBack({ 931, 1260, 49, 51 }, true);
 	enemyRunningLeft.PushBack({ 981, 1260, 49, 51 }, true);
 	enemyRunningLeft.PushBack({ 1031, 1260, 49, 51 }, true);
 	enemyRunningLeft.PushBack({ 1081, 1260, 49, 51 }, true);
+	enemyRunningLeft.speed = 0.1f;
 
 	enemyRunningUpRight.PushBack({ 931, 1312, 49, 51 });
 	enemyRunningUpRight.PushBack({ 981, 1312, 49, 51 });
@@ -338,6 +345,14 @@ void Enemy_BrownShip::Update()
 	case 5:
 		spawnlimit = 170;
 		currentAnim = &enemyLooking;
+		break;
+	case 6:
+		spawnlimit = 200;
+		currentAnim = &walkingLeft;
+		break;
+	case 7:
+		spawnlimit = 150;
+		currentAnim = &enemyRunningLeft;
 		break;
 	}
 	

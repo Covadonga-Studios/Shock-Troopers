@@ -56,6 +56,7 @@ private:
 	Animation missileLauncherRight;
 	Animation missileLauncherTopLeft;
 	Animation missileLauncherTopRight;
+	Animation missileLauncherBody;
 	float dx;
 	float dy;
 	int test = 120;

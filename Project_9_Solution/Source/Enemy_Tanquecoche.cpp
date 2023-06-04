@@ -17,15 +17,21 @@ Enemy_Tanquecoche::Enemy_Tanquecoche(int x, int y) : Enemy(x, y)
 	missileLauncher.PushBack({ 6, 1694, 52, 55 });
 	missileLauncher.PushBack({ 59, 1694, 52, 55 });
 
+	missileLauncherBody.PushBack({ 6, 1694, 52, 55 }, true);
+	missileLauncherBody.PushBack({ 59, 1694, 52, 55 },true);
+
 	missileLauncherBrokenBody.PushBack({ 6, 1750, 52, 55 });
 	missileLauncherBrokenTop.PushBack({ 67, 1750, 44, 50 });
 
-	missileLauncherDownLeft.PushBack({ 6, 1806, 44, 51 });
-	missileLauncherDownRight.PushBack({ 6, 1806, 44, 51 }, true);
-	missileLauncherLeft.PushBack({ 51, 1806, 44, 51 });
-	missileLauncherRight.PushBack({ 51, 1750, 44, 51 }, true);
-	missileLauncherTopLeft.PushBack({ 96, 1750, 44, 51 });
-	missileLauncherTopRight.PushBack({ 96, 1750, 44, 51 }, true);
+	missileLauncherDownLeft.PushBack({ 96, 1750, 44, 51 });
+
+	missileLauncherDownRight.PushBack({ 96, 1750, 44, 51 }, true);
+
+	missileLauncherRight.PushBack({ 51, 1806, 44, 51 });
+
+	missileLauncherLeft.PushBack({ 51, 1806, 44, 51 }, true);
+	
+
 
 	//POR AHORA CUT CONTENT
 	//enemyshot1rightdowndiagonal.PushBack({ 905, 590, 64, 42 }, true);
@@ -44,9 +50,18 @@ Enemy_Tanquecoche::Enemy_Tanquecoche(int x, int y) : Enemy(x, y)
 
 void Enemy_Tanquecoche::Update()
 {
-	shootCooldown++;
+	shootCooldown++; 
 
-	
+	switch (enemyMode) {
+	case 0:
+		currentAnim = &missileLauncherLeft;
+		currentAnim2 = &missileLauncherBody;
+		break;
+	case 1:
+		currentAnim = &missileLauncherRight;
+		currentAnim2 = &missileLauncher;
+		break;
+	}
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
 	dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y);
 
@@ -54,6 +69,8 @@ void Enemy_Tanquecoche::Update()
 	{
 		pendingToDelete = false;
 		deleting = true;
+		currentAnim = &missileLauncherBrokenBody;
+		currentAnim2 = &missileLauncherBrokenTop;
 	}
 
 	if (deleting == true)

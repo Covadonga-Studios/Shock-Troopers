@@ -738,13 +738,6 @@ bool ModulePlayer::Start()
 
 	Win.Reset();
 
-	
-
-	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
-	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
-	//scoreFont = App->fonts->Load("Assets/Fonts/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
-
-	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
 
 	return ret;
 }
@@ -1741,8 +1734,8 @@ void ModulePlayer::DebugLogicUpdate()
 	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
 	{
 
-		App->player->position.x = 20;
-		App->player->position.y = -1528;
+		App->player->position.x = 1050;
+		App->player->position.y = -1450;
 	}
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
 	{
