@@ -147,7 +147,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
 				}
 				break;
-				break;
+				
 
 			case 1:
 				if (/*abs(spawnQueue[i].x - App->player->position.x) < 150 &&*/ abs(spawnQueue[i].y - App->player->position.y) < 100)

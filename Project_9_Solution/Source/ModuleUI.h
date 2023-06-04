@@ -33,7 +33,7 @@ public:
 
 	// The UI spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
-
+	SDL_Texture* palmeratexture = nullptr;
 
 	Animation portraitRed;
 	Animation portraitWhite;

@@ -46,6 +46,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyDeathUpRight.PushBack({ 455, 1520, 55, 55 });
 	enemyDeathUpRight.PushBack({ 511, 1520, 55, 55 });
 	enemyDeathUpRight.PushBack({ 567, 1520, 55, 55 });
+	enemyDeathUpRight.speed = 0.1f;
+	enemyDeathUpRight.loop = false;
 
 	enemyDeathUpLeft.PushBack({ 231, 1520, 55, 55 }, true);
 	enemyDeathUpLeft.PushBack({ 287, 1520, 55, 55 }, true);
@@ -54,6 +56,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyDeathUpLeft.PushBack({ 455, 1520, 55, 55 }, true);
 	enemyDeathUpLeft.PushBack({ 511, 1520, 55, 55 }, true);
 	enemyDeathUpLeft.PushBack({ 567, 1520, 55, 55 }, true);
+	enemyDeathUpLeft.speed = 0.1f;
+	enemyDeathUpLeft.loop = false;
 
 	enemyDeathDownRight.PushBack({ 231, 1576, 55, 55 });
 	enemyDeathDownRight.PushBack({ 287, 1576, 55, 55 });
@@ -62,6 +66,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyDeathDownRight.PushBack({ 455, 1576, 55, 55 });
 	enemyDeathDownRight.PushBack({ 511, 1576, 55, 55 });
 	enemyDeathDownRight.PushBack({ 567, 1576, 55, 55 });
+	enemyDeathDownRight.speed = 0.1f;
+	enemyDeathDownRight.loop = false;
 
 	enemyDeathDownLeft.PushBack({ 231, 1576, 55, 55 }, true);
 	enemyDeathDownLeft.PushBack({ 287, 1576, 55, 55 }, true);
@@ -70,6 +76,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyDeathDownLeft.PushBack({ 455, 1576, 55, 55 }, true);
 	enemyDeathDownLeft.PushBack({ 511, 1576, 55, 55 }, true);
 	enemyDeathDownLeft.PushBack({ 567, 1576, 55, 55 }, true);
+	enemyDeathDownLeft.speed = 0.1f;
+	enemyDeathDownLeft.loop = false;
 
 	enemyDeathLeft.PushBack({ 231, 1632, 55, 55 });
 	enemyDeathLeft.PushBack({ 287, 1632, 55, 55 });
@@ -78,6 +86,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyDeathLeft.PushBack({ 455, 1632, 55, 55 });
 	enemyDeathLeft.PushBack({ 511, 1632, 55, 55 });
 	enemyDeathLeft.PushBack({ 567, 1632, 55, 55 });
+	enemyDeathLeft.speed = 0.1f;
+	enemyDeathLeft.loop = false;
 
 	enemyDeathRight.PushBack({ 231, 1632, 55, 55 }, true);
 	enemyDeathRight.PushBack({ 287, 1632, 55, 55 }, true);
@@ -86,6 +96,8 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyDeathRight.PushBack({ 455, 1632, 55, 55 }, true);
 	enemyDeathRight.PushBack({ 511, 1632, 55, 55 }, true);
 	enemyDeathRight.PushBack({ 567, 1632, 55, 55 }, true);
+	enemyDeathRight.speed = 0.1f;
+	enemyDeathRight.loop = false;
 
 	enemyRollRight.PushBack({ 269, 1688, 38, 53 });
 	enemyRollRight.PushBack({ 308, 1688, 38, 53 });
@@ -223,8 +235,45 @@ void Enemy_RedBird::Update()
  		pendingToDelete = false;
 		deleting = true;
 		
+
+	
 		if (!isOnFire)
-			currentAnim = &enemydeath2;
+			switch (GetTargetDir(dx2, dy2))
+			{
+			case LEFT:
+				currentAnim = &enemyDeathRight;
+
+				break;
+			case RIGHT:
+				currentAnim = &enemyDeathLeft;
+
+				break;
+			case DOWN:
+				currentAnim = &enemydeath2;
+
+				break;
+			case UP:
+				currentAnim = &enemyDeathDownLeft;
+
+
+				break;
+			case DOWNLEFT:
+
+				currentAnim = &enemyDeathRight;
+				break;
+			case DOWNRIGHT:
+				currentAnim = &enemyDeathUpLeft;
+
+				break;
+			case UPLEFT:
+
+				currentAnim = &enemyDeathDownRight;
+				break;
+			case UPRIGHT:
+				currentAnim = &enemyDeathDownLeft;
+
+				break;
+			}
 		else
 			currentAnim = &enemyBurning;
 	}

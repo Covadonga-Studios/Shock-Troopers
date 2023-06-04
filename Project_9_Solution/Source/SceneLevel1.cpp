@@ -30,13 +30,16 @@ bool SceneLevel1::Start()
 
 	App->player->position.x = 0;
 		App->player->position.y = 0;
+	App->render->camera.x = 32;
+	App->render->camera.y = 0;
 
 	bgTexture = App->textures->Load("Assets/Sprites/TilesetPart1.png");
 	bgTexture2 = App->textures->Load("Assets/Sprites/Tileset part 2(1_2).png");
 	bgTexture3 = App->textures->Load("Assets/Sprites/background segundo vertical.png");
 	bridgebg = App->textures->Load("Assets/Sprites/shocktro030.png");
-	defaultspritesheet = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
-	defaultspritesheet2 = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	defaultspritesheet = App->textures->Load("Assets/Sprites/spritesheet2.29.png");
+	defaultspritesheet2 = App->textures->Load("Assets/Sprites/spritesheet2.29.png");
+	
 	
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);;
 
@@ -53,17 +56,99 @@ bool SceneLevel1::Start()
 
 	//Structures: 0 -> MedicTent, 1 ->tower1, 2 ->tower2
 	//Itempickup: 0 -> Hpboost, 1 -> diamond, 2 ->bomb, 3 -> flamethrower, 4 -> threeway
-	//Brownship (el huevon verde): 0 -> Parachute right spawn, 1 -> Parachute left spawn, 2 -> Corriendo hacia abajo, 3 -> Slideando abajo de la montaña
+	//Brownship (el huevon verde): 0 -> Parachute right spawn, 1 -> Parachute left spawn, 2 -> Corriendo hacia abajo, 3 -> Slideando abajo de la montaña 4-> quietito
 	//RedBird (el huevon blanco): 0 -> roll right, 1 -> roll left, 3-> roll down right, 4 -> roll down left
+	//Los tres barriles el 0 es sideways y el uno hacia abajo
+		
+	
+	//PRIMERA OLEADA
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -80,0);
 
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 0, -80,2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -80, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -80, 2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -120,0);
 
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 50, -120,2);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -120, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 200, -120, 2);
+	//OLEADA DE BARRILES 
+		
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -250, 2);
 
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -270, 4);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 10, -250, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -200, 4);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -250, 1);
+
+	//OLEADA PRIMER BLANCO
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -350, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -350, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -350, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -350, 1);
+
+	//PRIMERA OLEADA bis
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -500, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -500, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -540, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -540, 1);
+	
+	//INTERMEDIO
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -630, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -630, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -730, 4);
+
+	//OLEADA BARRILES + BARRICADAS
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL, 60, -850, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL, 220, -850, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 60, -870, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BARREL3, 240, -870, 2);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -920, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -920, 5);
+
+	//OLEADA BARRICADA SACOS 
+
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1100, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000,0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1050,0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1100, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1230, 5);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1230, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
+
+	//OLEADA TANKES + LANZACOHETES 
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1300, 4);
+
+		App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1350, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::TANK, 250, -1350, 0);
 
 		wave2 = false;
 		doorspawn = false;
@@ -84,22 +169,6 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-
-
-
-	if (App->player->position.y < -200 && wave2 == false)
-	{
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 0, -250);
-
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -350, 1);
-
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 50, -250);
-
-		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 200, -350, 1);
-		wave2 = true;
-	}
-
-
 	if (App->player->position.y < -1300 && doorspawn == false)
 	{
 		App->enemies->AddEnemy(Enemy_Type::DOOR, 103, -1536);
@@ -121,9 +190,12 @@ Update_Status SceneLevel1::PostUpdate()
 		App->enemies->AddEnemy(Enemy_Type::HELICOPTER, 988, -1649);
 		helispawn = true;
 	}
+
 	
+
 	App->render->Blit(bgTexture, 0, -1820, NULL);
 
+	
 
 	App->render->Blit(bridgebg, 891, -1548, NULL);
 	if (App->player->position.x > 930 && offsetheli < 390)
@@ -148,7 +220,7 @@ bool SceneLevel1::CleanUp()
 	App->collisions->Disable();
 	App->particles->Disable();
 
-	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)
+	
 
 	return true;
 }

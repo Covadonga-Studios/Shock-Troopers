@@ -22,6 +22,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemydeath1.speed = 0.1f;
 	enemydeath1.loop = false;
 	currentAnim = &fly;
+
+	slide.PushBack({ 57, 1984, 33, 45 });
 	
 	enemyshot1down.PushBack({ 20, 600, 43, 47 });
 	enemyshot1rightdown.PushBack({ 63, 600, 43, 47 });
@@ -78,6 +80,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyLooking.PushBack({ 1625, 406, 66, 50 });
 	enemyLooking.PushBack({ 1693, 406, 33, 50 });
 	enemyLooking.PushBack({ 1728, 406, 33, 50 });
+	enemyLooking.speed = 0.1f;
+	enemyLooking.loop = false;
 
 	walkingUp.PushBack({ 1132, 1187, 41, 50 });
 	walkingUp.PushBack({ 1174, 1187, 41, 50 });
@@ -230,6 +234,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	greenDeathUpRight.PushBack({ 847, 1520, 55, 55 });
 	greenDeathUpRight.PushBack({ 903, 1520, 55, 55 });
 	greenDeathUpRight.PushBack({ 959, 1520, 55, 55 });
+	greenDeathUpRight.speed = 0.1f;
+	greenDeathUpRight.loop = false;
 
 	greenDeathUpLeft.PushBack({ 623, 1520, 55, 55 }, true);
 	greenDeathUpLeft.PushBack({ 679, 1520, 55, 55 }, true);
@@ -238,6 +244,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	greenDeathUpLeft.PushBack({ 847, 1520, 55, 55 }, true);
 	greenDeathUpLeft.PushBack({ 903, 1520, 55, 55 }, true);
 	greenDeathUpLeft.PushBack({ 959, 1520, 55, 55 }, true);
+	greenDeathUpLeft.speed = 0.1f;
+	greenDeathUpLeft.loop = false;
 
 	greenDeathDownRight.PushBack({ 623, 1576, 55, 55 });
 	greenDeathDownRight.PushBack({ 679, 1576, 55, 55 });
@@ -246,6 +254,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	greenDeathDownRight.PushBack({ 847, 1576, 55, 55 });
 	greenDeathDownRight.PushBack({ 903, 1576, 55, 55 });
 	greenDeathDownRight.PushBack({ 959, 1576, 55, 55 });
+	greenDeathDownRight.speed = 0.1f;
+	greenDeathDownRight.loop = false;
 
 	greenDeathDownLeft.PushBack({ 623, 1576, 55, 55 }, true);
 	greenDeathDownLeft.PushBack({ 679, 1576, 55, 55 }, true);
@@ -254,6 +264,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	greenDeathDownLeft.PushBack({ 847, 1576, 55, 55 }, true);
 	greenDeathDownLeft.PushBack({ 903, 1576, 55, 55 }, true);
 	greenDeathDownLeft.PushBack({ 959, 1576, 55, 55 }, true);
+	greenDeathDownLeft.speed = 0.1f;
+	greenDeathDownLeft.loop = false;
 
 	greenDeathRight.PushBack({ 623, 1632, 55, 55 });
 	greenDeathRight.PushBack({ 679, 1632, 55, 55 });
@@ -262,6 +274,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	greenDeathRight.PushBack({ 847, 1632, 55, 55 });
 	greenDeathRight.PushBack({ 903, 1632, 55, 55 });
 	greenDeathRight.PushBack({ 959, 1632, 55, 55 });
+	greenDeathRight.speed = 0.1f;
+	greenDeathRight.loop = false;
 
 	greenDeathLeft.PushBack({ 623, 1632, 55, 55 }, true);
 	greenDeathLeft.PushBack({ 679, 1632, 55, 55 }, true);
@@ -270,11 +284,13 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	greenDeathLeft.PushBack({ 847, 1632, 55, 55 }, true);
 	greenDeathLeft.PushBack({ 903, 1632, 55, 55 }, true);
 	greenDeathLeft.PushBack({ 959, 1632, 55, 55 }, true);
+	greenDeathLeft.speed = 0.1f;
+	greenDeathLeft.loop = false;
 
 	hp = 1;
 
 	
-	collider = App->collisions->AddCollider({0, 0, 43, 43}, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 
@@ -311,11 +327,19 @@ void Enemy_BrownShip::Update()
 		break;
 	case 3:
 		spawnlimit = 50;
-		currentAnim = &enemyRunning;
+		currentAnim = &slide;
 		position.y++;
 		break;
+	case 4:
+		spawnlimit = 0;
 
+		break;
+	case 5:
+		spawnlimit = 170;
+		currentAnim = &enemyLooking;
+		break;
 	}
+	
 
 	
 
@@ -333,7 +357,43 @@ void Enemy_BrownShip::Update()
 		deleting = true;
 		if (!isOnFire) {
 
-			currentAnim = &enemydeath1;
+			switch (GetTargetDir(dx2, dy2))
+			{
+			case LEFT:
+				currentAnim = &greenDeathLeft;
+				
+				break;
+			case RIGHT:
+				currentAnim = &greenDeathRight;
+				
+				break;
+			case DOWN:
+				currentAnim = &enemydeath1;
+				
+				break;
+			case UP:
+				currentAnim = &greenDeathDownLeft;
+				
+				
+				break;
+			case DOWNLEFT:
+				
+				currentAnim = &greenDeathUpRight;
+				break;
+			case DOWNRIGHT:
+				currentAnim = &greenDeathUpLeft;
+				
+				break;
+			case UPLEFT:
+				
+				currentAnim = &greenDeathDownRight;
+				break;
+			case UPRIGHT:
+				currentAnim = &greenDeathDownLeft;
+				
+				break;
+			}
+
 		}
 		else
 			currentAnim = &enemyBurning;
@@ -359,49 +419,51 @@ void Enemy_BrownShip::Update()
 	}
 
 
-	if (deleting == false && spawn > spawnlimit)
-	switch (GetTargetDir(dx2,dy2))
-	{
-	case LEFT:
-		currentAnim = &enemyshot1left;
-		offsetshootx = -2;
-		offsetshooty = 15;
-		break;
-	case RIGHT:
-		currentAnim = &enemyshot1right;
-		offsetshootx = 40;
-		offsetshooty = 15;
-		break;
-	case DOWN:
-		currentAnim = &enemyshot1down;
-		offsetshootx = 25;
-		offsetshooty = 35;
-		break;
-	case UP:
-		currentAnim = &enemyshot1up;
-		offsetshootx = 20;
-		offsetshooty = -5;
-		break;
-	case DOWNLEFT:
-		currentAnim = &enemyshot1downleft;
-		offsetshootx = 5;
-		offsetshooty = 27;
-		break;
-	case DOWNRIGHT:
-		currentAnim = &enemyshot1rightdown;
-		offsetshootx = 35;
-		offsetshooty = 28;
-		break;
-	case UPLEFT:
-		currentAnim = &enemyshot1upleft;
-		offsetshootx = 5;
-		offsetshooty = 1;
-		break;
-	case UPRIGHT:
-		currentAnim = &enemyshot1rightup;
-		offsetshootx = 30;
-		offsetshooty = 2;
-		break;
+	if (deleting == false && spawn > spawnlimit) {
+		collider->SetPos(position.x, position.y);
+		switch (GetTargetDir(dx2, dy2))
+		{
+		case LEFT:
+			currentAnim = &enemyshot1left;
+			offsetshootx = -2;
+			offsetshooty = 15;
+			break;
+		case RIGHT:
+			currentAnim = &enemyshot1right;
+			offsetshootx = 40;
+			offsetshooty = 15;
+			break;
+		case DOWN:
+			currentAnim = &enemyshot1down;
+			offsetshootx = 25;
+			offsetshooty = 35;
+			break;
+		case UP:
+			currentAnim = &enemyshot1up;
+			offsetshootx = 20;
+			offsetshooty = -5;
+			break;
+		case DOWNLEFT:
+			currentAnim = &enemyshot1downleft;
+			offsetshootx = 5;
+			offsetshooty = 27;
+			break;
+		case DOWNRIGHT:
+			currentAnim = &enemyshot1rightdown;
+			offsetshootx = 35;
+			offsetshooty = 28;
+			break;
+		case UPLEFT:
+			currentAnim = &enemyshot1upleft;
+			offsetshootx = 5;
+			offsetshooty = 1;
+			break;
+		case UPRIGHT:
+			currentAnim = &enemyshot1rightup;
+			offsetshootx = 30;
+			offsetshooty = 2;
+			break;
+		}
 	}
 
 	if (spawn > spawnlimit)

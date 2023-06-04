@@ -24,7 +24,13 @@ private:
 	Animation box;
 	Animation boxidle;
 	Animation front, back;
+	Animation peekyDownRight;
+	Animation peekyDown;
+	Animation peekyDownLeft;
+	Animation enemydeath1;
 	int deathTimer = 0;
+	int shootCooldown;
+	float dx, dy;
 };
 
 #endif // __ENEMY_THREEBARRELS_H__

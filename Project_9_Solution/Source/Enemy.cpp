@@ -29,6 +29,11 @@ void Enemy::Update()
 	grenadeImmunity++;
 	flameImmunity++;
 
+	if (collider == nullptr && pendingToDelete == false ) {
+		pendingToDelete = true;
+
+	}
+
 	if (currentAnim != nullptr)
 		currentAnim->Update();
 

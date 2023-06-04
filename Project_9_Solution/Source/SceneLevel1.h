@@ -39,6 +39,7 @@ public:
 	SDL_Texture* bridgebg = nullptr;
 	SDL_Texture* defaultspritesheet = nullptr;
 	SDL_Texture* defaultspritesheet2 = nullptr;
+	
 	Collider* collider = nullptr;
 	int offsetheli = 0;
 	bool helispawn = false;

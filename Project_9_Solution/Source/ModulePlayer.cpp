@@ -716,7 +716,7 @@ bool ModulePlayer::Start()
 	timer = 99;
 	weapon = 0;
 
-	position.x = 150;
+	position.x = 180;
 	position.y = 120;
 
 	destroyed = false;

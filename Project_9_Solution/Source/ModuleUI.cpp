@@ -24,6 +24,7 @@ bool ModuleUI::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/UI_EMELENTS.png");
+	palmeratexture = App->textures->Load("Assets/Sprites/palmeras.png");
 
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
 	generalFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
@@ -131,7 +132,7 @@ Update_Status ModuleUI::PostUpdate()
 
 
 
-
+	App->render->Blit(palmeratexture, -42, -1370, NULL);
 	
 	App->fonts->BlitText(41, 8, generalFont, scoreText);
 	App->fonts->BlitText(145, 17, timerFont, timerText);
