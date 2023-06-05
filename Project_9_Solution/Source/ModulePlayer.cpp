@@ -676,6 +676,8 @@ bool ModulePlayer::Start()
 	isDead = false;
 	winCon = false;
 	isHurt = false;
+	bigkill = 0;
+	grenadeCounter = 15;
 
 
 	laserFx = App->audio->LoadFx("Assets/Fx/Player Shot.wav");

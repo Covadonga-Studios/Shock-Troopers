@@ -170,7 +170,7 @@ void Enemy_Itempickup::Update()
             deleting = true;
             currentAnim = &bombUp;
             App->player->score += 4000;
-            App->player->grenadeCounter++;
+            App->player->grenadeCounter = 15;
         }
 
         if (currentAnim->HasFinished() == true && deleting == true)

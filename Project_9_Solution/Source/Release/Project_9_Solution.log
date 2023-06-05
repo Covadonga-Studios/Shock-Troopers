@@ -1,6 +1,263 @@
-﻿  Generating code
-  0 of 265 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  Project_9_Solution.vcxproj -> C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Release\Project_9_Solution.exe
+﻿  Application.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  CharacterScreen.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Collider.cpp
+  Enemy.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy.cpp(60,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Enemy_Barrel.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_Barricade.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Barricade.cpp(53,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Barricade.cpp(54,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_Bazooka.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(92,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(93,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_BlackSoldier.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BlackSoldier.cpp(76,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BlackSoldier.cpp(77,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_BrownShip.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(375,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(376,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(378,69): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(379,69): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_Camillers.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Camillers.cpp(69,9): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+  Enemy_Door.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_FinalBoss.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(88,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(89,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_Helicopter.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(62,82): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(63,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_Itempickup.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_Mech.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_RedBird.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(197,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(198,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(200,69): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(201,69): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_Structures.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(80,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(81,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(200,82): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(201,82): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_Tank.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(90,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(91,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(92,69): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(93,69): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_TankStop.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Enemy_Tanquecoche.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(66,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(67,68): warning C4244: '=': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(102,140): warning C4305: 'argumento': truncamiento de 'int' a 'bool'
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(106,135): warning C4305: 'argumento': truncamiento de 'int' a 'bool'
+  Compilando...
+  Enemy_ThreeBarrels.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_ThreeBarrels.cpp(32,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_ThreeBarrels.cpp(33,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy_Torpedo.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Globals.cpp
+  InitialScreen.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleAudio.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleCollisions.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleEnemies.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleFadeToBlack.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleFadeToBlack.cpp(78,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
+  ModuleFonts.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleParticles.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(539,78): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(539,56): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(544,72): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(544,50): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(565,30): warning C4244: '=': conversión de 'int' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(566,30): warning C4244: '=': conversión de 'int' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+  ModuleUI.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  SceneIntro.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  SceneLevel1.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleInput.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModulePlayer.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(745,12): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(746,10): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(747,12): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(748,13): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(1027,11): warning C4554: "&": compruebe la prioridad de operador para posibles errores; utilice paréntesis para indicar la prioridad
+  ModuleRender.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(225,48): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(226,48): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(261,48): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(262,48): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(298,48): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(299,48): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleTextures.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleWindow.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Main.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Module.cpp
+  Compilando...
+  Particle.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Particle.cpp(39,19): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Particle.cpp(51,58): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Particle.cpp(51,32): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+  Path.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código
+  172 of 265 functions (64.9%) were compiled, the rest were copied from previous compilation.
+    5 functions were new in current compilation
+    15 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Release\Project_9_Solution.exe

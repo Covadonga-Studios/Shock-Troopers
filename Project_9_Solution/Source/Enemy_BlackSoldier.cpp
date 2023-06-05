@@ -139,7 +139,7 @@ void Enemy_BlackSoldier::Update()
 		pendingToDelete = false;
 		deleting = true;
 		currentAnim = &blackSoldierDeath;
-		App->player->bigkill = 1;
+		
 	}
 
 	if (currentAnim->HasFinished() == true)

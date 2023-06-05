@@ -579,7 +579,7 @@ Update_Status SceneLevel1::Update()
 	}
 	if (App->player->bigkill == 1 && App->render->cameraMode == 3)
 	{
-
+		App->player->bigkill = 0;
 		App->render->cameraMode = 4;
 	}
 	if (App->player->position.x >= 2150 && App->render->cameraMode == 4) {
