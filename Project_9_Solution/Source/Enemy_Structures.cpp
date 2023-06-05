@@ -44,7 +44,7 @@ Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 	towerBreaking.speed = 0.1f;
 
 	tower2.PushBack({ 1853, 1125, 64, 125 });
-	
+
 	tower2almost.PushBack({ 1918, 1125, 64, 125 });
 	tower2Breaking.PushBack({ 1983, 1125, 64, 125 });
 	tower2Breaking.loop = false;
@@ -61,9 +61,9 @@ Enemy_Structures::Enemy_Structures(int x, int y) : Enemy(x, y)
 	dissapear.PushBack({ 0,0,0,0 });
 
 
-	
 
-	
+
+
 	hp = 24;
 	hpold = hp;
 }
@@ -72,7 +72,7 @@ void Enemy_Structures::Update()
 {
 	shootCooldown++;
 
-	if (deleting == true) 
+	if (deleting == true)
 	{
 		dissapearCooldown++;
 	}
@@ -98,6 +98,9 @@ void Enemy_Structures::Update()
 			collider = App->collisions->AddCollider({ 20, 20, 64, 125 }, Collider::Type::ENEMY, (Module*)App->enemies);
 			break;
 		}
+		offsettexture1y = -200;
+		offsettexture2y = -200;
+
 		start = true;
 	}
 
@@ -106,7 +109,6 @@ void Enemy_Structures::Update()
 	{
 	case 0:
 
-		collider->SetPos(position.x, position.y);
 		if (hp <= 0 && deleting == false)
 		{
 			pendingToDelete = false;
@@ -127,9 +129,7 @@ void Enemy_Structures::Update()
 		break;
 	case 1:
 		offsettexture1x = 15;
-		offsettexture1y = 5;
 
-		collider->SetPos(position.x, position.y);
 		if (deleting == false)
 		{
 			switch (GetTargetDir(dx, dy))
@@ -160,54 +160,52 @@ void Enemy_Structures::Update()
 				break;
 			}
 		}
-			if (shootCooldown > 150 && deleting == false)
-			{
-				float dir = Dircalculation(dx, dy);
+		if (shootCooldown > 150 && deleting == false)
+		{
+			float dir = Dircalculation(dx, dy);
 
-				float dirx = (dx * 1.5f / dir);
-				float diry = (dy * 1.5f / dir);
+			float dirx = (dx * 1.5f / dir);
+			float diry = (dy * 1.5f / dir);
 
-				App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::ENEMY_SHOT);
-				shootCooldown = 0;
-			}
+			App->particles->AddParticle(App->particles->laser, position.x, position.y, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			shootCooldown = 0;
+		}
 
-			if (hp <= 0 && deleting == false)
-			{
-				pendingToDelete = false;
-				deleting = true;
-				currentAnim2 = &towerBreaking;
-				currentAnim = &dissapear;
-				App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y, 0, 0, false, Collider::Type::NONE);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y +40, 0, 0, false, Collider::Type::NONE, 10);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x+10, position.y +80, 0, 0, false, Collider::Type::NONE, 20);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x+45, position.y +110, 0, 0, false, Collider::Type::NONE,30);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x + 0, position.y + 120, 0, 0, false, Collider::Type::NONE, 40);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 140, 0, 0, false, Collider::Type::NONE, 50);
-			}
+		if (hp <= 0 && deleting == false)
+		{
+			pendingToDelete = false;
+			deleting = true;
+			currentAnim2 = &towerBreaking;
+			currentAnim = &dissapear;
+			App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y, 0, 0, false, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 40, 0, 0, false, Collider::Type::NONE, 10);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 10, position.y + 80, 0, 0, false, Collider::Type::NONE, 20);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 45, position.y + 110, 0, 0, false, Collider::Type::NONE, 30);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 0, position.y + 120, 0, 0, false, Collider::Type::NONE, 40);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 140, 0, 0, false, Collider::Type::NONE, 50);
+		}
 
-			if (dissapearCooldown > 80)
-			{
-				die = true;
-			}
-			break;
+		if (dissapearCooldown > 80)
+		{
+			die = true;
+		}
+		break;
 	case 2:
-		offsettexture1x = 15;
-		offsettexture1y = 15;
 
-		
+
+
 		randomoffset += 2;
 
 		dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - 15);
 		dy = (App->player->position.y + App->player->collider->rect.h / 2 - position.y - 15);
 
-		collider->SetPos(position.x, position.y);
 		if (deleting == false)
 		{
 			switch (GetTargetDir(dx, dy))
 			{
-		
-			
-			
+
+
+
 			case DOWN:
 				currentAnim = &lightMGenemyDownRight;
 				break;
@@ -219,73 +217,73 @@ void Enemy_Structures::Update()
 				break;
 			}
 		}
-			if (shootCooldown > 150 && deleting == false)
-			{
+		if (shootCooldown > 150 && deleting == false)
+		{
 
 
-				float dir = Dircalculation(dx, dy);
+			float dir = Dircalculation(dx, dy);
 
-				float dirx = (dx * 1.5f / dir);
-				float diry = (dy * 1.5f / dir);
+			float dirx = (dx * 1.5f / dir);
+			float diry = (dy * 1.5f / dir);
 
-				switch (GetTargetDir(dx, dy)) {
-				case DOWN:
-					App->particles->AddParticle(App->particles->laser, position.x + 30, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
-					break;
-				
-				case DOWNLEFT:
-					App->particles->AddParticle(App->particles->laser, position.x + 15, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
-					break;
-				case DOWNRIGHT:
-					App->particles->AddParticle(App->particles->laser, position.x + 50, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
-					break;
-				}
-				
-				shootCooldown = 0;
+			switch (GetTargetDir(dx, dy)) {
+			case DOWN:
+				App->particles->AddParticle(App->particles->laser, position.x + 30, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+				break;
+
+			case DOWNLEFT:
+				App->particles->AddParticle(App->particles->laser, position.x + 15, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+				break;
+			case DOWNRIGHT:
+				App->particles->AddParticle(App->particles->laser, position.x + 50, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+				break;
 			}
 
-			if (randomoffset > 40)
-			{
-				randomoffset = 0;
-			}
-			if (hp < 8)
-			{
-				currentAnim2 = &tower2almost;
-			}
-			if (hpold > hp)
-			{
-				hpold = hp;
-				App->particles->AddParticle(App->particles->dust, position.x + randomoffset, position.y + 30, 0, 0, false, Collider::Type::NONE);
-				App->particles->AddParticle(App->particles->dust, position.x + randomoffset, position.y + 80, 0, 0, false, Collider::Type::NONE);
-			}
+			shootCooldown = 0;
+		}
 
-			if (hp <= 0 && deleting == false)
-			{
-				pendingToDelete = false;
-				deleting = true;
-				currentAnim2 = &tower2Breaking;
-				currentAnim = &dissapear;
-				App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 20, 0, 0, false, Collider::Type::NONE, 0);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 50, 0, 0, false, Collider::Type::NONE, 10);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x , position.y + 45, 0, 0, false, Collider::Type::NONE, 20);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x , position.y + 45, 0, 0, false, Collider::Type::NONE, 30);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 85, 0, 0, false, Collider::Type::NONE, 40);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 20, 0, 0, false, Collider::Type::NONE, 50);
-				App->particles->AddParticle(App->particles->explosionDefault, position.x , position.y + 50, 0, 0, false, Collider::Type::NONE, 60);
-			}
+		if (randomoffset > 40)
+		{
+			randomoffset = 0;
+		}
+		if (hp < 8)
+		{
+			currentAnim2 = &tower2almost;
+		}
+		if (hpold > hp)
+		{
+			hpold = hp;
+			App->particles->AddParticle(App->particles->dust, position.x + randomoffset, position.y + 30, 0, 0, false, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->dust, position.x + randomoffset, position.y + 80, 0, 0, false, Collider::Type::NONE);
+		}
 
-			if (dissapearCooldown > 80)
-			{
-				die = true;
-			}
-			break;
+		if (hp <= 0 && deleting == false)
+		{
+			pendingToDelete = false;
+			deleting = true;
+			currentAnim2 = &tower2Breaking;
+			currentAnim = &dissapear;
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 20, 0, 0, false, Collider::Type::NONE, 0);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 50, 0, 0, false, Collider::Type::NONE, 10);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 45, 0, 0, false, Collider::Type::NONE, 20);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 45, 0, 0, false, Collider::Type::NONE, 30);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 85, 0, 0, false, Collider::Type::NONE, 40);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 20, 0, 0, false, Collider::Type::NONE, 50);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 50, 0, 0, false, Collider::Type::NONE, 60);
+		}
+
+		if (dissapearCooldown > 80)
+		{
+			die = true;
+		}
+		break;
 	}
 
-		
-		collider->SetPos(position.x, position.y);
-		// Call to the base class. It must be called at the end
-		// It will update the collider depending on the position
-		Enemy::Update();
+	collider->SetPos(position.x, position.y - 200);
 
-	
+	// Call to the base class. It must be called at the end
+	// It will update the collider depending on the position
+	Enemy::Update();
+
+
 }

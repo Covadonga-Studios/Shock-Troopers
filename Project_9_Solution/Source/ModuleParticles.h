@@ -103,6 +103,17 @@ public:
 	Particle powerUpThreeBullets;
 
 	Particle flameThrower;
+
+	Particle enemybulletdown;
+	Particle enemybulletrightdown;
+	Particle enemybulletright;
+	Particle enemybulletrightup;
+	Particle enemybulletup;
+	Particle enemybulletupleft;
+	Particle enemybulletleft;
+	Particle enemybulletdownleft;
+
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

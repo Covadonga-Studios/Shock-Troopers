@@ -44,14 +44,14 @@ bool SceneLevel1::Start()
 	bridgebg = App->textures->Load("Assets/Sprites/shocktro030.png");
 	defaultspritesheet = App->textures->Load("Assets/Sprites/spritesheet2.29.png");
 	defaultspritesheet2 = App->textures->Load("Assets/Sprites/spritesheet2.29.png");
-	
-	
+
+
 	App->audio->PlayMusic("Assets/Music/Stage 1.ogg", 1.0f);;
 
 	//Bottomside collider
-	
-	 App->collisions->AddCollider({ 0, -2000, 10, 2424 }, Collider::Type::WALL);
-	 //collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
+
+	App->collisions->AddCollider({ 0, -2000, 10, 2424 }, Collider::Type::WALL);
+	//collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 360, -1310, 10, 2424 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, -1548, 1000, 10 }, Collider::Type::WALL);
 	//PUENTE 1 COLLIDER
@@ -75,14 +75,14 @@ bool SceneLevel1::Start()
 	// 0 -> MedicTent
 	// 1 ->tower1
 	// 2 ->tower2
-	
+
 	//Itempickup: 
 	// 0 -> Hpboost
 	// 1 -> diamond
 	// 2 ->bomb
 	// 3 -> flamethrower
 	// 4 -> threeway
-	
+
 	//Brownship (el huevon verde): 
 	// 0 -> Parachute right spawn
 	// 1 -> Parachute left spawn
@@ -92,18 +92,19 @@ bool SceneLevel1::Start()
 	// 5-> prismaticos
 	// 6 -> andando izauierda
 	// 7-> corriendo izquierda
-	
+
 	//RedBird (el huevon blanco): 
 	// 0 -> roll right 
 	// 1 -> roll left
 	// 3-> roll down right
 	// 4 -> roll down left
-	
+
 	//Los tres barriles el 0 es sideways y el uno hacia abajo
-		
-	
-	
-		
+
+
+	App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 150, -300, 0);
+
+
 	wave1 = false;
 	wave2 = false;
 	wave3 = false;
@@ -113,31 +114,31 @@ bool SceneLevel1::Start()
 	wave7 = false;
 	wave8 = false;
 	wave9 = false;
-	wave10 =false;
-	wave11 =false;
-	wave12 =false;
-	wave13 =false;
-	wave14 =false;
-	wave15 =false;
-	wave16 =false;
-	wave17 =false;
-	wave18 =false;
-	wave19 =false;
-	wave20 =false;
-	wave21 =false;
-	wave22 =false;
-	wave23 =false;
+	wave10 = false;
+	wave11 = false;
+	wave12 = false;
+	wave13 = false;
+	wave14 = false;
+	wave15 = false;
+	wave16 = false;
+	wave17 = false;
+	wave18 = false;
+	wave19 = false;
+	wave20 = false;
+	wave21 = false;
+	wave22 = false;
+	wave23 = false;
 
 	doorspawn = false;
 	helispawn = false;
 
 	App->render->cameraMode = 0;
 
-		helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
-		helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
+	helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
+	helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
 
-		currentAnimation = &helicopterArriving;
-		return ret;
+	currentAnimation = &helicopterArriving;
+	return ret;
 }
 
 Update_Status SceneLevel1::Update()
@@ -153,6 +154,8 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
+
+
 
 		wave1 = true;
 	}
@@ -318,7 +321,7 @@ Update_Status SceneLevel1::Update()
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 600, -1600, 3);
 
-	
+
 		wave11 = true;
 	}
 
@@ -336,10 +339,10 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 800, -1400, 4);
 		wave22 = true;
 	}
-	
+
 	if (App->player->position.x >= 1050 && wave12 == false) {
 		//PUENTE2 
-				
+
 		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 1150, -1410, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 870, -1410, 1);
@@ -352,7 +355,7 @@ Update_Status SceneLevel1::Update()
 
 	if (App->player->position.x >= 1340 && wave13 == false) {
 		//POST PUENTE OLEADA
-	
+
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1440, -1420, 6);
 
@@ -379,7 +382,7 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.x >= 1650 && wave14 == false) {
 		//TANKES POST PUENTE OLEADA
 
-		
+
 		//App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 1750, -1370, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1650, -1600, 3);
@@ -450,7 +453,7 @@ Update_Status SceneLevel1::Update()
 		//MONO MOMENTO OLEADAS
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 2217, -1675, 0); //aqui iria el mono :'(
-		
+
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1731, 2);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2240, -1751, 2);
@@ -473,7 +476,7 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.y >= -1900 && wave18 == false) {
 		//MEDICOZONA OLEADAS
 
-		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2262, -2090, 0);
+		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2262, -1890, 0);
 		//App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2362, -1990, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2050, -1940, 2);
@@ -523,18 +526,18 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2227, -2927, 4);
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2324, -2927, 4);
 
-		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2065, -3121, 1);
-		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2340, -3121, 1);
+		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2065, -2921, 1);
+		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2340, -2921, 1);
 		wave20 = true;
 	}
 
 	if (App->player->position.y >= -3150 && wave21 == false) {
 		//BOSS ARENA1
 
-		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2343, -3329, 2);
+		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2343, -3129, 2);
 		//App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2293, -3249, 0);
 
-		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2056, -3329, 2);
+		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2056, -3129, 2);
 
 		wave21 = true;
 	}
@@ -553,10 +556,10 @@ Update_Status SceneLevel1::Update()
 	{
 		App->enemies->AddEnemy(Enemy_Type::DOOR, 103, -1536);
 		doorspawn = true;
-	
+
 	}
 
-	if (App->player->position.y < -1350 && App->render->cameraMode == 0) 
+	if (App->player->position.y < -1350 && App->render->cameraMode == 0)
 	{
 		App->player->kills = 0;
 		App->render->cameraMode = 1;
@@ -574,23 +577,20 @@ Update_Status SceneLevel1::Update()
 		App->render->camera.x = 877;
 		App->render->camera.y = -1536;
 	}
-	if (App->player->bigkill ==1 && App->render->cameraMode == 3)
+	if (App->player->bigkill == 1 && App->render->cameraMode == 3)
 	{
-		
+
 		App->render->cameraMode = 4;
 	}
 	if (App->player->position.x >= 2150 && App->render->cameraMode == 4) {
 		App->render->cameraMode = 5;
 	}
-
-
-
 	/*if (App->player->position.y <= -2280 && App->render->cameraMode == 5) {
 		App->player->bigkill = 0;
 		App->render->cameraMode = 6;
 	}
 	if (App->player->bigkill == 1 && App->render->cameraMode == 6) {
-		
+
 		App->render->cameraMode = 7;
 	}*/
 	return Update_Status::UPDATE_CONTINUE;
@@ -609,11 +609,11 @@ Update_Status SceneLevel1::PostUpdate()
 		helispawn = true;
 	}
 
-	
+
 
 	App->render->Blit(bgTexture, 0, -1820, NULL);
 
-	
+
 
 	App->render->Blit(bridgebg, 891, -1548, NULL);
 	if (App->player->position.x > 930 && offsetheli < 390)
@@ -621,7 +621,7 @@ Update_Status SceneLevel1::PostUpdate()
 		offsetheli += 2;
 		App->render->Blit(defaultspritesheet, 871 + offsetheli, -1470, &rect);
 	}
-	
+
 	App->render->Blit(bgTexture2, 0, -1548, NULL);
 	App->render->Blit(bgTexture3, 2048, -1548 - 2020 + 238, NULL);
 
@@ -638,7 +638,7 @@ bool SceneLevel1::CleanUp()
 	App->collisions->Disable();
 	App->particles->Disable();
 
-	
+
 
 	return true;
 }

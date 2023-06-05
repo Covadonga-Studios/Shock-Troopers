@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/spritesheet2.28.png");
+	texture = App->textures->Load("Assets/Sprites/spritesheet2.29.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -40,59 +40,55 @@ bool ModuleParticles::Start()
 	laser.lifetime = 180;
 	laser.anim.speed = 0.2f;
 
-	PlayerShotUp.anim.PushBack({ 120, 280, 13, 13 });
-	PlayerShotUp.anim.PushBack({ 133, 280, 13, 13 });
+	PlayerShotUp.anim.PushBack({ 821, 1734, 7, 13 });
+	PlayerShotUp.anim.PushBack({ 834, 1734, 7, 13 });
 	PlayerShotUp.speed.x = 5;
 	PlayerShotUp.lifetime = 180;
 	PlayerShotUp.anim.speed = 0.2f;
 
-
-	PlayerShotUpRight.anim.PushBack({ 146, 280, 13, 13 });
-	PlayerShotUpRight.anim.PushBack({ 159, 280, 13, 13 });
-	PlayerShotUpRight.speed.x = 5;
-	PlayerShotUpRight.lifetime = 180;
-	PlayerShotUpRight.anim.speed = 0.2f;
-
-
-	PlayerShotRight.anim.PushBack({ 172, 280, 13, 13 });
-	PlayerShotRight.anim.PushBack({ 185, 280, 13, 13 });
-	PlayerShotRight.speed.x = 5;
-	PlayerShotRight.lifetime = 180;
-	PlayerShotRight.anim.speed = 0.2f;
-
-
-	PlayerShotDownRight.anim.PushBack({ 198, 280, 13, 13 });
-	PlayerShotDownRight.anim.PushBack({ 211, 280, 13, 13 });
-	PlayerShotDownRight.speed.x = 5;
-	PlayerShotDownRight.lifetime = 180;
-	PlayerShotDownRight.anim.speed = 0.2f;
-
-
-	PlayerShotDown.anim.PushBack({ 224, 280, 13, 13 });
-	PlayerShotDown.anim.PushBack({ 237, 280, 13, 13 });
+	PlayerShotDown.anim.PushBack({ 925, 1734, 7, 13 });
+	PlayerShotDown.anim.PushBack({ 938, 1734, 7, 13 });
 	PlayerShotDown.speed.x = 5;
 	PlayerShotDown.lifetime = 180;
 	PlayerShotDown.anim.speed = 0.2f;
 
+	PlayerShotUpRight.anim.PushBack({ 845, 1734, 12, 12 });
+	PlayerShotUpRight.anim.PushBack({ 858, 1734, 12, 12 });
+	PlayerShotUpRight.speed.x = 5;
+	PlayerShotUpRight.lifetime = 180;
+	PlayerShotUpRight.anim.speed = 0.2f;
 
-	PlayerShotDownLeft.anim.PushBack({ 198, 280, 13, 13 }, true);
-	PlayerShotDownLeft.anim.PushBack({ 211, 280, 13, 13 }, true);
-	PlayerShotDownLeft.speed.x = 5;
-	PlayerShotDownLeft.lifetime = 180;
-	PlayerShotDownLeft.anim.speed = 0.2f;
+	PlayerShotUpLeft.anim.PushBack({ 845, 1734, 12, 12 }, true);
+	PlayerShotUpLeft.anim.PushBack({ 858, 1734, 12, 12 }, true);
+	PlayerShotUpLeft.speed.x = 5;
+	PlayerShotUpLeft.lifetime = 180;
+	PlayerShotUpLeft.anim.speed = 0.2f;
 
 
-	PlayerShotLeft.anim.PushBack({ 172, 280, 13, 13 }, true);
-	PlayerShotLeft.anim.PushBack({ 185, 280, 13, 13 }, true);
+	PlayerShotRight.anim.PushBack({ 870, 1737, 13, 7 });
+	PlayerShotRight.anim.PushBack({ 883, 1737, 13, 7 });
+	PlayerShotRight.speed.x = 5;
+	PlayerShotRight.lifetime = 180;
+	PlayerShotRight.anim.speed = 0.2f;
+
+	PlayerShotLeft.anim.PushBack({ 870, 1737, 13, 7 }, true);
+	PlayerShotLeft.anim.PushBack({ 883, 1737, 13, 7 }, true);
 	PlayerShotLeft.speed.x = 5;
 	PlayerShotLeft.lifetime = 180;
 	PlayerShotLeft.anim.speed = 0.2f;
 
-	PlayerShotUpLeft.anim.PushBack({ 146, 280, 13, 13 }, true);
-	PlayerShotUpLeft.anim.PushBack({ 159, 280, 13, 13 }, true);
-	PlayerShotUpLeft.speed.x = 5;
-	PlayerShotUpLeft.lifetime = 180;
-	PlayerShotUpLeft.anim.speed = 0.2f;
+
+	PlayerShotDownRight.anim.PushBack({ 897, 1735, 12, 12 });
+	PlayerShotDownRight.anim.PushBack({ 910, 1735, 12, 12 });
+	PlayerShotDownRight.speed.x = 5;
+	PlayerShotDownRight.lifetime = 180;
+	PlayerShotDownRight.anim.speed = 0.2f;
+
+	PlayerShotDownLeft.anim.PushBack({ 897, 1735, 12, 12 }, true);
+	PlayerShotDownLeft.anim.PushBack({ 910, 1735, 12, 12 }, true);
+	PlayerShotDownLeft.speed.x = 5;
+	PlayerShotDownLeft.lifetime = 180;
+	PlayerShotDownLeft.anim.speed = 0.2f;
 
 	grenade.anim.PushBack({398, 580, 53,110 });
 	grenade.anim.PushBack({ 451, 580, 53,110 });
@@ -409,6 +405,55 @@ bool ModuleParticles::Start()
 	powerUpThreeBullets.anim.PushBack({ 556, 36, 13, 13 });
 	powerUpThreeBullets.anim.speed = 0.2f;
 	powerUpThreeBullets.lifetime = 80;
+
+
+	enemybulletdown.anim.PushBack({ 1955, 1, 32, 35 });
+	enemybulletdown.anim.PushBack({ 1955, 37, 32, 35 });
+	enemybulletdown.anim.PushBack({ 1955, 73, 32, 35 });
+	enemybulletdown.anim.PushBack({ 1955, 109, 32, 35 });
+	enemybulletdown.anim.speed = 0.1f;
+
+	enemybulletrightdown.anim.PushBack({ 2016, 1, 27, 17 });
+	enemybulletrightdown.anim.PushBack({ 2016, 19, 27, 17 });
+	enemybulletrightdown.anim.PushBack({ 2016, 37, 27, 17 });
+	enemybulletrightdown.anim.PushBack({ 2016, 55, 27, 17 });
+	enemybulletrightdown.anim.speed = 0.1f;
+
+	enemybulletleft.anim.PushBack({ 28, 925, 35, 32 });
+	enemybulletleft.anim.PushBack({ 64, 925, 35, 32 });
+	enemybulletleft.anim.PushBack({ 100, 925, 35, 32 });
+	enemybulletleft.anim.PushBack({ 136, 925, 35, 32 });
+	enemybulletleft.anim.speed = 0.1f;
+
+	enemybulletupleft.anim.PushBack({ 1988, 1, 27, 17 });
+	enemybulletupleft.anim.PushBack({ 1988, 19, 27, 17 });
+	enemybulletupleft.anim.PushBack({ 1988, 37, 27, 17 });
+	enemybulletupleft.anim.PushBack({ 1988, 55, 27, 17 });
+	enemybulletupleft.anim.speed = 0.1f;
+
+	enemybulletup.anim.PushBack({ 1922, 1, 32, 35 });
+	enemybulletup.anim.PushBack({ 1922, 37, 32, 35 });
+	enemybulletup.anim.PushBack({ 1922, 73, 32, 35 });
+	enemybulletup.anim.PushBack({ 1922, 109, 32, 35 });
+	enemybulletup.anim.speed = 0.1f;
+
+	enemybulletrightup.anim.PushBack({ 1988, 1, 27, 17 }, true);
+	enemybulletrightup.anim.PushBack({ 1988, 19, 27, 17 }, true);
+	enemybulletrightup.anim.PushBack({ 1988, 37, 27, 17 }, true);
+	enemybulletrightup.anim.PushBack({ 1988, 55, 27, 17 }, true);
+	enemybulletrightup.anim.speed = 0.1f;
+
+	enemybulletright.anim.PushBack({ 28, 925, 35, 32 }, true);
+	enemybulletright.anim.PushBack({ 64, 925, 35, 32 }, true);
+	enemybulletright.anim.PushBack({ 100, 925, 35, 32 }, true);
+	enemybulletright.anim.PushBack({ 136, 925, 35, 32 }, true);
+	enemybulletright.anim.speed = 0.1f;
+
+	enemybulletdownleft.anim.PushBack({ 2016, 1, 27, 17 }, true);
+	enemybulletdownleft.anim.PushBack({ 2016, 19, 27, 17 }, true);
+	enemybulletdownleft.anim.PushBack({ 2016, 37, 27, 17 }, true);
+	enemybulletdownleft.anim.PushBack({ 2016, 55, 27, 17 }, true);
+	enemybulletdownleft.anim.speed = 0.1f;
 
 	return true;
 }

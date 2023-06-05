@@ -26,7 +26,7 @@
 #include "Enemy_Camillers.h"
 #include "Enemy_Structures.h"
 
-#define SPAWN_MARGIN 100
+#define SPAWN_MARGIN 50
 
 
 ModuleEnemies::ModuleEnemies(bool startEnabled) : Module(startEnabled)

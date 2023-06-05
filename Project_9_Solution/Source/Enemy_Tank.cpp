@@ -70,53 +70,6 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 
 	hp = 10;
 
-	enemybulletdown.PushBack({ 1986, 35, 32, 35 });
-	enemybulletdown.PushBack({ 1986, 71, 32, 35 });
-	enemybulletdown.PushBack({ 1986, 107, 32, 35 });
-	enemybulletdown.PushBack({ 1986, 143, 32, 35 });
-	enemybulletdown.speed = 0.1f;
-
-	enemybulletrightdown.PushBack({ 2042, 17, 64, 42 }, true);
-	enemybulletrightdown.PushBack({ 2042, 35, 64, 42 }, true);
-	enemybulletrightdown.PushBack({ 2042, 53, 64, 42 }, true);
-	enemybulletrightdown.PushBack({ 2042, 71, 64, 42 }, true);
-	enemybulletrightdown.speed = 0.1f;
-
-	enemybulletleft.PushBack({ 62, 956, 35, 32 }, true);
-	enemybulletleft.PushBack({ 98, 956, 35, 32 }, true);
-	enemybulletleft.PushBack({ 134, 956, 35, 32 }, true);
-	enemybulletleft.PushBack({ 170, 956, 35, 32 }, true);
-	enemybulletright.speed = 0.1f;
-
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 }, true);
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 }, true);
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 }, true);
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 }, true);
-	enemybulletrightup.speed = 0.1f;
-
-	enemybulletup.PushBack({ 1953, 35, 32, 35 });
-	enemybulletup.PushBack({ 1953, 71, 32, 35 });
-	enemybulletup.PushBack({ 1953, 107, 32, 35 });
-	enemybulletup.PushBack({ 1953, 143, 32, 35 });
-	enemybulletup.speed = 0.1f;
-
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 });
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 });
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 });
-	enemybulletupleft.PushBack({ 2014, 633, 27, 17 });
-	enemybulletupleft.speed = 0.1f;
-
-	enemybulletleft.PushBack({ 62, 956, 35, 32 });
-	enemybulletleft.PushBack({ 98, 956, 35, 32 });
-	enemybulletleft.PushBack({ 134, 956, 35, 32 });
-	enemybulletleft.PushBack({ 170, 956, 35, 32 });
-	enemybulletleft.speed = 0.1f;
-
-	enemybulletdownleft.PushBack({ 905, 590, 27, 17 });
-	enemybulletdownleft.PushBack({ 970, 590, 27, 17 });
-	enemybulletdownleft.PushBack({ 1035, 590, 27, 17 });
-	enemybulletdownleft.PushBack({ 1035, 590, 27, 17 });
-	enemybulletdownleft.speed = 0.1f;
 
 	collider = App->collisions->AddCollider({ 0, 0, 70, 63 }, Collider::Type::ENEMY, (Module*)App->enemies);
 	currentAnim = &enemydeath1;
@@ -170,8 +123,35 @@ void Enemy_Tank::Update()
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
 
+		switch (GetTargetDir(dx2, dy2))
+		{
+		case LEFT:
+			App->particles->AddParticle(App->particles->enemybulletleft, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case RIGHT:
+			App->particles->AddParticle(App->particles->enemybulletright, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case DOWN:
+			App->particles->AddParticle(App->particles->enemybulletdown, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case UP:
+			App->particles->AddParticle(App->particles->enemybulletup, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case DOWNLEFT:
+			App->particles->AddParticle(App->particles->enemybulletdownleft, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case DOWNRIGHT:
+			App->particles->AddParticle(App->particles->enemybulletrightdown, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case UPLEFT:
+			App->particles->AddParticle(App->particles->enemybulletupleft, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		case UPRIGHT:
+			App->particles->AddParticle(App->particles->enemybulletrightup, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			break;
+		}
 
-		App->particles->AddParticle(App->particles->laser, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+		
 		shootCooldown = 0;
 	}
 
