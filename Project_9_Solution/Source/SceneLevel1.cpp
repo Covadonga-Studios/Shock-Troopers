@@ -54,9 +54,9 @@ bool SceneLevel1::Start()
 	 //collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 360, -1310, 10, 2424 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, -1548, 1000, 10 }, Collider::Type::WALL);
-	//PUENTE 1
+	//PUENTE 1 COLLIDER
 	App->collisions->AddCollider({ 870, -1561, 304, 141 }, Collider::Type::WALL);
-	//PUENTE 2
+	//PUENTE 2 COLLIDER
 	App->collisions->AddCollider({ 2047, -2739, 105, 124 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 2246, -2722, 167, 122 }, Collider::Type::WALL);
 
@@ -139,6 +139,7 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -150, 4);
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -200, 1);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 270, -190, 1);
 		wave2 = true;
 	}
 
@@ -183,8 +184,10 @@ Update_Status SceneLevel1::Update()
 		//OLEADA BARRILES + BARRICADAS + CAJAS
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 60, -700, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 76, -670, 3);
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 220, -700, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 240, -670, 4);
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL, 80, -830, 0);
 
@@ -203,7 +206,7 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.y >= -900 && wave7 == false) {
 		//OLEADA BARRICADA SACOS 
 
-		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 5);
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950, 0);
 
@@ -213,7 +216,8 @@ Update_Status SceneLevel1::Update()
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1180, 5);
+		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 198, -1180, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 210, -1170, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
 
@@ -227,8 +231,10 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1250, 4);
 
 		App->enemies->AddEnemy(Enemy_Type::TANK, 100, -1300, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 100, -1230, 4);
 
 		App->enemies->AddEnemy(Enemy_Type::TANK, 240, -1301, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 240, -1231, 3);
 
 		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1200, 0);
 
@@ -244,6 +250,7 @@ Update_Status SceneLevel1::Update()
 		//OLEADA PREPUERTA
 
 		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1400, 5);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 92, -1380, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1350, 0);
 		wave9 = true;
@@ -253,6 +260,7 @@ Update_Status SceneLevel1::Update()
 		//PUERTA OLEADA
 
 		App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 150, -1450, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 95, -1550, 2);
 
@@ -290,12 +298,14 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1400, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 1000, -1420, 1);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 1025, -1380, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 800, -1450, 5);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 800, -1400, 4);
 		wave22 = true;
 	}
+	
 	if (App->player->position.x >= 1000 && wave12 == false) {
 		//PUENTE2 
 				
@@ -304,6 +314,7 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 870, -1410, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 1350, -1420, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 1370, -1380, 3);
 
 		wave12 = true;
 	}
@@ -336,6 +347,7 @@ Update_Status SceneLevel1::Update()
 		//TANKES POST PUENTE OLEADA
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 1700, -1420, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 1750, -1370, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1650, -1600, 3);
 
@@ -348,14 +360,17 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1850, -1600, 3);
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 1850, -1520, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 1900, -1470, 4);
 
 		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 1800, -1420, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 2000, -1420, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2050, -1400, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1970, -1430, 6);
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 2000, -1520, 0);
+		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 2000, -1520, 1);
 		wave14 = true;
 	}
 
@@ -408,6 +423,7 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2240, -1751, 2);
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 2200, -1750, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2220, -1720, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2130, -1750, 2);
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2130, -1800, 2);
@@ -425,6 +441,7 @@ Update_Status SceneLevel1::Update()
 		//MEDICOZONA OLEADAS
 
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2262, -2090, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2362, -1990, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2050, -1940, 2);
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2150, -1940, 2);
@@ -440,6 +457,7 @@ Update_Status SceneLevel1::Update()
 		//OLEADA DEL NEGRO
 
 		App->enemies->AddEnemy(Enemy_Type::BLACKSOLDIER, 2227, -2360, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2227, -2360, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2047, -2440, 3);
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2382, -2440, 8);
@@ -448,7 +466,10 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2382, -2400, 8);
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 2120, -2584, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2140, -2554, 2);
+
 		App->enemies->AddEnemy(Enemy_Type::MECH, 2210, -2584, 0);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2230, -2554, 4);
 
 		wave19 = true;
 	}
@@ -458,6 +479,7 @@ Update_Status SceneLevel1::Update()
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2118, -2813, 1);
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2239, -2813, 1);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2249, -2793, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2099, -2840, 5);
 
@@ -477,6 +499,8 @@ Update_Status SceneLevel1::Update()
 		//BOSS ARENA1
 
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2343, -3329, 2);
+		App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, 2293, -3249, 0);
+
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2056, -3329, 2);
 
 		wave21 = true;
