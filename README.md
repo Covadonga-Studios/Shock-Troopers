@@ -39,7 +39,13 @@ Shock Troopers is an eight way shooter "run and gun" that offers a lot of gamepl
 
 ## **Our Motto**
 "Vamos a Covadonga?" 
+
+
 -We think it defines our optimistic and future-focused mentality in the work field-
+
+
+
+## **-OUR README-**
 
 
 https://github.com/Covadonga-Studios/Shock-Troopers
