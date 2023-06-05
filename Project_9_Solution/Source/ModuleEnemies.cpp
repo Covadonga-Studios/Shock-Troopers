@@ -169,7 +169,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 				}
 				break;
 			case 3:
-				if (abs(spawnQueue[i].x - App->player->position.x) < 150 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
+				if (abs(spawnQueue[i].x - App->player->position.x) < 225 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
 				{
 					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 

@@ -280,6 +280,7 @@ public:
 	bool invincible = false;
 	int weapon = 0;
 	int bullets = 0;
+	bool tpMenu = false;
 
 	int hp  = 120;
 	int getHP() const

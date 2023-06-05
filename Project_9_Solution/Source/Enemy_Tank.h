@@ -45,7 +45,14 @@ private:
 	Animation enemyshot1downleft;
 	Animation enemyshot1downleftdiagonal;
 	
-
+	Animation enemybulletdown;
+	Animation enemybulletrightdown;
+	Animation enemybulletright;
+	Animation enemybulletrightup;
+	Animation enemybulletup;
+	Animation enemybulletupleft;
+	Animation enemybulletleft;
+	Animation enemybulletdownleft;
 
 	int offsetshootx;
 	int offsetshooty;

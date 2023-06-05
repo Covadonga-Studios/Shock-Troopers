@@ -35,10 +35,23 @@ public:
 	// The UI spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* palmeratexture = nullptr;
+	SDL_Texture* menuTp = nullptr;
 
 	Animation portraitRed;
 	Animation portraitWhite;
 	Animation* portrait = nullptr;
+
+	Animation menuTpback;
+	SDL_Rect mentpbackrect;
+
+	Animation menuTpbox;
+	SDL_Rect menuTpboxrect;
+	
+	int offsettpmenuboxx = 124;
+	int offsettpmenuboxy = 0;
+	int tpmenulocx = 0;
+	int tpmenulocy = 0;
+
 	bool red = true;
 	int portraitTimer = 0;
 
@@ -63,7 +76,7 @@ public:
 	HPBarChunk HPBar[16];
 	SDL_Rect hpRectUp;
 	SDL_Rect hpRectDown;
-
+	
 	//Score
 	int generalFont = -1;
 	char scoreText[10] = { "\0" };
@@ -77,7 +90,9 @@ public:
 	SDL_Rect weaponRect;
 	char ammoText[10] = { "\0" };
 
+	bool tpMenubool;
 
+	int tpMenutimer = 0;
 
 	char* DebugText = "milky x and y";
 	char xText[10] = { "\0" };
@@ -88,6 +103,8 @@ public:
 	//temp
 	int ammo = 150;
 	SDL_Rect infinityRect;
+
+
 
 	//Timer
 	int timerFont = -1;

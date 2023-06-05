@@ -10,6 +10,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include "ModuleUI.h"
 #include "SDL/include/SDL_scancode.h"
 #include <stdio.h>
 
@@ -1026,9 +1027,6 @@ void ModulePlayer::MoveUpdate()
 			moveDir = bulletDir;
 		}
 
-		
-	
-
 			if (App->render->camera.y + SCREEN_HEIGHT < position.y + 47)
 			{
 
@@ -1587,7 +1585,10 @@ void ModulePlayer::LoseWinLogicUpdate()
 		legAnimation = &dissapear;
 	}
 
-
+	if (bigkill == 1 && App->render->cameraMode == 5) 
+	{
+		winCon = true;
+	}
 
 	if (isDead == true && currentAnimation->HasFinished() == true)
 	{
@@ -1751,12 +1752,60 @@ void ModulePlayer::DebugLogicUpdate()
 		winCon = true;
 
 	}
-	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN)
-	{
 
-		App->player->position.x = 1980;
-		App->player->position.y = -1400;
+	if (App->UI->tpMenubool == true) 
+	{
+		if (App->input->keys[SDL_SCANCODE_1] == Key_State::KEY_DOWN)
+		{
+			App->player->position.x = 150;
+			App->player->position.y = -1425;
+			App->render->camera.x = 150;
+			App->render->camera.y = -1425;
+			App->render->cameraMode = 1;
+		}
+		if (App->input->keys[SDL_SCANCODE_2] == Key_State::KEY_DOWN)
+		{
+			App->player->position.x = 662;
+			App->player->position.y = -1415;
+			App->render->camera.x = 662;
+			App->render->camera.y = -1415;
+			App->render->cameraMode = 2;
+		}
+		if (App->input->keys[SDL_SCANCODE_3] == Key_State::KEY_DOWN)
+		{
+			App->player->position.x = 2210;
+			App->player->position.y = -2278;
+			App->render->camera.x = 2210;
+			App->render->camera.y = -2278;
+			App->render->cameraMode = 5;
+		}
+		if (App->input->keys[SDL_SCANCODE_4] == Key_State::KEY_DOWN)
+		{
+			App->player->position.x = 1285;
+			App->player->position.y = -1400;
+			App->render->camera.x = 1285;
+			App->render->camera.y = -1400;
+			App->render->cameraMode = 4;
+		}
+		if (App->input->keys[SDL_SCANCODE_5] == Key_State::KEY_DOWN)
+		{
+			App->player->position.x = 2280;
+			App->player->position.y = -1434;
+			App->render->camera.x = 2280;
+			App->render->camera.y = -1443;
+			App->render->cameraMode = 5;
+		}
+		if (App->input->keys[SDL_SCANCODE_6] == Key_State::KEY_DOWN)
+		{
+			App->player->position.x = 2223;
+			App->player->position.y = -3024;
+			App->render->camera.x = 2223;
+			App->render->camera.y = -3024;
+			App->render->cameraMode = 5;
+		}
 	}
+
+
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
 	{
 		hp = 0;

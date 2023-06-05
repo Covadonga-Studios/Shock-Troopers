@@ -105,7 +105,7 @@ void Enemy_FinalBoss::Update()
 		App->particles->AddParticle(App->particles->explosionDefault, position.x + 40, position.y + 100, 0, 0, false, Collider::Type::NONE,70);
 		App->particles->AddParticle(App->particles->explosionDefault, position.x + 80, position.y + 100, 0, 0, false, Collider::Type::NONE,80);
 
-		
+		App->player->bigkill = 1;
 	}
 
 	if (deleting == true) {

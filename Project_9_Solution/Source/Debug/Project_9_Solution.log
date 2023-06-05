@@ -1,9 +1,18 @@
-﻿  ModulePlayer.cpp
+﻿  Enemy_FinalBoss.cpp
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(742,12): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(743,10): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(88,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(89,81): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  ModulePlayer.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(744,12): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(745,13): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(1024,11): warning C4554: "&": compruebe la prioridad de operador para posibles errores; utilice paréntesis para indicar la prioridad
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(745,10): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(746,12): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(747,13): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(1026,11): warning C4554: "&": compruebe la prioridad de operador para posibles errores; utilice paréntesis para indicar la prioridad
+  SceneLevel1.cpp
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...
   Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe

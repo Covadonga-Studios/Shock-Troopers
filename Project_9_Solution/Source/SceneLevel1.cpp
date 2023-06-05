@@ -582,6 +582,9 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.x >= 2150 && App->render->cameraMode == 4) {
 		App->render->cameraMode = 5;
 	}
+
+
+
 	/*if (App->player->position.y <= -2280 && App->render->cameraMode == 5) {
 		App->player->bigkill = 0;
 		App->render->cameraMode = 6;

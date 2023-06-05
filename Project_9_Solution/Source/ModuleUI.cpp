@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleFonts.h"
+#include "ModuleInput.h"
 #include <stdio.h>
 
 
@@ -25,6 +26,7 @@ bool ModuleUI::Start()
 
 	texture = App->textures->Load("Assets/Sprites/UI_EMELENTS.png");
 	palmeratexture = App->textures->Load("Assets/Sprites/palmeras.png");
+	menuTp = App->textures->Load("Assets/Sprites/Teleportmenu.png");
 
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
 	generalFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
@@ -37,6 +39,10 @@ bool ModuleUI::Start()
 	weapon[0].PushBack({ 0,10,31,15 });
 	weapon[1].PushBack({ 32,10,31,15 });
 	weapon[2].PushBack({ 64,10,31,15 });
+
+	menuTpback.PushBack({ 296,63, 180, 97 });
+
+	menuTpbox.PushBack({552,63,93,32});
 
 	infinityRect = { 119, 0, 16, 8 };
 
@@ -68,6 +74,8 @@ bool ModuleUI::Start()
 
 Update_Status ModuleUI::Update()
 {
+
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -155,6 +163,9 @@ Update_Status ModuleUI::PostUpdate()
 	int y = App->render->camera.y;
 	App->render->Blit(texture, x + 138, y + 8, &timerRect);
 
+
+
+
 	//Blit each HP chunk in order
 	for (int i = 0; i < 16; i++)
 	{
@@ -185,6 +196,60 @@ Update_Status ModuleUI::PostUpdate()
 
 	weaponRect = currentWeapon->GetCurrentFrame();
 	App->render->Blit(texture, x + 50, y + 201, &weaponRect);
+
+	mentpbackrect = menuTpback.GetCurrentFrame();
+	menuTpboxrect = menuTpbox.GetCurrentFrame();
+
+	tpMenutimer++;
+
+	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN && tpMenubool == false && tpMenutimer > 1)
+	{
+		tpMenubool = true;	
+		tpMenutimer = 0;
+	}
+	
+	if (App->input->keys[SDL_SCANCODE_F5] == Key_State::KEY_DOWN && tpMenubool == true && tpMenutimer > 1)
+	{
+		tpMenubool = false;
+		tpMenutimer = 0;
+	}
+
+	if (tpMenubool == true) 
+	{
+		App->render->Blit(menuTp, x + 124, y, &mentpbackrect);
+
+		App->render->Blit(menuTp, x + offsettpmenuboxx, y + offsettpmenuboxy, &menuTpboxrect);
+
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN  && offsettpmenuboxy != 32+32)
+		{
+			offsettpmenuboxy += 32;
+			
+		}
+
+		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN  && y + offsettpmenuboxy != y)
+		{
+			offsettpmenuboxy -= 32;
+		
+		}
+
+		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_DOWN && offsettpmenuboxx != 124 + 93)
+		{
+			offsettpmenuboxx += 93;
+		
+		}
+
+		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN && x + offsettpmenuboxx != x + 124)
+		{
+			offsettpmenuboxx -= 93;
+		
+		}
+
+		
+		
+
+	}
+	
+	
 
 	if (weapontype == 0)
 	{
