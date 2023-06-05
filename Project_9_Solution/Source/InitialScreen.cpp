@@ -38,7 +38,7 @@ Update_Status InitialScreen::Update()
 	timerpass++;
 	if (timerpass > 180)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 180);
+		App->fade->FadeToBlack(this, (Module*)App->characterScreen, 180);
 	}
 	if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN)
 	{

@@ -19,6 +19,7 @@
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
 #include "ModuleUI.h"
+#include "CharacterScreen.h"
 
 Application::Application()
 {
@@ -45,7 +46,8 @@ Application::Application()
 	modules[11] =	fade =			new ModuleFadeToBlack(true);
 	modules[12] =	fonts =			new ModuleFonts(true);
 	modules[13] =	initialScreen =	new InitialScreen(true);
-	modules[14] =	render =		new ModuleRender(true);
+	modules[14] = characterScreen = new CharacterScreen(false);
+	modules[15] =	render =		new ModuleRender(true);
 
 }
 

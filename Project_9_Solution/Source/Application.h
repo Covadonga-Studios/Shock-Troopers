@@ -2,8 +2,9 @@
 #define __APPLICATION_H__
 
 #include "Globals.h"
+#include "CharacterScreen.h"
 
-#define NUM_MODULES 15
+#define NUM_MODULES 16
 
 class Module;
 class ModuleWindow;
@@ -12,6 +13,7 @@ class ModuleTextures;
 class ModuleAudio;
 class ModulePlayer;
 class SceneIntro;
+class SceneCharacterScreen;
 class SceneLevel1;
 class ModuleParticles;
 class ModuleCollisions;
@@ -55,7 +57,9 @@ public:
 
 	ModulePlayer* player = nullptr;
 
+
 	SceneIntro* sceneIntro = nullptr;
+	CharacterScreen* characterScreen = nullptr;
 	SceneLevel1* sceneLevel_1 = nullptr;
 	InitialScreen* initialScreen = nullptr;
 

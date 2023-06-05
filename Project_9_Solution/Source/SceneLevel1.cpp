@@ -95,10 +95,34 @@ bool SceneLevel1::Start()
 	//Los tres barriles el 0 es sideways y el uno hacia abajo
 		
 	
-	App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 90, 0, 0);
+	
 		
-		doorspawn = false;
-		helispawn = false;
+	wave1 = false;
+	wave2 = false;
+	wave3 = false;
+	wave4 = false;
+	wave5 = false;
+	wave6 = false;
+	wave7 = false;
+	wave8 = false;
+	wave9 = false;
+	wave10 =false;
+	wave11 =false;
+	wave12 =false;
+	wave13 =false;
+	wave14 =false;
+	wave15 =false;
+	wave16 =false;
+	wave17 =false;
+	wave18 =false;
+	wave19 =false;
+	wave20 =false;
+	wave21 =false;
+	wave22 =false;
+	wave23 =false;
+
+	doorspawn = false;
+	helispawn = false;
 
 
 
@@ -306,7 +330,7 @@ Update_Status SceneLevel1::Update()
 		wave22 = true;
 	}
 	
-	if (App->player->position.x >= 1000 && wave12 == false) {
+	if (App->player->position.x >= 1050 && wave12 == false) {
 		//PUENTE2 
 				
 		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 1150, -1410, 0);

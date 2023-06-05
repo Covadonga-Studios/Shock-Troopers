@@ -99,11 +99,11 @@ void Enemy_Tanquecoche::Update()
 		switch (enemyMode) {
 
 		case 1:
-			App->particles->AddParticle(App->particles->missileRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 20, 20, 70);
 			shootCooldown = 0;
 			break;
 		case 0:
-			App->particles->AddParticle(App->particles->missileLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			App->particles->AddParticle(App->particles->missileLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE, 20, 20);
 			shootCooldown = 0;
 		}
 	}

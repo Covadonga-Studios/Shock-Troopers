@@ -1059,13 +1059,13 @@ void ModulePlayer::MoveUpdate()
 
 void ModulePlayer::ShootingUpdate() 
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isShooting == false)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && isShooting == false && isDead == false && winCon == false)
 	{
 		isShooting = true;
 	}
 
 
-	if (isDodging == false && isHurt == false && isShooting == true)
+	if (isDodging == false && isHurt == false && isShooting == true && isDead == false && winCon == false)
 	{
 
 		switch (weapon)
@@ -1395,7 +1395,7 @@ void ModulePlayer::AnimationLegTorsoUpdate()
 void ModulePlayer::DodgeUpdate() 
 {
 	GamePad& pad = App->input->pads[0];
-	if ((App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN || pad.a == true) && dodgeCoolDown > 30 && isHurt == false && isThrowing == false)
+	if ((App->input->keys[SDL_SCANCODE_N] == Key_State::KEY_DOWN || pad.a == true) && dodgeCoolDown > 30 && isHurt == false && isThrowing == false && isDead == false && winCon == false)
 	{
 		dodgeCoolDown = 0;
 		isDodging = true;
@@ -1579,7 +1579,7 @@ void ModulePlayer::LoseWinLogicUpdate()
 void ModulePlayer::GrenadeUpdate() 
 {
 	GamePad& pad = App->input->pads[0];
-	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true && isDodging == false) {
+	if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN || pad.b == true && isDodging == false && isDead == false && winCon == false) {
 		isThrowing = true;
 	}
 	if (isThrowing == true && grenadeCoolDown > 40 && isDodging == false && grenadeCounter > 0)
@@ -1804,6 +1804,11 @@ void ModulePlayer::HurtUpdate()
 	{
 		legAnimation = &dissapear;
 		currentAnimation = &dissapear;
+	}
+
+	if (hp > maxHp) 
+	{
+		hp = maxHp;
 	}
 
 }
