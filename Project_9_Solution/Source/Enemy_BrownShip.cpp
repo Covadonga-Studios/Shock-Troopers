@@ -24,6 +24,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	currentAnim = &fly;
 
 	slide.PushBack({ 57, 1984, 33, 45 });
+	slideleft.PushBack({ 57, 1984, 33, 45 }, true);
 	
 	enemyshot1down.PushBack({ 20, 600, 43, 47 });
 	enemyshot1rightdown.PushBack({ 63, 600, 43, 47 });
@@ -353,6 +354,12 @@ void Enemy_BrownShip::Update()
 	case 7:
 		spawnlimit = 150;
 		currentAnim = &enemyRunningLeft;
+		break;
+	case 8:
+		spawnlimit = 50;
+		currentAnim = &slideleft;
+		position.y += 2;
+		position.x--;
 		break;
 	}
 	

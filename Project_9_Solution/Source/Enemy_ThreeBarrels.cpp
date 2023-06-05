@@ -85,28 +85,30 @@ void Enemy_ThreeBarrels::Update()
 
 
 
-	if (hp <=0 && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
 		switch (enemyMode)
 		{
 		case 0: //lateral
-			App->particles->AddParticle(App->particles->explosionDefault, position.x - 8, position.y + 6, 0, 0, false, Collider::Type::NONE);
-			App->particles->AddParticle(App->particles->explosionDefault, position.x + 30, position.y + 6, 0, 0, false, Collider::Type::NONE, 5);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 2, position.y + -10, 0, 0, false, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 2, position.y + 20, 0, 0, false, Collider::Type::NONE, 5);
 			break;
 		case 1: //pa abajo
-			App->particles->AddParticle(App->particles->explosionDefault, position.x - 10, position.y + 6, 0, 0, false, Collider::Type::NONE);
-			App->particles->AddParticle(App->particles->explosionDefault, position.x + 35, position.y + 6, 0, 0, false, Collider::Type::NONE, 5);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 4, position.y + -10, 0, 0, false, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 4, position.y + 20, 0, 0, false, Collider::Type::NONE, 5);
 			break;
 		case 2:
-			App->particles->AddParticle(App->particles->explosionDefault, position.x - 10, position.y + 6, 0, 0, false, Collider::Type::NONE);
-			App->particles->AddParticle(App->particles->explosionDefault, position.x + 35, position.y + 6, 0, 0, false, Collider::Type::NONE, 5);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 4, position.y + -10, 0, 0, false, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 4, position.y + 20, 0, 0, false, Collider::Type::NONE, 5);
 			break;
 		}
-		
+
 
 	}
+
+	
 
 	if (deleting == true) 
 	{

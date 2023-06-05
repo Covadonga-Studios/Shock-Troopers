@@ -25,6 +25,7 @@ private:
 	// We are keeping it an animation for consistency with other enemies
 	Animation fly;
 	Animation slide;
+	Animation slideleft;
 	Animation enemydeath1;
 	Animation enemyshot1down;
 	Animation enemyshot1rightdown;

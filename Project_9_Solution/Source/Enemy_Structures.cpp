@@ -111,6 +111,12 @@ void Enemy_Structures::Update()
 			pendingToDelete = false;
 			deleting = true;
 			currentAnim = &medicTentBroken;
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 15, position.y + 100, 0, 0, false, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 15, position.y + 110, 0, 0, false, Collider::Type::NONE, 10);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 120, 0, 0, false, Collider::Type::NONE, 20);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 35, position.y, 90, 0, false, Collider::Type::NONE, 40);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + 15, position.y + 100, 0, 0, false, Collider::Type::NONE, 45);
+			App->particles->AddParticle(App->particles->explosionDefault, position.x + -12, position.y + 140, 0, 0, false, Collider::Type::NONE, 30);
 		}
 
 		if (dissapearCooldown > 40)
