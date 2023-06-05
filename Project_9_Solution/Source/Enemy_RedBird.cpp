@@ -342,9 +342,11 @@ void Enemy_RedBird::Update()
 	}
 
 	if (spawn > spawnlimit)
-		collider->SetPos(position.x, position.y);
+		collider->SetPos(position.x + 10, position.y);
 	else
 		collider->SetPos(-1300, 5465);
+
+
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
