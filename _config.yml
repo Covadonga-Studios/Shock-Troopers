@@ -1,0 +1,8 @@
+# Site settings
+title: Covadonga Studios' Site 
+author:
+  name: Covadonga Studios
+description: "Welcome to our Webpage"
+
+# Build settings
+remote_theme: jekyll/hacker
