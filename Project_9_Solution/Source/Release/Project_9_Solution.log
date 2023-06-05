@@ -1,9 +1,1 @@
-﻿  SceneLevel1.cpp
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Generando código
-  2 of 260 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-  Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Release\Project_9_Solution.exe
+﻿  Project_9_Solution.vcxproj -> C:\Users\danno\OneDrive\Documentos\GitHub\Shock-Troopers\Release\Project_9_Solution.exe

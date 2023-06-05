@@ -47,6 +47,27 @@ public:
 	bool wave1 = false;
 	bool wave2 = false;
 	bool wave3 = false;
+	bool wave4 = false;
+	bool wave5 = false;
+	bool wave6 = false;
+	bool wave7 = false;
+	bool wave8 = false;
+	bool wave9 = false;
+	bool wave10 = false;
+	bool wave11 = false;
+	bool wave12 = false;
+	bool wave13 = false;
+	bool wave14 = false;
+	bool wave15 = false;
+	bool wave16 = false;
+	bool wave17 = false;
+	bool wave18 = false;
+	bool wave19 = false;
+	bool wave20 = false;
+	bool wave21 = false;
+	bool wave22 = false;
+	bool wave23 = false;
+
 
 private: 
 	Animation door;

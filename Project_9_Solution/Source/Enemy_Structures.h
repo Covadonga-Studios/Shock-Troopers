@@ -24,7 +24,8 @@ private:
 	float dy;
 	int shootCooldown;
 	int dissapearCooldown;
-
+	int hpold;
+	int randomoffset = 0;
 	// Enemy animations
 	Animation dissapear;
 	Animation medicTent;
@@ -32,6 +33,7 @@ private:
 	Animation towerBreaking;
 	Animation tower;
 	Animation tower2;
+	Animation tower2almost;
 	Animation tower2Breaking;
 	Animation enemyshot1down;
 	Animation enemyshot1rightdown;
@@ -44,6 +46,7 @@ private:
 	Animation lightMGenemyDownRight;
 	Animation lightMGenemyDownLeft;
 	Animation lightMGenemyDown;
+
 };
 
 #endif // __ENEMY_STRUCTURES_H__

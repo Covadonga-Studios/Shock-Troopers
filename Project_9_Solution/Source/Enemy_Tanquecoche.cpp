@@ -95,8 +95,16 @@ void Enemy_Tanquecoche::Update()
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
 
-		App->particles->AddParticle(App->particles->missileRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
-		shootCooldown = 0;
+		switch (enemyMode) {
+
+		case 1:
+			App->particles->AddParticle(App->particles->missileRight, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			shootCooldown = 0;
+			break;
+		case 0:
+			App->particles->AddParticle(App->particles->missileLeft, position.x, position.y, dirx, diry, false, Collider::Type::MISSILE);
+			shootCooldown = 0;
+		}
 	}
 
 	if (deleting == false)

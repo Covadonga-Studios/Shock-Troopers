@@ -81,7 +81,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyLooking.PushBack({ 1625, 406, 66, 50 });
 	enemyLooking.PushBack({ 1693, 406, 33, 50 });
 	enemyLooking.PushBack({ 1728, 406, 33, 50 });
-	enemyLooking.speed = 0.1f;
+	enemyLooking.speed = 0.2f;
 	enemyLooking.loop = false;
 
 	walkingUp.PushBack({ 1132, 1187, 41, 50 });
@@ -164,7 +164,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyFallingRight.PushBack({ 820, 1421, 90, 98 });
 	enemyFallingRight.PushBack({ 911, 1421, 90, 98 });
 	enemyFallingRight.PushBack({ 1002, 1421, 90, 98 });
-	enemyFallingRight.speed = 0.2f;
+	enemyFallingRight.speed = 0.3f;
+	enemyFallingRight.loop = false;
 
 	enemyFallingLeft.PushBack({ 1, 1421, 90, 98 }, true);
 	enemyFallingLeft.PushBack({ 92, 1421, 90, 98 }, true);
@@ -178,7 +179,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	enemyFallingLeft.PushBack({ 820, 1421, 90, 98 }, true);
 	enemyFallingLeft.PushBack({ 911, 1421, 90, 98 }, true);
 	enemyFallingLeft.PushBack({ 1002, 1421, 90, 98 }, true);
-	enemyFallingLeft.speed = 0.1f;
+	enemyFallingLeft.speed = 0.3f;
+	enemyFallingLeft.loop = false;
 
 	enemyRunningRight.PushBack({ 931, 1260, 49, 51 });
 	enemyRunningRight.PushBack({ 981, 1260, 49, 51 });
@@ -344,18 +346,18 @@ void Enemy_BrownShip::Update()
 
 		break;
 	case 5:
-		spawnlimit = 170;
+		spawnlimit = 100;
 		currentAnim = &enemyLooking;
 		break;
 	case 6:
-		spawnlimit = 200;
+		spawnlimit = 70;
 		currentAnim = &walkingLeft;
 		position.x--;
 		break;
 	case 7:
-		spawnlimit = 150;
+		spawnlimit = 55;
 		currentAnim = &enemyRunningLeft;
-		position.x += 2;
+		position.x -= 2;
 		break;
 	case 8:
 		spawnlimit = 50;

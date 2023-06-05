@@ -54,6 +54,11 @@ bool SceneLevel1::Start()
 	 //collider = App->collisions->AddCollider({ 0, 215, 600, 10 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 360, -1310, 10, 2424 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, -1548, 1000, 10 }, Collider::Type::WALL);
+	//PUENTE 1
+	App->collisions->AddCollider({ 870, -1561, 304, 141 }, Collider::Type::WALL);
+	//PUENTE 2
+	App->collisions->AddCollider({ 2047, -2739, 105, 124 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 2246, -2722, 167, 122 }, Collider::Type::WALL);
 
 	
 	// Enemies ---
@@ -91,10 +96,40 @@ bool SceneLevel1::Start()
 		
 	
 
-	
+		wave2 = false;
+		doorspawn = false;
+		helispawn = false;
 
-	//OLEADA DE BARRILES 
-		
+
+
+		helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
+		helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
+
+		currentAnimation = &helicopterArriving;
+		return ret;
+}
+
+Update_Status SceneLevel1::Update()
+{
+
+	if (App->player->position.y >= 0 && wave1 == false) {
+
+		//PRIMERA OLEADA
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70, 0);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
+
+		wave1 = true;
+	}
+
+
+	if (App->player->position.y >= -100 && wave2 == false) {
+		//OLEADA DE BARRILES 
+
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -200, 2);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -220, 4);
@@ -104,8 +139,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 200, -150, 4);
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 230, -200, 1);
+		wave2 = true;
+	}
 
-	//OLEADA PRIMER BLANCO
+	if (App->player->position.y >= -250 && wave3 == false) {
+		//OLEADA PRIMER BLANCO
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, -300, 2);
 
@@ -114,8 +152,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -300, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 250, -300, 1);
+		wave3 = true;
+	}
 
-	//PRIMERA OLEADA bis
+	if (App->player->position.y >= -400 && wave4 == false) {
+		//PRIMERA OLEADA bis
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 50, -450, 0);
 
@@ -124,16 +165,22 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -490, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -490, 1);
-	
-	//INTERMEDIO
+		wave4 = true;
+	}
+
+	if (App->player->position.y >= -530 && wave5 == false) {
+		//INTERMEDIO
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -580, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 300, -580, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 150, -690, 4);
+		wave5 = true;
+	}
 
-	//OLEADA BARRILES + BARRICADAS + CAJAS
+	if (App->player->position.y >= -650 && wave6 == false) {
+		//OLEADA BARRILES + BARRICADAS + CAJAS
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 60, -700, 0);
 
@@ -150,16 +197,19 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 80, -870, 5);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 280, -870, 5);
+		wave6 = true;
+	}
 
-	//OLEADA BARRICADA SACOS 
+	if (App->player->position.y >= -900 && wave7 == false) {
+		//OLEADA BARRICADA SACOS 
 
 		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1050, 5);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950,0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -950, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1000, 1);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000,0);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1000, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -1050, 1);
 
@@ -168,8 +218,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1180, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -1130, 0);
+		wave7 = true;
+	}
 
-	//OLEADA TANKES + LANZACOHETES 
+	if (App->player->position.y >= -1150 && wave8 == false) {
+		//OLEADA TANKES + LANZACOHETES 
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 180, -1250, 4);
 
@@ -184,14 +237,20 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 32, -1300, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BAZOOKA, 318, -1301, 0);
+		wave8 = true;
+	}
 
-	//OLEADA PREPUERTA
+	if (App->player->position.y >= -1300 && wave9 == false) {
+		//OLEADA PREPUERTA
 
 		App->enemies->AddEnemy(Enemy_Type::BARRICADE, 72, -1400, 5);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 0, -1350, 0);
+		wave9 = true;
+	}
 
-	//PUERTA OLEADA
+	if (App->player->position.y >= -1450 && wave10 == false) {
+		//PUERTA OLEADA
 
 		App->enemies->AddEnemy(Enemy_Type::TANK, 150, -1550, 0);
 
@@ -206,8 +265,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1450, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 250, -1500, 0);
+		wave10 = true;
+	}
 
-	//CAMINO AL PUENTE
+	if (App->player->position.x >= 500 && wave11 == false) {
+		//CAMINO AL PUENTE
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 450, -1600, 3);
 
@@ -217,25 +279,38 @@ bool SceneLevel1::Start()
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 600, -1600, 3);
 
-	//PUENTE 
+	
+		wave11 = true;
+	}
 
+	if (App->player->position.x >= 650 && wave22 == false) {
+		//PUENTE 1
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1450, 0);
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 750, -1400, 0);
-
-		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 1150, -1410, 0);
-
-		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 870, -1410, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 1000, -1420, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 800, -1450, 5);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 800, -1400, 4);
+		wave22 = true;
+	}
+	if (App->player->position.x >= 1000 && wave12 == false) {
+		//PUENTE2 
+				
+		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 1150, -1410, 0);
 
-	//POST PUENTE OLEADA
+		App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 870, -1410, 1);
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 1350, -1420, 0);
+
+		wave12 = true;
+	}
+
+	if (App->player->position.x >= 1340 && wave13 == false) {
+		//POST PUENTE OLEADA
+	
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1440, -1420, 6);
 
@@ -254,8 +329,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1500, -1600, 3);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1550, -1600, 3);
+		wave13 = true;
+	}
 
-	//TANKES POST PUENTE OLEADA
+	if (App->player->position.x >= 1650 && wave14 == false) {
+		//TANKES POST PUENTE OLEADA
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 1700, -1420, 0);
 
@@ -278,8 +356,12 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 1970, -1430, 6);
 
 		App->enemies->AddEnemy(Enemy_Type::TANKSTOP, 2000, -1520, 0);
+		wave14 = true;
+	}
 
-	//OLEADA DE PEÑA CORRIENDO
+	if (App->player->position.x >= 2150 && wave15 == false) {
+
+		//OLEADA DE PEÑA CORRIENDO
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1500, 7);
 
@@ -296,8 +378,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2300, -1400, 7);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2350, -1400, 7);
+		wave15 = true;
+	}
 
-	//PRIMERA OLEADA TERCERA PARTE
+	if (App->player->position.x >= 2150 && App->player->position.y >= 1550 && wave16 == false) {
+		//PRIMERA OLEADA TERCERA PARTE
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1600, 2);
 
@@ -310,11 +395,14 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2100, -1650, 2);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2150, -1650, 2);
+		wave16 = true;
+	}
 
-	//MONO MOMENTO OLEADAS
+	if (App->player->position.y >= -1600 && wave17 == false) {
+		//MONO MOMENTO OLEADAS
 
 		App->enemies->AddEnemy(Enemy_Type::MECH, 2217, -1675, 0); //aqui iria el mono :'(
-		
+
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1731, 2);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2240, -1751, 2);
@@ -330,8 +418,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1800, 2);
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1850, 2);
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2320, -1900, 2);
+		wave17 = true;
+	}
 
-	//MEDICOZONA OLEADAS
+	if (App->player->position.y >= -1900 && wave18 == false) {
+		//MEDICOZONA OLEADAS
 
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2262, -2090, 0);
 
@@ -342,8 +433,11 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2300, -2050, 0);
 		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2250, -2100, 0);
 		App->enemies->AddEnemy(Enemy_Type::CAMILLER, 2300, -2150, 0);
+		wave18 = true;
+	}
 
-	//OLEADA DEL NEGRO
+	if (App->player->position.y >= -2250 && wave19 == false) {
+		//OLEADA DEL NEGRO
 
 		App->enemies->AddEnemy(Enemy_Type::BLACKSOLDIER, 2227, -2360, 0);
 
@@ -353,6 +447,13 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2047, -2400, 3);
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2382, -2400, 8);
 
+		App->enemies->AddEnemy(Enemy_Type::MECH, 2120, -2584, 0);
+		App->enemies->AddEnemy(Enemy_Type::MECH, 2210, -2584, 0);
+
+		wave19 = true;
+	}
+
+	if (App->player->position.y >= -2750 && wave20 == false) {
 		//PARTY POST PUENTE 
 
 		App->enemies->AddEnemy(Enemy_Type::BARREL3, 2118, -2813, 1);
@@ -369,42 +470,25 @@ bool SceneLevel1::Start()
 
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2065, -3121, 1);
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2340, -3121, 1);
+		wave20 = true;
+	}
 
-		//BOSS ARENA
+	if (App->player->position.y >= -3150 && wave21 == false) {
+		//BOSS ARENA1
 
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2343, -3329, 2);
 		App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 2056, -3329, 2);
 
-		App->enemies->AddEnemy(Enemy_Type::FINALBOSS, 2200, -3329, 0);
-
-		wave2 = false;
-		doorspawn = false;
-		helispawn = false;
-
-
-
-		helicopterArriving.PushBack({ 1515, 1056, 55, 38 });
-		helicopterArriving.PushBack({ 1571, 1056, 55, 38 });
-
-		currentAnimation = &helicopterArriving;
-		return ret;
-}
-
-Update_Status SceneLevel1::Update()
-{
-//Primera Oleada
-	if (App->player->position.y >= 30 && wave1 == false) {
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30, 0);
-
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);
-
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 22, -70, 0);
-
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 338, -70, 1);
-
-		wave1 = true;
+		wave21 = true;
 	}
 
+	if (App->player->position.y >= -3260 && wave23 == false) {
+		//BOSS ARENA2
+
+
+		App->enemies->AddEnemy(Enemy_Type::FINALBOSS, 2200, -3329, 0);
+		wave23 = true;
+	}
 
 	///////////Separacion de spwneos////////////////////////Separacion de spwneos/////////////
 
@@ -438,6 +522,17 @@ Update_Status SceneLevel1::Update()
 		
 		App->render->cameraMode = 4;
 	}
+	if (App->player->position.x >= 2150 && App->render->cameraMode == 4) {
+		App->render->cameraMode = 5;
+	}
+	/*if (App->player->position.y <= -2280 && App->render->cameraMode == 5) {
+		App->player->bigkill = 0;
+		App->render->cameraMode = 6;
+	}
+	if (App->player->bigkill == 1 && App->render->cameraMode == 6) {
+		
+		App->render->cameraMode = 7;
+	}*/
 	return Update_Status::UPDATE_CONTINUE;
 }
 

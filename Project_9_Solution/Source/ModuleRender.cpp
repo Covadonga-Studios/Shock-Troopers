@@ -153,6 +153,33 @@ Update_Status ModuleRender::Update()
 				}
 			}
 			break;
+		case 6:
+
+			break;
+		case 7:
+			if (App->player->position.x - App->render->camera.x <= 120 && App->render->camera.x >= 2048) {
+				camera.x -= cameraSpeed;
+				if (App->player->isDodging == true && App->render->camera.x >= 2048) {
+					camera.x -= cameraSpeed * 2;
+				}
+			}
+
+			if (-App->player->position.x + App->render->camera.x + SCREEN_WIDTH - 30 <= 120 && App->render->camera.x + SCREEN_WIDTH <= 2413) {
+				camera.x += cameraSpeed;
+				if (App->player->isDodging == true && App->render->camera.x + SCREEN_WIDTH <= 2413) {
+
+
+					camera.x += cameraSpeed * 2;
+				}
+			}
+
+
+			if (App->player->position.y - App->render->camera.y <= 127 && App->render->camera.y > -3329 && App->player->IsEnabled()) {
+				camera.y -= cameraSpeed;
+				if (App->player->isDodging == true) {
+					camera.y -= cameraSpeed * 2;
+				}
+			}
 			break;
 		}
 
