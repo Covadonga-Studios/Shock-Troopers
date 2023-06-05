@@ -95,7 +95,7 @@ bool SceneLevel1::Start()
 	//Los tres barriles el 0 es sideways y el uno hacia abajo
 		
 	
-	
+	App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, 90, 0, 0);
 		
 		doorspawn = false;
 		helispawn = false;

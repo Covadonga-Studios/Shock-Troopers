@@ -1623,7 +1623,7 @@ void ModulePlayer::GrenadeUpdate()
 		switch (bulletDir)
 		{
 		case LEFT:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, 1, true, Collider::Type::NONE,0);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, -1, true, Collider::Type::NONE,0);
 			
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 50, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 100, position.y - 80, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1632,7 +1632,7 @@ void ModulePlayer::GrenadeUpdate()
 			App->particles->AddParticle(App->particles->grenade, position.x - 120, position.y, 0, 0, true, Collider::Type::GRENADE, 40);
 			break;
 		case RIGHT:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 2, 1, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 2, -1, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x + 60, position.y - 50, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x + 80, position.y - 80, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1642,7 +1642,7 @@ void ModulePlayer::GrenadeUpdate()
 
 			break;
 		case DOWN:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 0, 3, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 1, 3, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x, position.y + 20, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y + 30, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1651,7 +1651,7 @@ void ModulePlayer::GrenadeUpdate()
 			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y + 40, 0, 0, true, Collider::Type::GRENADE, 40);
 			break;
 		case UP:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 0, -2, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 1, -3, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x, position.y - 120, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y - 130, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1660,7 +1660,7 @@ void ModulePlayer::GrenadeUpdate()
 			App->particles->AddParticle(App->particles->grenade, position.x - 60, position.y - 140, 0, 0, true, Collider::Type::GRENADE, 40);
 			break;
 		case DOWNLEFT:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -1, 2, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, 2, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y + 20, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1669,7 +1669,7 @@ void ModulePlayer::GrenadeUpdate()
 			App->particles->AddParticle(App->particles->grenade, position.x - 80, position.y - 40, 0, 0, true, Collider::Type::GRENADE, 40);
 			break;
 		case DOWNRIGHT:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 1, 2, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, 2, 2, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x + 40, position.y, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x + 30, position.y + 20, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1679,7 +1679,7 @@ void ModulePlayer::GrenadeUpdate()
 
 			break;
 		case UPLEFT:
-			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -1, -2, true, Collider::Type::NONE);
+			App->particles->AddParticle(App->particles->Grenade, position.x, position.y, -2, -2, true, Collider::Type::NONE);
 
 			App->particles->AddParticle(App->particles->grenade, position.x - 40, position.y - 109, 0, 0, true, Collider::Type::GRENADE, 20);
 			App->particles->AddParticle(App->particles->grenade, position.x - 30, position.y - 109 - 20, 0, 0, true, Collider::Type::GRENADE, 30);
@@ -1728,7 +1728,7 @@ void ModulePlayer::GrenadeUpdate()
 			currentAnimation = &grenadeThrowUpRight;
 			break;
 		}
-	if (grenadeAnimationTimer >= 20) {
+	if (grenadeAnimationTimer >= 30) {
 		isThrowing = false;
 		grenadeThrowLeft.Reset();
 		grenadeThrowRight.Reset();

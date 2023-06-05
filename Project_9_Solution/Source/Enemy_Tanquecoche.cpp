@@ -43,8 +43,7 @@ Enemy_Tanquecoche::Enemy_Tanquecoche(int x, int y) : Enemy(x, y)
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 52, 75 }, Collider::Type::ENEMY, (Module*)App->enemies);
-	currentAnim = &missileLauncherLeft;
-	currentAnim2 = &missileLauncher;
+
 }
 
 
@@ -56,10 +55,12 @@ void Enemy_Tanquecoche::Update()
 	case 0:
 		currentAnim = &missileLauncherLeft;
 		currentAnim2 = &missileLauncherBody;
+		
 		break;
 	case 1:
 		currentAnim = &missileLauncherRight;
 		currentAnim2 = &missileLauncher;
+		offsettexture2x = 10;
 		break;
 	}
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x);
