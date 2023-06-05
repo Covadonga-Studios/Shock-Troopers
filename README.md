@@ -1,6 +1,6 @@
 ## **Welcome to our webpage!**
 
-You can consult now our [GitHub Page]([url](https://github.com/Covadonga-Studios/Shock-Troopers](https://github.com/Covadonga-Studios/Shock-Troopers/blob/main/CovadongaStudiosWeb.md)))
+You can consult now our [Github Page]([url](https://covadonga-studios.github.io/Shock-Troopers/))!!
 
 For the duration of this semester, as Covadonga Studios, a group of first years in Videogame Design and Development, we'll be doing our best efforts to recreate the Neo-Geo game, Shock Troopers, created in 1997, leading to a series of 6 titles. The game was originally developed by Saurus and published by SNK. When it came out for the Neo-Geo arcade and home platform, it snuck into the top 15 of most-successful arcade game of the month, becoming quite popular in no time.
 
