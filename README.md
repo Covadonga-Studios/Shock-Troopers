@@ -44,7 +44,13 @@ Shock Troopers is an eight way shooter "run and gun" that offers a lot of gamepl
 -We think it defines our optimistic and future-focused mentality in the work field-
 
 
-[![Alternate Text](https://img.youtube.com/vi/https://youtu.be/h3sQGxfmmno/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/h3sQGxfmmno)
+
+
+https://github.com/Covadonga-Studios/Shock-Troopers/assets/74564975/ff3a7ca6-9746-4992-82f4-73c137486d5e
+
+For better quality, go check it out in [YouTube](https://youtu.be/h3sQGxfmmno)
+
+
 
 
 
