@@ -1,4 +1,262 @@
-﻿  ModuleEnemies.cpp
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Project_9_Solution.vcxproj -> C:\Users\pau\Desktop\-Minigame\Shock-Troopers\Debug\Project_9_Solution.exe
+﻿  Application.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  CharacterScreen.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Collider.cpp
+  Enemy.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy.cpp(60,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Enemy_Barrel.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy_Barricade.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Barricade.cpp(53,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Barricade.cpp(54,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Enemy_Bazooka.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(92,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Bazooka.cpp(93,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_BlackSoldier.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_BlackSoldier.cpp(76,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_BlackSoldier.cpp(77,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Enemy_BrownShip.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(375,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(376,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(378,69): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_BrownShip.cpp(379,69): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_Camillers.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Camillers.cpp(69,9): warning C4553: '==': result of expression not used; did you intend '='?
+  Enemy_Door.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy_FinalBoss.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(88,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_FinalBoss.cpp(89,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Enemy_Helicopter.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(62,82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Helicopter.cpp(63,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Enemy_Itempickup.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy_Mech.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy_RedBird.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(197,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(198,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(200,69): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_RedBird.cpp(201,69): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_Structures.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(80,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(81,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(200,82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Structures.cpp(201,82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Enemy_Tank.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(90,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(91,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(92,69): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tank.cpp(93,69): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Enemy_TankStop.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy_Tanquecoche.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(66,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(67,68): warning C4244: '=': conversion from 'TYPE' to 'float', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(102,140): warning C4305: 'argument': truncation from 'int' to 'bool'
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_Tanquecoche.cpp(106,135): warning C4305: 'argument': truncation from 'int' to 'bool'
+  Generating Code...
+  Compiling...
+  Enemy_ThreeBarrels.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_ThreeBarrels.cpp(32,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Enemy_ThreeBarrels.cpp(33,81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Enemy_Torpedo.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Globals.cpp
+  InitialScreen.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleAudio.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleCollisions.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleEnemies.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleFadeToBlack.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleFadeToBlack.cpp(78,19): warning C4244: '=': conversion from 'float' to 'Uint32', possible loss of data
+  ModuleFonts.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleParticles.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(539,78): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(539,56): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(544,72): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(544,50): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(565,30): warning C4244: '=': conversion from 'int' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleParticles.cpp(566,30): warning C4244: '=': conversion from 'int' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+  ModuleUI.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SceneIntro.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SceneLevel1.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleInput.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModulePlayer.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(744,12): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(745,10): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(746,12): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(747,13): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModulePlayer.cpp(1026,11): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+  ModuleRender.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(225,48): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(226,48): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(261,48): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(262,48): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(298,48): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\ModuleRender.cpp(299,48): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  ModuleTextures.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ModuleWindow.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Main.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Module.cpp
+  Generating Code...
+  Compiling...
+  Particle.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Particle.cpp(39,19): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Particle.cpp(51,58): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Particle.cpp(51,32): warning C4244: 'argument': conversion from 'TYPE' to 'int', possible loss of data
+          with
+          [
+              TYPE=float
+          ]
+  Path.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  LINK : C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe not found or not built by the last incremental link; performing full link
+  Project_9_Solution.vcxproj -> C:\Users\Noel Colon Gainza\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe

@@ -193,6 +193,7 @@ void Enemy_Structures::Update()
 	case 2:
 
 
+		offsettexture1x = 15;
 
 		randomoffset += 2;
 
