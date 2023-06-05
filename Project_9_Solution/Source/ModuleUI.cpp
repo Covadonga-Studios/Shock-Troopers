@@ -27,6 +27,7 @@ bool ModuleUI::Start()
 	texture = App->textures->Load("Assets/Sprites/UI_EMELENTS.png");
 	palmeratexture = App->textures->Load("Assets/Sprites/palmeras.png");
 	menuTp = App->textures->Load("Assets/Sprites/Teleportmenu.png");
+	menuSpawn = App->textures->Load("Assets/Sprites/SpawnTable.png");
 
 	char lookupTable[] = { "0123456789:;(=)? abcdefghijklmnopqrstuvwxyz@!.-." };
 	generalFont = App->fonts->Load("Assets/Fonts/Small letter font.png", lookupTable, 3);
@@ -41,6 +42,8 @@ bool ModuleUI::Start()
 	weapon[2].PushBack({ 64,10,31,15 });
 
 	menuTpback.PushBack({ 296,63, 180, 97 });
+
+	
 
 	menuTpbox.PushBack({552,63,93,32});
 
@@ -217,38 +220,24 @@ Update_Status ModuleUI::PostUpdate()
 	if (tpMenubool == true) 
 	{
 		App->render->Blit(menuTp, x + 124, y, &mentpbackrect);
-
-		App->render->Blit(menuTp, x + offsettpmenuboxx, y + offsettpmenuboxy, &menuTpboxrect);
-
-		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN  && offsettpmenuboxy != 32+32)
-		{
-			offsettpmenuboxy += 32;
-			
-		}
-
-		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN  && y + offsettpmenuboxy != y)
-		{
-			offsettpmenuboxy -= 32;
-		
-		}
-
-		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_DOWN && offsettpmenuboxx != 124 + 93)
-		{
-			offsettpmenuboxx += 93;
-		
-		}
-
-		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN && x + offsettpmenuboxx != x + 124)
-		{
-			offsettpmenuboxx -= 93;
-		
-		}
-
-		
-		
-
 	}
 	
+	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN && spawnMenubool == false && tpMenutimer > 1)
+	{
+		spawnMenubool = true;
+		tpMenutimer = 0;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN && spawnMenubool == true && tpMenutimer > 1)
+	{
+		spawnMenubool = false;
+		tpMenutimer = 0;
+	}
+
+	if (spawnMenubool == true) 
+	{
+		App->render->Blit(menuSpawn, x + 96, y - 30);
+	}
 	
 
 	if (weapontype == 0)

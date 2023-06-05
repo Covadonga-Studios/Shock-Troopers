@@ -68,7 +68,7 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	//enemyshot1rightupdiagonal.PushBack({ 905, 633, 64, 42 }, true);
 	//enemyshot1upleftdiagonal.PushBack({ 905, 633, 64, 42 });
 
-	hp = 10;
+	hp = 42;
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 70, 63 }, Collider::Type::ENEMY, (Module*)App->enemies);
@@ -81,10 +81,12 @@ void Enemy_Tank::Update()
 {
 	shootCooldown++;
 	start++;
+	timer++;
 
-	if (start < 60) 
+	if (start < 120 && timer == 4)
 	{
 		position.y++;
+		timer = 0;
 	}
 
 	dx = (App->player->position.x + App->player->collider->rect.w / 2 - position.x - offsetshootx);

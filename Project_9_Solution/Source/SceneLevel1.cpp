@@ -33,7 +33,7 @@ bool SceneLevel1::Start()
 	App->UI->Enable();
 	App->collisions->Enable();
 	App->particles->Enable();
-
+	helispawn = false;
 
 	App->render->camera.x = 32;
 	App->render->camera.y = 0;
@@ -55,7 +55,8 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 360, -1310, 10, 2424 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, -1548, 1000, 10 }, Collider::Type::WALL);
 	//PUENTE 1 COLLIDER
-	App->collisions->AddCollider({ 870, -1561, 304, 141 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 770, -1561, 500, 141 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 770, -1324, 500, 141 }, Collider::Type::WALL);
 	//PUENTE 2 COLLIDER
 	App->collisions->AddCollider({ 2047, -2739, 105, 124 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 2246, -2722, 167, 122 }, Collider::Type::WALL);
@@ -102,7 +103,7 @@ bool SceneLevel1::Start()
 	//Los tres barriles el 0 es sideways y el uno hacia abajo
 
 
-	App->enemies->AddEnemy(Enemy_Type::STRUCTURES, 150, -300, 0);
+
 
 
 	wave1 = false;
@@ -414,21 +415,21 @@ Update_Status SceneLevel1::Update()
 
 		//OLEADA DE PEÑA CORRIENDO
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1500, 7);
-
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2250, -1500, 7);
-
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2300, -1500, 7);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2350, -1500, 7);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2200, -1400, 7);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2400, -1500, 7);
 
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2250, -1400, 7);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2448, -1500, 7);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2300, -1400, 7);
 
 		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2350, -1400, 7);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2400, -1400, 7);
+
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 2448, -1400, 7);
 		wave15 = true;
 	}
 
@@ -585,14 +586,7 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.x >= 2150 && App->render->cameraMode == 4) {
 		App->render->cameraMode = 5;
 	}
-	/*if (App->player->position.y <= -2280 && App->render->cameraMode == 5) {
-		App->player->bigkill = 0;
-		App->render->cameraMode = 6;
-	}
-	if (App->player->bigkill == 1 && App->render->cameraMode == 6) {
-
-		App->render->cameraMode = 7;
-	}*/
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 

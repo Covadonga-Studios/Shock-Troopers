@@ -1034,7 +1034,7 @@ void ModulePlayer::MoveUpdate()
 
 				App->player->downLock = true;
 
-				position.y--;
+				position.y-=2;
 				
 				isDodging = false;
 			}
@@ -1044,7 +1044,7 @@ void ModulePlayer::MoveUpdate()
 
 				App->player->upLock = true;
 
-				position.y++;
+				position.y+=2;
 
 				isDodging = false;
 			}
@@ -1054,7 +1054,7 @@ void ModulePlayer::MoveUpdate()
 
 				App->player->leftLock = true;
 
-				position.x++;
+				position.x+=2;
 
 				isDodging = false;
 			}
@@ -1063,7 +1063,7 @@ void ModulePlayer::MoveUpdate()
 
 				App->player->rightLock = true;
 
-				position.x--;
+				position.x-=2;
 
 				isDodging = false;
 			}
@@ -1090,60 +1090,60 @@ void ModulePlayer::ShootingUpdate()
 				switch (bulletDir)
 				{
 				case LEFT:
-					App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -10, 0, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotLeft, position.x -3, position.y + 14, -7, 0, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case RIGHT:
-					App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 10, 0, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 24, position.y + 14, 7, 0, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case DOWN:
-					App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 10, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 11, position.y + 26, 0, 7, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case UP:
-					App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -10, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -7, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case DOWNLEFT:
-					App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -7, 7, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x , position.y + 19, -5, 5, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case DOWNRIGHT:
-					App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 7, 7, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 23, 5, 5, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case UPLEFT:
-					App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 4, position.y + 1, -7, -7, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x , position.y + 1, -5, -5, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				case UPRIGHT:
-					App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 14, -14, false, Collider::Type::PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y +4, 7, -7, false, Collider::Type::PLAYER_SHOT);
 
 					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
-					shootCoolDown = 0;
+					shootCoolDown = -2;
 					break;
 				}
 				cartridge--;
@@ -1300,7 +1300,7 @@ void ModulePlayer::ShootingUpdate()
 	}
 	
 
-	if (cartridge >= 0 && shootCoolDown > 25)
+	if (cartridge >= 0 && shootCoolDown > 5)
 	{
 		cartridge = 6;
 	}
@@ -1773,7 +1773,7 @@ void ModulePlayer::DebugLogicUpdate()
 			App->render->camera.y = -1415;
 			App->render->cameraMode = 2;
 		}
-		if (App->input->keys[SDL_SCANCODE_3] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_5] == Key_State::KEY_DOWN)
 		{
 			App->player->position.x = 2210;
 			App->player->position.y = -2278;
@@ -1781,7 +1781,7 @@ void ModulePlayer::DebugLogicUpdate()
 			App->render->camera.y = -2278;
 			App->render->cameraMode = 5;
 		}
-		if (App->input->keys[SDL_SCANCODE_4] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_3] == Key_State::KEY_DOWN)
 		{
 			App->player->position.x = 1285;
 			App->player->position.y = -1400;
@@ -1789,7 +1789,7 @@ void ModulePlayer::DebugLogicUpdate()
 			App->render->camera.y = -1400;
 			App->render->cameraMode = 4;
 		}
-		if (App->input->keys[SDL_SCANCODE_5] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_4] == Key_State::KEY_DOWN)
 		{
 			App->player->position.x = 2280;
 			App->player->position.y = -1434;
@@ -1807,19 +1807,99 @@ void ModulePlayer::DebugLogicUpdate()
 		}
 	}
 
+	if (App->UI->spawnMenubool == true)
+	{
+		if (App->input->keys[SDL_SCANCODE_1] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_2] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BLACKSOLDIER, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_3] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BAZOOKA, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_4] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_5] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::CAMILLER, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_6] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::HELICOPTER, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_7] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::MISSILELAUNCHER, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_8] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::TANKSTOP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_9] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::TANK, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_0] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::FINALBOSS, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_E] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_T] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_Y] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_U] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::STRUCTURES, position.x, position.y - 50, 1);
+		}
+		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BARRICADE, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::MECH, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_F] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BARREL3, position.x, position.y - 50, 0);
+		}
+		if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BARREL, position.x, position.y - 50, 0);
+		}
+	}
 
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN)
 	{
 		hp = 0;
 	}
-	if (App->input->keys[SDL_SCANCODE_F6] == Key_State::KEY_DOWN)
-	{
-		App->render->cameraMode++;
-	}
+	
 
 	if (App->input->keys[SDL_SCANCODE_F7] == Key_State::KEY_DOWN)
 	{
-		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, position.x, position.y- 40);
+		App->render->cameraMode++;
 
 	}
 }

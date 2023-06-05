@@ -39,7 +39,7 @@ Enemy_Tanquecoche::Enemy_Tanquecoche(int x, int y) : Enemy(x, y)
 	//enemyshot1rightupdiagonal.PushBack({ 905, 633, 64, 42 }, true);
 	//enemyshot1upleftdiagonal.PushBack({ 905, 633, 64, 42 });
 
-	hp = 10;
+	hp = 60;
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 52, 75 }, Collider::Type::ENEMY, (Module*)App->enemies);

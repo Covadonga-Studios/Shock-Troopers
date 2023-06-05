@@ -45,7 +45,7 @@ Enemy_Barrel::Enemy_Barrel(int x, int y) : Enemy(x, y)
 	collider3 = App->collisions->AddCollider({ 20, 80, 20, 30 }, Collider::Type::PLAYER_SHOT, (Module*)App->enemies);
 	collider2->SetPos(2000, 3000);
 	collider3->SetPos(2000, 3000);
-	hp = 1;
+	hp = 12;
 
 }
 

@@ -9,106 +9,111 @@ struct SDL_Texture;
 class ModuleUI : public Module
 {
 public:
-	
-	//Constructor
-	ModuleUI(bool startEnabled);
+
+    //Constructor
+    ModuleUI(bool startEnabled);
 
 
-	//Destructor
-	~ModuleUI();
+    //Destructor
+    ~ModuleUI();
 
-	// Called when the module is activated
-	// Loads the necessary textures for the player
-	bool Start() override;
+    // Called when the module is activated
+    // Loads the necessary textures for the player
+    bool Start() override;
 
-	// Called at the middle of the application loop
-	// Processes new input and handles player movement
-	Update_Status Update() override;
+    // Called at the middle of the application loop
+    // Processes new input and handles player movement
+    Update_Status Update() override;
 
-	// Called at the end of the application loop
-	// Performs the render call of the player sprite
-	Update_Status PostUpdate() override;
+    // Called at the end of the application loop
+    // Performs the render call of the player sprite
+    Update_Status PostUpdate() override;
 
 public:
 
 
-	// The UI spritesheet loaded into an SDL_Texture
-	SDL_Texture* texture = nullptr;
-	SDL_Texture* palmeratexture = nullptr;
-	SDL_Texture* menuTp = nullptr;
+    // The UI spritesheet loaded into an SDL_Texture
+    SDL_Texture* texture = nullptr;
+    SDL_Texture* palmeratexture = nullptr;
+    SDL_Texture* menuTp = nullptr;
+    SDL_Texture* menuSpawn = nullptr;
 
-	Animation portraitRed;
-	Animation portraitWhite;
-	Animation* portrait = nullptr;
+    Animation portraitRed;
+    Animation portraitWhite;
+    Animation* portrait = nullptr;
 
-	Animation menuTpback;
-	SDL_Rect mentpbackrect;
+    Animation menuTpback;
+    SDL_Rect mentpbackrect;
 
-	Animation menuTpbox;
-	SDL_Rect menuTpboxrect;
-	
-	int offsettpmenuboxx = 124;
-	int offsettpmenuboxy = 0;
-	int tpmenulocx = 0;
-	int tpmenulocy = 0;
+    Animation menuTpbox;
+    SDL_Rect menuTpboxrect;
 
-	bool red = true;
-	int portraitTimer = 0;
+    Animation menuSpawnbox;
+    SDL_Rect menuSpawnrect;
 
+    int offsettpmenuboxx = 124;
+    int offsettpmenuboxy = 0;
+    int tpmenulocx = 0;
+    int tpmenulocy = 0;
 
-	//Create a chunk of 8 HP for the HP bar
-	struct HPBarChunk
-	{
-		Animation hp8;
-		Animation hp7;
-		Animation hp6;
-		Animation hp5;
-		Animation hp4;
-		Animation hp3;
-		Animation hp2;
-		Animation hp1;
-		Animation hp0;
-		Animation* hpState = nullptr;
-		SDL_Rect hpRect;
-	};
-
-	//the total HP bar is an array of 16 chunks
-	HPBarChunk HPBar[16];
-	SDL_Rect hpRectUp;
-	SDL_Rect hpRectDown;
-	
-	//Score
-	int generalFont = -1;
-	char scoreText[10] = { "\0" };
-
-	char grenadeText[10] = { "\0" };
-	SDL_Rect grenadeRect;
-
-	Animation* currentWeapon = nullptr;
-	//Normal:0, Flame:1 3Way:2
-	Animation weapon[3];
-	SDL_Rect weaponRect;
-	char ammoText[10] = { "\0" };
-
-	bool tpMenubool;
-
-	int tpMenutimer = 0;
-
-	char* DebugText = "milky x and y";
-	char xText[10] = { "\0" };
-	char yText[10] = { "\0" };
-	;
+    bool red = true;
+    int portraitTimer = 0;
 
 
-	//temp
-	int ammo = 150;
-	SDL_Rect infinityRect;
+    //Create a chunk of 8 HP for the HP bar
+    struct HPBarChunk
+    {
+        Animation hp8;
+        Animation hp7;
+        Animation hp6;
+        Animation hp5;
+        Animation hp4;
+        Animation hp3;
+        Animation hp2;
+        Animation hp1;
+        Animation hp0;
+        Animation* hpState = nullptr;
+        SDL_Rect hpRect;
+    };
+
+    //the total HP bar is an array of 16 chunks
+    HPBarChunk HPBar[16];
+    SDL_Rect hpRectUp;
+    SDL_Rect hpRectDown;
+
+    //Score
+    int generalFont = -1;
+    char scoreText[10] = { "\0" };
+
+    char grenadeText[10] = { "\0" };
+    SDL_Rect grenadeRect;
+
+    Animation* currentWeapon = nullptr;
+    //Normal:0, Flame:1 3Way:2
+    Animation weapon[3];
+    SDL_Rect weaponRect;
+    char ammoText[10] = { "\0" };
+
+    bool tpMenubool;
+    bool spawnMenubool;
+
+    int tpMenutimer = 0;
+
+    char* DebugText = "milky x and y";
+    char xText[10] = { "\0" };
+    char yText[10] = { "\0" };
+    ;
+
+
+    //temp
+    int ammo = 150;
+    SDL_Rect infinityRect;
 
 
 
-	//Timer
-	int timerFont = -1;
-	int timerCounter = 0;
-	char timerText[10] = { "\0" };
-	SDL_Rect timerRect;
+    //Timer
+    int timerFont = -1;
+    int timerCounter = 0;
+    char timerText[10] = { "\0" };
+    SDL_Rect timerRect;
 };

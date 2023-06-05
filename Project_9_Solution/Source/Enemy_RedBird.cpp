@@ -180,7 +180,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyBurning.speed = 0.1f;
 	enemyBurning.loop = false;
 
-	hp = 1;
+	hp = 2;
 
 	currentAnim = &flyAnim;
 

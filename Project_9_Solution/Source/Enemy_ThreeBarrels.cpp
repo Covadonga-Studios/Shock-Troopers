@@ -21,7 +21,7 @@ Enemy_ThreeBarrels::Enemy_ThreeBarrels(int x, int y) : Enemy(x, y)
 	currentAnim = &boxidle;
 
 	collider = App->collisions->AddCollider({ 20, 20, 56, 65 }, Collider::Type::ENEMY, (Module*)App->enemies);
-	hp = 1;
+	hp = 12;
 
 }
 

@@ -61,7 +61,7 @@ private:
 
 	float dx2;
 	float dy2;
-
+	int timer = 0;
 	int start = 0;
 };
 

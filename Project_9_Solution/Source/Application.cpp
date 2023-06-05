@@ -91,6 +91,9 @@ Update_Status Application::Update()
 	for (int i = 0; i < NUM_MODULES && ret == Update_Status::UPDATE_CONTINUE; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->PostUpdate() : Update_Status::UPDATE_CONTINUE;
 
+	if (App->input->keys[SDL_SCANCODE_ESCAPE]== Key_State::KEY_DOWN) {
+		exit(0);
+	}
 	SDL_Delay(15);	
 	return ret;
 }

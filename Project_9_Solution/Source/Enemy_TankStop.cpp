@@ -39,7 +39,7 @@ Enemy_TankStop::Enemy_TankStop(int x, int y) : Enemy(x, y)
 	currentAnim = &tankStop;
 	currentAnim2 = &tankStopbase;
 	collider = App->collisions->AddCollider({ 20, 20, 110, 89 }, Collider::Type::ENEMY, (Module*)App->enemies);
-	hp = 10;
+	hp = 12;
 
 	offsettexture2y = 12;
 	offsettexture2x = -22;

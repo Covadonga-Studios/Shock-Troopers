@@ -179,7 +179,7 @@ void Enemy::OnCollision(Collider* collider)
 
 	if (collider->type == Collider::Type::GRENADE && grenadeImmunity > 120) 
 	{
-		hp -= 5;
+		hp -= 42;
 		grenadeImmunity = 0;
 	}
 	

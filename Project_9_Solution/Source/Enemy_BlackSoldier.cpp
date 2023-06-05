@@ -54,7 +54,7 @@ Enemy_BlackSoldier::Enemy_BlackSoldier(int x, int y) : Enemy(x, y)
 
 	collider = App->collisions->AddCollider({ 20, 20, 32, 50 }, Collider::Type::ENEMY, (Module*)App->enemies);
 	collider2 = App->collisions->AddCollider({ 20, 20, 72, 75 }, Collider::Type::ENEMY_SHOT, (Module*)App->enemies);
-	hp = 10;
+	hp = 36;
 
 }
 
