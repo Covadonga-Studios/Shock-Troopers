@@ -79,7 +79,7 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 
 	currentAnim = &flyAnim;
 
-	collider = App->collisions->AddCollider({ 0, 0, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 0, 0, 20, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 
@@ -155,27 +155,35 @@ void Enemy_Bazooka::Update()
 		{
 		case LEFT:
 			currentAnim = &bazookaLeft;
+			offsettexture1x = -15;
 			break;
 		case RIGHT:
 			currentAnim = &bazookaRight;
+			offsettexture1x = -8;
 			break;
 		case DOWN:
 			currentAnim = &bazookaDown;
+			offsettexture1x = -14;
 			break;
 		case UP:
 			currentAnim = &bazookaUp;
+			offsettexture1x = -9;
 			break;
 		case DOWNLEFT:
 			currentAnim = &bazookaDownLeft;
+			offsettexture1x = -9;
 			break;
 		case DOWNRIGHT:
 			currentAnim = &bazookaDownRight;
+			offsettexture1x = 0;
 			break;
 		case UPLEFT:
 			currentAnim = &bazookaUpLeft;
+			offsettexture1x = -10;
 			break;
 		case UPRIGHT:
 			currentAnim = &bazookaUpRight;
+			offsettexture1x = -11;
 			break;
 		}
 

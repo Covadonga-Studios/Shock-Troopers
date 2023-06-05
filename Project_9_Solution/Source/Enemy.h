@@ -72,7 +72,8 @@ public:
 
 	int enemyMode = 0;
 
-	
+	int drop = 0;
+	bool dropped = false;
 
 	bool die;
 

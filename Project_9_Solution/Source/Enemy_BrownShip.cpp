@@ -300,7 +300,7 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	hp = 1;
 
 	
-	collider = App->collisions->AddCollider({ position.x, position.y, 43, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ position.x + 40, position.y, 20, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 
@@ -494,7 +494,7 @@ void Enemy_BrownShip::Update()
 	}
 
 	if (spawn > spawnlimit) {
-		collider->SetPos(position.x, position.y);
+		collider->SetPos(position.x + 10, position.y);
 		collider->type = Collider::Type::ENEMY;
 	}
 	else 
