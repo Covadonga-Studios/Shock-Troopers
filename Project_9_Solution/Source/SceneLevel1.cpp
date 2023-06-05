@@ -91,6 +91,8 @@ bool SceneLevel1::Start()
 		
 	
 //PRIMERA OLEADA
+
+
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 90, -30, 0);
 
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 270, -30, 1);

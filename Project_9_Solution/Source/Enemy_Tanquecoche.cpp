@@ -71,6 +71,11 @@ void Enemy_Tanquecoche::Update()
 		deleting = true;
 		currentAnim = &missileLauncherBrokenBody;
 		currentAnim2 = &missileLauncherBrokenTop;
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 15, position.y + 10, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 25, 0, 0, false, Collider::Type::NONE, 10);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 35, position.y, 0, 0, false, Collider::Type::NONE, 25);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + -12, position.y - 50, 0, 0, false, Collider::Type::NONE, 40);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + -12, position.y - 50, 0, -2, false, Collider::Type::NONE, 12);
 	}
 
 	if (deleting == true)
@@ -96,7 +101,7 @@ void Enemy_Tanquecoche::Update()
 
 	if (deleting == false)
 	{
-		offsettexture1x = 0;
+		offsettexture1x = 8;
 		offsettexture1y = -26;
 	}
 

@@ -94,6 +94,12 @@ void Enemy_Tank::Update()
 
 	if (hp <= 0 && deleting == false)
 	{
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 6, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 10, position.y + 20, 0, 0, false, Collider::Type::NONE, 5);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 20, position.y, 0, 0, false, Collider::Type::NONE, 30);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + -5, position.y - 40, 0, 0, false, Collider::Type::NONE, 20);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + -5, position.y - 40, 0, 0, false, Collider::Type::NONE, 50);
+		
 		pendingToDelete = false;
 		deleting = true;
 	}

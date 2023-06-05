@@ -63,9 +63,11 @@ void Enemy_TankStop::Update()
 		currentAnim = &tankStopded;
 
 
-		App->particles->AddParticle(App->particles->missileExplosion, position.x + 5, position.y + 6, 0, 0, false, Collider::Type::NONE);
-		App->particles->AddParticle(App->particles->missileExplosion, position.x + 10, position.y + 20, 0, 0, false, Collider::Type::NONE,5);
-		App->particles->AddParticle(App->particles->missileExplosion, position.x + 20, position.y, 0, 0, false, Collider::Type::NONE,7);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 15, position.y + 10, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 25, position.y + 25, 0, 0, false, Collider::Type::NONE, 10);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 35, position.y, 0, 0, false, Collider::Type::NONE, 25);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + -12, position.y - 50, 0, 0, false, Collider::Type::NONE, 40);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + -8, position.y - 50, 0, -2, false, Collider::Type::NONE, 12);
 	}
 
 

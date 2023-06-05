@@ -1,4 +1,4 @@
-﻿  SceneLevel1.cpp
-C:\Users\danno\OneDrive\Documentos\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\danno\OneDrive\Documentos\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Project_9_Solution.vcxproj -> C:\Users\danno\OneDrive\Documentos\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
+﻿  Enemy_TankStop.cpp
+C:\Users\Ivo\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(62,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Ivo\Documents\GitHub\Shock-Troopers\Project_9_Solution\Source\Animation.h(64,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Project_9_Solution.vcxproj -> C:\Users\Ivo\Documents\GitHub\Shock-Troopers\Debug\Project_9_Solution.exe
