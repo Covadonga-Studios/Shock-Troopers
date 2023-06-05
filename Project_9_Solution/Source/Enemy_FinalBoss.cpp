@@ -93,11 +93,29 @@ void Enemy_FinalBoss::Update()
 		pendingToDelete = false;
 		deleting = true;
 		currentAnim = &enemydeath1;
+		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y, 0, 0, false, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +40, position.y, 0, 0, false, Collider::Type::NONE, 10);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +80, position.y, 0, 0, false, Collider::Type::NONE, 20);
+
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +40, position.y +50, 0, 0, false, Collider::Type::NONE, 30);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x +80, position.y + 50, 0, 0, false, Collider::Type::NONE,40);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 50, 0, 0, false, Collider::Type::NONE, 50);
+
+		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 100, 0, 0, false, Collider::Type::NONE, 60);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 40, position.y + 100, 0, 0, false, Collider::Type::NONE,70);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 80, position.y + 100, 0, 0, false, Collider::Type::NONE,80);
+
+		
 	}
 
-	if (currentAnim->HasFinished() == true)
+	if (deleting == true) {
+		deathTimer++;
+	}
+
+	if (deathTimer >= 90)
 	{
-		die = true;
+		pendingToDelete = true;
+		
 	}
 
 	if (deleting == false)

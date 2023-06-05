@@ -206,9 +206,8 @@ void Enemy_Structures::Update()
 			switch (GetTargetDir(dx, dy))
 			{
 		
-			case RIGHT:
-				currentAnim = &enemyshot1right;
-				break;
+			
+			
 			case DOWN:
 				currentAnim = &lightMGenemyDownRight;
 				break;
@@ -229,8 +228,19 @@ void Enemy_Structures::Update()
 				float dirx = (dx * 1.5f / dir);
 				float diry = (dy * 1.5f / dir);
 
-
-				App->particles->AddParticle(App->particles->laser, position.x , position.y , dirx, diry, false, Collider::Type::ENEMY_SHOT);
+				switch (GetTargetDir(dx, dy)) {
+				case DOWN:
+					App->particles->AddParticle(App->particles->laser, position.x + 30, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+					break;
+				
+				case DOWNLEFT:
+					App->particles->AddParticle(App->particles->laser, position.x + 15, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+					break;
+				case DOWNRIGHT:
+					App->particles->AddParticle(App->particles->laser, position.x + 50, position.y + 50, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+					break;
+				}
+				
 				shootCooldown = 0;
 			}
 

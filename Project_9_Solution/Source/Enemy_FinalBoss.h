@@ -13,6 +13,7 @@ public:
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;
+	int deathTimer;
 
 private:
 	// The position (as ratio) in the wave at a specific moment
@@ -30,6 +31,7 @@ private:
 	int shootCooldown2;
 	int shootCooldown3;
 	int shootCooldown4;
+
 	// The enemy animation
 	Animation flyAnim;
 	Animation enemydeath1;
