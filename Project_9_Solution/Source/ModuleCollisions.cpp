@@ -15,7 +15,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = false;
-	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = true;
+	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
@@ -118,6 +118,8 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ITEM][Collider::Type::RIGHT_PLAYER] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::DOWN_PLAYER] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::LEFT_PLAYER] = false;
+	matrix[Collider::Type::ITEM][Collider::Type::FLAME] = false;
+	matrix[Collider::Type::ITEM][Collider::Type::GRENADE] = false;
 }
 
 // Destructor

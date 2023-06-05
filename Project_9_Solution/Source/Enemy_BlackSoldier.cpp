@@ -52,8 +52,8 @@ Enemy_BlackSoldier::Enemy_BlackSoldier(int x, int y) : Enemy(x, y)
 
 	currentAnim = &idle;
 
-	collider = App->collisions->AddCollider({ 20, 20, 32, 50}, Collider::Type::ENEMY, (Module*)App->enemies);
-	collider2 = App->collisions->AddCollider({ 20, 20, 72, 90 }, Collider::Type::ENEMY_SHOT, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 20, 20, 32, 50 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider2 = App->collisions->AddCollider({ 20, 20, 72, 75 }, Collider::Type::ENEMY_SHOT, (Module*)App->enemies);
 	hp = 10;
 
 }
@@ -84,7 +84,7 @@ void Enemy_BlackSoldier::Update()
 		offsettexture1y = -22;
 		isMelee = true;
 		shootCooldown = 0;
-		collider2->SetPos(position.x - 20, position.y- 20);
+		collider2->SetPos(position.x - 15, position.y - 20);
 	}
 
 	if (isMelee == false && deleting == false)
@@ -145,11 +145,14 @@ void Enemy_BlackSoldier::Update()
 	if (currentAnim->HasFinished() == true)
 	{
 		die = true;
+		collider2->pendingToDelete = true;
 	}
 
 	if (!isMelee && deleting == false)
 	collider2->SetPos(2000, 2000);
 
+	if (isMelee && deleting == true)
+		collider2->SetPos(2000, 2000);
 	collider->SetPos(position.x, position.y);
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position

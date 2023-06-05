@@ -7,6 +7,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "Animation.h"
+#include "ModuleEnemies.h"
 
 Enemy::Enemy(int x, int y) : position(x, y)
 {
@@ -28,6 +29,12 @@ void Enemy::Update()
 {
 	grenadeImmunity++;
 	flameImmunity++;
+	drop++;
+
+	if (drop > 50) 
+	{
+		drop = 0;
+	}
 
 	if (collider == nullptr && pendingToDelete == false ) {
 		pendingToDelete = true;
@@ -184,7 +191,32 @@ void Enemy::OnCollision(Collider* collider)
 			isOnFire = true;
 
 		App->audio->PlayFx(destroyedFx);
+		if (dropped == false && this->collider->type != Collider::Type::ITEM)
+	{
 
+		switch (drop)
+		{
+		default:
+
+			break;
+		case 10:
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y, 0);
+			break;
+		case 27:
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y, 1);
+			break;
+		case 35:
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y, 2);
+			break;
+		case 23:
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y, 3);
+			break;
+		case 45:
+			App->enemies->AddEnemy(Enemy_Type::ITEMPICKUP, position.x, position.y, 4);
+			break;
+		}
+		dropped = true;
+	}
 		
 	
 	}
@@ -197,4 +229,6 @@ void Enemy::SetToDelete()
 	App->player->kills++;
 	//if (collider != nullptr)
 		//collider->pendingToDelete = true;
+
+	
 }

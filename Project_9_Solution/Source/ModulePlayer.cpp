@@ -654,6 +654,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	grenadeThrowUpLeft.PushBack({ 374, 249, 36, 34 });
 	grenadeThrowUpLeft.speed = 0.25f;
 
+
+	
+
 }	
 
 ModulePlayer::~ModulePlayer()
@@ -673,8 +676,11 @@ bool ModulePlayer::Start()
 	winCon = false;
 	isHurt = false;
 
-	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
+
+	laserFx = App->audio->LoadFx("Assets/Fx/Player Shot.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	flamethrowerFx = App->audio->LoadFx("Assets/Fx/Flamethrower.wav");
+	milkyhurtvoice = App->audio->LoadFx("Assets/Fx/milkyhurtvoice.wav");
 	hp = 120;
 	score = 000;
 	timer = 99;
@@ -731,6 +737,15 @@ void ModulePlayer::GamepadUpdate()
 
 void ModulePlayer::MoveUpdate()
 {
+
+	if (leftLock == true && upLock == true && downLock == true && rightLock == true) 
+	{
+		leftLock == true;
+		upLock == true; 
+		downLock == true; 
+		rightLock == true;
+	}
+
 	if (isHurt == false && isDead == false && winCon == false)
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT &&
 			App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT &&
@@ -1077,41 +1092,56 @@ void ModulePlayer::ShootingUpdate()
 				case LEFT:
 					App->particles->AddParticle(App->particles->PlayerShotLeft, position.x, position.y + 12, -10, 0, false, Collider::Type::PLAYER_SHOT);
 
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case RIGHT:
 					App->particles->AddParticle(App->particles->PlayerShotRight, position.x + 20, position.y + 12, 10, 0, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWN:
 					App->particles->AddParticle(App->particles->PlayerShotDown, position.x + 9, position.y + 26, 0, 10, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UP:
 					App->particles->AddParticle(App->particles->PlayerShotUp, position.x + 17, position.y, 0, -10, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNLEFT:
 					App->particles->AddParticle(App->particles->PlayerShotDownLeft, position.x + 4, position.y + 18, -7, 7, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNRIGHT:
 					App->particles->AddParticle(App->particles->PlayerShotDownRight, position.x + 20, position.y + 18, 7, 7, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UPLEFT:
 					App->particles->AddParticle(App->particles->PlayerShotUpLeft, position.x + 4, position.y + 1, -7, -7, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
 				case UPRIGHT:
 					App->particles->AddParticle(App->particles->PlayerShotUpRight, position.x + 20, position.y, 14, -14, false, Collider::Type::PLAYER_SHOT);
+
+					if (cartridge == 6)
 					App->audio->PlayFx(laserFx);
 					shootCoolDown = 0;
 					break;
@@ -1130,42 +1160,42 @@ void ModulePlayer::ShootingUpdate()
 				{
 				case LEFT:
 					App->particles->AddParticle(App->particles->flameThrower, position.x - 11, position.y - 3, -5, 0, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case RIGHT:
 					App->particles->AddParticle(App->particles->flameThrower, position.x + 15, position.y - 3, 5, 0, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case DOWN:
 					App->particles->AddParticle(App->particles->flameThrower, position.x - 2, position.y + 16, 0, 5, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case UP:
 					App->particles->AddParticle(App->particles->flameThrower, position.x + 7, position.y - 13, 0, -5, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNLEFT:
 					App->particles->AddParticle(App->particles->flameThrower, position.x - 11, position.y + 7, -4, 4, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case DOWNRIGHT:
 					App->particles->AddParticle(App->particles->flameThrower, position.x + 10, position.y + 8, 5, 5, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case UPLEFT:
 					App->particles->AddParticle(App->particles->flameThrower, position.x - 7, position.y - 11, -4, -4, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				case UPRIGHT:
 					App->particles->AddParticle(App->particles->flameThrower, position.x + 13, position.y - 11, 4, -4, true, Collider::Type::FLAME);
-					App->audio->PlayFx(laserFx);
+					App->audio->PlayFx(flamethrowerFx);
 					shootCoolDown = 0;
 					break;
 				}
@@ -1745,7 +1775,7 @@ void ModulePlayer::DebugLogicUpdate()
 
 void ModulePlayer::HurtUpdate() 
 {
-	if (isHurt == true)
+	if (isHurt == true && isDead == false && winCon == false)
 	{
 		switch (moveDir)
 		{
@@ -1961,11 +1991,13 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 
-	if (c1->type == Collider::Type::PLAYER && (c2->type == Collider::Type::ENEMY_SHOT || c2->type == Collider::Type::MISSILE) && godMode == false && invincible == false)
+	if (c1->type == Collider::Type::PLAYER && (c2->type == Collider::Type::ENEMY_SHOT || c2->type == Collider::Type::MISSILE) && godMode == false && invincible == false && isDead == false && winCon == false)
 	{
+		App->audio->PlayFx(milkyhurtvoice);
 		hp -= 22;
 		isHurt = true;
 		invincible = true;
 		hurtDuration = 0;
+	
 	}
 }

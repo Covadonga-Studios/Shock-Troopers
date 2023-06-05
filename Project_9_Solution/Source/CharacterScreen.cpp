@@ -27,8 +27,8 @@ bool CharacterScreen::Start()
 	bgTexture2 = App->textures->Load("Assets/Sprites/background titlescreen.png");
 	bgTexture3 = App->textures->Load("Assets/Sprites/characterselect.png");
 	boxTexture = App->textures->Load("Assets/Sprites/boxselect.png");
-	selectFx = App->audio->LoadFx("Assets/Fx/cambiar seleccion.wav");
-	acceptFx = App->audio->LoadFx("Assets/Fx/Aceptar seleccion.wav");
+	selectFx = App->audio->LoadFx("Assets/Fx/Change Selection.wav");
+	acceptFx = App->audio->LoadFx("Assets/Fx/Accept Selection.wav");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 

@@ -31,7 +31,7 @@ bool SceneIntro::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/Titlescreen.png");
-	App->audio->PlayMusic("Assets/Music/introTitle.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/Intro tittle.ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -52,6 +52,24 @@ bool SceneIntro::Start()
 
 Update_Status SceneIntro::Update()
 {
+	GamePad& pad = App->input->pads[0];
+
+	if (pad.l_x < -0.2f && pad.l_x < 0.0f) {
+		App->input->keys[SDL_SCANCODE_A] = Key_State::KEY_REPEAT;
+	}
+	if (pad.l_x > 0.2f && pad.l_x > 0.0f) {
+		App->input->keys[SDL_SCANCODE_D] = Key_State::KEY_REPEAT;
+	}
+	if (pad.l_y > 0.2f && pad.l_y > 0.0f) {
+		App->input->keys[SDL_SCANCODE_S] = Key_State::KEY_REPEAT;
+	}
+	if (pad.l_y < -0.2f && pad.l_y < 0.0f) {
+		App->input->keys[SDL_SCANCODE_W] = Key_State::KEY_REPEAT;
+	}
+	if (pad.a == 1) {
+		App->input->keys[SDL_SCANCODE_SPACE] = Key_State::KEY_DOWN;
+	}
+
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
@@ -70,7 +88,7 @@ Update_Status SceneIntro::Update()
 	}
 	if (textOnScreen == true)
 	{
-		text = "press space to start";
+		text = "press space or a to start";
 	}
 	else
 	{
@@ -85,7 +103,7 @@ Update_Status SceneIntro::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->fonts->BlitText(75, 170, textFont, text);
+	App->fonts->BlitText(40, 170, textFont, text);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
