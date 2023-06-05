@@ -14,15 +14,20 @@ public:
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
+	int counter = 0;
 
 private:
 	// The path that will define the position in the world
 	Path path;
 	bool deleting;
 	// Enemy animations
-	Animation box;
-	Animation boxidle;
-	Animation front, back;
+	Animation monkeyHappy;
+	Animation monkeyRight;
+	Animation monkeyLeft;
+	Animation monkeyAngry;
+	Animation monkeyLeavingRight;
+	Animation monkeyLeavingLeft;
+	Animation banana;
 };
 
 #endif // __ENEMY_TORPEDO_H__
