@@ -46,6 +46,7 @@ public:
 	bool doorspawn = false;
 	bool wave1 = false;
 	bool wave2 = false;
+	bool wave3 = false;
 
 private: 
 	Animation door;

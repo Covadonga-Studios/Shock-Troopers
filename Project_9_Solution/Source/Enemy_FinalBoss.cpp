@@ -61,7 +61,7 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 	//enemyshot1rightupdiagonal.PushBack({ 905, 633, 64, 42 }, true);
 	//enemyshot1upleftdiagonal.PushBack({ 905, 633, 64, 42 });
 
-	hp = 10;
+	hp = 120;
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 109, 162 }, Collider::Type::ENEMY, (Module*)App->enemies);

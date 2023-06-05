@@ -350,10 +350,12 @@ void Enemy_BrownShip::Update()
 	case 6:
 		spawnlimit = 200;
 		currentAnim = &walkingLeft;
+		position.x--;
 		break;
 	case 7:
 		spawnlimit = 150;
 		currentAnim = &enemyRunningLeft;
+		position.x += 2;
 		break;
 	case 8:
 		spawnlimit = 50;

@@ -134,7 +134,7 @@ void Enemy_BlackSoldier::Update()
 
 
 
-	if (pendingToDelete == true && deleting == false)
+	if (hp <= 0 && deleting == false)
 	{
 		pendingToDelete = false;
 		deleting = true;
@@ -143,7 +143,7 @@ void Enemy_BlackSoldier::Update()
 
 	if (currentAnim->HasFinished() == true)
 	{
-		pendingToDelete = true;
+		die = true;
 	}
 
 	if (!isMelee && deleting == false)

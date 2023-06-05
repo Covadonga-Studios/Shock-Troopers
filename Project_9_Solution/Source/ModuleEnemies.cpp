@@ -139,8 +139,8 @@ void ModuleEnemies::HandleEnemiesSpawn()
 		{
 			switch (App->render->cameraMode)
 			{
-			default:
-				if (abs(spawnQueue[i].x - App->player->position.x) < 365 && abs(spawnQueue[i].y - App->player->position.y) < 100)
+			case 0:
+				if (abs(spawnQueue[i].x - App->player->position.x) < 365 && abs(spawnQueue[i].y - App->player->position.y) < 150)
 				{
 					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
@@ -151,7 +151,43 @@ void ModuleEnemies::HandleEnemiesSpawn()
 				
 
 			case 1:
-				if (abs(spawnQueue[i].x - App->player->position.x) < 450 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
+				if (abs(spawnQueue[i].x - App->player->position.x) < 350 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
+				{
+					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+					SpawnEnemy(spawnQueue[i]);
+					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+				}
+				break;
+			case 2:
+				if (abs(spawnQueue[i].x - App->player->position.x) < 150 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
+				{
+					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+					SpawnEnemy(spawnQueue[i]);
+					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+				}
+				break;
+			case 3:
+				if (abs(spawnQueue[i].x - App->player->position.x) < 150 /*&& abs(spawnQueue[i].y - App->player->position.y) < 100*/)
+				{
+					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+					SpawnEnemy(spawnQueue[i]);
+					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+				}
+				break;
+			case 4:
+				if (abs(spawnQueue[i].x - App->player->position.x) < 170 && abs(spawnQueue[i].y - App->player->position.y) < 200)
+				{
+					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
+
+					SpawnEnemy(spawnQueue[i]);
+					spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
+				}
+				break;
+			case 5:
+				if (abs(spawnQueue[i].x - App->player->position.x) < 365 && abs(spawnQueue[i].y - App->player->position.y) < 150)
 				{
 					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
