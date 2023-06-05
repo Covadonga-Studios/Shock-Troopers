@@ -7,6 +7,7 @@
 #include "ModuleFonts.h"
 #include "stdio.h"
 #include "math.h"
+#include "ModuleAudio.h"
 
 
 Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
@@ -299,6 +300,8 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 
 	hp = 1;
 
+	deathfx = App->audio->LoadFx("Assets/Fx/greendeath.wav");
+
 	
 	collider = App->collisions->AddCollider({ position.x + 40, position.y, 20, 43 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -380,6 +383,7 @@ void Enemy_BrownShip::Update()
 
 	if (hp <= 0 && deleting == false && spawn > spawnlimit) 
 	{
+		App->audio->PlayFx(deathfx);
 		pendingToDelete = false;
 		deleting = true;
 		if (!isOnFire) {

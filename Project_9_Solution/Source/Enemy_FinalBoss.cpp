@@ -44,7 +44,7 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 
 	turretDown.PushBack({ 4, 1060, 42, 27 });
 
-	turretDownLeft.PushBack({ 48, 1060, 42, 27});
+	turretDownLeft.PushBack({ 48, 1060, 42, 27 });
 
 	turretDownRight.PushBack({ 48, 1060, 42, 27 }, true);
 
@@ -52,7 +52,7 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 
 	turretRight.PushBack({ 92, 1060, 42, 27 }, true);
 
-	baseFinalBoss.PushBack({3,1525,109,162});
+	baseFinalBoss.PushBack({ 3,1525,109,162 });
 	baseFinalBoss.PushBack({ 114,1525,109,162 });
 	baseFinalBoss.speed = 0.1f;
 	//POR AHORA CUT CONTENT
@@ -61,7 +61,7 @@ Enemy_FinalBoss::Enemy_FinalBoss(int x, int y) : Enemy(x, y)
 	//enemyshot1rightupdiagonal.PushBack({ 905, 633, 64, 42 }, true);
 	//enemyshot1upleftdiagonal.PushBack({ 905, 633, 64, 42 });
 
-	hp = 600;
+	hp = 120;
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 109, 162 }, Collider::Type::ENEMY, (Module*)App->enemies);
@@ -77,11 +77,13 @@ void Enemy_FinalBoss::Update()
 	shootCooldown2++;
 	shootCooldown3++;
 	shootCooldown4++;
+	shootCooldown5++;
+	shootCooldown6++;
 
-	offsettexture2x =0;
-	offsettexture2y =0;
-	offsettexture1x =0;
-	offsettexture1y =0;
+	offsettexture2x = 0;
+	offsettexture2y = 0;
+	offsettexture1x = 0;
+	offsettexture1y = 0;
 	int offsetx = 50;
 	int offsety = 50;
 
@@ -94,16 +96,16 @@ void Enemy_FinalBoss::Update()
 		deleting = true;
 		currentAnim = &enemydeath1;
 		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y, 0, 0, false, Collider::Type::NONE);
-		App->particles->AddParticle(App->particles->explosionDefault, position.x +40, position.y, 0, 0, false, Collider::Type::NONE, 10);
-		App->particles->AddParticle(App->particles->explosionDefault, position.x +80, position.y, 0, 0, false, Collider::Type::NONE, 20);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 40, position.y, 0, 0, false, Collider::Type::NONE, 10);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 80, position.y, 0, 0, false, Collider::Type::NONE, 20);
 
-		App->particles->AddParticle(App->particles->explosionDefault, position.x +40, position.y +50, 0, 0, false, Collider::Type::NONE, 30);
-		App->particles->AddParticle(App->particles->explosionDefault, position.x +80, position.y + 50, 0, 0, false, Collider::Type::NONE,40);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 40, position.y + 50, 0, 0, false, Collider::Type::NONE, 30);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 80, position.y + 50, 0, 0, false, Collider::Type::NONE, 40);
 		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 50, 0, 0, false, Collider::Type::NONE, 50);
 
 		App->particles->AddParticle(App->particles->explosionDefault, position.x, position.y + 100, 0, 0, false, Collider::Type::NONE, 60);
-		App->particles->AddParticle(App->particles->explosionDefault, position.x + 40, position.y + 100, 0, 0, false, Collider::Type::NONE,70);
-		App->particles->AddParticle(App->particles->explosionDefault, position.x + 80, position.y + 100, 0, 0, false, Collider::Type::NONE,80);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 40, position.y + 100, 0, 0, false, Collider::Type::NONE, 70);
+		App->particles->AddParticle(App->particles->explosionDefault, position.x + 80, position.y + 100, 0, 0, false, Collider::Type::NONE, 80);
 
 		App->player->bigkill = 1;
 	}
@@ -115,7 +117,7 @@ void Enemy_FinalBoss::Update()
 	if (deathTimer >= 90)
 	{
 		pendingToDelete = true;
-		
+
 	}
 
 	if (deleting == false)
@@ -227,7 +229,7 @@ void Enemy_FinalBoss::Update()
 			break;
 		}
 
-	
+
 		shootCooldown2 = 0;
 	}
 	if (shootCooldown3 > 500 && deleting == false)
@@ -243,7 +245,7 @@ void Enemy_FinalBoss::Update()
 		shootCooldown3 = 0;
 	}
 
-	if (shootCooldown4 > 350) 
+	if (shootCooldown4 > 350 && deleting == false)
 	{
 		float dir = Dircalculation(dx, dy);
 
@@ -251,15 +253,129 @@ void Enemy_FinalBoss::Update()
 		float diry = (dy * 1.5f / dir);
 
 
-			App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, (dirx - 1) * 1.5f , diry , false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, (dirx - 1) * 1.5f, diry, false, Collider::Type::ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, dirx , diry + 1, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry + 1, false, Collider::Type::ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, dirx , diry + 1.5f, false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry + 1.5f, false, Collider::Type::ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, dirx + 2, diry , false, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, dirx + 2, diry, false, Collider::Type::ENEMY_SHOT);
 
-			shootCooldown4 = 0;
+		shootCooldown4 = 0;
+	}
+	if (shootCooldown5 > 500 && deleting == false)
+	{
+
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 1, 0, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 1, 1, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 2, 1, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 2, 2, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 3, 3, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 2, 3, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 1, 3, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, 0, 1, false, Collider::Type::ENEMY_SHOT, 5);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, -1, 1, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, -2, 1, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, -2, 2, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, -3, 2, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, -3, 3, false, Collider::Type::ENEMY_SHOT, 10);
+		App->particles->AddParticle(App->particles->laser, position.x + offsettexture1x, position.y + offsettexture1y, -1, 0, false, Collider::Type::ENEMY_SHOT, 10);
+
+
+		shootCooldown5 = 0;
+	}
+
+	if (shootCooldown6 > 312 && deleting == false)
+	{
+
+		float dir = Dircalculation(dx, dy);
+
+		float dirx = (dx * 1.5f / dir);
+		float diry = (dy * 1.5f / dir);
+
+		switch (GetTargetDir(dx, dy))
+		{
+		case LEFT:
+			App->particles->AddParticle(App->particles->missileLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case RIGHT:
+			App->particles->AddParticle(App->particles->missileRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case DOWN:
+			App->particles->AddParticle(App->particles->missileDown, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case UP:
+			App->particles->AddParticle(App->particles->missileUp, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case DOWNLEFT:
+			App->particles->AddParticle(App->particles->missileDownLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case DOWNRIGHT:
+			App->particles->AddParticle(App->particles->missileDownRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case UPLEFT:
+			App->particles->AddParticle(App->particles->missileUpLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		case UPRIGHT:
+			App->particles->AddParticle(App->particles->missileUpRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE);
+			break;
+		}
+		switch (GetTargetDir(dx, dy))
+		{
+		case LEFT:
+			App->particles->AddParticle(App->particles->missileLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case RIGHT:
+			App->particles->AddParticle(App->particles->missileRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case DOWN:
+			App->particles->AddParticle(App->particles->missileDown, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case UP:
+			App->particles->AddParticle(App->particles->missileUp, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case DOWNLEFT:
+			App->particles->AddParticle(App->particles->missileDownLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case DOWNRIGHT:
+			App->particles->AddParticle(App->particles->missileDownRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case UPLEFT:
+			App->particles->AddParticle(App->particles->missileUpLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		case UPRIGHT:
+			App->particles->AddParticle(App->particles->missileUpRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 15);
+			break;
+		}
+		switch (GetTargetDir(dx, dy))
+		{
+		case LEFT:
+			App->particles->AddParticle(App->particles->missileLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case RIGHT:
+			App->particles->AddParticle(App->particles->missileRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case DOWN:
+			App->particles->AddParticle(App->particles->missileDown, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case UP:
+			App->particles->AddParticle(App->particles->missileUp, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case DOWNLEFT:
+			App->particles->AddParticle(App->particles->missileDownLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case DOWNRIGHT:
+			App->particles->AddParticle(App->particles->missileDownRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case UPLEFT:
+			App->particles->AddParticle(App->particles->missileUpLeft, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		case UPRIGHT:
+			App->particles->AddParticle(App->particles->missileUpRight, position.x + offsettexture1x, position.y + offsettexture1y, dirx, diry, false, Collider::Type::MISSILE, 30);
+			break;
+		}
+
+		shootCooldown6 = 0;
 	}
 	collider->SetPos(position.x, position.y);
 

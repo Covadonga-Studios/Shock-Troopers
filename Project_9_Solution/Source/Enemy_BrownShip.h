@@ -75,6 +75,7 @@ private:
 
 	int spawn = 0;
 	int spawnlimit = 150;
+	uint deathfx = 0;
 
 };
 

@@ -9,6 +9,7 @@
 #include "math.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
+#include "ModuleAudio.h"
 
 
 Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
@@ -69,6 +70,7 @@ Enemy_Tank::Enemy_Tank(int x, int y) : Enemy(x, y)
 	//enemyshot1upleftdiagonal.PushBack({ 905, 633, 64, 42 });
 
 	hp = 42;
+	deathfx = App->audio->LoadFx("Assets/Fx/tankdestruction.wav");
 
 
 	collider = App->collisions->AddCollider({ 0, 0, 70, 63 }, Collider::Type::ENEMY, (Module*)App->enemies);
@@ -96,6 +98,7 @@ void Enemy_Tank::Update()
 
 	if (hp <= 0 && deleting == false)
 	{
+		App->audio->PlayFx(deathfx);
 		App->particles->AddParticle(App->particles->explosionDefault, position.x + 5, position.y + 6, 0, 0, false, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionDefault, position.x + 10, position.y + 20, 0, 0, false, Collider::Type::NONE, 5);
 		App->particles->AddParticle(App->particles->explosionDefault, position.x + 20, position.y, 0, 0, false, Collider::Type::NONE, 30);
@@ -125,31 +128,32 @@ void Enemy_Tank::Update()
 		float dirx = (dx * 1.5f / dir);
 		float diry = (dy * 1.5f / dir);
 
+		/////////VELOCIDAD BALA DEL TANKE//////////////////////////
 		switch (GetTargetDir(dx2, dy2))
 		{
 		case LEFT:
-			App->particles->AddParticle(App->particles->enemybulletleft, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletleft, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case RIGHT:
-			App->particles->AddParticle(App->particles->enemybulletright, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletright, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case DOWN:
-			App->particles->AddParticle(App->particles->enemybulletdown, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletdown, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case UP:
-			App->particles->AddParticle(App->particles->enemybulletup, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletup, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case DOWNLEFT:
-			App->particles->AddParticle(App->particles->enemybulletdownleft, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletdownleft, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case DOWNRIGHT:
-			App->particles->AddParticle(App->particles->enemybulletrightdown, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletrightdown, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case UPLEFT:
-			App->particles->AddParticle(App->particles->enemybulletupleft, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletupleft, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		case UPRIGHT:
-			App->particles->AddParticle(App->particles->enemybulletrightup, position.x + offsetshootx, position.y + offsetshooty, dirx, diry, false, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemybulletrightup, position.x + offsetshootx, position.y + offsetshooty, dirx * 3, diry * 3, false, Collider::Type::ENEMY_SHOT);
 			break;
 		}
 

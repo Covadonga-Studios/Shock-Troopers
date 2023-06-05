@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFonts.h"
 #include "stdio.h"
+#include "ModuleAudio.h"
 
 
 Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
@@ -76,6 +77,7 @@ Enemy_Bazooka::Enemy_Bazooka(int x, int y) : Enemy(x, y)
 	bazookaDownRight.PushBack({ 16, 1982, 28, 54 }, true);
 
 	hp = 1;
+	deathfx = App->audio->LoadFx("Assets/Fx/bazookadeath.wav");
 
 	currentAnim = &flyAnim;
 
@@ -94,6 +96,7 @@ void Enemy_Bazooka::Update()
 
 	if (hp <= 0 && deleting == false)
 	{
+		App->audio->PlayFx(deathfx);
 		pendingToDelete = false;
 		deleting = true;
 		if (!isOnFire)

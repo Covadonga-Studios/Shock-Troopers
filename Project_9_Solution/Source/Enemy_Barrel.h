@@ -27,6 +27,7 @@ private:
 	Animation front, back;
 	Collider* collider2 = nullptr;
 	Collider* collider3 = nullptr;
+	uint deathfx = 0;
 };
 
 #endif // __ENEMY_BARREL_H__

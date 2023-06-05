@@ -68,6 +68,7 @@ private:
 
 	int spawn = 0;
 	int spawnlimit = 150;
+	uint deathfx = 0;
 };
 
 #endif // __ENEMY_REDBIRD_H__

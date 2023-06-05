@@ -63,6 +63,7 @@ private:
 	float dy2;
 	int timer = 0;
 	int start = 0;
+	uint deathfx = 0;
 };
 
 #endif // __ENEMY_TANK_H__

@@ -55,6 +55,7 @@ private:
 
 	float dx;
 	float dy;
+	uint deathfx = 0;
 };
 
 #endif // __ENEMY_BAZOOKA_H__

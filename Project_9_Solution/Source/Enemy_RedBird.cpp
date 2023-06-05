@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFonts.h"
 #include "stdio.h"
+#include "ModuleAudio.h"
 
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
@@ -181,6 +182,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	enemyBurning.loop = false;
 
 	hp = 2;
+	deathfx = App->audio->LoadFx("Assets/Fx/whitedeath.wav");
 
 	currentAnim = &flyAnim;
 
@@ -232,6 +234,7 @@ void Enemy_RedBird::Update()
 
 	if (hp <= 0 && deleting == false && spawn > spawnlimit)
 	{
+		App->audio->PlayFx(deathfx);
  		pendingToDelete = false;
 		deleting = true;
 		

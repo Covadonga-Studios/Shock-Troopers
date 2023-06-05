@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModuleAudio.h"
 
 Enemy_Barrel::Enemy_Barrel(int x, int y) : Enemy(x, y)
 {
@@ -46,6 +47,7 @@ Enemy_Barrel::Enemy_Barrel(int x, int y) : Enemy(x, y)
 	collider2->SetPos(2000, 3000);
 	collider3->SetPos(2000, 3000);
 	hp = 12;
+	deathfx = App->audio->LoadFx("Assets/Fx/barreldestruction.wav");
 
 }
 
@@ -56,6 +58,7 @@ void Enemy_Barrel::Update()
 
 	if (hp <= 0 && deleting == false)
 	{
+		App->audio->PlayFx(deathfx);
 		pendingToDelete = false;
 		deleting = true;
 		currentAnim = &barrel;

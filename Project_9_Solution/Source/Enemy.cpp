@@ -190,7 +190,7 @@ void Enemy::OnCollision(Collider* collider)
 		if (collider->type == Collider::Type::GRENADE || collider->type == Collider::Type::FLAME)
 			isOnFire = true;
 
-		App->audio->PlayFx(destroyedFx);
+		
 		if (dropped == false && this->collider->type != Collider::Type::ITEM)
 	{
 
