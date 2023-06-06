@@ -63,7 +63,9 @@ Go check it out in [YouTube](https://youtu.be/h3sQGxfmmno)
 
 Go check it out in [YouTube](https://youtu.be/1s0QZbu9hKU)
 
+## **Downloads**
 
+[Download link]([url](https://github.com/Covadonga-Studios/Shock-Troopers/releases/download/release/CovadongaStudios_SchockTroopers_v1.0.zip))
 
 ## **-OUR README-**
 
